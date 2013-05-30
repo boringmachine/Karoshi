@@ -1,4 +1,16 @@
 Karoshi::Application.routes.draw do
+  resources :group_topics
+
+
+  resources :posts
+
+
+  resources :group_users
+
+
+  resources :users
+
+
   resources :groups
 
 
