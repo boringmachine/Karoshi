@@ -3,7 +3,8 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = current_user.posts.recent
+    @groups = current_user.groups
+    @posts  = Post.where(:group_id => @groups)
     respond_with(@posts)
   end
 
