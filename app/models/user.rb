@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   
   # attr_accessible :title, :body
+  has_many :own_groups,:class_name => 'Group', :foreign_key => 'owner_id'
   has_many :group_users
   has_many :groups, through: :group_users
   has_many :posts

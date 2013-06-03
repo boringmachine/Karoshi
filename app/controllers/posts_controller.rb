@@ -11,7 +11,6 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-#    @post = Post.find(params[:id])
     @post = current_user.posts.find(params[:id])
     respond_with(@post)
   end
@@ -32,8 +31,6 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = current_user.posts.new(params[:post])
-#    @post = Post.new(params[:post])
-#    @post[:user_id] = current_user.id;
     flash[:notice] = 'Post was successfully created.' if @post.save
     respond_with(@post)
   end
