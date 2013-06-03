@@ -8,6 +8,7 @@ one:
   tel: MyString
   geo: MyString
   description: MyString
+  visible: false
 
 two:
   category_id: 1
@@ -17,3 +18,4 @@ two:
   tel: MyString
   geo: MyString
   description: MyString
+  visible: false
