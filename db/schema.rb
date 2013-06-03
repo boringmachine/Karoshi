@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130603021948) do
+ActiveRecord::Schema.define(:version => 20130603071654) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -61,8 +61,10 @@ ActiveRecord::Schema.define(:version => 20130603021948) do
     t.text     "body"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "group_id"
   end
 
+  add_index "posts", ["group_id"], :name => "index_posts_on_group_id"
   add_index "posts", ["topic_id"], :name => "index_posts_on_topic_id"
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
 

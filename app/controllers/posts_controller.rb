@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = current_user.posts
+    @posts = current_user.posts.recent
     respond_with(@posts)
   end
 
@@ -24,14 +24,15 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-    @post = Post.find(params[:id])
+    @post = current_user.posts.find(params[:id])
   end
 
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(params[:post])
-    @post[:user_id] = current_user.id;
+    @post = current_user.posts.new(params[:post])
+#    @post = Post.new(params[:post])
+#    @post[:user_id] = current_user.id;
     flash[:notice] = 'Post was successfully created.' if @post.save
     respond_with(@post)
   end
@@ -39,7 +40,7 @@ class PostsController < ApplicationController
   # PUT /posts/1
   # PUT /posts/1.json
   def update
-    @post = Post.find(params[:id])
+    @post = current_user.posts.find(params[:id])
     if(@post[:user_id] == current_user.id)
       flash[:notice] = 'Post was successfully updated.' if @post.update_attributes(params[:post])
     end
