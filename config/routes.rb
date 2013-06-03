@@ -1,4 +1,10 @@
 Karoshi::Application.routes.draw do
+  resources :group_users
+
+
+  resources :groups
+
+
   resources :categories
 
 

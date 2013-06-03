@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Category:</b>
+  <%= @group.category_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @group.name %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @group.url %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @group.address %>
+</p>
+
+<p>
+  <b>Tel:</b>
+  <%= @group.tel %>
+</p>
+
+<p>
+  <b>Geo:</b>
+  <%= @group.geo %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @group.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Back', groups_path %>
