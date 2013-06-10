@@ -11,7 +11,7 @@ Karoshi::Application.routes.draw do
   resources :groups
 
 
-  resources :categories
+#  resources :categories
 
 
   resources :topics

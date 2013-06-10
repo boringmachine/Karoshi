@@ -39,17 +39,15 @@ class PostsController < ApplicationController
   # PUT /posts/1.json
   def update
     @post = current_user.posts.find(params[:id])
-    if(@post[:user_id] == current_user.id)
-      flash[:notice] = 'Post was successfully updated.' if @post.update_attributes(params[:post])
-    end
+    flash[:notice] = 'Post was successfully updated.' if @post.update_attributes(params[:post])
     respond_with(@post)
   end
 
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
-    @post = Post.find(params[:id])
-    @post.destroy if @post[:user_id] == current_user.id
+    @post = current_user.posts.find(params[:id])
+    @post.destroy
     respond_with(@post)
   end
 end

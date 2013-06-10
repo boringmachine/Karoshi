@@ -1,13 +1,12 @@
 class GroupTopicsController < ApplicationController
+  respond_to :html, :xml, :json
+
   # GET /group_topics
   # GET /group_topics.json
   def index
     @group_topics = GroupTopic.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @group_topics }
-    end
+    # @group_topics = current_user.group_topics
+    respond_with(@group_topics)
   end
 
   # GET /group_topics/1
