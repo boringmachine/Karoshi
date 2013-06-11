@@ -1,35 +1,25 @@
 class GroupUsersController < ApplicationController
+  respond_to :html, :xml, :json
+
   # GET /group_users
   # GET /group_users.json
   def index
     @group_users = GroupUser.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @group_users }
-    end
+    respond_with(@group_users)
   end
 
   # GET /group_users/1
   # GET /group_users/1.json
   def show
     @group_user = GroupUser.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @group_user }
-    end
+    respond_with(@group_user)
   end
 
   # GET /group_users/new
   # GET /group_users/new.json
   def new
     @group_user = GroupUser.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @group_user }
-    end
+    respond_with(@group_user)
   end
 
   # GET /group_users/1/edit
@@ -40,17 +30,10 @@ class GroupUsersController < ApplicationController
   # POST /group_users
   # POST /group_users.json
   def create
+    params[:group_user][:user_id] = current_user
     @group_user = GroupUser.new(params[:group_user])
-
-    respond_to do |format|
-      if @group_user.save
-        format.html { redirect_to @group_user, notice: 'Group user was successfully created.' }
-        format.json { render json: @group_user, status: :created, location: @group_user }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @group_user.errors, status: :unprocessable_entity }
-      end
-    end
+    flash[:notice] = 'Group user was successfully created.' if @group_user.save
+    respond_with(@group_user)
   end
 
   # PUT /group_users/1
