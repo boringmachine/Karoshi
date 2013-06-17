@@ -1,35 +1,24 @@
 class TopicsController < ApplicationController
+  respond_to :html, :xml, :json
   # GET /topics
   # GET /topics.json
   def index
     @topics = Topic.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @topics }
-    end
+    respond_with(@topics)
   end
 
   # GET /topics/1
   # GET /topics/1.json
   def show
     @topic = Topic.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @topic }
-    end
+    respond_with(@topic)
   end
 
   # GET /topics/new
   # GET /topics/new.json
   def new
     @topic = Topic.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @topic }
-    end
+    respond_with(@topic)
   end
 
   # GET /topics/1/edit
@@ -41,32 +30,16 @@ class TopicsController < ApplicationController
   # POST /topics.json
   def create
     @topic = Topic.new(params[:topic])
-
-    respond_to do |format|
-      if @topic.save
-        format.html { redirect_to @topic, notice: 'Topic was successfully created.' }
-        format.json { render json: @topic, status: :created, location: @topic }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @topic.errors, status: :unprocessable_entity }
-      end
-    end
+    flash[:notice] = 'Topic was successfully created.' if @topic.save
+    respond_with(@topic)
   end
 
   # PUT /topics/1
   # PUT /topics/1.json
   def update
     @topic = Topic.find(params[:id])
-
-    respond_to do |format|
-      if @topic.update_attributes(params[:topic])
-        format.html { redirect_to @topic, notice: 'Topic was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @topic.errors, status: :unprocessable_entity }
-      end
-    end
+    flash[:notice] = 'Topic was successfully updated.' if @topic.update_attributes(params[:topic])
+    respond_with(@topic)
   end
 
   # DELETE /topics/1
@@ -74,10 +47,6 @@ class TopicsController < ApplicationController
   def destroy
     @topic = Topic.find(params[:id])
     @topic.destroy
-
-    respond_to do |format|
-      format.html { redirect_to topics_url }
-      format.json { head :no_content }
-    end
+    respond_with(@topic)
   end
 end

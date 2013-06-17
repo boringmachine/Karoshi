@@ -30,7 +30,7 @@ class GroupUsersController < ApplicationController
   # POST /group_users
   # POST /group_users.json
   def create
-    params[:group_user][:user_id] = current_user
+    params[:group_user][:user_id] = current_user.id
     @group_user = GroupUser.new(params[:group_user])
     flash[:notice] = 'Group user was successfully created.' if @group_user.save
     respond_with(@group_user)
@@ -39,17 +39,10 @@ class GroupUsersController < ApplicationController
   # PUT /group_users/1
   # PUT /group_users/1.json
   def update
+    params[:group_user][:user_id] = current_user.id
     @group_user = GroupUser.find(params[:id])
-
-    respond_to do |format|
-      if @group_user.update_attributes(params[:group_user])
-        format.html { redirect_to @group_user, notice: 'Group user was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @group_user.errors, status: :unprocessable_entity }
-      end
-    end
+    flash[:notice] = 'Group user was succesfuly updated.' if @group_user.update_attributes(params[:group_user])
+    respond_with(@group_user)
   end
 
   # DELETE /group_users/1
@@ -57,10 +50,6 @@ class GroupUsersController < ApplicationController
   def destroy
     @group_user = GroupUser.find(params[:id])
     @group_user.destroy
-
-    respond_to do |format|
-      format.html { redirect_to group_users_url }
-      format.json { head :no_content }
-    end
+    respond_with(@group_user)
   end
 end
