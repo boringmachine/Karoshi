@@ -3,4 +3,8 @@ class Post < ActiveRecord::Base
   belongs_to :group_topic
   belongs_to :user
   scope :recent, order('created_at desc')
+
+  #TODO
+  scope :search, lambda {|query = nil| where('body like ?','%#{query}%')}
+
 end
