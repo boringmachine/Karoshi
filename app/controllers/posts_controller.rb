@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @groups = current_user.groups
-    @posts  = Post.where(:group_id => @groups).search(params[:search])
+    @posts  = Post.where(:group_id => @groups).search(params[:search],params[:page])
     respond_with(@posts)
   end
 

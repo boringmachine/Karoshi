@@ -4,12 +4,22 @@ class Post < ActiveRecord::Base
   belongs_to :user
   scope :recent, order('created_at desc')
  
-  def self.search(search)
-    if search
-      find(:all, :conditions => ['body LIKE ?', "%#{search}%"])
-    else  
-      find(:all)
-    end
+#  def self.search(search)
+#    if search
+#      find(:all, :conditions => ['body LIKE ?', "%#{search}%"])
+#    else  
+#      find(:all)
+#    end
+#  end
+
+
+  def self.search(search, page)
+    paginate :per_page => 5, :page => page,
+             :conditions => ['body like ?', "%#{search}%"],
+             :order => 'created_at desc'
   end
+
+
+
 
 end
