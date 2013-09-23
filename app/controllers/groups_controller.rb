@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  respond_to :html, :xml, :json
+  respond_to :html, :xml, :json, :js
 
   # GET /groups
   # GET /groups.json
@@ -12,7 +12,8 @@ class GroupsController < ApplicationController
   # GET /groups/1.json
   def show
     @group = Group.find(params[:id])
-    respond_with(@group)
+    @posts = Post.groupposts(params[:id],params[:page])
+    respond_with(@group,@posts)
   end
 
   # GET /groups/new

@@ -1,3 +1,7 @@
+<%= form_for(GroupUser.new) do |f| %>
+	<%= hidden_field_tag 'group_user[group_id]', @group.id %>
+	<%= submit_tag("Join this group") %>
+<% end %>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -38,3 +42,32 @@
 
 <%= link_to 'Edit', edit_group_path(@group) %> |
 <%= link_to 'Back', groups_path %>
+
+<hr />
+
+<table>
+  <tr>
+    <th>Topic</th>
+    <th>User</th>
+    <th>Parent</th>
+    <th>Body</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @posts.each do |post| %>
+  <tr>
+    <td><%= post.topic_id %></td>
+    <td><%= post.user_id %></td>
+    <td><%= post.parent_id %></td>
+    <td><%= post.body %></td>
+    <td><%= link_to 'Show', post %></td>
+    <td><%= link_to 'Edit', edit_post_path(post) %></td>
+    <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+<%= will_paginate @posts %>
+
+

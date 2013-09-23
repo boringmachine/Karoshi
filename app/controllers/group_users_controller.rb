@@ -1,5 +1,5 @@
 class GroupUsersController < ApplicationController
-  respond_to :html, :xml, :json
+  respond_to :html, :xml, :json, :js
 
   # GET /group_users
   # GET /group_users.json
