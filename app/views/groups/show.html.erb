@@ -1,8 +1,13 @@
-<% if GroupUser.where(:group_id => @group.id,:user_id => current_user.id).empty? %>
+<% group_user = GroupUser.where(:group_id => @group.id,:user_id => current_user.id) %>
+<% if group_user.empty? %>
 	<%= form_for(GroupUser.new) do |f| %>
 		<%= hidden_field_tag 'group_user[group_id]', @group.id %>
 		<%= submit_tag("Join this group") %>
 	<% end %>
+<% else %>
+	<% tmp = group_user.pop %>
+	<%= button_to "Leave this group", {:controller => :group_users,
+      :action => 'destroy', :id => tmp.id }, :method => :delete %>
 <% end %>
 <p id="notice"><%= notice %></p>
 

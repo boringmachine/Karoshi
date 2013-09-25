@@ -10,4 +10,9 @@ class GroupUser < ActiveRecord::Base
     end
     groups
   end
+  
+  def self.getGroupUser(user_id,group_id)
+      where(group_id: group_id, user_id: user_id)
+  end
+  
 end
