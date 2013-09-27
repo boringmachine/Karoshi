@@ -6,5 +6,5 @@ class Group < ActiveRecord::Base
   has_many :group_users
   has_many :topics, through: :group_topics
   has_many :users , through: :group_users
-  
+  #TASK グループ管理者の属性を追加する。
 end

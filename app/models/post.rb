@@ -10,6 +10,12 @@ class Post < ActiveRecord::Base
              :order => "created_at desc"
   end
  
+  def self.groupTopicPosts(group_id, topic_id, page)
+    paginate :per_page => 5, :page => page,
+             :conditions => ['group_id = ? and topic_id = ?', group_id, topic_id],
+             :order => "created_at desc"
+  end
+ 
   def self.search(search, page)
     paginate :per_page => 5, :page => page,
              :conditions => ['body like ?', "%#{search}%"],
