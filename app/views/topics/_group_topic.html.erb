@@ -1,6 +1,5 @@
 <%= form_for(GroupTopic.new) do |f| %>
   <div class="field">
-    <%= f.label :group_id %><br />
 	<%= collection_select(:group_topic, :group_id, Group.owngroups(current_user.id) , :id, :name) %>
   </div>
   <div class="field">

@@ -17,8 +17,8 @@
 
   <div class="field">
     <%= f.label :topic_id %><br />
-	<%= collection_select(:post, :topic_id, Topic.all, :id, :subject) %>
-  </div>
+    <% topics = GroupTopic.topics(@group.id) %>
+    <%= collection_select(:post, :topic_id, Topic.find(topics), :id, :subject) %>  </div>
 
   <div class="field">
     <%= f.label :parent_id %><br />

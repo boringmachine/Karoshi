@@ -20,10 +20,6 @@
     <%= @group.description %>
   </p>
 
-  <p>
-    <% topics = GroupTopic.topics(@group.id) %>
-    <%= collection_select(:post, :topic, Topic.find(topics), :id, :subject) %>
-  </p>
 </section>
 
 

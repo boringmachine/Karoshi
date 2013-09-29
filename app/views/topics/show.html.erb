@@ -3,7 +3,7 @@
   <%= render 'group_topic' %>
 </section>
 <section id="topic_posts">
-    <header><h2> <%= @topic.subject %></h2></header>
+  <header><h2> <%= @topic.subject %></h2></header>
     <% @post = Post.new %>
   <% @posts.each do |post| %>
   	<article>
