@@ -1,63 +1,36 @@
 <section id="group_user_button">
-<% group_user = GroupUser.where(:group_id => @group.id,:user_id => current_user.id) %>
-<% if group_user.empty? %>
-	<%= form_for(GroupUser.new,remote: true) do |f| %>
-		<%= hidden_field_tag 'group_user[group_id]', @group.id %>
-		<%= submit_tag("Join this group") %>
-	<% end %>
-<% else %>
-	<% tmp = group_user.pop %>
-	<%= button_to "Leave this group", {:controller => :group_users,
-      :action => 'destroy', :id => tmp.id }, :method => :delete, :remote => true %>
-<% end %>
+<%= render 'button' %>
 </section>
 <section id="group_info">
-<p id="notice"><%= notice %></p>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Category:</b>
-  <% category = Category.where(:id => @group.category_id).pop %>
-  <%= category.name %>
-</p>
+  <p>
+    <b>Category:</b>
+    <% category = Category.where(:id => @group.category_id).pop %>
+    <%= category.name %>
+  </p>
 
-<p>
-  <b>Name:</b>
-  <%= @group.name %>
-</p>
+  <p>
+    <b>Name:</b>
+    <%= @group.name %>
+  </p>
 
-<p>
-  <b>Url:</b>
-  <%= @group.url %>
-</p>
+  <p>
+    <b>Description:</b>
+    <%= @group.description %>
+  </p>
 
-<p>
-  <b>Address:</b>
-  <%= @group.address %>
-</p>
-
-<p>
-  <b>Tel:</b>
-  <%= @group.tel %>
-</p>
-
-<p>
-  <b>Geo:</b>
-  <%= @group.geo %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @group.description %>
-</p>
-<p>
-  <% topics = GroupTopic.topics(@group.id) %>
-  <%= collection_select(:post, :topic, Topic.find(topics), :id, :subject) %>
-</p>
-
+  <p>
+    <% topics = GroupTopic.topics(@group.id) %>
+    <%= collection_select(:post, :topic, Topic.find(topics), :id, :subject) %>
+  </p>
 </section>
+
 
 <section id="group_posts">
   <header><h2>Group Posts</h2></header>
+  <% @post = Post.new %>
+  <%= render 'post' %>
 <% @posts.each do |post| %>
   <% topic = Topic.where(:id => post.topic_id).pop %>
   <% user = User.where(:id => post.user_id).pop %>
@@ -70,6 +43,6 @@
 	<% end %>
   </article>
 <% end %>
-<%= will_paginate @posts %>
+  <%= will_paginate @posts %>
 </section>
 

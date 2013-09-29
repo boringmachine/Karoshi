@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :group_id %><br />
-    <%= f.number_field :group_id %>
+	<%= collection_select(:group_topic, :group_id, Group.owngroups(current_user.id) , :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :topic_id %><br />
-    <%= f.number_field :topic_id %>
+	<%= collection_select(:group_topic, :topic_id, Topic.all, :id, :subject) %>
   </div>
   <div class="field">
     <%= f.label :status %><br />

@@ -9,6 +9,12 @@ class Post < ActiveRecord::Base
              :conditions => ['group_id = ?', group_id],
              :order => "created_at desc"
   end
+  
+  def self.topicposts(topic_id,page)
+    paginate :per_page => 5, :page => page,
+             :conditions => ['topic_id = ?', topic_id],
+             :order => "created_at desc"
+  end
  
   def self.groupTopicPosts(group_id, topic_id, page)
     paginate :per_page => 5, :page => page,

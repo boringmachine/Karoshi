@@ -1,10 +1,18 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <b>Subject:</b>
-  <%= @topic.subject %>
-</p>
-
-
-<%= link_to 'Edit', edit_topic_path(@topic) %> |
+<section id="topic_posts">
+    <header><h2> <%= @topic.subject %></h2></header>
+    <% @post = Post.new %>
+  <% @posts.each do |post| %>
+  	<article>
+  	<header><h3>Post:<%= post.id %></h3></header>
+    <% user = User.where(:id => post.user_id).pop %>
+      <%= post.body %><br />
+      <% if user.id == current_user.id %>
+	      <%= link_to 'Edit', edit_post_path(post) %>
+	      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+	  <% end %>
+	</article>
+  <% end %>
+  <%= will_paginate @posts %>
+</section>
 <%= link_to 'Back', topics_path %>
