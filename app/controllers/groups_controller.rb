@@ -30,7 +30,7 @@ class GroupsController < ApplicationController
 
   # GET /groups/1/edit
   def edit
-    @group = Group.find(params[:id])
+    @group = current_user.groups.find(params[:id])
   end
 
   # POST /groups
@@ -45,7 +45,7 @@ class GroupsController < ApplicationController
   # PUT /groups/1
   # PUT /groups/1.json
   def update
-    @group = Group.find(params[:id])
+    @group = current_user.groups.find(params[:id])
     flash[:notice] = 'Group was successfully updated.' if @group.update_attributes(params[:group])
     respond_with(@group)
   end
@@ -53,7 +53,7 @@ class GroupsController < ApplicationController
   # DELETE /groups/1
   # DELETE /groups/1.json
   def destroy
-    @group = Group.find(params[:id])
+    @group = current_user.groups.find(params[:id])
     @group.destroy
     respond_with(@group)
   end

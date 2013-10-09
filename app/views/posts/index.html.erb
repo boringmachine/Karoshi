@@ -18,11 +18,11 @@
       <h4><%= group.name %></h4>
     </hgroup></header>
     <div>
-    <div id="re">RE:<%= post.parent_id %></div>
     <%= post.body %><br />
     <%= link_to 'Show', post %>|
     <%= link_to 'Edit', edit_post_path(post) %>|
-    <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
   </article>
 <% end %>
 <%= will_paginate @posts %>

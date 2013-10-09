@@ -32,7 +32,9 @@ class TopicsController < ApplicationController
 
   # GET /topics/1/edit
   def edit
-    @topic = Topic.find(params[:id])
+    if Topic.owner_check(params[:id], current_user.id)
+      @topic = Topic.find(params[:id])
+    end
   end
 
   # POST /topics
@@ -46,16 +48,20 @@ class TopicsController < ApplicationController
   # PUT /topics/1
   # PUT /topics/1.json
   def update
-    @topic = Topic.find(params[:id])
-    flash[:notice] = 'Topic was successfully updated.' if @topic.update_attributes(params[:topic])
-    respond_with(@topic)
+    if Topic.owner_check(params[:id], current_user.id)
+      @topic = Topic.find(params[:id])
+      flash[:notice] = 'Topic was successfully updated.' if @topic.update_attributes(params[:topic])
+      respond_with(@topic)
+    end
   end
 
   # DELETE /topics/1
   # DELETE /topics/1.json
   def destroy
-    @topic = Topic.find(params[:id])
-    @topic.destroy
-    respond_with(@topic)
+    if Topic.owner_check(params[:id], current_user.id)
+      @topic = Topic.find(params[:id])
+      @topic.destroy
+      respond_with(@topic)
+    end
   end
 end
