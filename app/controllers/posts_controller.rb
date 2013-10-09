@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   respond_to :html, :xml, :json
+  
   # GET /posts
   # GET /posts.json
   def index

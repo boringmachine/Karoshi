@@ -1,9 +1,17 @@
 class TopicsController < ApplicationController
   respond_to :html, :xml, :json
+  
+  
   # GET /topics
   # GET /topics.json
   def index
-    @topics = Topic.all
+    @topics = if(params[:group] == nil)
+      Topic.all
+    else
+      topics = GroupTopic.topics(params[:group])
+      Topic.find(topics)
+    end
+    
     respond_with(@topics)
   end
 

@@ -17,15 +17,11 @@
 	<%= collection_select(:post, :group_id, Group.find(groups) , :id, :name) %>
   </div>
 
-  <div class="field">
+  <div class="field" id="topic">
     <%= f.label :topic_id %><br />
-	<%= collection_select(:post, :topic_id, Topic.all, :id, :subject) %>
+	<%= collection_select(:post, :topic_id, [], :id, :subject) %>
   </div>
 
-  <div class="field">
-    <%= f.label :parent_id %><br />
-    <%= f.number_field :parent_id %>
-  </div>
   <div class="field">
     <%= f.label :body %><br />
     <%= f.text_area :body %>
