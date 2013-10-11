@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
   attr_accessible :body, :parent_id, :topic_id, :user_id, :group_id,
-                  :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at
+                  :photo, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at
   has_attached_file :photo, :styles => { :small => "150x150>" },
                     :url  => "/assets/posts/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/posts/:id/:style/:basename.:extension"
