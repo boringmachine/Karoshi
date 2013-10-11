@@ -43,3 +43,4 @@ gem 'jquery-rails'
 
 gem 'devise', '3.0.0.rc'
 gem "will_paginate", :git => "https://github.com/p7r/will_paginate.git", :branch => "rails3"
+gem "paperclip"

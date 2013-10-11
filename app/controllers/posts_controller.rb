@@ -23,10 +23,6 @@ class PostsController < ApplicationController
     respond_with(@post)
   end
 
-  # GET /posts/1/edit
-  def edit
-    @post = current_user.posts.find(params[:id])
-  end
 
   # POST /posts
   # POST /posts.json
@@ -36,19 +32,5 @@ class PostsController < ApplicationController
     respond_with(@post)
   end
 
-  # PUT /posts/1
-  # PUT /posts/1.json
-  def update
-    @post = current_user.posts.find(params[:id])
-    flash[:notice] = 'Post was successfully updated.' if @post.update_attributes(params[:post])
-    respond_with(@post)
-  end
 
-  # DELETE /posts/1
-  # DELETE /posts/1.json
-  def destroy
-    @post = current_user.posts.find(params[:id])
-    @post.destroy
-    respond_with(@post)
-  end
 end

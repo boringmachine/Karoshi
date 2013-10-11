@@ -9,22 +9,25 @@
 <% @post = Post.new %>
 <%= render 'form' %>
 
+<section id="posts">
 <% @posts.each do |post| %>
   <article>
-  	<% topic = Topic.where(:id => post.topic_id).pop %>
-  	<% group = Group.where(:id => post.group_id).pop %>
-    <header><hgroup>
-      <h3><%= topic.subject %></h3>
-      <h4><%= group.name %></h4>
-    </hgroup></header>
+  	<% topic = Topic.find(post.topic_id) %>
+  	<% group = Group.find(post.group_id) %>
+  	<% user  = User.find(post.user_id) %>
+    <header>
+      <h3><%= link_to topic.subject, topic %> - <%= link_to group.name, group %></h3>
+    </header>
     <div>
-    <%= post.body %><br />
-    <%= link_to 'Show', post %>|
-    <%= link_to 'Edit', edit_post_path(post) %>|
-    <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <span id="user"><b><%= user.username %></b></span>
+      <span id="date"><%= post.created_at %></span>
+      <span id="no"  >No:<%= post.id %></span>
     </div>
+    <div id="image"><%= image_tag post.photo.url(:small) %></div>
+    <div id="body"><%= post.body %></div>
   </article>
 <% end %>
+</section>
 <%= will_paginate @posts %>
 
 <br />
