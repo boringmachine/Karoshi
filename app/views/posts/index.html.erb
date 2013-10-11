@@ -23,7 +23,9 @@
       <span id="date"><%= post.created_at %></span>
       <span id="no"  >No:<%= post.id %></span>
     </div>
-    <div id="image"><%= image_tag post.photo.url(:small) %></div>
+    <% if post.photo? %>
+      <div id="image"><%= image_tag post.photo.url(:small) %></div>
+    <% end %>
     <div id="body"><%= post.body %></div>
   </article>
 <% end %>

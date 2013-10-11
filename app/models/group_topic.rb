@@ -13,5 +13,15 @@ class GroupTopic < ActiveRecord::Base
     topics
   end
   
+  def self.deleteSameGroupTopics(topic_id,group_id)
+    group_topics = GroupTopic.where(params[:topic],params[:group])
+    
+    tmp = nil
+    group_topics.each do |group_topic|
+      tmp = group_topic
+      tmp.destroy
+    end
+    tmp
+  end
   
 end

@@ -1,4 +1,4 @@
-<%= form_for(GroupTopic.new) do |f| %>
+<%= form_for(GroupTopic.new, :remote => true) do |f| %>
   <div class="field">
 	<%= collection_select(:group_topic, :group_id, Group.owngroups(current_user.id) , :id, :name) %>
   </div>
