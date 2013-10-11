@@ -8,8 +8,6 @@ class Post < ActiveRecord::Base
   belongs_to :user
   scope :recent, order('created_at desc') 
  
-
-
   validates_attachment_size :photo, :less_than => 5.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png','image/gif']
  
@@ -41,5 +39,14 @@ class Post < ActiveRecord::Base
              :order => 'created_at desc'
   end
 
+  def self.getPosts(search,page)
+    if search == nil
+      groups = current_user.groups
+      Post.where(:group_id => groups).paging(page)
+    else
+      groups = Group.all
+      Post.where(:group_id => groups).search(search, page)
+    end
+  end
 
 end

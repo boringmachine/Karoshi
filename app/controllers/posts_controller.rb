@@ -4,13 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = if params[:search] == nil
-      groups = current_user.groups
-      Post.where(:group_id => groups).paging(params[:page])
-    else
-      groups = Group.all
-      Post.where(:group_id => groups).search(params[:search],params[:page])
-    end
+    @posts = Post.getPosts(params[:search],params[:page])
     respond_with(@posts)
   end
 
