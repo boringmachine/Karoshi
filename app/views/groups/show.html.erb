@@ -28,8 +28,8 @@
   <% @post = Post.new %>
   <%= render 'post' %>
 <% @posts.each do |post| %>
-  <% topic = Topic.where(:id => post.topic_id).pop %>
-  <% user = User.where(:id => post.user_id).pop %>
+  <% topic = Topic.find(post.topic_id) %>
+  <% user = User.find(post.user_id) %>
   <article>
     <header><h3><%= topic.subject %></h3></header>
     <%= post.body %><br />

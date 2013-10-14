@@ -39,9 +39,9 @@ class Post < ActiveRecord::Base
              :order => 'created_at desc'
   end
 
-  def self.getPosts(search,page)
+  def self.getPosts(search,page,user)
     if search == nil
-      groups = current_user.groups
+      groups = user.groups
       Post.where(:group_id => groups).paging(page)
     else
       groups = Group.all

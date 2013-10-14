@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.getPosts(params[:search],params[:page])
+    @posts = Post.getPosts(params[:search], params[:page], current_user)
     respond_with(@posts)
   end
 
