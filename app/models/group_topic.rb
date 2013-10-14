@@ -24,4 +24,17 @@ class GroupTopic < ActiveRecord::Base
     tmp
   end
   
+  def self.notJoinedGroups(topic_id,user_id)
+    groups = Group.owngroups(user_id)
+    
+    njgroups = []
+    
+    groups.each do |group|
+      if where(topic_id: topic_id, group_id: group).empty?
+        njgroups.push(group)
+      end
+    end
+    njgroups
+  end
+  
 end
