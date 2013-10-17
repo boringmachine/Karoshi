@@ -39,6 +39,7 @@
   <article>
     <header><h3><%= topic.subject %></h3></header>
     <div>
+      <span id="userimg"><%= image_tag user.photo.url(:small) %>
       <span id="user"><b><%= user.username %></b></span>
       <span id="date"><%= post.created_at %></span>
       <span id="no"  >No:<%= post.id %></span>
