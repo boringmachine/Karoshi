@@ -1,28 +1,33 @@
-<section id="group_user_button">
-<%= render 'button' %>
-<%= render 'new_topic'%>
+<section id="sidebar">
+  <section id="group_user_button">
+  <%= render 'button' %>
+  </section>
+
+  <section id="group_info">
+    <p id="notice"><%= notice %></p>
+
+    <p>
+      <b>Category:</b>
+      <% category = Category.where(:id => @group.category_id).pop %>
+      <%= category.name %>
+    </p>
+
+    <p>
+      <b>Name:</b>
+      <%= @group.name %>
+    </p>
+
+    <p>
+      <b>Description:</b>
+      <%= @group.description %>
+    </p>
+
+  </section>
+  <section id="group_topics">
+    <%= render 'new_topic' %>
+    <%= render 'topics' %>
+  </section>
 </section>
-<section id="group_info">
-  <p id="notice"><%= notice %></p>
-
-  <p>
-    <b>Category:</b>
-    <% category = Category.where(:id => @group.category_id).pop %>
-    <%= category.name %>
-  </p>
-
-  <p>
-    <b>Name:</b>
-    <%= @group.name %>
-  </p>
-
-  <p>
-    <b>Description:</b>
-    <%= @group.description %>
-  </p>
-
-</section>
-
 
 <section id="group_posts">
   <header><h2>Group Posts</h2></header>
@@ -33,6 +38,11 @@
   <% user = User.find(post.user_id) %>
   <article>
     <header><h3><%= topic.subject %></h3></header>
+    <div>
+      <span id="user"><b><%= user.username %></b></span>
+      <span id="date"><%= post.created_at %></span>
+      <span id="no"  >No:<%= post.id %></span>
+    </div>
     <%= post.body %><br />
     <% if user.id == current_user.id %>
 	    <%= link_to 'Edit', edit_post_path(post) %>

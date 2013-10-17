@@ -1,0 +1,7 @@
+<% topics = GroupTopic.topics(@group.id)%>
+<% topics = Topic.find(topics)%>
+<ul>
+<% topics.each do |topic| %>
+  <li><%= link_to topic.subject,topic %></li>
+<% end %>
+</ul>
