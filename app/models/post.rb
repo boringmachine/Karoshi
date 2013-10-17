@@ -11,30 +11,32 @@ class Post < ActiveRecord::Base
   validates_attachment_size :photo, :less_than => 5.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png','image/gif']
  
+  @per_page = 10
+ 
   def self.groupposts(group_id,page)
-    paginate :per_page => 5, :page => page,
+    paginate :per_page => @per_page, :page => page,
              :conditions => ['group_id = ?', group_id],
              :order => "created_at desc"
   end
   
   def self.topicposts(topic_id,page)
-    paginate :per_page => 5, :page => page,
+    paginate :per_page => @per_page, :page => page,
              :conditions => ['topic_id = ?', topic_id],
              :order => "created_at asc"
   end
  
   def self.groupTopicPosts(group_id, topic_id, page)
-    paginate :per_page => 5, :page => page,
+    paginate :per_page => @per_page, :page => page,
              :conditions => ['group_id = ? and topic_id = ?', group_id, topic_id],
              :order => "created_at desc"
   end
  
   def self.paging(page)
-    paginate :per_page => 5, :page => page, :order => 'created_at desc'
+    paginate :per_page => @per_page, :page => page, :order => 'created_at desc'
   end
  
   def self.search(search, page)
-    paginate :per_page => 5, :page => page,
+    paginate :per_page => @per_page, :page => page,
              :conditions => ['body like ?', "%#{search}%"],
              :order => 'created_at desc'
   end

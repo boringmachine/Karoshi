@@ -1,0 +1,22 @@
+<header><h2>Group Posts</h2></header>
+<% @post = Post.new %>
+<%= render 'post' %>
+<% @posts.each do |post| %>
+<% topic = Topic.find(post.topic_id) %>
+<% user = User.find(post.user_id) %>
+<article>
+  <header><h3><%= topic.subject %></h3></header>
+  <div>
+    <span class="userimg"><%= image_tag user.photo.url(:small) %></span>
+    <span class="user"><b><%= user.username %></b></span>
+    <span class="date"><%= post.created_at %></span>
+    <span class="no"  >No:<%= post.id %></span>
+  </div>
+  <%= post.body %><br />
+  <% if user.id == current_user.id %>
+    <%= link_to 'Edit', edit_post_path(post) %>
+	<%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+</article>
+<% end %>
+<%= will_paginate @posts %>

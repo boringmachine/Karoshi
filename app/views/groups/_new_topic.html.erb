@@ -3,7 +3,14 @@
     <%= f.label :subject %><br />
     <%= f.text_field :subject %>
   </div>
+  
+  <div class="field">
+    <%= f.label "private" %><br />
+    <%= f.check_box :status %>
+  </div>
+  
   <%= hidden_field_tag 'group_id', @group.id %>
+  
   <div class="actions">
 	<%= submit_tag("Create Topic") %>
   </div>

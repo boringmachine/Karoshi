@@ -19,8 +19,13 @@ class TopicsController < ApplicationController
   # GET /topics/1.json
   def show
     @topic = Topic.find(params[:id])
-    @posts = Post.topicposts(@topic.id,params[:page])
-    respond_with(@topic)
+    
+    @posts = if(params[:group_id] == nil)
+      Post.topicposts(params[:id], params[:page])
+    else
+      Post.groupTopicPosts(params[:group_id],params[:id],params[:page])
+    end
+    respond_with(@topic,@posts)
   end
 
   # GET /topics/new

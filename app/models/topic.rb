@@ -1,5 +1,5 @@
 class Topic < ActiveRecord::Base
-  attr_accessible :subject
+  attr_accessible :subject,:status
   has_many :group_topics
   has_many :groups, through: :group_topics
 
