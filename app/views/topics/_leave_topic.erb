@@ -1,0 +1,13 @@
+<%= form_for(:group_topic, :html => {:method => :delete}) do |f| %>
+  <div class="field">
+	<%= collection_select(:group_topic, :group_id, Group.where(id: GroupTopic.joinedGroups(@topic.id,current_user.id)) , :id, :name) %>
+  </div>
+
+  <div class="field">
+  	<%= hidden_field_tag("group_topic[topic_id]",@topic.id)%>
+  </div>
+  
+  <div class="actions">
+	<%= submit_tag("Leave this topic") %>
+  </div>
+<% end %>

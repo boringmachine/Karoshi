@@ -36,6 +36,9 @@ class TopicsController < ApplicationController
   def create
     @topic = Topic.new(params[:topic])
     flash[:notice] = 'Topic was successfully created.' if @topic.save
+    if params.has_key?(:group_id)
+      GroupTopic.create(topic_id:@topic.id, group_id: params[:group_id])
+    end
     respond_with(@topic)
   end
 

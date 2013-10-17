@@ -1,0 +1,10 @@
+<%= form_for(Topic.new) do |f| %>
+  <div class="field">
+    <%= f.label :subject %><br />
+    <%= f.text_field :subject %>
+  </div>
+  <%= hidden_field_tag 'group_id', @group.id %>
+  <div class="actions">
+	<%= submit_tag("Create Topic") %>
+  </div>
+<% end %>
