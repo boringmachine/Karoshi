@@ -11,8 +11,16 @@ class GroupUser < ActiveRecord::Base
     groups
   end
   
-  def self.getGroupUser(user_id,group_id)
+  def self.getGroupUser(user_id, group_id)
       where(group_id: group_id, user_id: user_id)
+  end
+  
+  def self.exist(user_id, group_id)
+    if getGroupUser(user_id, group_id) == []
+      false
+    else
+      true
+    end
   end
   
 end
