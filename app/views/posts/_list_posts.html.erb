@@ -15,6 +15,6 @@
     <% if post.photo? %>
       <div id="image"><%= image_tag post.photo.url(:small) %></div>
     <% end %>
-    <div id="body"><%= post.body %></div>
+    <div id="body"><%= Post.auto_res(Rinku.auto_link(post.body)).html_safe %></div>
   </article>
 <% end %>

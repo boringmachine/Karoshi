@@ -14,7 +14,11 @@
     <span class="date"><%= post.created_at %></span>
     <span class="no"  >No:<%= post.id %></span>
   </div>
-  <div id="image"><%= image_tag post.photo.url(:small) %></div>
+
+  <% if post.photo? %>
+    <div id="image"><%= image_tag post.photo.url(:small) %></div>
+  <% end %>  
+    
   <%= post.body %><br />
   <% if user.id == current_user.id %>
     <%= link_to 'Edit', edit_post_path(post) %>

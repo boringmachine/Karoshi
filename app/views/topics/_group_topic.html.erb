@@ -1,11 +1,16 @@
-<%= form_for(GroupTopic.new, :remote => true) do |f| %>
-  <div class="field">
-	<%= collection_select(:group_topic, :group_id, Group.where(id: GroupTopic.notJoinedGroups(@topic.id,current_user.id)) , :id, :name) %>
-  </div>
-  <div class="field">
-    <%= f.hidden_field :topic_id, :value => @topic.id %>
-  </div>
-  <div class="actions">
-	<%= submit_tag("Join this topic") %>
-  </div>
+<% groups = Group.where(id: GroupTopic.notJoinedGroups(@topic.id,current_user.id)) %>
+<% if groups != [] %>
+  <%= form_for(GroupTopic.new, :remote => true) do |f| %>
+    <div class="field">
+	  <%= collection_select(:group_topic, :group_id, groups, :id, :name) %>
+    </div>
+
+    <div class="field">
+      <%= f.hidden_field :topic_id, :value => @topic.id %>
+    </div>
+
+    <div class="actions">
+	  <%= submit_tag("Join this topic") %>
+    </div>
+  <% end %>
 <% end %>
