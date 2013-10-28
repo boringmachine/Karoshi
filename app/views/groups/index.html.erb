@@ -2,19 +2,7 @@
 <h1>Listing groups</h1>
 
 <section id="groups">
-<% @groups.each do |group| %>
-  <%
-  category = if group.category != nil
-	Category.find(group.category_id)
-  else
-	Category.create(name: "No Category")
-  end
-  %>
-  <div id="group">
-    <span><%= link_to group.name, group %> - <%= category.name %></span>
-    <div id="group_pic"><%= image_tag group.photo.url(:small) %></div>
-  </div>
-<% end %>
+  <%= render "list_groups" %>
 </section>
 <br />
 <%= will_paginate @groups %>
