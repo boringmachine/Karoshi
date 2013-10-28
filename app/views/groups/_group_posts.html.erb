@@ -1,6 +1,8 @@
 <header><h2>Group Posts</h2></header>
 <% @post = Post.new %>
-<%= render 'post' %>
+<% if GroupUser.exist(current_user.id, @group.id) %>
+  <%= render 'post' %>
+<% end %>
 <% @posts.each do |post| %>
 <% topic = Topic.find(post.topic_id) %>
 <% user = User.find(post.user_id) %>
