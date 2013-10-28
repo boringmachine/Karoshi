@@ -12,17 +12,19 @@
   Logged in as <strong><%= current_user.email %></strong>.
   <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
   <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-  <%= form_tag posts_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <select id="submit_path">
-    	<option value="1">Post </option>
-    	<option value="2">Group</option>
-    	<option value="3">Topic</option>
-    </select>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
+  <section id="search_post">
+    <%= form_tag posts_path, :method => 'get' do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <select id="submit_path">
+        <option value="1">Post </option>
+        <option value="2">Group</option>
+        <option value="3">Topic</option>
+      </select>
+      <%= submit_tag "Search", :name => nil %>
+    </p>
   <% end %>
+  </section>
 <% else %>
   <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
   <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>

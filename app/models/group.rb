@@ -26,7 +26,7 @@ class Group < ActiveRecord::Base
   end
   
   def self.getSearch(params)
-    if params.has_key?(:search) && params.has_key?(:page)
+    if params.has_key?(:search)
       Group.search(params[:search],params[:page])
     else
       Group.search('',1)
