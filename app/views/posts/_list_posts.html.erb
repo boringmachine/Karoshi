@@ -1,0 +1,20 @@
+<% @posts.each do |post| %>
+  <article>
+  	<% topic = Topic.find(post.topic_id) %>
+  	<% group = Group.find(post.group_id) %>
+  	<% user  = User.find(post.user_id) %>
+    <header>
+      <h3><%= link_to topic.subject, topic %> - <%= link_to group.name, group %></h3>
+    </header>
+    <div>
+      <span class="userimg"><%= image_tag user.photo.url(:small) %></span>
+      <span class="user"><b><%= user.username %></b></span>
+      <span class="date"><%= post.created_at %></span>
+      <span class="no"  >No:<%= post.id %></span>
+    </div>
+    <% if post.photo? %>
+      <div id="image"><%= image_tag post.photo.url(:small) %></div>
+    <% end %>
+    <div id="body"><%= post.body %></div>
+  </article>
+<% end %>

@@ -18,4 +18,19 @@ class Group < ActiveRecord::Base
     where(:owner_id => user_id)
   end
   
+  def self.search(search, page)
+    paginate :per_page => @per_page, :page => page,
+             :conditions => ['name like ? or description like ?',
+               "%#{search}%","%#{search}%"],
+             :order => 'created_at desc'
+  end
+  
+  def self.getSearch(params)
+    if params.has_key?(:search) && params.has_key?(:page)
+      Group.search(params[:search],params[:page])
+    else
+      Group.search('',1)
+    end
+  end
+  
 end

@@ -1,0 +1,11 @@
+<%= form_tag posts_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <select id="submit_path">
+    	<option value="1">Post </option>
+    	<option value="2">Group</option>
+    	<option value="3">Topic</option>
+    </select>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>

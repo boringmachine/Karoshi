@@ -5,11 +5,11 @@ class TopicsController < ApplicationController
   # GET /topics
   # GET /topics.json
   def index
-    @topics = if(params[:group] == nil)
-      Topic.all
-    else
+    @topics = if params.has_key?(:group)
       topics = GroupTopic.topics(params[:group])
-      Topic.find(topics)
+      Topic.where(id: topics).search(params[:search],params[:page])
+    else
+      Topic.where(status: nil).search(params[:search], params[:page])
     end
     
     respond_with(@topics)
@@ -20,10 +20,10 @@ class TopicsController < ApplicationController
   def show
     @topic = Topic.find(params[:id])
     
-    @posts = if(params[:group_id] == nil)
-      Post.topicposts(params[:id], params[:page])
-    else
+    @posts = if params.has_key?(:group_id)
       Post.groupTopicPosts(params[:group_id],params[:id],params[:page])
+    else
+      Post.topicposts(params[:id], params[:page])
     end
     respond_with(@topic,@posts)
   end

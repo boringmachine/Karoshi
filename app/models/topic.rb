@@ -17,4 +17,10 @@ class Topic < ActiveRecord::Base
     flag
   end
  
+  def self.search(search, page)
+    paginate :per_page => @per_page, :page => page,
+             :conditions => ['subject like ?', "%#{search}%"],
+             :order => 'created_at desc'
+  end
+ 
 end

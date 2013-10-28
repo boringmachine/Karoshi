@@ -1,38 +1,19 @@
 <h1>Listing posts</h1>
-<%= form_tag posts_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
+<section id="sidebar">
 
-<% @post = Post.new %>
-<%= render 'form' %>
+  <section id="joined_groups">
+    <%= render 'joined_groups' %>
+  </section>
+  
+  <section id="links">
+    <%= render 'links' %>
+  </section>
+
+</section>
 
 <section id="posts">
-<% @posts.each do |post| %>
-  <article>
-  	<% topic = Topic.find(post.topic_id) %>
-  	<% group = Group.find(post.group_id) %>
-  	<% user  = User.find(post.user_id) %>
-    <header>
-      <h3><%= link_to topic.subject, topic %> - <%= link_to group.name, group %></h3>
-    </header>
-    <div>
-      <span class="userimg"><%= image_tag user.photo.url(:small) %></span>
-      <span class="user"><b><%= user.username %></b></span>
-      <span class="date"><%= post.created_at %></span>
-      <span class="no"  >No:<%= post.id %></span>
-    </div>
-    <% if post.photo? %>
-      <div id="image"><%= image_tag post.photo.url(:small) %></div>
-    <% end %>
-    <div id="body"><%= post.body %></div>
-  </article>
-<% end %>
+  <% @post = Post.new %>
+  <%= render 'form' %>
+  <%= render 'list_posts' %>
 </section>
 <%= will_paginate @posts %>
-
-<br />
-
-<%= link_to 'New Post', new_post_path %>
