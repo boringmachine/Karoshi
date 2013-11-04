@@ -1,0 +1,17 @@
+<table>
+  <tr>
+    <th>Subject</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @topics.each do |topic| %>
+  <% unless topic.status %>
+  <tr>
+    <td><%= topic.subject %></td>
+    <td><%= link_to 'Show', topic %></td>
+  </tr>
+  <% end %>
+<% end %>
+</table>

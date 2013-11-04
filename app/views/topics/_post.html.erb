@@ -21,11 +21,6 @@
       <%= f.label :group_id %><br />
       <%= collection_select(:post, :group_id, groups, :id, :name) %>
     </div>
-
-    <div class="field">
-      <%= f.label :parent_id %><br />
-      <%= f.number_field :parent_id %>
-    </div>
   
     <div class="field">
       <%= f.label :body %><br />

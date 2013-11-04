@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $ ->
   $("#group_user_button form[data-remote]").on "ajax:success", (e, data, status, xhr) ->
-    if $("form").attr("id") is "new_group_user"
+    if $(this).attr("class") is "new_group_user"
       alert "Join Success"
     else
       alert "Leave Success"

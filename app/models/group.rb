@@ -14,6 +14,8 @@ class Group < ActiveRecord::Base
   has_many :topics, through: :group_topics
   has_many :users , through: :group_users
   
+  @per_page = 10
+  
   def self.owngroups(user_id)
     where(:owner_id => user_id)
   end

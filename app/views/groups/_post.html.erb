@@ -21,11 +21,6 @@
     <%= collection_select(:post, :topic_id, Topic.find(topics), :id, :subject) %>  </div>
 
   <div class="field">
-    <%= f.label :parent_id %><br />
-    <%= f.number_field :parent_id %>
-  </div>
-    
-  <div class="field">
     <%= f.label :body %><br />
     <%= f.text_area :body %>
   </div>

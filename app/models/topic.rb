@@ -3,6 +3,8 @@ class Topic < ActiveRecord::Base
   has_many :group_topics
   has_many :groups, through: :group_topics
 
+  @per_page = 20
+
   def self.owner_check(id,user_id)
     topic = find(id)
     groups = topic.groups

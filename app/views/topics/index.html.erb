@@ -1,22 +1,19 @@
 <h1>Listing topics</h1>
+<section id="sidebar">
 
-<table>
-  <tr>
-    <th>Subject</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <section id="joined_groups">
+    <%= render 'joined_groups' %>
+  </section>
+  
+  <section id="links">
+    <%= render 'links' %>
+  </section>
 
-<% @topics.each do |topic| %>
-  <% unless topic.status %>
-  <tr>
-    <td><%= topic.subject %></td>
-    <td><%= link_to 'Show', topic %></td>
-  </tr>
-  <% end %>
-<% end %>
-</table>
+</section>
+
+<section id="topics">
+  <%= render "list_topics" %>
+</section>
 
 <br />
 
