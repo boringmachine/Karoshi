@@ -12,18 +12,7 @@ class GroupTopic < ActiveRecord::Base
     end
     topics
   end
-  
-  def self.deleteSameGroupTopics(topic_id,group_id)
-    group_topics = GroupTopic.where(params[:topic],params[:group])
-    
-    tmp = nil
-    group_topics.each do |group_topic|
-      tmp = group_topic
-      tmp.destroy
-    end
-    tmp
-  end
-  
+ 
   def self.notJoinedGroups(topic_id,user_id)
     groups = Group.owngroups(user_id)
     
@@ -50,4 +39,15 @@ class GroupTopic < ActiveRecord::Base
     jgroups
   end
   
+  
+  def self.getFirst(topic_id,group_id)
+    where(topic_id:topic_id, group_id:group_id).limit(1).pop
+  end
+  
+  def self.remove_all(id)
+    group_topic = find(id)
+    topic_id = group_topic.topic_id
+    group_id = group_topic.group_id
+    GroupTopic.destroy_all(topic_id:topic_id, group_id:group_id)
+  end
 end

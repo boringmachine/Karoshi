@@ -3,6 +3,10 @@
 <% topics = Topic.find(topics)%>
 <ul>
 <% topics.each do |topic| %>
-  <li><%= link_to topic.subject,topic %></li>
+  <li>
+  	<%= link_to topic.subject,topic %>
+  	<% gtid = GroupTopic.getFirst(topic.id,@group.id) %>
+  	<%= link_to "Delete",gtid, :method => :delete, :remote => true, :class => "delete", :confirm => "Are you sure ?"%>  
+  </li>
 <% end %>
 </ul>

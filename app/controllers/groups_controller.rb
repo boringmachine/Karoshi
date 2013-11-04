@@ -12,11 +12,7 @@ class GroupsController < ApplicationController
   # GET /groups/1.json
   def show
     @group = Group.find(params[:id])
-    @posts = if params.has_key?(:topic_id)
-      Post.groupTopicPosts(params[:id],params[:topic_id],params[:page])
-    else
-      Post.groupposts(params[:id],params[:page])
-    end
+    @posts = Group.getPosts(params)
       
     respond_with(@group,@posts)
   end

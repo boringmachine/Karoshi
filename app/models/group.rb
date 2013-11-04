@@ -33,4 +33,12 @@ class Group < ActiveRecord::Base
     end
   end
   
+  def self.getPosts(params)
+    if params.has_key?(:topic_id)
+      Post.groupTopicPosts(params[:id],params[:topic_id],params[:page])
+    else
+      Post.groupposts(params[:id],params[:page])
+    end
+  end
+  
 end

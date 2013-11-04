@@ -11,7 +11,7 @@
   	<span class="no"  >No:<%= post.id %></span>
   </header>
   <% user = User.find(post.user_id) %>
-    <div id="body"><%= post.body %></div>
+    <div id="body"><%= Post.auto_res(post.body).html_safe %></div>
 </article>
 <br />
 <% end %>

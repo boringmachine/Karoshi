@@ -19,7 +19,7 @@
     <div id="image"><%= image_tag post.photo.url(:small) %></div>
   <% end %>  
     
-  <%= post.body %><br />
+  <%= Post.auto_res(post.body).html_safe %><br />
   <% if user.id == current_user.id %>
     <%= link_to 'Edit', edit_post_path(post) %>
 	<%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>

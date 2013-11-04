@@ -52,7 +52,7 @@ class Post < ActiveRecord::Base
   end
 
   def self.auto_res(body)
-    body.gsub(/>>([0-9]+)/, '<a href="/posts/\1"> >>\1 </a>')
+    Rinku.auto_link(body.gsub(/>>([0-9]+)/, '<a href="/posts/\1"> >>\1 </a>'))
   end
 
 end

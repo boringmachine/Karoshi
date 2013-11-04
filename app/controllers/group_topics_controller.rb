@@ -47,7 +47,8 @@ class GroupTopicsController < ApplicationController
   # DELETE /group_topics/1.json
   def destroy
     @group_topic = GroupTopic.find(params[:id])
-    @group_topic.destroy
+    # @group_topic.destroy
+    GroupTopic.remove_all(params[:id])
     respond_with(@group_topic)
   end
 end
