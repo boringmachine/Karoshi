@@ -19,7 +19,7 @@
     <div id="image"><%= image_tag post.photo.url(:small) %></div>
   <% end %>  
     
-  <%= Post.auto_res(post.body).html_safe %><br />
+  <div id="body"><%= Post.auto_res(post.body).html_safe %></div>
 </article>
 <% end %>
 <%= will_paginate @posts %>

@@ -1,3 +1,5 @@
+
+
 #new_post{
   textarea {
     width: 500px;
@@ -5,5 +7,43 @@
   }
 }
 .userimg img{
- border-radius: 50% 
+  border-radius: 50%;
+}
+
+.user,.date,.no{
+  position:relative;
+  bottom:20px;
+}
+
+#body {
+  left: 20px;
+}
+
+#image {
+  left: 20px;
+}
+
+article{
+  margin-top:         40px;
+  -webkit-box-shadow: 0px 0px 5px rgba(24, 34, 50, 0.75);
+  -moz-box-shadow:    0px 0px 5px rgba(24, 34, 50, 0.75);
+  box-shadow:         0px 0px 5px rgba(24, 34, 50, 0.75);
+  width:              600px;
+  header{
+    border-bottom:1px solid #AAA;
+  }
+  #body {
+    margin-left: 20px;
+    margin-top:  10px;
+  }
+  
+}
+
+#topic_subject{
+  width:180px;
+}
+
+#sidebar {
+  float: left;
+  width: 200px;
 }
