@@ -14,7 +14,7 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @posts = Group.getPosts(params)
       
-    respond_with(@group,@posts)
+    respond_with(@group)
   end
 
   # GET /groups/new
