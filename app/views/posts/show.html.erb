@@ -1,23 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Topic:</b>
-  <%= @post.topic_id %>
-</p>
+<article>
+  <% topic = Topic.find(@post.topic_id) %>
+  <% group = Group.find(@post.group_id) %>
+  <% user  = User.find(@post.user_id) %>
+  <header>
+    <h3><%= link_to topic.subject, topic %> - <%= link_to group.name, group %></h3>
+  </header>
+  <div>
+    <span class="userimg"><%= image_tag user.photo.url(:small) %></span>
+    <span class="user"><b><%= user.username %></b></span>
+    <span class="date"><%= @post.created_at %></span>
+    <span class="no"  >No:<%= @post.id %></span>
+  </div>
+  <% if @post.photo? %>
+    <div id="image"><%= image_tag post.photo.url(:small) %></div>
+  <% end %>
+  <div id="body"><%= Post.auto_res(@post.body).html_safe %></div>
+</article>
 
-<p>
-  <b>User:</b>
-  <%= @post.user_id %>
-</p>
 
-<p>
-  <b>Body:</b>
-  <%= @post.body %>
-</p>
-
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Back', :back %>
 
 
 

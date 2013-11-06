@@ -1,14 +1,15 @@
 <header><h3>Group Topics</h3></header>
 <% topics = GroupTopic.topics(@group.id)%>
-<% topics = Topic.find(topics)%>
+<% topics = Topic.where(id: topics).search('',params[:tpage]) %>
 <ul>
-<% topics.each do |topic| %>
+<% topics.reverse.each do |topic| %>
   <li>
   	<%= link_to topic.subject,topic %>
   	<% gtid = GroupTopic.getFirst(topic.id,@group.id) %>
   	<% if @group.owner_id == current_user.id %>
-      <%= link_to "Delete",gtid, :method => :delete, :remote => true, :class => "delete", :confirm => "Are you sure ?"%>
+      <%= link_to "Delete",gtid, :method => :delete, :class => "delete", :confirm => "Are you sure ?"%>
     <% end %>
   </li>
 <% end %>
 </ul>
+<%= will_paginate topics,param_name:'tpage' %>

@@ -25,4 +25,13 @@ class Topic < ActiveRecord::Base
              :order => 'created_at desc'
   end
  
+  def self.getGroupTopic(params)
+    if params.has_key?(:group)
+      topics = GroupTopic.topics(params[:group])
+      where(id: topics).search(params[:search], params[:page])
+    else
+      where(status: nil).search(params[:search], params[:page])
+    end
+  end
+    
 end

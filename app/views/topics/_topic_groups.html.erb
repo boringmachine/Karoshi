@@ -1,0 +1,6 @@
+<header><h3>Topic Groups</h3></header>
+<ul>
+<% Group.find(GroupTopic.groups(@topic.id)).each do |group| %>
+  <li><%= link_to group.name, group %></li>
+<% end %>
+</ul>

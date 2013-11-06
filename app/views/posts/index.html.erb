@@ -15,5 +15,5 @@
   <% @post = Post.new %>
   <%= render 'form' %>
   <%= render 'list_posts' %>
+  <%= will_paginate @posts %>
 </section>
-<%= will_paginate @posts %>

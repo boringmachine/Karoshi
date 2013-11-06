@@ -5,13 +5,7 @@ class TopicsController < ApplicationController
   # GET /topics
   # GET /topics.json
   def index
-    @topics = if params.has_key?(:group)
-      topics = GroupTopic.topics(params[:group])
-      Topic.where(id: topics).search(params[:search],params[:page])
-    else
-      Topic.where(status: nil).search(params[:search], params[:page])
-    end
-    
+    @topics = Topic.getGroupTopic(params)
     respond_with(@topics)
   end
 

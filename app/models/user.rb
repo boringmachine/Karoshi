@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   attr_accessible :email,:username, :password, :password_confirmation, :remember_me,
                   :photo, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at
 
-  has_attached_file :photo, :styles => { :small => "48x48>", :medium => "160x160>" },
+  has_attached_file :photo, :styles => { :small => "48x48#", :medium => "160x160#" },
                     :url  => "/assets/groups/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/groups/:id/:style/:basename.:extension",
                     :default_url => "/photos/verysmall/missing.png"

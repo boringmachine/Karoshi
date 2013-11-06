@@ -1,7 +1,7 @@
 <header><h2> <%= @topic.subject %></h2></header>  
 <% @post = Post.new %>
 <%= render 'post' %>
-<% @posts.each do |post| %>
+<% @posts.reverse.each do |post| %>
 <article>
   <% user = User.find(post.user_id)%>
   <header>
@@ -11,7 +11,10 @@
   	<span class="no"  >No:<%= post.id %></span>
   </header>
   <% user = User.find(post.user_id) %>
-    <div id="body"><%= Post.auto_res(post.body).html_safe %></div>
+  <% if post.photo? %>
+    <div id="image"><%= image_tag post.photo.url(:small) %></div>
+  <% end %>  
+  <div id="body"><%= Post.auto_res(post.body).html_safe %></div>
 </article>
 <br />
 <% end %>

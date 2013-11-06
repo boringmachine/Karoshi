@@ -5,6 +5,14 @@ class GroupTopic < ActiveRecord::Base
   has_many :posts
   has_many :users , through: :posts
   
+  def self.groups(topic_id)
+    groups = []
+    where(topic_id: topic_id).each do |gt|
+      groups.push(gt.group_id)
+    end
+    groups
+  end
+  
   def self.topics(group_id)
     topics = []
     where(:group_id => group_id).each do |gt|

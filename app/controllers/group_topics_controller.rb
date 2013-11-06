@@ -49,6 +49,6 @@ class GroupTopicsController < ApplicationController
     @group_topic = GroupTopic.find(params[:id])
     # @group_topic.destroy
     GroupTopic.remove_all(params[:id])
-    respond_with(@group_topic)
+    redirect_to :back
   end
 end
