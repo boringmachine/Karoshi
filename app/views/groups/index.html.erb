@@ -1,5 +1,3 @@
-
-<h1>Listing groups</h1>
 <section id="sidebar">
 
   <section id="joined_groups">
@@ -14,8 +12,8 @@
 
 
 <section id="groups">
+  <h2>Listing groups</h2>
   <%= render "list_groups" %>
 </section>
 <br />
 <%= will_paginate @groups %>
-<%= link_to 'New Group', new_group_path %>

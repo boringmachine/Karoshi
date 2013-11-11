@@ -30,10 +30,16 @@ $left : 100px;
   box-shadow:         2px 2px 5px rgba(50, 50, 50, 0.75);
 }
 
-#posts,#group_posts,#topic_posts{
+#posts,#group_posts,#topic_posts,#groups{
   border-left: 1px solid gray;
   margin-top: -10px;
 }
+
+.colum0,.colum1{
+  float: left;
+}
+
+
 
 #new_post{
   textarea {
@@ -60,6 +66,10 @@ $left : 100px;
 
 h2 {
   margin-left: $left;
+}
+
+.group{
+  margin-left: 50px;
 }
 
 #new_post,article {
