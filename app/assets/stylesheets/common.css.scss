@@ -13,6 +13,8 @@ $left : 100px;
 }
 
 #navbar{
+  position:fixed;
+  z-index: 10;
   margin-top: -8px;
   margin-left: -6px;
   height:38px;
@@ -31,7 +33,6 @@ $left : 100px;
 }
 
 #posts,#group_posts,#topic_posts,#groups{
-  border-left: 1px solid gray;
   margin-top: -10px;
 }
 
@@ -107,6 +108,10 @@ article{
 }
 
 #sidebar {
+  overflow: auto;
   float: left;
   width: 200px;
+  position:fixed;
+  height: 97%;
+  margin-top:20px;
 }
