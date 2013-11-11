@@ -1,3 +1,5 @@
+$left : 100px;
+
 #search_post{
   position:absolute;
   top:5px;
@@ -26,6 +28,10 @@
 
 }
 
+#posts,#group_posts,#topic_posts{
+  border-left: 1px solid gray;
+}
+
 #new_post{
   textarea {
     width: 450px;
@@ -49,7 +55,12 @@
   left: 20px;
 }
 
+h2 {
+  margin-left: $left;
+}
+
 #new_post,article {
+  margin-left: $left;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
