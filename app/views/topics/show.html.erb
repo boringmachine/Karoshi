@@ -1,14 +1,12 @@
 <p id="notice"><%= notice %></p>
 <section id="sidebar">
+  <% unless @topic.status %>
+    <section id="join_topic">
+      <%= render 'group_topic' %>
+    </section>
+  <% end %>
   <%= render 'topic_groups' %>
 </section>
-
-
-<% unless @topic.status %>
-<section id="join_topic">
-  <%= render 'group_topic' %>
-</section>
-<% end %>
 
 <section id="topic_posts">
   <%= render 'topic_posts' %>

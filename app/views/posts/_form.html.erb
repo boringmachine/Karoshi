@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field" id="group">
     <%= f.label :group_id %><br />
     <% groups = GroupUser.groups(current_user.id) %>
 	<%= collection_select(:post, :group_id, Group.find(groups) , :id, :name) %>

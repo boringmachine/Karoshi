@@ -13,7 +13,6 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @posts = Group.getPosts(params)
-      
     respond_with(@group)
   end
 
