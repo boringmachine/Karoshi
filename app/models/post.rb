@@ -53,7 +53,8 @@ class Post < ActiveRecord::Base
 
   def self.auto_res(body)
     tmp = Rinku.auto_link(body.gsub(/>>([0-9]+)/, '<a href="/posts/\1"> >>\1 </a>'))
-    tmp.gsub(/#([a-zA-Z0-9]+)/,'<a href="/posts?search=%23\1">#\1</a>')
+    tmp = tmp.gsub(/#([a-zA-Z0-9]+)/,'<a href="/posts?search=%23\1">#\1</a>')
+    tmp.gsub(/\n/,'<br />')
   end
 
 end

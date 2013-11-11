@@ -36,6 +36,4 @@ class TopicsController < ApplicationController
     respond_with(@topic)
   end
 
-
-
 end
