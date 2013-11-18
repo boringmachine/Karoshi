@@ -14,7 +14,7 @@ class Group < ActiveRecord::Base
   has_many :topics, through: :group_topics
   has_many :users , through: :group_users
   
-  @per_page = 10
+  @per_page = 12
   
   def self.owngroups(user_id)
     where(:owner_id => user_id)
@@ -31,7 +31,7 @@ class Group < ActiveRecord::Base
     if params.has_key?(:search)
       Group.search(params[:search],params[:page])
     else
-      Group.search('',1)
+      Group.search('',params[:page])
     end
   end
   

@@ -15,10 +15,10 @@ $left : 100px;
 #navbar{
   position:fixed;
   z-index: 10;
-  margin-top: -8px;
-  margin-left: -6px;
   height:38px;
-  width:101.3%;
+  width:100%;
+  margin-left:-10px;
+  margin-top:-10px;
   background: rgb(238,238,238); /* Old browsers */
   background: -moz-linear-gradient(top,  rgba(238,238,238,1) 0%, rgba(204,204,204,1) 100%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(204,204,204,1))); /* Chrome,Safari4+ */
@@ -32,15 +32,9 @@ $left : 100px;
   box-shadow:         2px 2px 5px rgba(50, 50, 50, 0.75);
 }
 
-#posts,#group_posts,#topic_posts,#groups{
+#posts,#group_posts,#topic_posts,#groups,#topics{
   margin-top: -10px;
 }
-
-.colum0,.colum1{
-  float: left;
-}
-
-
 
 #new_post{
   textarea {
@@ -103,15 +97,11 @@ article{
   
 }
 
-#topic_subject{
-  width:180px;
-}
-
 #sidebar {
   overflow: auto;
   float: left;
-  width: 200px;
+  width: 220px;
   position:fixed;
-  height: 97%;
-  margin-top:20px;
+  height: 92%;
+  margin-top:30px;
 }

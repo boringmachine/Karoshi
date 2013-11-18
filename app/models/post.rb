@@ -57,4 +57,13 @@ class Post < ActiveRecord::Base
     tmp.gsub(/\n/,'<br />')
   end
 
+  def self.getBody(topic_id)
+    tmp = topicposts(topic_id,1)
+    buf = ''
+    tmp.each do |post|
+      buf += post.body
+    end
+    buf[0..50]
+  end
+
 end

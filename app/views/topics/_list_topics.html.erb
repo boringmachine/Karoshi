@@ -1,17 +1,8 @@
-<table>
-  <tr>
-    <th>Subject</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @topics.each do |topic| %>
   <% unless topic.status %>
-  <tr>
-    <td><%= topic.subject %></td>
-    <td><%= link_to 'Show', topic %></td>
-  </tr>
+  <div class="topic_origin">
+    <div class="topic_subject"><%= link_to topic.subject, topic %></td>
+  	<div class="topic_body"><%= Post.getBody(topic.id) %></div>
+  </div>
   <% end %>
 <% end %>
-</table>

@@ -2,7 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#topic_posts{
-  margin-left: 200px;
+#topics,#topic_posts{
+  margin-left: 230px;
 }
 
+.topic_origin{
+  .topic_body{
+    color:gray;
+    width:50%;
+    margin-left:20px;
+  }
+
+}
