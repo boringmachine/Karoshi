@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
   attr_accessible :body, :topic_id, :user_id, :group_id,
                   :photo, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at
-  has_attached_file :photo, :styles => { :small => "250x250>" },
+  has_attached_file :photo, :styles => { :small => "300x300>" },
                     :url  => "/assets/posts/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/posts/:id/:style/:basename.:extension"
   belongs_to :group_topic
@@ -64,6 +64,15 @@ class Post < ActiveRecord::Base
       buf += post.body
     end
     buf[0..50]
+  end
+  
+  def self.getDate(topic_id)
+    tmp = Post.where(topic_id:topic_id)
+    if(tmp.count != 0)
+      tmp.last.created_at
+    else
+      ""
+    end
   end
 
 end
