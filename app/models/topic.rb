@@ -30,7 +30,7 @@ class Topic < ActiveRecord::Base
       topics = GroupTopic.topics(params[:group])
       where(id: topics).search(params[:search], params[:page])
     else
-      where("status != ?",true).search(params[:search], params[:page])
+      where(status:false).search(params[:search], params[:page])
     end
   end
   

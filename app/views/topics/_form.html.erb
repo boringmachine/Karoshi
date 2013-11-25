@@ -15,6 +15,12 @@
     <%= f.label :subject %><br />
     <%= f.text_field :subject %>
   </div>
+  
+  <div class="field">
+    <%= f.label "private" %><br />
+    <%= f.check_box :status %>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

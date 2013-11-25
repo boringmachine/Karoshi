@@ -63,7 +63,7 @@ class Post < ActiveRecord::Base
     tmp.each do |post|
       buf += post.body
     end
-    buf[0..50]
+    buf[0..100]
   end
   
   def self.getDate(topic_id)

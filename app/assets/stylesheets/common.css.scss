@@ -1,7 +1,7 @@
 $left : 100px;
 
 body{
-  overflow-x: hidden;
+  overflow-x: hidden; 
 }
 
 #search_post{
@@ -70,6 +70,9 @@ h2 {
   margin-left: $left;
 }
 
+.pagination{
+  margin-left:$left;
+}
 .group{
   margin-left: 50px;
 }
@@ -90,7 +93,7 @@ h2 {
 }
 
 article{
-  margin-top: 40px;
+  margin-top: 5px;
 
   header{
     border-bottom:1px solid #AAA;
@@ -109,3 +112,5 @@ article{
   position:fixed;
   height: 92%;
 }
+
+
