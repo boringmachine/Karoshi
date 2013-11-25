@@ -1,5 +1,5 @@
 <% @posts.each do |post| %>
-  <article>
+  <article class="article">
   	<% topic = Topic.find(post.topic_id) %>
   	<% group = Group.find(post.group_id) %>
   	<% user  = User.find(post.user_id) %>
@@ -15,6 +15,6 @@
     <% if post.photo? %>
       <div id="image"><%= image_tag post.photo.url(:small) %></div>
     <% end %>
-    <div id="body"><%= Post.auto_res(post.body).html_safe %></div>
+    <div id="body"><%= Post.auto_res(post.body_html).html_safe %></div>
   </article>
 <% end %>

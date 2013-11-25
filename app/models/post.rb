@@ -11,6 +11,14 @@ class Post < ActiveRecord::Base
   validates_attachment_size :photo, :less_than => 5.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png','image/gif']
  
+  auto_html_for :body do
+    html_escape
+    image
+    youtube(:width => 400, :height => 250)
+    link :target => "_blank", :rel => "nofollow"
+    simple_format
+  end
+ 
   @per_page = 10
  
   def self.groupposts(group_id,page)
@@ -53,8 +61,7 @@ class Post < ActiveRecord::Base
 
   def self.auto_res(body)
     tmp = Rinku.auto_link(body.gsub(/>>([0-9]+)/, '<a href="/posts/\1"> >>\1 </a>'))
-    tmp = tmp.gsub(/#([a-zA-Z0-9]+)/,'<a href="/posts?search=%23\1">#\1</a>')
-    tmp.gsub(/\n/,'<br />')
+    tmp.gsub(/#([a-zA-Z0-9]+)/,'<a href="/posts?search=%23\1">#\1</a>')
   end
 
   def self.getBody(topic_id)
