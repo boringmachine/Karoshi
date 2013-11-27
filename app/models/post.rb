@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
   attr_accessible :body, :topic_id, :user_id, :group_id,
                   :photo, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at
-  has_attached_file :photo, :styles => { :small => "300x300>" },
+  has_attached_file :photo, :styles => { :small => "400x400>" },
                     :url  => "/assets/posts/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/posts/:id/:style/:basename.:extension"
   belongs_to :group_topic
@@ -13,7 +13,7 @@ class Post < ActiveRecord::Base
  
   auto_html_for :body do
     html_escape
-    image
+    image(:width => 400, :height => 400)
     youtube(:width => 400, :height => 250)
     link :target => "_blank", :rel => "nofollow"
     simple_format
@@ -60,7 +60,7 @@ class Post < ActiveRecord::Base
   end
 
   def self.auto_res(body)
-    tmp = Rinku.auto_link(body.gsub(/>>([0-9]+)/, '<a href="/posts/\1"> >>\1 </a>'))
+    tmp = body.gsub(/&gt;&gt;([0-9]+)/, '<a href="/posts/\1"> &gt;&gt;\1 </a>')
     tmp.gsub(/#([a-zA-Z0-9]+)/,'<a href="/posts?search=%23\1">#\1</a>')
   end
 
