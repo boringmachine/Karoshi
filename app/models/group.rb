@@ -7,7 +7,6 @@ class Group < ActiveRecord::Base
   validates_attachment_size :photo, :less_than => 5.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png','image/gif']
 
-  belongs_to :category
   belongs_to :owner, :class_name => 'User', :foreign_key => 'owner_id'
   has_many :group_topics
   has_many :group_users

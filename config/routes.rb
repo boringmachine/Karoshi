@@ -3,7 +3,6 @@ Karoshi::Application.routes.draw do
   resources :posts
   resources :group_users
   resources :groups
-#  resources :categories
   resources :topics
   devise_for :users
   devise_for :users do get '/users/sign_out' => 'devise/sessions#destroy' end
