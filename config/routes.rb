@@ -4,9 +4,10 @@ Karoshi::Application.routes.draw do
   resources :group_users
   resources :groups
   resources :topics
-  devise_for :users
-  devise_for :users do get '/users/sign_out' => 'devise/sessions#destroy' end
-    
+  devise_for :users, :controllers => {
+    :sessions => 'users/sessions',
+    :registrations => 'users/registrations'
+  }
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
