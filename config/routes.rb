@@ -6,6 +6,7 @@ Karoshi::Application.routes.draw do
   resources :topics
   devise_for :users
   devise_for :users do get '/users/sign_out' => 'devise/sessions#destroy' end
+    
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -5,6 +5,14 @@ class Topic < ActiveRecord::Base
 
   @per_page = 20
 
+  def self.getFirstTopic()
+    if Topic.count == 0
+      Topic.create(id:1,subject:"discussion")
+    else
+      Topic.first
+    end
+  end
+
   def self.owner_check(id,user_id)
     topic = find(id)
     groups = topic.groups

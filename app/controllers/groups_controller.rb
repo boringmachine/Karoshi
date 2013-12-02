@@ -33,7 +33,12 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(params[:group])
     @group[:owner_id] = current_user.id
+    topic = Topic.getFirstTopic
+    
     flash[:notice] = 'Group was successfully created.' if @group.save
+
+    GroupTopic.create(topic_id:topic.id,group_id:@group.id)
+
     respond_with(@group)
   end
 
