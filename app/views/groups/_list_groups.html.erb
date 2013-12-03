@@ -3,14 +3,14 @@
 <% @groups.each do |group| %>
   <% modi = (i%3) %>
   <% if modi == 0 %>
-    <tr>
+  <tr>
   <% end %>
-  <td class="group">
-    <span><%= link_to group.name, group %></span>
-    <div id="group_pic"><%= image_tag group.photo.url(:small) %></div>
-  </td>
+    <td class="group">
+      <span><%= link_to group.name, group %></span>
+      <div class="group_pic"><%= image_tag group.photo.url(:small) %></div>
+    </td>
   <% if modi == 2%>
-    </tr>
+  </tr>
   <% end %>
   <% i+=1 %>
 <% end %>

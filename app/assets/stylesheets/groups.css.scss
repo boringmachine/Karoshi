@@ -6,6 +6,17 @@
   margin-left: 200px;
 }
 
-#group_table td{
-  width: 22%;
+#group_table{
+  
+  margin-left:100px;
+  
+  td{
+    width: 22%;
+  }
+}
+
+#new_group{
+  textarea{
+    width:300px;
+  }
 }
