@@ -1,5 +1,5 @@
 class GroupTopicsController < ApplicationController
-  respond_to :html, :xml, :json
+  respond_to :xml, :json
 
   # GET /group_topics
   # GET /group_topics.json
