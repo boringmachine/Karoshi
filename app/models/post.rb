@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
   attr_accessible :body, :topic_id, :user_id, :group_id,
                   :photo, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at
-  has_attached_file :photo, :styles => { :small => "400x400>" },
+  has_attached_file :photo, :styles => { :small => "300x300>" },
                     :url  => "/assets/posts/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/posts/:id/:style/:basename.:extension"
   belongs_to :group_topic
@@ -13,8 +13,8 @@ class Post < ActiveRecord::Base
  
   auto_html_for :body do
     html_escape
-    image(:width => 400, :height => 400)
-    youtube(:width => 400, :height => 250)
+    image(:width => 300, :height => 300)
+    youtube(:width => 300, :height => 250)
     link :target => "_blank", :rel => "nofollow"
     simple_format
   end

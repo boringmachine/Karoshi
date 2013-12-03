@@ -1,5 +1,5 @@
 <% @posts.each do |post| %>
-  <article class="article">
+  <article class="article post_article">
   	<% topic = Topic.find(post.topic_id) %>
   	<% group = Group.find(post.group_id) %>
   	<% user  = User.find(post.user_id) %>

@@ -106,14 +106,6 @@ body{
   bottom:20px;
 }
 
-#body {
-  left: 20px;
-}
-
-#image {
-  left: 20px;
-}
-
 h2 {
   margin-left: $left;
 }
@@ -141,11 +133,12 @@ h2 {
 
 article{
   width:80%;
+  margin-top:10px;
   margin-left:$left;
   header{
     border-bottom:1px solid #AAA;
   }
-  #body {
+  .body {
     margin-left: 20px;
     margin-top:  10px;
   }
@@ -160,7 +153,7 @@ article{
   height: 92%;
 }
 
-.login,.new_group,.edit_group,#new_post{
+.login,.new_group,.edit_group,#new_post,.post_article,.group_post_article{
   position: relative;
   margin: 50px auto;
   padding: 20px 20px 20px;
