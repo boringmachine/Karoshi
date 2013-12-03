@@ -140,7 +140,6 @@ h2 {
 }
 
 article{
-  margin-top: 10px;
   width:80%;
   margin-left:$left;
   header{
@@ -161,7 +160,7 @@ article{
   height: 92%;
 }
 
-.login,.new_group,.edit_group,article,#new_post{
+.login,.new_group,.edit_group,#new_post{
   position: relative;
   margin: 50px auto;
   padding: 20px 20px 20px;
