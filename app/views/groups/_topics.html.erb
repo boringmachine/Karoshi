@@ -6,7 +6,7 @@
   <li>
   	<%= link_to topic.subject,topic %>
   	<% gtid = GroupTopic.getFirst(topic.id,@group.id) %>
-  	<% if @group.owner_id == current_user.id %>
+  	<% if @group.owner_id == current_user.id && topic.id != 1%>
       <%= link_to "Delete",gtid, :method => :delete, :class => "delete", :confirm => "Are you sure ?"%>
     <% end %>
   </li>

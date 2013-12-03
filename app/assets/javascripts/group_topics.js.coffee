@@ -4,5 +4,6 @@
 $ ->
   $("#join_topic form[data-remote]").on "ajax:success", (e, data, status, xhr) ->
     alert "Join Success"
+    $("#join_topic form select option:selected").remove()
   
   

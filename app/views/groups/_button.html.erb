@@ -4,7 +4,7 @@
 		<%= hidden_field_tag 'group_user[group_id]', @group.id %>
 		<%= submit_tag("Join this group") %>
 	<% end %>
-<% else %>
+<% elsif @group.id != 1 %>
 	<% tmp = group_user.pop %>
 	<%= button_to "Leave this group", {:controller => :group_users,
       :action => 'destroy', :id => tmp.id }, :method => :delete, :remote => true %>
