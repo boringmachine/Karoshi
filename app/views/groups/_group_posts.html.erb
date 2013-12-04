@@ -1,4 +1,3 @@
-<header><h2>Group Posts</h2></header>
 <% @post = Post.new %>
 <% if GroupUser.exist(current_user.id, @group.id) %>
   <%= render 'post' %>

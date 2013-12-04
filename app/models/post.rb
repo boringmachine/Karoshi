@@ -13,8 +13,8 @@ class Post < ActiveRecord::Base
  
   auto_html_for :body do
     html_escape
-    image(:width => 300, :height => 300)
-    youtube(:width => 300, :height => 250)
+    image(:width => 400, :height => 400)
+    youtube(:width => 400, :height => 250)
     link :target => "_blank", :rel => "nofollow"
     simple_format
   end
