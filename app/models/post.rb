@@ -61,7 +61,7 @@ class Post < ActiveRecord::Base
   def self.auto_res(body)
     tmp = body.gsub(/&gt;&gt;([0-9]+)/, '<a href="/posts/\1"> &gt;&gt;\1 </a>')
     tmp = tmp.gsub(/#([a-zA-Z0-9]+)/,'<a href="/posts?search=%23\1">#\1</a>')
-    tmp = tmp.gsub(/\r\n/,'<br />');
+    tmp = tmp.gsub(/(\r\n|\n)/,'<br />');
   end
 
   def self.getBody(topic_id)

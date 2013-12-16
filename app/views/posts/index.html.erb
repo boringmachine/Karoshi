@@ -15,8 +15,10 @@
   <%= render 'form' %>
   <%= render 'list_posts' %>
   <%= will_paginate @posts %>
-  
-  <%= form_tag posts_path, id:'infloader', method:'get', remote: true do %>
-    <%= submit_tag "Load Next Posts", :name => nil %>
-  <% end %>
 </section>
+
+<%= form_tag posts_path, id:'infloader', method:'get', remote: true do |f|%>
+  <%= hidden_field_tag :page, "2" %>
+  <%= submit_tag "Load Next Posts", :name => nil %>
+<% end %>
+
