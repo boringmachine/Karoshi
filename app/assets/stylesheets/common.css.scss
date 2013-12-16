@@ -90,8 +90,28 @@ body{
   }
 }
 
-#infloader{
-  margin-left:50%;
+#infloader input[type="submit"]{
+  margin-left:45%;
+  background-color:#599bb3;
+  -moz-border-radius:18px;
+  -webkit-border-radius:18px;
+  border-radius:18px;
+  border:1px solid #29668f;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:arial;
+  font-size:17px;
+  padding:6px 67px;
+  text-decoration:none;
+  text-shadow:2px 3px 2px #3d768a;
+  &:hover {
+   background-color:#408c99;
+  }
+  &:active {
+    position:relative;
+    top:1px;
+  }
 }
 
 #new_post{
