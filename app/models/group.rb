@@ -1,7 +1,7 @@
 class Group < ActiveRecord::Base
   attr_accessible :address, :category_id, :description, :geo, :name, :tel, :url, :visible,
                   :photo, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at
-  has_attached_file :photo, :styles => { :small => "160x160>" },
+  has_attached_file :photo, :styles => { :small => "160x160#" },
                     :url  => "/assets/groups/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/groups/:id/:style/:basename.:extension"
   validates_attachment_size :photo, :less_than => 5.megabytes
