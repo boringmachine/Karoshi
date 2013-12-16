@@ -1,0 +1,25 @@
+<% @posts.each do |post| %>
+  $article = $("<article/>",{class:"article post_article"});
+  <% topic = Topic.find(post.topic_id) %>
+  <% group = Group.find(post.group_id) %>
+  <% user  = User.find(post.user_id) %>
+
+  $header = $("<header/>");
+  $header.append('<h3><%= link_to topic.subject, topic %> - <%= link_to group.name, group %></h3>');
+
+  $div = $("<div/>");
+  $div.append('<span class="userimg"><%= image_tag user.photo.url(:small) %></span>');
+  $div.append('<span class="user"><b><%= user.username %></b></span>');
+  $div.append('<span class="date"><%= post.created_at %></span>');
+  $div.append('<span class="no"  >No:<%= post.id %></span>');
+
+  $article.append($header);
+  $article.append($div);
+  <% if post.photo? %>
+    $article.append('<div class="image"><%= image_tag post.photo.url(:small) %></div>');
+  <% end %>
+  $body = $("<div/>",{class:"body"});
+  $body.append('<%= Post.auto_res(post.body_html).html_safe %>');
+  $article.append($body);
+  $("#posts").append($article);
+<% end %>

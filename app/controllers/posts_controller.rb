@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  respond_to :html, :xml, :json
+  respond_to :html, :xml, :json, :js
   
   # GET /posts
   # GET /posts.json
@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @post = current_user.posts.find(params[:id])
+    @post = Post.find(params[:id])
     respond_with(@post)
   end
 

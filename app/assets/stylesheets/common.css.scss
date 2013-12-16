@@ -80,7 +80,6 @@ body{
 
 #new_post{
   textarea {
-    width: 90%;
     height: 60px;
     margin-left:25px;
     border:1px solid gray; 
@@ -89,6 +88,10 @@ body{
     -moz-border-radius: 10px;
     border-radius: 10px;
   }
+}
+
+#infloader{
+  margin-left:100px;
 }
 
 #new_post{
@@ -155,6 +158,9 @@ article{
 
 .login,.new_group,.edit_group,#new_post{
   width: 310px;
+  textarea{
+    width:90%;
+  }
 }
 
 .post_article,.group_post_article{

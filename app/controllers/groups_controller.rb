@@ -50,11 +50,4 @@ class GroupsController < ApplicationController
     respond_with(@group)
   end
 
-  # DELETE /groups/1
-  # DELETE /groups/1.json
-  def destroy
-    @group = current_user.groups.find(params[:id])
-    @group.destroy
-    respond_with(@group)
-  end
 end

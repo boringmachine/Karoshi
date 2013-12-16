@@ -16,7 +16,6 @@ class Post < ActiveRecord::Base
     image(:width => 400, :height => 400)
     youtube(:width => 400, :height => 250)
     link :target => "_blank", :rel => "nofollow"
-    simple_format
   end
  
   @per_page = 10
@@ -61,7 +60,8 @@ class Post < ActiveRecord::Base
 
   def self.auto_res(body)
     tmp = body.gsub(/&gt;&gt;([0-9]+)/, '<a href="/posts/\1"> &gt;&gt;\1 </a>')
-    tmp.gsub(/#([a-zA-Z0-9]+)/,'<a href="/posts?search=%23\1">#\1</a>')
+    tmp = tmp.gsub(/#([a-zA-Z0-9]+)/,'<a href="/posts?search=%23\1">#\1</a>')
+    tmp = tmp.gsub(/\r\n/,'<br />');
   end
 
   def self.getBody(topic_id)

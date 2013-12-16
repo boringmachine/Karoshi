@@ -24,7 +24,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+gem "jquery-rails", '~> 3.0.4'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -45,4 +45,3 @@ gem 'devise', '3.0.0.rc'
 gem "will_paginate", :git => "https://github.com/p7r/will_paginate.git", :branch => "rails3"
 gem "paperclip"
 gem "auto_html"
-gem 'rinku'

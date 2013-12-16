@@ -12,6 +12,7 @@
 
   <p>
   	<%= f.label :photo %>
+  	<%= image_tag @user.photo.url(:small) %>
   	<%= f.file_field :photo %>
   </p>
 
