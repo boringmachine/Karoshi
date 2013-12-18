@@ -1,5 +1,11 @@
 $left : 100px;
 
+@font-face {
+  font-family: 'Exo';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Exo 2'), local('Exo2-Regular'), url(http://themes.googleusercontent.com/static/fonts/exo2/v1/8C2PVL2WIMUnPF90ukjrZQ.woff) format('woff');
+}
 
 ul {
   list-style-type: none;
@@ -90,6 +96,29 @@ body{
   }
 }
 
+#group_user_button form input[type="submit"]{
+  background-color:#ededed;
+  -moz-border-radius:13px;
+  -webkit-border-radius:13px;
+  border-radius:13px;
+  border:1px solid #d6bcd6;
+  display:inline-block;
+  cursor:pointer;
+  color:#3a8a9e;
+  font-family:arial;
+  font-size:17px;
+  padding:5px 35px;
+  text-decoration:none;
+  text-shadow:1px 2px 0px #e1e2ed;
+  &:hover {
+    background-color:#bab1ba;
+  }
+  &:active {
+    position:relative;
+    top:1px;
+  }
+}
+
 #infloader input[type="submit"]{
   margin-left:47%;
   background-color:#599bb3;
@@ -174,6 +203,13 @@ article{
   width: 220px;
   position:fixed;
   height: 92%;
+  section{
+    header h3{
+     font-size:17px;
+     font-family: Exo;
+    }  
+} 
+
 }
 
 .login,.new_group,.edit_group,#new_post{

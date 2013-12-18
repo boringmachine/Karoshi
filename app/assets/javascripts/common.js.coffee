@@ -6,3 +6,4 @@ $ ->
 		else sel = "/topics"
 
 		$("#search_post form").attr("action",sel)
+		
