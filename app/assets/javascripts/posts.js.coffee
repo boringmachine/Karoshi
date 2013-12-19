@@ -14,4 +14,4 @@ $ ->
   $('#post_group_id').change ->
     $('#post_topic_id').empty()
     group = $('#post_group_id option:selected').val()
-    setTopicsOption()    
+    setTopicsOption()
