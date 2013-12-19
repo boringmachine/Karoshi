@@ -1,5 +1,8 @@
 <% groups = GroupTopic.joinedGroups(@topic.id,current_user.id) %>
-<% unless groups.empty? %>
+<% if groups.empty? %>
+  <br>
+  <br>
+<% else %>
   <%= form_for(@post) do |f| %>
     <% if @post.errors.any? %>
       <div id="error_explanation">
