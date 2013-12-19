@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(:version => 20131202070757) do
   add_index "group_users", ["user_id"], :name => "index_group_users_on_user_id"
 
   create_table "groups", :force => true do |t|
-    t.integer  "category_id"
     t.string   "name"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
