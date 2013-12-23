@@ -61,13 +61,6 @@ class Post < ActiveRecord::Base
   end
 
 
-  def self.auto_res(body)
-    tmp = body.gsub(/&gt;&gt;([0-9]+)/, '<a href="/posts/\1"> &gt;&gt;\1 </a>')
-    tmp = tmp.gsub(/#([a-zA-Z0-9]+)/,'<a href="/posts?search=%23\1">#\1</a>')
-    tmp = tmp.gsub(/'/,'&#39;')
-    tmp = tmp.gsub(/(\r\n|\n)/,'<br />');
-  end
-
   def self.getBody(topic_id)
     tmp = topicposts(topic_id,1)
     buf = ''
@@ -86,8 +79,5 @@ class Post < ActiveRecord::Base
     end
   end
   
-  def self.s3Static(tag)
-    tag.gsub("s3.amazonaws.com/rocky-wave-100", "rocky-wave-100.s3.amazonaws.com")
-  end
-
+ 
 end
