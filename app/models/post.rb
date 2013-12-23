@@ -85,5 +85,9 @@ class Post < ActiveRecord::Base
       ""
     end
   end
+  
+  def self.s3Static(tag)
+    tag.gsub("s3.amazonaws.com/rocky-wave-100", "rocky-wave-100.s3.amazonaws.com")
+  end
 
 end

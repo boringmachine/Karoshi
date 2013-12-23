@@ -13,7 +13,7 @@
       <span class="no"  >No:<%= post.id %></span>
     </div>
     <% if post.photo? %>
-      <div class="image"><%= image_tag post.photo.url(:medium) %></div>
+      <div class="image"><%= Post.s3Static(image_tag post.photo.url(:medium)).html_safe %></div>
     <% end %>
     <div class="body"><%= Post.auto_res(post.body_html).html_safe %></div>
   </article>
