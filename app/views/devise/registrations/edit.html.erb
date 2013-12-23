@@ -12,7 +12,7 @@
 
   <p>
   	<%= f.label :photo %>
-  	<%= image_tag @user.photo.url(:small) %>
+  	<%= s3 image_tag(@user.photo.url(:small)) %>
   	<%= f.file_field :photo %>
   </p>
 

@@ -8,17 +8,17 @@
 <article class="article group_post_article">
   <header><h3><%= topic.subject %></h3></header>
   <div>
-    <span class="userimg"><%= image_tag user.photo.url(:small) %></span>
+    <span class="userimg"><%= s3 image_tag(user.photo.url(:small)) %></span>
     <span class="user"><b><%= user.username %></b></span>
     <span class="date"><%= post.created_at %></span>
     <span class="no"  >No:<%= post.id %></span>
   </div>
 
   <% if post.photo? %>
-    <div class="image"><%= s3Static(image_tag post.photo.url(:medium)).html_safe %></div>
+    <div class="image"><%= s3 image_tag(post.photo.url(:medium)) %></div>
   <% end %>  
     
-  <div class="body"><%= auto_res(post.body_html).html_safe %></div>
+  <div class="body"><%= auto_res post.body_html %></div>
 </article>
 <% end %>
 <%= will_paginate @posts %>

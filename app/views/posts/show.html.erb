@@ -8,15 +8,15 @@
     <h3><%= link_to topic.subject, topic %> - <%= link_to group.name, group %></h3>
   </header>
   <div>
-    <span class="userimg"><%= image_tag user.photo.url(:small) %></span>
+    <span class="userimg"><%= s3 image_tag(user.photo.url(:small)) %></span>
     <span class="user"><b><%= user.username %></b></span>
     <span class="date"><%= @post.created_at %></span>
     <span class="no"  >No:<%= @post.id %></span>
   </div>
   <% if @post.photo? %>
-    <div id="image"><%= image_tag @post.photo.url(:medium) %></div>
+    <div id="image"><%= s3 image_tag(@post.photo.url(:medium)) %></div>
   <% end %>
-  <div id="body"><%= Post.auto_res(@post.body).html_safe %></div>
+  <div id="body"><%= auto_res @post.body %></div>
 </article>
 
 
