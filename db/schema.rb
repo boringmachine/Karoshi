@@ -13,12 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20131104035310) do
 
-  create_table "categories", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "group_topics", :force => true do |t|
     t.integer  "group_id"
     t.integer  "topic_id"
