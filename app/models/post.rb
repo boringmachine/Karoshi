@@ -2,8 +2,10 @@ class Post < ActiveRecord::Base
   attr_accessible :body, :topic_id, :user_id, :group_id,
                   :photo, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at
   has_attached_file :photo, :styles => { :medium => "400x400>",:small => "100x100>" },
-                    :url  => "/assets/posts/:id/:style/:basename.:extension",
-                    :path => ":rails_root/public/assets/posts/:id/:style/:basename.:extension"
+    :storage => :s3,
+    :bucket => 'rocky-wave-100',
+    :s3_credentials => "#{Rails.root}/config/s3.yml"
+    
   belongs_to :group_topic
   belongs_to :user
   scope :recent, order('created_at desc') 
