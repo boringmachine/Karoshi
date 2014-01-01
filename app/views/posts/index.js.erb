@@ -1,6 +1,3 @@
-<% if @posts.count < Post.per_page %>
-  $("#infloader").hide();
-<% end %>
 <% @posts.each do |post| %>
   $article = $("<article/>",{class:"article post_article"});
   <% topic = Topic.find(post.topic_id) %>
@@ -29,4 +26,6 @@
 <% end %>
 page = parseInt($("#page").val())+1;
 $("#page").val(page);
-
+<% if @posts.count < Post.per_page %>
+  $("#infloader").hide();
+<% end %>
