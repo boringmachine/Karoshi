@@ -42,7 +42,7 @@ ul {
 }
 
 body{
-  overflow-x: hidden; 
+  overflow-x: hidden;
 }
 
 #search_post{
@@ -88,9 +88,11 @@ body{
 }
 
 #new_post{
+  width: 280px;
   textarea {
+    width:250px;
     height: 60px;
-    margin-left:25px;
+    margin-left:15px;
     border:1px solid gray; 
     font-family: Tahoma, sans-serif;
     -webkit-border-radius: 10px;
@@ -178,13 +180,16 @@ h2 {
   margin-left: 50px;
 }
 
-#new_post,.article{
+.article{
+  width:70%;
   margin-left: $left;
+}
+
+#new_post,.article{
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
   border: 1px solid #999;
-  width: 70%;
   background: white;
 }
 
@@ -206,12 +211,11 @@ article{
   
 }
 
+
 #sidebar {
-  overflow: auto;
+  overflow-x: hidden; 
   float: left;
-  width: 220px;
-  position:fixed;
-  height: 92%;
+  width: 330px;
   section{
     header h3{
      font-size:17px;
@@ -220,7 +224,7 @@ article{
   } 
 }
 
-.login,.new_group,.edit_group,#new_post{
+.login,.new_group,.edit_group{
   width: 310px;
   textarea{
     width:90%;
@@ -232,7 +236,9 @@ article{
 }
 
 
-.login,.new_group,.edit_group,#new_post,.post_article,.group_post_article{
+.login,.new_group,
+.edit_group,#new_post,
+.post_article,.group_post_article{
   position: relative;
   margin: 50px auto;
   padding: 20px 20px 20px;

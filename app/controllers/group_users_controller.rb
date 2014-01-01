@@ -4,7 +4,7 @@ class GroupUsersController < ApplicationController
   # GET /group_users
   # GET /group_users.json
   def index
-    @group_users = GroupUser.all
+    @group_users = GroupUser.weightAll
     respond_with(@group_users)
   end
 

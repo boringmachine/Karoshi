@@ -1,5 +1,10 @@
 <section id="sidebar">
 
+  <section id="new_post_section">
+  	<% @post = Post.new %>
+    <%= render 'form' %>
+  </section>
+
   <section id="joined_groups">
     <%= render 'joined_groups' %>
   </section>
@@ -11,8 +16,6 @@
 </section>
 
 <section id="posts">
-  <% @post = Post.new %>
-  <%= render 'form' %>
   <%= render 'list_posts' %>
 </section>
 <% if @posts.count == Post.per_page %>

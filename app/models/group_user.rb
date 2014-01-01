@@ -49,12 +49,14 @@ class GroupUser < ActiveRecord::Base
     data = [];
     n = Group.count
     
-    for i in 1...(n-1)
+    for i in 1...n
       node = {id: i,name: i, adjacencies:[]} 
-      for j in (i+1)...n
-        w = weight(i,j)
-        adj = {nodeTo:j, data:{weight:w}}
-        node[:adjacencies].push(adj)
+      for j in 1...n
+        unless i==j
+          w = weight(i,j)
+          adj = {nodeTo:j, data:{weight:w}}
+          node[:adjacencies].push(adj)
+        end
       end
       data.push(node)
     end
