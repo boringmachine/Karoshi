@@ -23,4 +23,42 @@ class GroupUser < ActiveRecord::Base
     end
   end
   
+  #TODO http://philogb.github.io/jit/static/v20/Jit/Examples/Hypertree/example2.html
+  
+  def self.weight(group1_id, group2_id)
+    g1 = where(group_id: group1_id)
+    c1 = g1.count
+    
+    g2 = where(group_id: group2_id)
+    c2 = g2.count
+    
+    count = 0
+    
+    n = c1 < c2 ? c1 : c2
+    
+    if(0 < n)
+      for i in 0...(n-1)
+        if g1[i].user_id == g2[i].user_id then count+=1 end
+      end
+    end
+    
+    (count*100)/n
+  end
+  
+  def self.weightAll()
+    data = [];
+    n = Group.count
+    
+    for i in 1...(n-1)
+      node = {id: i,name: i, adjacencies:[]} 
+      for j in (i+1)...n
+        w = weight(i,j)
+        adj = {nodeTo:j, data:{weight:w}}
+        node[:adjacencies].push(adj)
+      end
+      data.push(node)
+    end
+    data
+  end
+  
 end
