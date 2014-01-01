@@ -8,7 +8,7 @@
   $header.append('<h3><%= link_to topic.subject, topic %> - <%= link_to group.name, group %></h3>');
 
   $div = $("<div/>");
-  $div.append('<span class="userimg"><%= image_tag user.photo.url(:small) %></span>');
+  $div.append('<span class="userimg"><%= s3 image_tag(user.photo.url(:small)) %></span>');
   $div.append('<span class="user"><b><%= user.username %></b></span>');
   $div.append('<span class="date"><%= post.created_at %></span>');
   $div.append('<span class="no"  >No:<%= post.id %></span>');
@@ -16,10 +16,10 @@
   $article.append($header);
   $article.append($div);
   <% if post.photo? %>
-    $article.append('<div class="image"><%= image_tag post.photo.url(:small) %></div>');
+    $article.append('<div class="image"><%= s3 image_tag(post.photo.url(:medium)) %></div>');
   <% end %>
   $body = $("<div/>",{class:"body"});
-  $body.html('<%= Post.auto_res(post.body_html).html_safe %>');
+  $body.html('<%= auto_res post.body_html %>');
   $article.append($body);
   $("#posts").append($article);
   

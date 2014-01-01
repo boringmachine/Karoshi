@@ -9,6 +9,6 @@ module ApplicationHelper
   
  def s3(tag)
     tag.gsub("s3.amazonaws.com/rocky-wave-100", "rocky-wave-100.s3.amazonaws.com").html_safe
-  end
+ end
 
 end
