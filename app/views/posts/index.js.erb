@@ -26,6 +26,6 @@
 <% end %>
 page = parseInt($("#page").val())+1;
 $("#page").val(page);
-<% if @posts.empty? %>
+<% if @posts.count < Post.per_page %>
   $("#infloader").hide();
 <% end %>

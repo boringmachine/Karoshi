@@ -1,17 +1,20 @@
 <table id="group_table">
 <% i=0 %>
 <% @groups.each do |group| %>
-  <% modi = (i%3) %>
-  <% if modi == 0 %>
+
+  <% if group.visible %>
+    <% modi = (i%3) %>
+    <% if modi == 0 %>
   <tr>
-  <% end %>
+    <% end %>
     <td class="group">
       <span><%= link_to group.name, group %></span>
       <div class="group_pic"><%= s3 image_tag(group.photo.url(:small)) %></div>
     </td>
-  <% if modi == 2%>
+    <% if modi == 2%>
   </tr>
+    <% end %>
+    <% i+=1 %>
   <% end %>
-  <% i+=1 %>
 <% end %>
 </table>
