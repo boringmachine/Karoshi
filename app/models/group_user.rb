@@ -35,30 +35,35 @@ class GroupUser < ActiveRecord::Base
     count = 0
     
     n = c1 < c2 ? c1 : c2
+    m = c1 > c2 ? c1 : c2
+    m = m == 0  ?  1 : m
     
     if(0 < n)
-      for i in 0...(n-1)
+      for i in 0...n
         if g1[i].user_id == g2[i].user_id then count+=1 end
       end
     end
     
-    (count*100)/n
+    (count*100)/m
   end
   
   def self.weightAll()
     data = [];
     n = Group.count
     
-    for i in 1...n
-      node = {id: i,name: i, adjacencies:[]} 
-      for j in 1...n
-        unless i==j
-          w = weight(i,j)
+    for i in 1...n+1
+      g1 = Group.find(i).name
+      node = {id: i,name: g1, adjacencies:[]} 
+      for j in 1... n+1
+        w = weight(i,j)
+        if i!=j and w != 0
           adj = {nodeTo:j, data:{weight:w}}
           node[:adjacencies].push(adj)
         end
       end
-      data.push(node)
+      if 0 < node[:adjacencies].count
+        data.push(node)
+      end
     end
     data
   end

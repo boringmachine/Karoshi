@@ -1,27 +1,15 @@
-<h1>Listing group_users</h1>
+<div id="container">
 
-<table>
-  <tr>
-    <th>Group</th>
-    <th>User</th>
-    <th>Status</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
-<% @group_users.each do |group_user| %>
-  <tr>
-    <td><%= group_user.group_id %></td>
-    <td><%= group_user.user_id %></td>
-    <td><%= group_user.status %></td>
-    <td><%= link_to 'Show', group_user %></td>
-    <td><%= link_to 'Edit', edit_group_user_path(group_user) %></td>
-    <td><%= link_to 'Destroy', group_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+<div id="center-container">
+    <div id="infovis"></div>    
+</div>
 
-<br />
+<div id="right-container">
 
-<%= link_to 'New Group user', new_group_user_path %>
+<div id="inner-details"></div>
+
+</div>
+
+<div id="log"></div>
+</div>
