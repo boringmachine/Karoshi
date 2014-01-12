@@ -15,6 +15,14 @@
 
 </section>
 
+<% if @post.count == 0 %>
+<section id="introduction">
+  <p>First,you should join some groups.</p>
+  <p>1, Search groups by using search bar.</p>
+  <p>2, Go to the Group page.</p>
+  <p>3, Click "Join this group" button.</p>
+</section>
+<% end %>
 <section id="posts">
   <%= render 'list_posts' %>
 </section>
