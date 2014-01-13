@@ -1,10 +1,5 @@
 <section id="sidebar">
 
-  <section id="new_post_section">
-  	<% @post = Post.new %>
-    <%= render 'form' %>
-  </section>
-
   <section id="joined_groups">
     <%= render 'joined_groups' %>
   </section>
@@ -15,17 +10,16 @@
 
 </section>
 
-<% if @posts.count == 0 %>
-<section id="introduction">
-  <p>First,you should join some groups.</p>
-  <p>1, Search groups by using search bar.</p>
-  <p>2, Go to the Group page.</p>
-  <p>3, Click "Join this group" button.</p>
-</section>
-<% end %>
+
 <section id="posts">
+  <section id="new_post_section">
+  	<% @post = Post.new %>
+    <%= render 'form' %>
+  </section>
   <%= render 'list_posts' %>
 </section>
+
+
 <% if @posts.count == Post.per_page %>
   <%= form_tag posts_path, id:'infloader', method:'get', remote: true do |f|%>
     <%= hidden_field_tag :page, "2",id:"page" %>

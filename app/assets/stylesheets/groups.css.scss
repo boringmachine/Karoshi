@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#groups{
+  margin-top: 30px;
+}
+
 #groups, #group_posts{
   margin-left: 200px;
 }
@@ -17,4 +21,26 @@
   textarea{
     width:300px;
   }
+}
+
+#new_topic,#group_info{
+  width: 200px;
+  background:#fff;
+  padding:10px;
+  border:1px solid #888888;
+  border-radius:10px;
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+}
+
+#new_topic{  
+  input{
+    width:150px;
+  }
+  
+  label[for="topic_private"]{
+    position:relative;
+    top:15px;
+  }
+  
 }
