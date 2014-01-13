@@ -281,13 +281,26 @@ article{
   
 }
 
+#new_topic,#group_info,#joined_groups,#links,#group_topics{
+  width:200px;
+  background:#fff;
+  padding:10px;
+  border:1px solid #888888;
+  border-radius:10px;
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+}
+
 
 #sidebar {
-  overflow-x: hidden; 
   float: left;
   width: 230px;
+  margin-left: 30px;
+  margin-top: 20px;
   font-family: Exo;
   section{
+    margin-top:10px;
+
     header h3{
      font-size:17px;
     }  
