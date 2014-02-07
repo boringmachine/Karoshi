@@ -47,25 +47,4 @@ class GroupUser < ActiveRecord::Base
     (count*100)/m
   end
   
-  def self.weightAll()
-    data = [];
-    n = Group.count
-    
-    for i in 1...n+1
-      g1 = Group.find(i).name
-      node = {id: i,name: g1, adjacencies:[]} 
-      for j in 1... n+1
-        w = weight(i,j)
-        if i!=j and w != 0
-          adj = {nodeTo:j, data:{weight:w}}
-          node[:adjacencies].push(adj)
-        end
-      end
-      if 0 < node[:adjacencies].count
-        data.push(node)
-      end
-    end
-    data
-  end
-  
 end
