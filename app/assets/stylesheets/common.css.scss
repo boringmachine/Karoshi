@@ -60,18 +60,16 @@ body{
 
 #navbar{
   input[type=text] {
-    padding:5px; border:1px solid #ccc; 
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
+    padding:5px; 
+    border:1px solid #ccc; 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
     &:focus {
       border-color:#333;
     }
   }
   select,input[type=submit]{
     height: 26px;
-  }
-  select{
-    background-color:#CCF;
   }
   
   height:40px;
@@ -151,7 +149,9 @@ body{
   }
 }
 
-#sidebar input[type="submit"]
+#sidebar input[type="submit"],
+#navbar input[type="submit"],
+select
 {        
   display: inline-block;
   white-space: nowrap;
@@ -165,7 +165,6 @@ body{
   filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#cccccc');
   border: 1px solid #777;
   padding: 0 1.5em;
-  margin: 0.5em;
   font: bold 1em/2em Arial, Helvetica;
   text-decoration: none;
   color: #333;
