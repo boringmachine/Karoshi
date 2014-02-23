@@ -1,3 +1,4 @@
+<header><h1>New Group Topic</h1></header>
 <% if GroupUser.exist(current_user.id,@group.id) %>
   <%= form_for(Topic.new) do |f| %>
     <div class="field">

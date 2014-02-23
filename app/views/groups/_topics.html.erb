@@ -1,4 +1,4 @@
-<header><h3>Group Topics</h3></header>
+<header><h1>Group Topics</h1></header>
 <% topics = GroupTopic.topics(@group.id)%>
 <% topics = Topic.where(id: topics).search('',params[:tpage]) %>
 <ul>
