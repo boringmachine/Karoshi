@@ -6,3 +6,14 @@ $ ->
 		else sel = "/topics"
 
 		$("#search_post form").attr("action",sel)
+		
+$ ->
+  menubool = true
+  $("#sidebar").hide()
+  $("#menu").click ->
+    if menubool is on
+      $("#sidebar").show("fast")
+    else
+      $("#sidebar").hide("fast")
+    menubool = !menubool
+
