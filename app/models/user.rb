@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
     :s3_credentials => "#{Rails.root}/config/s3.yml",
     :default_url => "/photos/verysmall/missing.png"
     
+  validates :username, :length => (1..50)
   validates_attachment_size :photo, :less_than => 5.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png','image/gif']
   

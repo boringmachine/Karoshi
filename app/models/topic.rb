@@ -2,6 +2,7 @@ class Topic < ActiveRecord::Base
   attr_accessible :subject,:status
   has_many :group_topics
   has_many :groups, through: :group_topics
+  validates :subject, :length => (1..50)
 
   @per_page = 20
 
