@@ -1,11 +1,13 @@
 class Group < ActiveRecord::Base
-  attr_accessible :address, :category_id, :description, :geo, :name, :tel, :url, :visible,
+  attr_accessible :category_id, :description, :name, :visible,
                   :photo, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at
-  has_attached_file :photo, :styles => { :small => "160x160#" },
+  has_attached_file :photo, :styles => { :small => "220x220#" },
     :storage => :s3,
     :bucket => 'rocky-wave-100',
     :s3_credentials => "#{Rails.root}/config/s3.yml"
-    
+
+  validates :name, :length => (2..50)
+  validates :description, :length => (0..300)
   validates_attachment_size :photo, :less_than => 5.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png','image/gif']
 

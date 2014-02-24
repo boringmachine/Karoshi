@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
   attr_accessible :body, :topic_id, :user_id, :group_id,
                   :photo, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at
-  has_attached_file :photo, :styles => { :medium => "400x400>",:small => "100x100>" },
+  has_attached_file :photo, :styles => { :medium => "500x500>",:small => "100x100>" },
     :storage => :s3,
     :bucket => 'rocky-wave-100',
     :s3_credentials => "#{Rails.root}/config/s3.yml"
@@ -10,13 +10,14 @@ class Post < ActiveRecord::Base
   belongs_to :user
   scope :recent, order('created_at desc') 
  
+  validates :body, :length => (0..300)
   validates_attachment_size :photo, :less_than => 5.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png','image/gif']
  
   auto_html_for :body do
     html_escape
-    image(:width => 400, :height => 400)
-    youtube(:width => 400, :height => 250)
+    image(:width => 500, :height => 500)
+    youtube(:width => 500, :height => 500)
     link :target => "_blank", :rel => "nofollow"
   end
  

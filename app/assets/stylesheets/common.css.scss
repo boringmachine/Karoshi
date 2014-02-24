@@ -7,6 +7,10 @@ $left : 100px;
   src: local('Exo 2'), local('Exo2-Regular'), url(http://themes.googleusercontent.com/static/fonts/exo2/v1/8C2PVL2WIMUnPF90ukjrZQ.woff) format('woff');
 }
 
+#error_explanation{
+  width: 300px;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -43,6 +47,7 @@ ul {
 
 body{
   overflow-x: hidden;
+  background-image:url("../assets/back.png");
 }
 
 #menu_section{
@@ -203,6 +208,7 @@ body{
 }
 
 #sidebar input[type="submit"],
+#sidebar_2 input[type="submit"],
 #navbar input[type="submit"],
 select
 {        
@@ -322,7 +328,6 @@ h2 {
 
 .article{
   width:70%;
-  margin-left: $left;
 }
 
 #new_post,.article{
@@ -340,7 +345,6 @@ h2 {
 article{
   width:80%;
   margin-top:10px;
-  margin-left:$left;
   header{
     border-bottom:1px solid #AAA;
   }
@@ -356,7 +360,7 @@ article{
 }
 
 
-#sidebar {
+#sidebar,#sidebar_2{
   float: left;
   width: 230px;
   margin-left: 30px;
@@ -379,12 +383,12 @@ article{
 }
 
 .post_article,.group_post_article{
-  width: 410px;
+  width: 500px;
 }
 
 
 .login,.new_group,
-.edit_group,#new_post,#sidebar,
+.edit_group,#new_post,#sidebar,#sidebar_2,
 .post_article,.group_post_article{
   position: relative;
   margin: 50px auto;

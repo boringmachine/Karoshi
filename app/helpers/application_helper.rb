@@ -4,7 +4,7 @@ module ApplicationHelper
     tmp = tmp.gsub(/#([a-zA-Z0-9]+)/,'<a href="/posts?search=%23\1">#\1</a>')
     tmp = tmp.gsub(/'/,'&#39;')
     tmp = tmp.gsub(/(\r\n|\n)/,'<br />');
-    tmp.html_safe
+    tmp.html_safe;
   end
   
  def s3(tag)
