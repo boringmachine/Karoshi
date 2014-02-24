@@ -20,6 +20,9 @@
     <%= render 'form' %>
   </section>
   <%= render 'list_posts' %>
+  <% if GroupUser.groups(current_user.id).count == 1 %>
+     <%= render 'explain'%>
+  <% end %>
 </section>
 
 

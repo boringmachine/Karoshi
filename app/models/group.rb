@@ -1,7 +1,7 @@
 class Group < ActiveRecord::Base
   attr_accessible :category_id, :description, :name, :visible,
                   :photo, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at
-  has_attached_file :photo, :styles => { :small => "220x220#" },
+  has_attached_file :photo, :styles => { :small => "220x220#"},
     :storage => :s3,
     :bucket => 'rocky-wave-100',
     :s3_credentials => "#{Rails.root}/config/s3.yml"
