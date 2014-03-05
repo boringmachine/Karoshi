@@ -166,11 +166,7 @@ body{
     width:250px;
     height: 60px;
     margin-left:15px;
-    border:1px solid gray; 
     font-family: Tahoma, sans-serif;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
 
     &:focus{
       height:150px;
@@ -502,16 +498,19 @@ article{
     line-height: 34px;
   }
   
-  input {
+  input, textarea {
       font-family: 'Lucida Grande', Tahoma, Verdana, sans-serif;
       font-size: 14px;
   }
-
-  input[type=text], input[type=password],input[type=email] {
+  input[type=text], input[type=password],input[type=email]{
     margin: 5px;
     padding: 0 10px;
     width: 200px;
     height: 34px;
+  }
+  
+  input[type=text], input[type=password],input[type=email], textarea{
+
     color: #404040;
     background: white;
     border: 1px solid;
