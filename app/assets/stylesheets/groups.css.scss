@@ -29,3 +29,18 @@
   }
   
 }
+
+td.group{
+  div.group_name{
+    width:220px;
+    background:#fff;
+    font-size:15px;
+  }
+
+  div.group{
+    width:220px;
+    -webkit-box-shadow: 2px 1px 11px 0px rgba(50, 50, 122, 0.53);
+    -moz-box-shadow:    2px 1px 11px 0px rgba(50, 50, 122, 0.53);
+    box-shadow:         2px 1px 11px 0px rgba(50, 50, 122, 0.53);
+  }
+}

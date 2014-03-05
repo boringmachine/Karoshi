@@ -8,9 +8,14 @@
   <tr>
     <% end %>
     <td class="group">
-      <span><%= link_to group.name, group %></span>
-      <div class="group_pic">
-      	<%= link_to s3(image_tag(group.photo.url(:small))), group %>
+      <div class="group">
+        <div class="group_name">
+      	  <%= link_to group.name, group %><br/>
+      	  <span class="group_members"><%= GroupUser.users(group.id).count %> members</span>
+        </div>
+        <div class="group_pic">
+    	  <%= link_to s3(image_tag(group.photo.url(:small))), group %>
+        </div>
       </div>
     </td>
     <% if modi == 2%>

@@ -11,6 +11,14 @@ class GroupUser < ActiveRecord::Base
     groups
   end
   
+  def self.users(group_id)
+    users = []
+    where(group_id: group_id).each do |group|
+      users.push(group.user_id)
+    end
+    users
+  end
+  
   def self.getGroupUser(user_id, group_id)
       where(group_id: group_id, user_id: user_id)
   end
