@@ -359,6 +359,8 @@ article{
 #sidebar,#sidebar_2{
   float: left;
   width: 230px;
+  position: relative;
+  z-index:10;
   margin-left: 30px;
   margin-top: 20px;
   font-family: Exo;
