@@ -9,7 +9,9 @@
     <% end %>
     <td class="group">
       <span><%= link_to group.name, group %></span>
-      <div class="group_pic"><%= s3 image_tag(group.photo.url(:small)) %></div>
+      <div class="group_pic">
+      	<%= link_to s3(image_tag(group.photo.url(:small))), group %>
+      </div>
     </td>
     <% if modi == 2%>
   </tr>
