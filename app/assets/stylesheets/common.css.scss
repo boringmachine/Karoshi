@@ -161,7 +161,7 @@ body{
 }
 
 #new_post{
-  width: 280px;
+  width: 300px;
   textarea {
     width:250px;
     height: 60px;
@@ -322,9 +322,9 @@ h2 {
   margin-left: 50px;
 }
 
-.article{
-  width:70%;
-}
+//.article{
+//  width:330px;
+//}
 
 #new_post,.article{
   -webkit-border-radius: 10px;
@@ -339,7 +339,6 @@ h2 {
 }
 
 article{
-  width:80%;
   margin-top:10px;
   header{
     border-bottom:1px solid #AAA;
@@ -381,7 +380,7 @@ article{
 }
 
 .post_article,.group_post_article{
-  width: 500px;
+  width: 330px;
 }
 
 
