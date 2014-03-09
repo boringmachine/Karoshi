@@ -27,7 +27,7 @@
   <% if @posts.count == Post.per_page %>
   <%= form_tag posts_path, id:'infloader', method:'get', remote: true do |f|%>
     <%= hidden_field_tag :page, "2",id:"page" %>
-    <%= submit_tag "Load Next Posts", :name => nil %>
+    <div id="infbtn"><%= submit_tag "Load Next Posts", :name => nil %></div>
   <% end %>
 <% end %>
 </section>
