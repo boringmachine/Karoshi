@@ -14,9 +14,7 @@
     <button id="menu">MENU</button>
   </section>
   <section id="login_info" class="navbar-text pull-right">  	
-      <%= link_to "Home", :posts %> | 
-      Logged in as <strong><%= current_user.email %></strong>.
-      <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+      <strong><%= link_to current_user.email, edit_user_registration_path, :class => 'navbar-link' %></strong> | 
       <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
   </section>
 </nav>

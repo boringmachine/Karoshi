@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
   attr_accessible :body, :topic_id, :user_id, :group_id,
                   :photo, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at
-  has_attached_file :photo, :styles => { :medium => "500x500>",:small => "100x100>" },
+  has_attached_file :photo, :styles => { :medium => "300x300>",:small => "100x100>" },
     :storage => :s3,
     :bucket => 'rocky-wave-100',
     :s3_credentials => "#{Rails.root}/config/s3.yml"
@@ -16,8 +16,8 @@ class Post < ActiveRecord::Base
  
   auto_html_for :body do
     html_escape
-    image(:width => 500, :height => 500)
-    youtube(:width => 500, :height => 500)
+    image(:width => 300, :height => 300)
+    youtube(:width => 300, :height => 300)
     link :target => "_blank", :rel => "nofollow"
   end
  
