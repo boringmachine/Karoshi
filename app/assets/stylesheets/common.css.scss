@@ -52,8 +52,8 @@ body{
 
 #menu_section{
   position:relative;
-  top: 33px;
-  z-index:9;
+  top:5px;
+  left:5px;
 }
 
 #menu{
@@ -84,8 +84,8 @@ body{
   font-size:15px;
   font-weight:bold;
   font-style:normal;
-  height:50px;
-  line-height:50px;
+  height:30px;
+  line-height:30px;
   width:100px;
   text-decoration:none;
   text-align:center;
@@ -161,7 +161,7 @@ body{
 }
 
 #new_post{
-  width: 300px;
+  width: 330px;
   textarea {
     width:250px;
     height: 60px;
@@ -277,7 +277,8 @@ select
 
 
 #infloader input[type="submit"]{
-  margin-left: 40%;
+  margin-left: auto;
+  margin-right: auto;
   background-color:#599bb3;
   -moz-border-radius:18px;
   -webkit-border-radius:18px;
@@ -348,7 +349,9 @@ article{
   }
   
 }
-
+hr.block{
+  height: 80px;
+}
 #new_topic,#group_info,#joined_groups,#links,#group_topics{
   width:230px;
   background:#fff;

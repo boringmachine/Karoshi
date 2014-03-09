@@ -1,8 +1,17 @@
-<section id="menu_section">
-  <button id="menu">MENU</button>
-</section>
 <section id="sidebar">
 
+  <section id="search_post">
+    <%= form_tag posts_path, :method => 'get' do %>
+      <%= text_field_tag :search, params[:search] %>
+      <select id="submit_path">
+        <option value="1">Post </option>
+        <option value="2">Group</option>
+        <option value="3">Topic</option>
+      </select>
+      <%= submit_tag "Search", :name => nil %>
+    <% end %>
+  </section>
+  <hr class="block"/>
   <section id="joined_groups">
     <%= render 'joined_groups' %>
   </section>
