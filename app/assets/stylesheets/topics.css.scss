@@ -4,14 +4,11 @@
 
 #topics{
   margin-top: 30px;
-}
-
-#topics,#topic_posts{
-  margin-left: 230px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .topic_origin{
-  margin-left: 100px;
   margin-top: 30px;
   .topic_body{
     color:gray;

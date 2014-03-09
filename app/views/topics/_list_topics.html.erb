@@ -1,9 +1,9 @@
 <% @topics.each do |topic| %>
   <% unless topic.status %>
-  <div class="topic_origin">
+  <article class="topic_origin article post_article">
     <div class="topic_subject">ID<%= topic.id%>:<%= link_to topic.subject, topic %></div>
     <div class="topic_date"><%= Post.getDate(topic.id) %></div>
   	<div class="topic_body"><%= Post.getBody(topic.id) %></div>
-  </div>
+  </article>
   <% end %>
 <% end %>
