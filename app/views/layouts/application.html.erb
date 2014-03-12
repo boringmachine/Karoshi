@@ -19,6 +19,41 @@
       <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
   </section>
 </nav>
+<section id="sidebar">
+  <section id="search_post">
+    <%= form_tag posts_path, :method => 'get' do %>
+      <%= text_field_tag :search, params[:search] %>
+      <select id="submit_path">
+        <option value="1">Post </option>
+        <option value="2">Group</option>
+        <option value="3">Topic</option>
+      </select>
+      <%= submit_tag "Search", :name => nil %>
+    <% end %>
+  </section>
+  <hr class="block"/>
+  
+  <section id="links">
+    <header><h1>Links</h1></header>
+    <ul>
+      <li><%= link_to "Home", :posts %></li>
+      <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
+      <li><%= link_to 'New Group', new_group_path %></li>
+      <li><%= link_to 'Post List' , posts_path  %></li>
+      <li><%= link_to 'Group List', groups_path %></li>
+      <li><%= link_to 'Topic List', topics_path %></li>
+    </ul>
+  </section><br />
+  
+  <section id="joined_groups">
+  	<header><h1>Joined Group</h1></header>
+    <ul>
+    <% Group.find(GroupUser.groups(current_user.id)).each do |group| %>
+      <li><%= link_to group.name, group %></li>
+    <% end %>
+    </ul>
+  </section>
+</section>
 <% end %>
   <%= yield %>
   

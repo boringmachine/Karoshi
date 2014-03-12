@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+<section id="sidebar">
+  <section id="search_post">
+    <%= render 'search' %>
+  </section>
+  <hr class="block"/>
+  
+  <section id="links">
+    <%= render 'links' %>
+  </section><br />
+  
+  <section id="joined_groups">
+    <%= render 'joined_groups' %>
+  </section>
+</section>
+
+<section id="topic_posts">
+  <%= render 'topic_posts' %>
+</section>
