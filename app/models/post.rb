@@ -10,7 +10,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   scope :recent, order('created_at desc') 
  
-  validates :body, :length => (0..300)
+  validates :body, :length => (0..500)
   validates_attachment_size :photo, :less_than => 5.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png','image/gif']
  
