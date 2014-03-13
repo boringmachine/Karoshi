@@ -369,7 +369,7 @@ hr.block{
   top: 40px;
   bottom: 0;
   overflow: auto;
-
+  overflow-x: hidden;
   section{
     margin-top:10px;
     background: #ebebeb;
@@ -417,6 +417,7 @@ hr.block{
     width:310px;
   }
   #photo{
+    margin-left:-17px;
     text-align:center;
   }
 }
