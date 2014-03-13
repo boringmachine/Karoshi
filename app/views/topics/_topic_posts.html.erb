@@ -1,3 +1,11 @@
+<section id="group_topic_form" class="post_article">
+  <h1><%=@topic.subject%></h1>
+  <% unless @topic.status %>
+    <section id="join_topic">
+      <%= render 'group_topic' %>
+    </section>
+  <% end %>
+</section>
 <% @post = Post.new %>
 <%= render 'post' %>
 <% @posts.reverse.each do |post| %>
