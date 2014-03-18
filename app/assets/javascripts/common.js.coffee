@@ -16,4 +16,3 @@ $ ->
     else
       $("#sidebar").hide()
     menubool = !menubool
-

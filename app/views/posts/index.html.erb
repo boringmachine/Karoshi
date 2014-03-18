@@ -1,17 +1,19 @@
 <section id="posts">
+
   <section id="new_post_section">
   	<% @post = Post.new %>
     <%= render 'form' %>
   </section>
+
   <%= render 'list_posts' %>
+
   <% if GroupUser.groups(current_user.id).count == 1 %>
      <%= render 'explain'%>
   <% end %>
+  
   <% if @posts.count == Post.per_page %>
-  <%= form_tag posts_path, id:'infloader', method:'get', remote: true do |f|%>
-    <%= hidden_field_tag :page, "2",id:"page" %>
-    <div id="infbtn"><%= submit_tag "Load Next Posts", :name => nil %></div>
+     <%= render 'infbtn' %>
   <% end %>
-<% end %>
+
 </section>
 
