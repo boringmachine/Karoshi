@@ -12,8 +12,8 @@ $ ->
   $("#sidebar").hide()
   $("#menu").click ->
     if menubool is on
-      $("#sidebar").show("fast")
+      $("#sidebar").show()
     else
-      $("#sidebar").hide("fast")
+      $("#sidebar").hide()
     menubool = !menubool
 
