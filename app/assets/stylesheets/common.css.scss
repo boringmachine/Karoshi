@@ -1,5 +1,4 @@
 $left : 100px;
-
 @font-face {
   font-family: 'Exo';
   font-style: normal;
@@ -335,11 +334,14 @@ hr.block{
   }
 }
 
+
+$sb: #ebebeb;
+$sc: #627e98;
 #sidebar,#sidebar_2{
-  background: #ebebeb; 
-  color:#627e98;
+  background: $sb; 
+  color: $sc;
   float: left;
-  width: 230px;
+  width: 280px;
   font-family: Exo;
   position: fixed;
   z-index: 10;
@@ -350,28 +352,31 @@ hr.block{
   overflow-x: hidden;
   section{
     margin-top:10px;
-    background: #ebebeb;
+    background: $sb;
     header{
-      background: #ebebeb; 
+      background: $sb; 
       h1{
        font-size:20px;
       }
     }
     a{
-     color:#627e98;
+     color: $sc;
      font-size: 20px;
      font-family: Exo;
+     height: 50px;
     }
   }
   ul li{
-    background: #ebebeb;
+    background: $sb;
     margin-left:15px;
   }
   input[type=text] {
-    padding:5px; 
+    padding:5px;
     border:1px solid #ccc; 
     -webkit-border-radius: 10px;
     border-radius: 10px;
+    width: 240px;
+    height: 23px;
     &:focus {
       border-color:#333;
     }
