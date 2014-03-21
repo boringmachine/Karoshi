@@ -9,7 +9,7 @@
 <% @post = Post.new %>
 <%= render 'post' %>
 <% @posts.reverse.each do |post| %>
-<article>
+<article class="topic_post_article">
   <% user = User.find(post.user_id)%>
   <header>
     <span class="userimg"><%= s3 image_tag(user.photo.url(:small)) %></span>
