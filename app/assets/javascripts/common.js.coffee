@@ -16,3 +16,8 @@ $ ->
     else
       $("#sidebar").hide()
     menubool = !menubool
+    
+$ ->
+  $('iframe').each ->
+    url = $(this).attr("src")
+    $(this).attr("src",url+"?wmode=transparent")
