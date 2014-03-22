@@ -12,7 +12,7 @@ class GroupsController < ApplicationController
   # GET /groups/1.json
   def show
     @group = Group.find(params[:id])
-    #@posts = Group.getPosts(params)
+    @posts = Group.getPosts(params)
     respond_with(@group)
   end
 

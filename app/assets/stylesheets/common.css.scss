@@ -488,7 +488,8 @@ $sc: #627e98;
     outline-offset: 0;
   }
 
-  input[type=submit] {
+  input[type=submit], button{
+
     padding: 0 18px;
     height: 29px;
     font-size: 12px;
