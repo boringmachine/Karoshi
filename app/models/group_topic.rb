@@ -35,7 +35,8 @@ class GroupTopic < ActiveRecord::Base
   end
   
   def self.joinedGroups(topic_id,user_id)
-    groups = Group.owngroups(user_id)
+    gid = GroupUser.groups(user_id)
+    groups = Group.where(id: gid)
     
     jgroups = []
     
