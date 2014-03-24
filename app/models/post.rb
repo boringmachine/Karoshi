@@ -21,7 +21,7 @@ class Post < ActiveRecord::Base
     link :target => "_blank", :rel => "nofollow"
   end
  
-  @per_page = 10
+  @per_page = 15
  
   def self.groupposts(group_id,page)
     paginate :per_page => @per_page, :page => page,
