@@ -27,14 +27,14 @@ $ ->
 
   widthIsOver850 = () ->
     $("#new_post_section").css({"position":"fixed","float":"left","left":"50px","top":"100px"})
-    $("#group_posts").css({"position":"absolute","float":"left","left":"50px"})
+    $("#group_posts").css({"position":"relative","left":"20%"})
     $("#post_list").css({"position":"relative","left":"20%"})
     $("#post_list article").removeClass("post_article")
     $("#post_list article").addClass("arrow_box")
     
   widthIsUnder850 = () ->
     $("#new_post_section").css({"position":"relative","float":"none","left":"0px","top":"0px"})
-    $("#group_posts").css({"position":"relative","float":"none","left":"0px"})
+    $("#group_posts").css({"position":"relative","left":"0%"})
     $("#post_list").css({"position":"relative","left":"0%"})
     $("#post_list article").addClass("post_article")
     $("#post_list article").removeClass("arrow_box")
