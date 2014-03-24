@@ -5,7 +5,7 @@
 <% @posts.each do |post| %>
 <% topic = Topic.find(post.topic_id) %>
 <% user = User.find(post.user_id) %>
-<article class="article group_post_article">
+<article class="article post_article">
   <header><h3><%= topic.subject %></h3></header>
   <div>
     <span class="userimg"><%= s3 image_tag(user.photo.url(:small)) %></span>
