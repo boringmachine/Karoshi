@@ -6,6 +6,17 @@ $left : 100px;
   src: local('Exo 2'), local('Exo2-Regular'), url(http://themes.googleusercontent.com/static/fonts/exo2/v1/8C2PVL2WIMUnPF90ukjrZQ.woff) format('woff');
 }
 
+#home_li{
+  background:   url('../assets/rails.png') no-repeat fixed center; 
+  padding-left:5px;
+}
+
+.icon{
+  float:left;
+  width:30px;
+  height:30px;
+}
+
 #error_explanation{
   width: 300px;
 }
