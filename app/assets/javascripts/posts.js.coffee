@@ -18,4 +18,5 @@ $ ->
     
 $ ->
   $(window).bottom()
-  $(window).bind "bottom", -> $("#infbtn input").click() 
+  $(window).bind "bottom", -> 
+    $("#infbtn input").click()
