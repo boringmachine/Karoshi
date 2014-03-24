@@ -21,7 +21,7 @@
   $body = $("<div/>",{class:"body"});
   $body.html('<%= auto_res post.body_html %>');
   $article.append($body);
-  $("#posts").append($article);
+  $("#post_list").append($article);
   
 <% end %>
 page = parseInt($("#page").val())+1;
