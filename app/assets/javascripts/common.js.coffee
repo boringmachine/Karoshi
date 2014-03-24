@@ -27,14 +27,17 @@ $ ->
   
   if size > 850
     $("#new_post_section").css({"position":"fixed","float":"left","left":"50px","top":"100px"})
+    $("#group_posts").css({"position":"absolute","float":"left","left":"50px"})
     $("#post_list").css({"position":"relative","left":"20%"})
 
   $(window).resize ->
     if $(window).width() > 850
       $("#new_post_section").css({"position":"fixed","float":"left","left":"50px","top":"100px"})
+      $("#group_posts").css({"position":"absolute","float":"left","left":"50px"})
       $("#post_list").css({"position":"relative","left":"20%"})
 
     else
       $("#new_post_section").css({"position":"relative","float":"none","left":"0px","top":"0px"})
+      $("#group_posts").css({"position":"relative","float":"none","left":"0px"})
       $("#post_list").css({"position":"relative","left":"0%"})
 
