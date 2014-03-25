@@ -57,5 +57,4 @@ $ ->
     $("#infbtn input").click ->
       responsiveWindow()
     $("#infbtn input").click()
-    responsiveWindow()
 
