@@ -407,9 +407,9 @@ $sc: #627e98;
   margin: 50px auto;
   padding: 20px 20px 20px;
   background: white;
-  -webkit-box-shadow: 0px 0px 29px 0px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow:    0px 0px 29px 0px rgba(0, 0, 0, 0.2);
-  box-shadow:         0px 0px 29px 0px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0px 0px 29px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow:    0px 0px 29px 0px rgba(0, 0, 0, 0.1);
+  box-shadow:         0px 0px 29px 0px rgba(0, 0, 0, 0.1);
   
   &:before {
     content: '';
@@ -556,19 +556,15 @@ $sc: #627e98;
     }
   }
 }
-
 .arrow_box {
   position: relative;
-  background: #ffffff;
-  border: 4px solid #9791f5;
   margin: 50px auto;
   padding: 20px 20px 20px;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  border-radius: 30px;
-  -webkit-box-shadow: 0px 0px 29px 0px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow:    0px 0px 29px 0px rgba(0, 0, 0, 0.2);
-  box-shadow:         0px 0px 29px 0px rgba(0, 0, 0, 0.2);
+  background: white;
+  -webkit-box-shadow: 0px 0px 29px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow:    0px 0px 29px 0px rgba(0, 0, 0, 0.1);
+  box-shadow:         0px 0px 29px 0px rgba(0, 0, 0, 0.1);
+  border: 4px solid #9194ee;
 }
 .arrow_box:after, .arrow_box:before {
   right: 100%;
@@ -583,14 +579,13 @@ $sc: #627e98;
 
 .arrow_box:after {
   border-color: rgba(255, 255, 255, 0);
-  border-right-color: #ffffff;
+  border-right-color: #fff;
   border-width: 30px;
   margin-top: -30px;
 }
 .arrow_box:before {
-  border-color: rgba(151, 145, 245, 0);
-  border-right-color: #9791f5;
+  border-color: rgba(145, 148, 238, 0);
+  border-right-color: #9194ee;
   border-width: 36px;
   margin-top: -36px;
 }
-

@@ -16,7 +16,3 @@ $ ->
     group = $('#post_group_id option:selected').val()
     setTopicsOption()
     
-$ ->
-  $(window).bottom()
-  $(window).bind "bottom", -> 
-    $("#infbtn input").click()
