@@ -36,8 +36,8 @@ $ ->
     $("#new_post_section").css({"position":"relative","float":"none","left":"0px","top":"0px"})
     $("#group_posts").css({"position":"relative","left":"0%"})
     $("#post_list").css({"position":"relative","left":"0%"})
-    $("article").removeClass({"arrow_box"})
-    $("article").addClass({"post_article"})
+    $("article").removeClass("arrow_box")
+    $("article").addClass("post_article")
 
   responsiveWindow = ()->
     if $(window).width() > 850
