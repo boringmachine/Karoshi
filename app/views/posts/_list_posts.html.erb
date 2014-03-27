@@ -14,7 +14,7 @@
       <span class="no"  >No:<%= post.id %></span>
     </div>
     <% if post.photo? %>
-      <div class="image"><%= s3(image_tag post.photo.url(:medium)) %></div>
+      <div class="image"><a class="thickbox" href="<%= s3 post.photo.url(:original) %>"><%= s3(image_tag post.photo.url(:medium)) %></a></div>
     <% end %>
     <div class="body"><%= auto_res post.body_html %></div>
   </article>

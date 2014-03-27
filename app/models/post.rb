@@ -16,7 +16,6 @@ class Post < ActiveRecord::Base
  
   auto_html_for :body do
     html_escape
-    image(:width => 300, :height => 300)
     youtube(:width => 300, :height => 300)
     link :target => "_blank", :rel => "nofollow"
   end
