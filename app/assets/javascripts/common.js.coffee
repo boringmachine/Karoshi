@@ -49,6 +49,6 @@ $ ->
   $(window).bottom()
   $(window).bind "bottom", ->
     $("#infbtn input").click()
-
+    
 $ ->
   $('a.fancybox').fancybox()
