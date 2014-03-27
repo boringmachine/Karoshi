@@ -50,3 +50,5 @@ $ ->
   $(window).bind "bottom", ->
     $("#infbtn input").click()
 
+$ ->
+  $('.fancybox').fancybox();

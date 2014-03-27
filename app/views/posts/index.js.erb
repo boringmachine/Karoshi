@@ -16,7 +16,7 @@
   $article.append($header);
   $article.append($div);
   <% if post.photo? %>
-    $article.append('<div class="image"><%= s3 image_tag(post.photo.url(:medium)) %></div>');
+    $article.append('<div class="image"><a class="fancybox" href="<%= s3 post.photo.url(:original) %>"><%= s3 image_tag(post.photo.url(:medium)) %></a></div>');
   <% end %>
   $body = $("<div/>",{class:"body"});
   $body.html('<%= auto_res post.body_html %>');
