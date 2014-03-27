@@ -28,7 +28,7 @@ $ ->
     $("article, article div, article header").width(size/2)
     
   widthIsUnder850 = () ->
-    $("article").width("310")
+    $("article, article div, article header").width("310")
 
   responsiveWindow = ()->
     if $(window).width() > 850
