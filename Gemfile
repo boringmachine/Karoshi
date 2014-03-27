@@ -47,3 +47,4 @@ gem "will_paginate", :git => "https://github.com/p7r/will_paginate.git", :branch
 gem "paperclip"
 gem "auto_html"
 gem "aws-sdk"
+gem 'fancybox-rails'

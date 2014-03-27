@@ -51,4 +51,4 @@ $ ->
     $("#infbtn input").click()
 
 $ ->
-  $('.fancybox').fancybox()
+  $('a.fancybox').fancybox()
