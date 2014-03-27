@@ -1,4 +1,7 @@
 $ ->
+  $('a.fancybox').fancybox()
+
+$ ->
 	$("#submit_path").change ->
 		val = $('#submit_path option:selected').val()
 		if val is "1" then sel = "/posts"
@@ -45,10 +48,3 @@ $ ->
 
   $(window).scroll ->
     responsiveWindow()
-
-  $(window).bottom()
-  $(window).bind "bottom", ->
-    $("#infbtn input").click()
-    
-$ ->
-  $('a.fancybox').fancybox()
