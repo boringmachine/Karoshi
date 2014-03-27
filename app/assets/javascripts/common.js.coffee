@@ -24,15 +24,15 @@ $ ->
     
 $ ->
   widthIsOver850 = () ->
-
+    size = $(window).width()
+    $("article, article div, article header").width(size/2)
     
   widthIsUnder850 = () ->
-
+    $("article").width("310")
 
   responsiveWindow = ()->
     if $(window).width() > 850
       widthIsOver850()
-
     else
       widthIsUnder850()
   
@@ -42,7 +42,8 @@ $ ->
   $(window).resize ->
     responsiveWindow()
 
-  $("#infbtn input").click ->
+
+  $(window).scroll ->
     responsiveWindow()
 
   $(window).bottom()
