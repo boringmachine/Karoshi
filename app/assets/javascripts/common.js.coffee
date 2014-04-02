@@ -45,6 +45,10 @@ $ ->
   $(window).resize ->
     responsiveWindow()
 
-
   $(window).scroll ->
     responsiveWindow()
+
+$ ->
+  $(window).bottom({proximity: 0.05});
+  $(window).on 'bottom', ->
+    $("#infbtn input[type='submit']").click()
