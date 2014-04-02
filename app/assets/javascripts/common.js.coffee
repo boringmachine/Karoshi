@@ -1,3 +1,16 @@
+widthIsOver850 = () ->
+  size = $(window).width()
+  $("article, article div, article header").width(size/2)
+   
+widthIsUnder850 = () ->
+  $("article, article div, article header").width("310")
+
+responsiveWindow = ()->
+  if $(window).width() > 850
+    widthIsOver850()
+  else
+    widthIsUnder850()
+
 $ ->
   $('a.fancybox').fancybox()
 
@@ -25,19 +38,6 @@ $ ->
     url = $(this).attr("src")
     $(this).attr("src",url+"?wmode=transparent")
     
-$ ->
-  widthIsOver850 = () ->
-    size = $(window).width()
-    $("article, article div, article header").width(size/2)
-    
-  widthIsUnder850 = () ->
-    $("article, article div, article header").width("310")
-
-  responsiveWindow = ()->
-    if $(window).width() > 850
-      widthIsOver850()
-    else
-      widthIsUnder850()
   
   if $(window).width() > 850
     widthIsOver850()

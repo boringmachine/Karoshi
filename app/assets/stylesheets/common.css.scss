@@ -162,13 +162,10 @@ body{
 
   textarea {
     width:250px;
-    height: 60px;
+    height: 150px;
     margin-left:15px;
     font-family: Tahoma, sans-serif;
 
-    &:focus{
-      height:150px;
-    }
   }
   
   select{
