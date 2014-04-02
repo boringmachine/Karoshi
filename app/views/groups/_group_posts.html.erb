@@ -1,9 +1,3 @@
-<section id="new_post_section">
-  <% @post = Post.new %>
-  <% if GroupUser.exist(current_user.id, @group.id) %>
-    <%= render 'post' %>
-  <% end %>
-</section>
 <% @posts.each do |post| %>
 <% topic = Topic.find(post.topic_id) %>
 <% user = User.find(post.user_id) %>
