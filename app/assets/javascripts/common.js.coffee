@@ -1,6 +1,5 @@
 widthIsOver850 = () ->
-  size = $(window).width()
-  $("article, article div, article header").width(size/2)
+  $("article, article div, article header").width("500")
    
 widthIsUnder850 = () ->
   $("article, article div, article header").width("310")
