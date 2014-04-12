@@ -11,6 +11,18 @@
     </div>
   <% end %>
 
+
+  <div class="field">
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </div>
+
+  <div class="field">
+  	<%= f.label :photo %>
+  	<%= f.file_field :photo %>
+  </div>
+
+  
   <div class="field" id="group">
     <%= f.label :group_id %><br />
     <% groups = GroupUser.groups(current_user.id) %>
@@ -21,16 +33,7 @@
     <%= f.label :topic_id %><br />
 	<%= collection_select(:post, :topic_id, [], :id, :subject) %>
   </div>
-
-  <div class="field">
-  	<%= f.label :photo %>
-  	<%= f.file_field :photo %>
-  </div>
-
-  <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

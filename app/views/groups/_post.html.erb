@@ -12,24 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= f.hidden_field :group_id, :value => @group.id  %>
-  </div>
-
-  <div class="field">
-    <%= f.label :topic_id %><br />
-    <% topics = GroupTopic.topics(@group.id) %>
-    <%= collection_select(:post, :topic_id, Topic.find(topics), :id, :subject) %> 
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
   </div>
   
   <div class="field">
     <%= f.label :photo %>
     <%= f.file_field :photo %>
   </div>
-
+  
+  
   <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
+    <%= f.hidden_field :group_id, :value => @group.id  %>
   </div>
+  
+  <div class="field">
+    <%= f.label :topic_id %><br />
+    <% topics = GroupTopic.topics(@group.id) %>
+    <%= collection_select(:post, :topic_id, Topic.find(topics), :id, :subject) %> 
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
