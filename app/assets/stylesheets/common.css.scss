@@ -162,14 +162,14 @@ body{
 
   textarea {
     width:250px;
-    height: 150px;
+    height: 75px;
     margin-left:15px;
     font-family: Tahoma, sans-serif;
 
   }
   
   select{
-    width: 140px;
+    width: 300px;
   }
 }
 #group_topic_form{
@@ -299,7 +299,9 @@ h2 {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
-  border: 1px solid #CCC;
+  -webkit-box-shadow: 0px 0px 1px 0px rgba(50, 50, 50, 0.5);
+  -moz-box-shadow:    0px 0px 1px 0px rgba(50, 50, 50, 0.5);
+  box-shadow:         0px 0px 1px 0px rgba(50, 50, 50, 0.5);
   background: white;
 }
 
@@ -333,6 +335,12 @@ hr.block{
     font-size:20px;
     font-family: Exo;
   }
+}
+
+#post_group_id, #post_topic_id{
+  background: #FFF;
+  height: 30px;
+  width: 300px;
 }
 
 
@@ -414,9 +422,6 @@ $sc: #627e98;
   margin: 50px auto;
   padding: 20px 20px 20px;
   background: white;
-  -webkit-box-shadow: 0px 0px 29px 0px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow:    0px 0px 29px 0px rgba(0, 0, 0, 0.1);
-  box-shadow:         0px 0px 29px 0px rgba(0, 0, 0, 0.1);
   
   &:before {
     content: '';

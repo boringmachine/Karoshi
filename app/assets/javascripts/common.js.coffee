@@ -1,8 +1,8 @@
 widthIsOver850 = () ->
-  $("article, article div, article header").width("500")
+  $("article, article div, article header, article .image img, article iframe").width("500")
    
 widthIsUnder850 = () ->
-  $("article, article div, article header").width("310")
+  $("article, article div, article header, article .image img, article iframe").width("310")
 
 responsiveWindow = ()->
   if $(window).width() > 850
@@ -46,6 +46,16 @@ $ ->
 
   $(window).scroll ->
     responsiveWindow()
+$ ->
+  $("#new_post select").hide()
+  $("#new_post input[type='file']").hide()
+  $("#new_post label").hide()
+  
+  $("#new_post textarea").click ->
+    $("#new_post select").show("fade")
+    $("#new_post input[type='file']").show("fade")
+    $("#new_post label").show("fade")
+    $("#new_post textarea").height("150")
 
 #$ ->
 #  $(window).bottom({proximity: 0.05});
