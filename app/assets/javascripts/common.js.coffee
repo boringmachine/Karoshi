@@ -5,6 +5,10 @@ widthIsUnder850 = () ->
   $("article, article div, article header, article .image img, article iframe").width("310")
 
 responsiveWindow = ()->
+  $('iframe').each ->
+  url = $(this).attr("src")
+  $(this).attr("src",url+"?wmode=transparent")
+
   if $(window).width() > 850
     widthIsOver850()
   else
@@ -32,11 +36,7 @@ $ ->
       $("#sidebar").hide()
     menubool = !menubool
     
-$ ->
-  $('iframe').each ->
-    url = $(this).attr("src")
-    $(this).attr("src",url+"?wmode=transparent")
-    
+$ ->    
   
   if $(window).width() > 850
     widthIsOver850()
@@ -58,6 +58,6 @@ $ ->
     $("#new_post textarea").height("150")
 
 #$ ->
-#  $(window).bottom({proximity: 0.05});
+#  $(window).bottom({proximity: 0.1});
 #  $(window).on 'bottom', ->
 #    $("#infbtn input[type='submit']").click()
