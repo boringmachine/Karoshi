@@ -1,5 +1,5 @@
 class PostTagsController < ApplicationController
-  respond_to :html, :xml, :json, :js
+  respond_to :xml, :json
 
   # GET /post_tags
   # GET /post_tags.json

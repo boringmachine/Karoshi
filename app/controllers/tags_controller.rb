@@ -1,5 +1,5 @@
 class TagsController < ApplicationController
-  respond_to :html, :xml, :json, :js
+  respond_to :xml, :json
 
   # GET /tags
   # GET /tags.json
