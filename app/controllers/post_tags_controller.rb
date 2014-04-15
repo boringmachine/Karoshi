@@ -1,4 +1,6 @@
 class PostTagsController < ApplicationController
+  respond_to :html, :xml, :json, :js
+
   # GET /post_tags
   # GET /post_tags.json
   def index
