@@ -11,6 +11,7 @@ class Tag < ActiveRecord::Base
   
   def self.createTags(tags,post_id)
     tags.each do |name|
+      name = name.downcase
       tag = where(name: name)
       tag_id = nil
       if tag == []
