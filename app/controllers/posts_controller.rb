@@ -27,7 +27,10 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = current_user.posts.new(params[:post])
-    flash[:notice] = 'Post was successfully created.' if @post.save
+    if @post.save
+      flash[:notice] = 'Post was successfully created.' 
+      Tag.createTags(Tag.get_tags(@post.body), @post.id)
+    end
     respond_with(@post)
   end
 

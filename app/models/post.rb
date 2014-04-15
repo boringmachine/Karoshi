@@ -8,6 +8,8 @@ class Post < ActiveRecord::Base
     
   belongs_to :group_topic
   belongs_to :user
+  has_many :tags, through: :post_tags
+
   scope :recent, order('created_at desc') 
  
   validates :body, :length => (0..500)

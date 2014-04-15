@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131017043930) do
+ActiveRecord::Schema.define(:version => 20140415024514) do
 
   create_table "group_topics", :force => true do |t|
     t.integer  "group_id"
@@ -48,6 +48,13 @@ ActiveRecord::Schema.define(:version => 20131017043930) do
     t.datetime "photo_updated_at"
   end
 
+  create_table "post_tags", :force => true do |t|
+    t.integer  "post_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "posts", :force => true do |t|
     t.integer  "topic_id"
     t.integer  "user_id"
@@ -64,6 +71,13 @@ ActiveRecord::Schema.define(:version => 20131017043930) do
   add_index "posts", ["group_id"], :name => "index_posts_on_group_id"
   add_index "posts", ["topic_id"], :name => "index_posts_on_topic_id"
   add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.integer  "count"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "topics", :force => true do |t|
     t.string   "subject"
