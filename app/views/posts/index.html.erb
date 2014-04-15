@@ -1,3 +1,7 @@
+<section id="tags">
+  <%= render 'top_tags'%>
+</section>
+
 <section id="posts">
 
   <section id="new_post_section">
@@ -16,6 +20,5 @@
   <% if @posts.count == Post.per_page %>
      <%= render 'infbtn' %>
   <% end %>
-
 </section>
 

@@ -1,3 +1,34 @@
 // Place all the styles related to the Tags controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#tags{
+  position: fixed;
+  margin-left:10px;
+  background-color:white;
+  width: 200px;
+  font-size:15px;
+  font-family: Exo;
+  top:100px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 0px 1px 0px rgba(50, 50, 50, 0.5);
+  -moz-box-shadow:    0px 0px 1px 0px rgba(50, 50, 50, 0.5);
+  box-shadow:         0px 0px 1px 0px rgba(50, 50, 50, 0.5);
+
+  h1{
+    background-color:#AAF;
+    height: 30px;
+    font-size: 20px;
+    text-align: center;
+    -webkit-border-top-left-radius: 20px;
+    -webkit-border-top-right-radius: 20px;
+    -moz-border-radius-topleft: 20px;
+    -moz-border-radius-topright: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  a{
+    margin-left:10px;
+  }
+}

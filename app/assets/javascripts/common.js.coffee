@@ -1,9 +1,10 @@
 widthIsOver850 = () ->
   $("article, article div, article header, article .image img, article iframe").width("500")
-   
+  $("#tags").show("fadein") 
 widthIsUnder850 = () ->
   $("article, article div, article header, article .image img, article iframe").width("310")
-
+  $("#tags").hide("fadeout")
+  
 responsiveWindow = ()->
   $('iframe').each ->
   url = $(this).attr("src")
@@ -37,9 +38,8 @@ $ ->
     menubool = !menubool
     
 $ ->    
-  
-  if $(window).width() > 850
-    widthIsOver850()
+  $("#tags").hide()
+  responsiveWindow()
 
   $(window).resize ->
     responsiveWindow()

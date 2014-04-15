@@ -3,10 +3,10 @@ class Tag < ActiveRecord::Base
   has_many :post_tags
   has_many :posts, through: :post_tags
   
-  @per_page = 10
+  @per_page = 17
   
   def self.paging(page)
-    paginate :per_page => @per_page, :page => page, :order => 'updated_at desc'
+    paginate :per_page => @per_page, :page => page, :order => 'count desc'
   end
   
   def self.createTags(tags,post_id)
