@@ -18,15 +18,15 @@ class Tag < ActiveRecord::Base
         tag_id = t.id
       else
         count = tag[0].count + 1
-        t = Tag.find(tag[0].id).update_attributes(name:name, count: count)
-        tag_id = t.id
+        Tag.find(tag[0]).update_attributes(name:name, count: count)
+        tag_id = tag[0].id
       end
       PostTag.create(post_id: post_id, tag_id: tag_id) 
     end
   end
   
   def self.get_tags(body)
-    tags = body.scan(/#([a-zA-Z0-9]+)/)
+    tags = body.scan(/#[a-zA-Z0-9]+/)
   end
   
 end
