@@ -48,7 +48,7 @@ $ ->
     responsiveWindow()
     
   $("#infbtn input[type='submit']").click ->
-    sleep(200, responsiveWindow)
+    sleep(500, responsiveWindow)
     
 $ ->
   $("#new_post select").hide()
