@@ -16,6 +16,7 @@
     <div id="image"><a class="fancybox" href="<%= s3 @post.photo.url(:original) %>"><%= s3(image_tag @post.photo.url(:medium)) %></a></div>
   <% end %>
   <div id="body"><%= auto_res @post.body %></div>
+  <div class="comments"><a href="/posts?search=&gt;&gt;<%=@post.id%>">Comment(<%= Comment.countRes(@post.id) %>)</a></div>
 </article>
 
 
