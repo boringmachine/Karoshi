@@ -1,3 +1,6 @@
+sleep = (time, callback) ->
+  setTimeout(callback, time)
+
 widthIsOver850 = () ->
   $("article, article div, article header, article .image img, article iframe").width("500")
   $("#tags").show("fadein") 
@@ -44,8 +47,9 @@ $ ->
   $(window).resize ->
     responsiveWindow()
 
-  $(window).scroll ->
-    responsiveWindow()
+  $("#infbtn input[type='submit']").click ->
+    sleep(100, responsiveWindow)
+    
 $ ->
   $("#new_post select").hide()
   $("#new_post input[type='file']").hide()
@@ -57,7 +61,9 @@ $ ->
     $("#new_post label").show("fade")
     $("#new_post textarea").height("150")
 
-#$ ->
-#  $(window).bottom({proximity: 0.1});
-#  $(window).on 'bottom', ->
-#    $("#infbtn input[type='submit']").click()
+$ ->
+  $(window).bottom({proximity: 0});
+  $(window).on 'bottom', ->
+    infclick = () ->
+       $("#infbtn input[type='submit']").click()
+    sleep(300, infclick)

@@ -18,8 +18,6 @@
   <div id="body"><%= auto_res @post.body %></div>
   <div class="comments"><a href="/posts?search=&gt;&gt;<%=@post.id%>">Comment(<%= Comment.countRes(@post.id) %>)</a></div>
 </article>
-
-
 <%= link_to 'Back', :back %>
 
 
