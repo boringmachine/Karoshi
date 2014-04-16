@@ -61,8 +61,7 @@ $ ->
 $ ->
   $(window).bottom({proximity: 0});
   $(window).on 'bottom', ->
-    infclick = () ->
-       $("#infbtn input[type='submit']").click()
-    infclick()
+    $("#infbtn input[type='submit']").click()
     sleep(200, responsiveWindow)
+
 
