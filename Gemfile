@@ -48,4 +48,3 @@ gem "paperclip"
 gem "auto_html"
 gem "aws-sdk"
 gem 'fancybox2-rails'
-gem 'eventmachine'
