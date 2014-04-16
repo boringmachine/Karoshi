@@ -62,7 +62,7 @@ $ ->
     $("#new_post textarea").height("150")
 
 $ ->
-  $(window).bottom({proximity: 0});
+  $(window).bottom({proximity: 0.2});
   $(window).on 'bottom', ->
     $("#infbtn input[type='submit']").click()
     
