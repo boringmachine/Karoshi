@@ -46,9 +46,6 @@ $ ->
 
   $(window).resize ->
     responsiveWindow()
-
-  $("#infbtn input[type='submit']").click ->
-    sleep(100, responsiveWindow)
     
 $ ->
   $("#new_post select").hide()
@@ -67,3 +64,5 @@ $ ->
     infclick = () ->
        $("#infbtn input[type='submit']").click()
     sleep(300, infclick)
+    sleep(100, responsiveWindow)
+
