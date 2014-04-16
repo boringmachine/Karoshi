@@ -47,6 +47,9 @@ $ ->
   $(window).resize ->
     responsiveWindow()
     
+  $("#infbtn input[type='submit']").click ->
+    sleep(200, responsiveWindow)
+    
 $ ->
   $("#new_post select").hide()
   $("#new_post input[type='file']").hide()
@@ -62,6 +65,5 @@ $ ->
   $(window).bottom({proximity: 0});
   $(window).on 'bottom', ->
     $("#infbtn input[type='submit']").click()
-    sleep(200, responsiveWindow)
-
+    
 
