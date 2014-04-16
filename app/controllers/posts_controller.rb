@@ -30,10 +30,10 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(params[:post])
     if @post.save
       flash[:notice] = 'Post was successfully created.' 
-      Tag.createTags(Tag.get_tags(@post.body), @post.id)
+      Tag.createTags(@post.body, @post.id)
+      Comment.createComments(@post.body, @post.id)
     end
     respond_with(@post)
   end
-
 
 end

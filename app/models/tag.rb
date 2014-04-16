@@ -9,7 +9,8 @@ class Tag < ActiveRecord::Base
     paginate :per_page => @per_page, :page => page, :order => 'count desc'
   end
   
-  def self.createTags(tags,post_id)
+  def self.createTags(body,post_id)
+    tags = body.scan(/#[a-zA-Z0-9]+/)
     tags.each do |name|
       name = name.downcase
       tag = where(name: name)
@@ -24,10 +25,6 @@ class Tag < ActiveRecord::Base
       end
       PostTag.create(post_id: post_id, tag_id: tag_id) 
     end
-  end
-  
-  def self.get_tags(body)
-    tags = body.scan(/#[a-zA-Z0-9]+/)
   end
   
 end

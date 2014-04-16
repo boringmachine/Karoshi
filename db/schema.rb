@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140415024514) do
+ActiveRecord::Schema.define(:version => 20140416210354) do
+
+  create_table "comments", :force => true do |t|
+    t.integer  "parent_id"
+    t.integer  "child_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "group_topics", :force => true do |t|
     t.integer  "group_id"
@@ -66,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20140415024514) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.integer  "comment_count"
   end
 
   add_index "posts", ["group_id"], :name => "index_posts_on_group_id"

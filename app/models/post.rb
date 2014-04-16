@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  attr_accessible :body, :topic_id, :user_id, :group_id,
+  attr_accessible :body, :topic_id, :user_id, :group_id, :comment_count,
                   :photo, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at
   has_attached_file :photo, :styles => { :medium => "300x300>",:small => "100x100>" },
     :storage => :s3,
@@ -8,7 +8,12 @@ class Post < ActiveRecord::Base
     
   belongs_to :group_topic
   belongs_to :user
+  has_many :post_tags
   has_many :tags, through: :post_tags
+  has_many :comment_parent, :foreign_key => "parent_id", :class_name => "Comment"
+  has_many :comment_child,  :foreign_key => "child_id",  :class_name => "Comment"
+  has_many :parent, :through => :comment_parent, :source => :child
+  has_many :child, :through => :comment_child, :source => :parent
 
   scope :recent, order('created_at desc') 
  
