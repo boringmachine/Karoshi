@@ -63,6 +63,6 @@ $ ->
   $(window).on 'bottom', ->
     infclick = () ->
        $("#infbtn input[type='submit']").click()
-    sleep(300, infclick)
-    sleep(100, responsiveWindow)
+    infclick()
+    sleep(200, responsiveWindow)
 
