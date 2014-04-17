@@ -28,7 +28,7 @@ module ApplicationHelper
       begin
         "<a href=" + object.url + ">" +
         "<table class=thumbnail>" +
-        "<tr><td><img class=linkimg src="+ object.images.first.source_url + " /></td>" + 
+        "<tr><td><img class=linkimg src="+ object.images.first[:source_url] + " /></td>" + 
         "<td>"+ object.title + "</td></tr></table></a>" +
         body
       rescue Exception => e
