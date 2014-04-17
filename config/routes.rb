@@ -1,4 +1,6 @@
 Karoshi::Application.routes.draw do
+  use_link_thumbnailer
+
   resources :comments
 
 
