@@ -24,6 +24,7 @@ class Post < ActiveRecord::Base
   auto_html_for :body do
     html_escape
     youtube(:width => 300, :height => 300)
+    link :target => "_blank", :rel => "nofollow"
   end
  
   @per_page = 15

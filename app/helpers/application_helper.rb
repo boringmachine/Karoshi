@@ -1,7 +1,7 @@
 module ApplicationHelper
   def auto_res(body)
-    object = thumbnail(body)
-    body = makeThumb(body,object)
+    # object = thumbnail(body)
+    # body = makeThumb(body,object)
     tmp = body.gsub(/&gt;&gt;([0-9]+)/, '<a href="/posts/\1"> &gt;&gt;\1 </a>')
     tmp = tmp.gsub(/#([a-zA-Z0-9]+)/,'<a href="/posts?search=%23\1">#\1</a>')
     tmp = tmp.gsub(/'/,'&#39;')
