@@ -1,6 +1,3 @@
-sleep = (time, callback) ->
-  setTimeout(callback, time)
-
 widthIsOver850 = () ->
   $("article, .body *").width("500")
   $(".linkimg").width("250")
@@ -22,9 +19,11 @@ responsiveWindow = ()->
   else
     widthIsUnder850()
 
+# fancybox init
 $ ->
   $('a.fancybox').fancybox()
 
+# searchbar init
 $ ->
 	$("#submit_path").change ->
 		val = $('#submit_path option:selected').val()
@@ -33,7 +32,8 @@ $ ->
 		else sel = "/topics"
 
 		$("#search_post form").attr("action",sel)
-		
+
+#	sidebar init	
 $ ->
   menubool = true
   $("#sidebar").hide()
@@ -43,7 +43,8 @@ $ ->
     else
       $("#sidebar").hide()
     menubool = !menubool
-    
+
+# responsiveWindow init    
 $ ->    
   $("#tags").hide()
   responsiveWindow()
@@ -52,8 +53,9 @@ $ ->
     responsiveWindow()
     
   $("#infbtn input[type='submit']").click ->
-    sleep(800, responsiveWindow)
-    
+    setTimeout(responsiveWindow, 800)
+
+# post form init    
 $ ->
   $("#new_post select").hide()
   $("#new_post input[type='file']").hide()
