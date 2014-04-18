@@ -51,9 +51,8 @@ $ ->
 
   $(window).resize ->
     responsiveWindow()
-    
-  $("#infbtn input[type='submit']").click ->
-    setTimeout(responsiveWindow, 800)
+
+  $(document).ajaxComplete(responsiveWindow)
 
 # post form init    
 $ ->
@@ -67,9 +66,9 @@ $ ->
     $("#new_post label").show("fade")
     $("#new_post textarea").height("150")
 
-#$ ->
-#  $(window).bottom({proximity: 0.2});
-#  $(window).on 'bottom', ->
-#    $("#infbtn input[type='submit']").click()
+$ ->
+  $(window).bottom({proximity: 0});
+  $(window).on 'bottom', ->
+    $("#infbtn input[type='submit']").click()
     
 
