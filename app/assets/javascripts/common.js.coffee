@@ -66,6 +66,7 @@ $ ->
     $("#new_post label").show("fade")
     $("#new_post textarea").height("150")
 
+# infbtn init
 $ ->
   $(window).bottom({proximity: 0});
   $(window).on 'bottom', ->

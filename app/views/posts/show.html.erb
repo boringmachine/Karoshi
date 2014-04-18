@@ -1,23 +1,6 @@
-<article class="post_article article">
-  <p id="notice"><%= notice %></p>
-  <% topic = Topic.find(@post.topic_id) %>
-  <% group = Group.find(@post.group_id) %>
-  <% user  = User.find(@post.user_id) %>
-  <header>
-    <h3><%= link_to topic.subject, topic %> - <%= link_to group.name, group %></h3>
-  </header>
-  <div>
-    <span class="userimg"><%= s3 image_tag(user.photo.url(:small)) %></span>
-    <span class="user"><b><%= user.username %></b></span>
-    <span class="date"><%= @post.created_at %></span>
-    <span class="no"  >No:<%= @post.id %></span>
-  </div>
-  <% if @post.photo? %>
-    <div id="image"><a class="fancybox" href="<%= s3 @post.photo.url(:original) %>"><%= s3(image_tag @post.photo.url(:medium)) %></a></div>
-  <% end %>
-  <div id="body"><%= auto_res @post.body %></div>
-  <div class="comments"><a href="/posts?search=%3E%3E<%=@post.id%>">Comment(<%= Comment.countRes(@post.id) %>)</a></div>
-</article>
+<section id="post">
+  <%= render 'post' %>
+</section>
 <%= link_to 'Back', :back %>
 
 
