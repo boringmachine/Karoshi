@@ -4,10 +4,12 @@ sleep = (time, callback) ->
 widthIsOver850 = () ->
   $("article, article div, article header, article .image img, article iframe,.thumbnail").width("500")
   $(".linkimg").width("250")
+  $(".linkimg").height("250")
   $("#tags").show("fadein") 
 widthIsUnder850 = () ->
   $("article, article div, article header, article .image img, article iframe,.thumbnail").width("310")
   $(".linkimg").width("150")
+  $(".linkimg").height("150")
   $("#tags").hide("fadeout")
   
 responsiveWindow = ()->
