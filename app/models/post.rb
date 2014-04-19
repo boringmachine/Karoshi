@@ -12,8 +12,8 @@ class Post < ActiveRecord::Base
   has_many :tags, through: :post_tags
   has_many :comment_parent, :foreign_key => "parent_id", :class_name => "Comment"
   has_many :comment_child,  :foreign_key => "child_id",  :class_name => "Comment"
-  has_many :parent, :through => :comment_parent, :source => :child
-  has_many :child, :through => :comment_child, :source => :parent
+  has_many :parent, :class_name => "Post", :through => :comment_parent, :source => :child
+  has_many :child, :class_name => "Post",:through => :comment_child, :source => :parent
 
   scope :recent, order('created_at desc') 
  

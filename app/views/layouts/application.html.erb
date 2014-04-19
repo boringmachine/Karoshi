@@ -10,63 +10,17 @@
 </head>
 <body>
 <% if user_signed_in? %>
-<nav id="navbar">
-  <section id="menu_section">
-    <span id="menu"><img class="menuicon" src="../assets/menu.png" /></span>
-  </section>
-  <section id="login_info" class="navbar-text pull-right">
-  	  <%= link_to "Home", :posts %> | 
-      <strong><%= link_to current_user.email, edit_user_registration_path, :class => 'navbar-link' %></strong> | 
-      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-  </section>
-</nav>
-<section id="sidebar">
-  <section id="search_post">
-    <%= form_tag posts_path, :method => 'get' do %>
-      <%= text_field_tag :search, params[:search] %>
-      <select id="submit_path">
-        <option value="1">Post </option>
-        <option value="2">Group</option>
-        <option value="3">Topic</option>
-      </select>
-      <%= submit_tag "Search", :name => nil %>
-    <% end %>
-  </section>
-  <hr class="block"/>
+  <nav id="navbar">
+    <%= render 'layouts/navbar' %>
+  </nav>
   
-  <section id="links">
-    <header><h1>Links</h1></header>
-    <ul>
-      <li><img class="icon" src="../assets/home.png"><%= link_to "Home", :posts %></li>
-      <li><img class="icon" src="../assets/human.png"><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
-      <li><img class="icon" src="../assets/make.png"><%= link_to 'New Group', new_group_path %></li>
-      <li><img class="icon" src="../assets/post.png"><%= link_to 'Post List' , posts_path  %></li>
-      <li><img class="icon" src="../assets/group.png"><%= link_to 'Group List', groups_path %></li>
-      <li><img class="icon" src="../assets/topic.png"><%= link_to 'Topic List', topics_path %></li>
-    </ul>
-  </section><br />
-  
-  <section id="joined_groups">
-  	<header><h1>Joined Group</h1></header>
-    <ul>
-    <% Group.find(GroupUser.groups(current_user.id)).each do |group| %>
-      <li><img class="icon" width="30" height="30" src="<%= s3 group.photo.url(:small) %>"><%= link_to group.name, group %></li>
-    <% end %>
-    </ul>
+  <section id="sidebar">
+    <%= render 'layouts/sidebar' %>
   </section>
-</section>
 <% end %>
-  <%= yield %>
-  
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-49262055-1', 'powerful-castle-1800.herokuapp.com');
-  ga('send', 'pageview');
+<%= yield %>
 
-</script> 
+<%= render 'layouts/analytics'%>
 </body>
 </html>

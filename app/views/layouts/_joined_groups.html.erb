@@ -1,0 +1,6 @@
+<header><h1>Joined Group</h1></header>
+<ul>
+<% Group.find(GroupUser.groups(current_user.id)).each do |group| %>
+  <li><img class="icon" width="30" height="30" src="<%= s3 group.photo.url(:small) %>"><%= link_to group.name, group %></li>
+<% end %>
+</ul>
