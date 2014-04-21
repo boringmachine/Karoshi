@@ -42,7 +42,7 @@ gem "jquery-rails", '~> 3.0.4'
 # To use debugger
 # gem 'debugger'
 
-gem 'devise', '3.0.0.rc'
+gem 'devise', '~> 3.2'
 gem "will_paginate", :git => "https://github.com/p7r/will_paginate.git", :branch => "rails3"
 gem "paperclip"
 gem "auto_html"

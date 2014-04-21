@@ -1,20 +1,13 @@
 Karoshi::Application.routes.draw do
-  use_link_thumbnailer
-
   resources :comments
-
-
   resources :post_tags
-
-
   resources :tags
-
-
   resources :group_topics
   resources :posts
   resources :group_users
   resources :groups
   resources :topics
+
   devise_for :users, :controllers => {
     :sessions => 'users/sessions',
     :registrations => 'users/registrations'
