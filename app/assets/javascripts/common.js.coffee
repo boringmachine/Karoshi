@@ -1,8 +1,8 @@
 widthIsOver850 = () ->
-  $("article, .body *").width("500")
+  $("article, .body *, article header").width("500")
   $("#tags, .group_body").show("fadein") 
 widthIsUnder850 = () ->
-  $("article, .body *").width("310")
+  $("article, .body *, article header").width("310")
   $("#tags, .group_body").hide("fadeout")
   
 responsiveWindow = ()->
