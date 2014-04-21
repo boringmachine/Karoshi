@@ -86,7 +86,7 @@ body{
   position:fixed;
   z-index:10;
   
-  height:40px;
+  height:48px;
   width:100%;
   top:0px;
   left:0px;
@@ -94,18 +94,11 @@ body{
   a{
     color:#CCC;
   }
-  background: rgba(73,155,234,1);
-  background: -moz-linear-gradient(top, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(73,155,234,1)), color-stop(100%, rgba(32,124,229,1)));
-  background: -webkit-linear-gradient(top, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
-  background: -o-linear-gradient(top, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
-  background: -ms-linear-gradient(top, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
-  background: linear-gradient(to bottom, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#499bea', endColorstr='#207ce5', GradientType=0 );
+  background: #2f4154;
 
   #menu_section{
     position:relative;
-    top:5px;
+    top:10px;
     left:5px;
     #menu{
       width:30px;
@@ -119,7 +112,7 @@ body{
   #login_info {
     position:absolute;
     right:0px;
-    top:5px;
+    top:10px;
   }
 }
 
@@ -304,7 +297,7 @@ $sc: #627e98;
   position: fixed;
   z-index: 10;
   left: 0px; /* or right */
-  top: 40px;
+  top: 45px;
   bottom: 0;
   overflow: auto;
   overflow-x: hidden;
@@ -377,7 +370,7 @@ $sc: #627e98;
 .edit_group,#new_post,#sidebar_2,
 .post_article,#group_posts{
   position: relative;
-  margin: 20px auto;
+  margin: 50px auto;
   padding: 20px 20px 20px;
   background: white;
   

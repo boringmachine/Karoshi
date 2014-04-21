@@ -1,13 +1,9 @@
 widthIsOver850 = () ->
   $("article, .body *").width("500")
-  # $(".linkimg").width("250")
-  # $(".linkimg").height("250")
-  $("#tags").show("fadein") 
+  $("#tags, .group_body").show("fadein") 
 widthIsUnder850 = () ->
   $("article, .body *").width("310")
-  # $(".linkimg").width("150")
-  # $(".linkimg").height("150")
-  $("#tags").hide("fadeout")
+  $("#tags, .group_body").hide("fadeout")
   
 responsiveWindow = ()->
   $('iframe').each ->

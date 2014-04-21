@@ -27,7 +27,7 @@ class Post < ActiveRecord::Base
     link :target => "_blank", :rel => "nofollow"
   end
  
-  @per_page = 15
+  @per_page = 20
  
   def self.groupposts(group_id,page)
     paginate :per_page => @per_page, :page => page,
@@ -73,9 +73,21 @@ class Post < ActiveRecord::Base
     buf = ''
     tmp.each do |post|
       buf += post.body
+      if buf.length > 100 then break end
     end
     buf[0..100]
   end
+  
+  def self.getGroupBody(group_id)
+    posts = groupposts(group_id,1)
+    buf = ''
+    posts.each do |post|
+      buf += post.body
+      if buf.length > 200 then break end
+    end
+    buf[0..200]
+  end
+  
   
   def self.getDate(topic_id)
     tmp = Post.where(topic_id:topic_id)

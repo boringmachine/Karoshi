@@ -4,6 +4,18 @@
 
 #groups{
   margin-top: 30px;
+  
+  article{
+    height:340px;
+    img{
+      width:310px;
+      height: 310px;
+    }
+  }
+  
+  .group_left{
+    float:left;
+  }
 }
 
 

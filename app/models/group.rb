@@ -16,6 +16,7 @@ class Group < ActiveRecord::Base
   has_many :group_users
   has_many :topics, through: :group_topics
   has_many :users , through: :group_users
+  has_many :posts, through: :users
   
   @per_page = 12
   
