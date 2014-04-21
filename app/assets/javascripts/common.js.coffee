@@ -1,3 +1,4 @@
+
 widthIsOver850 = () ->
   $("article, .body *, article header").width("500")
   $("#tags, .group_body").show("fadein") 
@@ -7,8 +8,8 @@ widthIsUnder850 = () ->
   
 responsiveWindow = ()->
   $('iframe').each ->
-  url = $(this).attr("src")
-  $(this).attr("src",url+"?wmode=transparent")
+    url = $(this).attr("src")
+    $(this).attr("src",url+"?wmode=transparent")
 
   if $(window).width() > 850
     widthIsOver850()
