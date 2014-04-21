@@ -4,7 +4,7 @@ class Comment < ActiveRecord::Base
   belongs_to :child,  :class_name => "Post"
   
   def self.createComments(body, post_id)
-    comments = body.scan(/>>([0-9]+)/)
+    comments = body.scan(/>>([0-9]+)/).uniq
     post = Post.find(post_id)
     comments.each do |comment|
       child_id = comment[0].to_i

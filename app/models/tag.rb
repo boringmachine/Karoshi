@@ -10,7 +10,7 @@ class Tag < ActiveRecord::Base
   end
   
   def self.createTags(body,post_id)
-    tags = body.scan(/#[a-zA-Z0-9]+/)
+    tags = body.scan(/#[a-zA-Z0-9]+/).uniq
     tags.each do |name|
       name = name.downcase
       tag = where(name: name)

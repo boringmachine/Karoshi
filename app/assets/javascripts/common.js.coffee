@@ -15,6 +15,17 @@ responsiveWindow = ()->
   else
     widthIsUnder850()
 
+hidePostFormElms = (fadebool) ->
+  if(typeof fadebool == 'undefined') then fadebool = true
+  if fadebool is on then fade = "fade"
+  $("#new_post select").hide(fade)
+  $("#new_post input[type='file']").hide(fade)
+  $("#new_post label").hide(fade)
+  $("#new_post textarea").height(75)
+
+ajaxEnd = () ->
+  responsiveWindow()
+
 # fancybox init
 $ ->
   $('a.fancybox').fancybox()
@@ -48,13 +59,11 @@ $ ->
   $(window).resize ->
     responsiveWindow()
 
-  $(document).ajaxComplete(responsiveWindow)
+  $(document).ajaxComplete(ajaxEnd)
 
 # post form init    
 $ ->
-  $("#new_post select").hide()
-  $("#new_post input[type='file']").hide()
-  $("#new_post label").hide()
+  hidePostFormElms(false)
   
   $("#new_post textarea").click ->
     $("#new_post select").show("fade")
