@@ -5,29 +5,16 @@ minIndex = (arr) ->
     if arr[i] < arr[tmp] then tmp = i
     i++
   return tmp
+  
 
-widthIsOver1250 = () ->
-  col_heights = [30, 30, 30]
-  add_state = 0
-  $(".tlelm").each ->
-    article_height = $(this).height() + 90
-    article_half_width = $(this).width()/2
-    add_state = minIndex(col_heights)
-    ma_left = 0
-
-    if add_state is 0
-      ma_left = -400
-    else if add_state is 1
-      ma_left = 0
-    else
-      ma_left = 400
-
-    $(this).css({position:"absolute",top:col_heights[add_state],left:"50%","margin-left":ma_left-article_half_width})
-    col_heights[add_state] += article_height
-
-
-
-timeline_algorithm = (col_heights) ->
+timeline_algorithm = (width) ->
+  col_heights = []
+  i = 0
+  n = Math.round(width/400)
+  while(i < n)
+    col_heights.push(30)
+    i++
+  
   add_state = 0
 
   $(".tlelm").each ->
@@ -37,7 +24,7 @@ timeline_algorithm = (col_heights) ->
     
     ma_left = 200
     
-    x = col_heights.length #2
+    x = col_heights.length 
     a = 0.5
     b = -0.5
     y = a*x + b
@@ -48,7 +35,7 @@ timeline_algorithm = (col_heights) ->
     col_heights[add_state] += article_height
 
   
-widthIsUnder850 = () ->
+reset_timeline = () ->
   $(".tlelm").css({
     position:"relative",
     top:"",left:"",
@@ -61,12 +48,12 @@ responsiveWindow = ()->
     url = $(this).attr("src")
     $(this).attr("src",url+"?wmode=transparent")
 
-  if $(window).width() > 1250
-    timeline_algorithm([30,30,30])
-  else if $(window).width() > 850
-    timeline_algorithm([30,30])
+  w_width = $(window).width()
+
+  if w_width > 850
+    timeline_algorithm(w_width-200)
   else
-    timeline_algorithm([30])
+    reset_timeline()
 
 hidePostFormElms = (fadebool) ->
   if(typeof fadebool == 'undefined') then fadebool = true
