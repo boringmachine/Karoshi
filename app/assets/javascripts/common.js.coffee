@@ -8,7 +8,7 @@ widthIsOver850 = () ->
   $(".post_article").each ->
     article_height = $(this).height() + 90
     article_half_width = $(this).width()/2
-    leftflag = if (left_height + article_height) <= right_height then on else off
+    leftflag = if left_height <= right_height then on else off
     
     if leftflag is on
       $(this).css({position:"absolute",top:left_height,left:"50%","margin-left":-200-article_half_width})
