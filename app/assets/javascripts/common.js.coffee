@@ -2,11 +2,10 @@
 widthIsOver850 = () ->
   #$("article, .body *, article header").width("500")
   #$("#tags, .group_body").show("fadein")
-  top = $("#new_post_section form").position().top + $("#new_post_section").height() + 50
-  left_height = top
-  right_height = top
+  left_height = 30
+  right_height = 30
   leftflag = on
-  $(".post_article").each ->
+  $(".tlelm").each ->
     article_height = $(this).height() + 90
     article_half_width = $(this).width()/2
     leftflag = if left_height <= right_height then on else off
@@ -22,7 +21,7 @@ widthIsOver850 = () ->
 widthIsUnder850 = () ->
   #$("article, .body *, article header").width("310")
   #$("#tags, .group_body").hide("fadeout")
-  $(".post_article").css({position:"relative",top:"",left:"","margin-left":""})
+  $(".tlelm").css({position:"relative",top:"",left:"","margin-left":""})
   
   
 responsiveWindow = ()->
@@ -73,7 +72,7 @@ $ ->
 
 # responsiveWindow init    
 $ ->    
-  $("#tags").hide()
+  #$("#tags").hide()
   responsiveWindow()
 
   $(window).resize ->
@@ -82,14 +81,14 @@ $ ->
   $(document).ajaxComplete(ajaxEnd)
 
 # post form init    
-$ ->
-  hidePostFormElms(false)
+#$ ->
+#  hidePostFormElms(false)
   
-  $("#new_post textarea").click ->
-    $("#new_post select").show("fade")
-    $("#new_post input[type='file']").show("fade")
-    $("#new_post label").show("fade")
-    $("#new_post textarea").height("150")
+#  $("#new_post textarea").click ->
+#    $("#new_post select").show("fade")
+#    $("#new_post input[type='file']").show("fade")
+#    $("#new_post label").show("fade")
+#    $("#new_post textarea").height("150")
 
 # infbtn init
 $ ->
@@ -97,4 +96,5 @@ $ ->
   $(window).bottom({proximity: 0});
   $(window).on 'bottom', ->
     $("#infbtn input[type='submit']").click()
+
     

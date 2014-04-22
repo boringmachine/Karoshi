@@ -1,10 +1,12 @@
-<section id="tags">
-  <%= render 'top_tags'%>
-</section>
+
 
 <section id="posts">
 
-  <section id="new_post_section">
+  <section id="tags" class="tlelm">
+    <%= render 'top_tags'%>
+  </section>
+  
+  <section id="new_post_section" class="tlelm">
   	<% @post = Post.new %>
     <%= render 'form' %>
   </section>

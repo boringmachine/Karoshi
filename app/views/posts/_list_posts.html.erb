@@ -1,6 +1,6 @@
 <% @posts.each do |post| %>
   <% if post.group_id != 1 or post.user_id == current_user.id %>
-  <article class="article post_article">
+  <article class="article post_article tlelm">
   	<% topic = Topic.find(post.topic_id) %>
   	<% group = Group.find(post.group_id) %>
   	<% user  = User.find(post.user_id) %>

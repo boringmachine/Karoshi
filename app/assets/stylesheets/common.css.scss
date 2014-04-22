@@ -24,10 +24,9 @@ $left : 100px;
 }
 
 #new_post_section{
-  z-index:4;
-  float:none;
+
+  width:310px;
   #new_post {
-    width: 310px;
 
     textarea {
       width:250px;
@@ -231,7 +230,7 @@ h2 {
   width:330px;
 }
 
-#new_post,.article{
+.article{
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
@@ -372,8 +371,8 @@ $sc: #627e98;
 }
 
 .login,.new_group,
-.edit_group,#new_post,#sidebar_2,
-.post_article,#group_posts{
+.edit_group,#new_post_section,#sidebar_2,
+.post_article,#group_posts,#tags{
   margin: 50px auto;
   padding: 20px 20px 20px;
   background: white;

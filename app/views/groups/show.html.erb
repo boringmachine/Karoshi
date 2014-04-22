@@ -1,4 +1,4 @@
-<section id="group_posts" >
+<section id="group_posts" class="tlelm">
 
   <section id="group_info">
     <%= render 'group_info' %>
@@ -7,10 +7,6 @@
   <section id="group_user_button">
       <%= render 'button' %><br />
   </section><hr><br>
-
-  <section id="topic_info_button">
-      <button id="opentopics">Open Topic Info</button><br><br><hr>
-  </section>
 
   <section id="topic_info">
     <section>
@@ -31,7 +27,7 @@
 </section>
 
 <section id="posts">
-  <section id="new_post_section">
+  <section id="new_post_section" class="tlelm">
     <% @post = Post.new %>
     <% if GroupUser.exist(current_user.id, @group.id) %>
       <%= render 'post' %>
