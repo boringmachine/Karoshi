@@ -93,8 +93,8 @@ $ ->
 
 # infbtn init
 $ ->
+  $("#infbtn").hide()
   $(window).bottom({proximity: 0});
   $(window).on 'bottom', ->
     $("#infbtn input[type='submit']").click()
     
-
