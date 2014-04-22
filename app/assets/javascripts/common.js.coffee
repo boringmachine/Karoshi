@@ -43,7 +43,7 @@ hidePostFormElms = (fadebool) ->
   $("#new_post textarea").height(75)
 
 ajaxEnd = () ->
-  setTimeout(responsiveWindow, 800)
+  responsiveWindow()
 
 # fancybox init
 $ ->
