@@ -1,27 +1,58 @@
+minIndex = (arr) ->
+  i = 0
+  tmp = 0
+  while(i<arr.length)
+    if arr[i] < arr[tmp] then tmp = i
+    i++
+  return tmp
 
-widthIsOver850 = () ->
-  #$("article, .body *, article header").width("500")
-  #$("#tags, .group_body").show("fadein")
-  left_height = 30
-  right_height = 30
-  leftflag = on
+widthIsOver1250 = () ->
+  col_heights = [30, 30, 30]
+  add_state = 0
   $(".tlelm").each ->
     article_height = $(this).height() + 90
     article_half_width = $(this).width()/2
-    leftflag = if left_height <= right_height then on else off
-    
-    if leftflag is on
-      $(this).css({position:"absolute",top:left_height,left:"50%","margin-left":-200-article_half_width})
-      left_height += article_height
+    add_state = minIndex(col_heights)
+    ma_left = 0
+
+    if add_state is 0
+      ma_left = -400
+    else if add_state is 1
+      ma_left = 0
     else
-      $(this).css({position:"absolute",top:right_height,left:"50%","margin-left":200-article_half_width})
-      right_height += article_height
+      ma_left = 400
+
+    $(this).css({position:"absolute",top:col_heights[add_state],left:"50%","margin-left":ma_left-article_half_width})
+    col_heights[add_state] += article_height
+
+
+
+widthIsOver850 = () ->
+  col_heights = [30, 30]
+  add_state = 0
+
+  $(".tlelm").each ->
+    article_height = $(this).height() + 90
+    article_half_width = $(this).width()/2
+    add_state = minIndex(col_heights)
+    
+    ma_left = 200
+    
+    if add_state is 0
+      ma_left = 200
+    else
+      ma_left = -200
   
+    $(this).css({position:"absolute",top:col_heights[add_state],left:"50%","margin-left":ma_left-article_half_width})
+    col_heights[add_state] += article_height
+
   
 widthIsUnder850 = () ->
-  #$("article, .body *, article header").width("310")
-  #$("#tags, .group_body").hide("fadeout")
-  $(".tlelm").css({position:"relative",top:"",left:"","margin-left":""})
+  $(".tlelm").css({
+    position:"relative",
+    top:"",left:"",
+    "margin-left":""
+  })
   
   
 responsiveWindow = ()->
@@ -29,7 +60,9 @@ responsiveWindow = ()->
     url = $(this).attr("src")
     $(this).attr("src",url+"?wmode=transparent")
 
-  if $(window).width() > 850
+  if $(window).width() > 1250
+    widthIsOver1250()
+  else if $(window).width() > 850
     widthIsOver850()
   else
     widthIsUnder850()
