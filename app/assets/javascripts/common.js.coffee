@@ -27,8 +27,7 @@ widthIsOver1250 = () ->
 
 
 
-widthIsOver850 = () ->
-  col_heights = [30, 30]
+timeline_algorithm = (col_heights) ->
   add_state = 0
 
   $(".tlelm").each ->
@@ -38,10 +37,12 @@ widthIsOver850 = () ->
     
     ma_left = 200
     
-    if add_state is 0
-      ma_left = 200
-    else
-      ma_left = -200
+    x = col_heights.length #2
+    a = 0.5
+    b = -0.5
+    y = a*x + b
+    z = -y + add_state
+    ma_left = z * 400
   
     $(this).css({position:"absolute",top:col_heights[add_state],left:"50%","margin-left":ma_left-article_half_width})
     col_heights[add_state] += article_height
@@ -61,11 +62,11 @@ responsiveWindow = ()->
     $(this).attr("src",url+"?wmode=transparent")
 
   if $(window).width() > 1250
-    widthIsOver1250()
+    timeline_algorithm([30,30,30])
   else if $(window).width() > 850
-    widthIsOver850()
+    timeline_algorithm([30,30])
   else
-    widthIsUnder850()
+    timeline_algorithm([30])
 
 hidePostFormElms = (fadebool) ->
   if(typeof fadebool == 'undefined') then fadebool = true
