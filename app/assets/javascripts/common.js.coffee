@@ -2,8 +2,9 @@
 widthIsOver850 = () ->
   #$("article, .body *, article header").width("500")
   #$("#tags, .group_body").show("fadein")
-  left_height = 250
-  right_height = 250
+  top = $("#new_post_section form").position().top + $("#new_post_section").height() + 50
+  left_height = top
+  right_height = top
   leftflag = on
   $(".post_article").each ->
     article_height = $(this).height() + 90
