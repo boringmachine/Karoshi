@@ -367,10 +367,13 @@ $sc: #627e98;
   }
 }
 
+.post_article{
+  position: relative;
+}
+
 .login,.new_group,
 .edit_group,#new_post,#sidebar_2,
 .post_article,#group_posts{
-  position: relative;
   margin: 50px auto;
   padding: 20px 20px 20px;
   background: white;

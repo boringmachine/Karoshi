@@ -1,10 +1,28 @@
 
 widthIsOver850 = () ->
-  $("article, .body *, article header").width("500")
-  $("#tags, .group_body").show("fadein") 
+  #$("article, .body *, article header").width("500")
+  #$("#tags, .group_body").show("fadein")
+  left_height = 250
+  right_height = 250
+  leftflag = on
+  $(".post_article").each ->
+    article_height = $(this).height() + 90
+    article_half_width = $(this).width()/2
+    leftflag = if (left_height + article_height) <= right_height then on else off
+    
+    if leftflag is on
+      $(this).css({position:"absolute",top:left_height,left:"50%","margin-left":-200-article_half_width})
+      left_height += article_height
+    else
+      $(this).css({position:"absolute",top:right_height,left:"50%","margin-left":200-article_half_width})
+      right_height += article_height
+  
+  
 widthIsUnder850 = () ->
-  $("article, .body *, article header").width("310")
-  $("#tags, .group_body").hide("fadeout")
+  #$("article, .body *, article header").width("310")
+  #$("#tags, .group_body").hide("fadeout")
+  $(".post_article").css({position:"relative",top:"",left:"","margin-left":""})
+  
   
 responsiveWindow = ()->
   $('iframe').each ->
