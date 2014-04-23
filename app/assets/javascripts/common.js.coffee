@@ -1,3 +1,6 @@
+clickflag = on
+
+
 minIndex = (arr) ->
   i = 0
   tmp = 0
@@ -62,6 +65,8 @@ hidePostFormElms = (fadebool) ->
 
 ajaxEnd = () ->
   responsiveWindow()
+  $("#infbtn").hide()
+  clickflag = on
 
 # fancybox init
 $ ->
@@ -110,7 +115,10 @@ $ ->
 
 # infbtn init
 $ ->
-  $(window).bottom({proximity: 0});
+  $(window).bottom({proximity: 0.1});
   $(window).on 'bottom', ->
-    $("#infbtn input[type='submit']").click()
+    $("#infbtn").show()
+    if clickflag is on
+      clickflag = off
+      $("#infbtn input[type='submit']").click()
     
