@@ -1,20 +1,22 @@
 <header><h1>New Group Topic</h1></header>
 <% if GroupUser.exist(current_user.id,@group.id) %>
+  <table><tr><th>Subject</th><th>Private?</th></tr>
   <%= form_for(Topic.new) do |f| %>
-    <div class="field">
-      <%= f.label :subject %><br />
+  <tr>
+    <td><div class="field">
       <%= f.text_field :subject %>
-    </div>
+    </div></td>
   
-    <div class="field">
-      <%= f.label "private" %><br />
+    <td><div class="field">
       <%= f.check_box :status %>
-    </div>
+    </div></td>
   
     <%= hidden_field_tag 'group_id', @group.id %>
-  
+  </tr>
+  <tr><td colspan="3">
     <div class="actions">
 	  <%= submit_tag("Create Topic") %>
-    </div>
+    </div></td></tr>
   <% end %>
+  </table>
 <% end %>

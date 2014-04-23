@@ -44,9 +44,6 @@ reset_timeline = () ->
   
   
 responsiveWindow = ()->
-  $('iframe').each ->
-    url = $(this).attr("src")
-    $(this).attr("src",url+"?wmode=transparent")
 
   w_width = $(window).width()
 
@@ -113,9 +110,7 @@ $ ->
 
 # infbtn init
 $ ->
-  $("#infbtn").hide()
   $(window).bottom({proximity: 0});
   $(window).on 'bottom', ->
     $("#infbtn input[type='submit']").click()
-
     

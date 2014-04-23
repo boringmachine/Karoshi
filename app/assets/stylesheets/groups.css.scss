@@ -35,8 +35,11 @@
 }
 
 #new_topic{  
-  input{
+  input[type="text"]{
     width:230px;
+  }
+  input[type="submit"]{
+    width: 310px;
   }
   
 }
