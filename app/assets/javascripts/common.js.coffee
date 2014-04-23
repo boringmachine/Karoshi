@@ -1,6 +1,5 @@
 clickflag = on
 
-
 minIndex = (arr) ->
   i = 0
   tmp = 0
@@ -55,13 +54,6 @@ responsiveWindow = ()->
   else
     reset_timeline()
 
-hidePostFormElms = (fadebool) ->
-  if(typeof fadebool == 'undefined') then fadebool = true
-  if fadebool is on then fade = "fade"
-  $("#new_post select").hide(fade)
-  $("#new_post input[type='file']").hide(fade)
-  $("#new_post label").hide(fade)
-  $("#new_post textarea").height(75)
 
 ajaxEnd = () ->
   responsiveWindow()
@@ -103,17 +95,6 @@ $ ->
 
   $(document).ajaxComplete(ajaxEnd)
 
-# post form init    
-#$ ->
-#  hidePostFormElms(false)
-  
-#  $("#new_post textarea").click ->
-#    $("#new_post select").show("fade")
-#    $("#new_post input[type='file']").show("fade")
-#    $("#new_post label").show("fade")
-#    $("#new_post textarea").height("150")
-
-# infbtn init
 $ ->
   $(window).bottom({proximity: 0.1});
   $(window).on 'bottom', ->
