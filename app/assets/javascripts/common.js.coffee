@@ -87,7 +87,6 @@ $ ->
 
 # responsiveWindow init    
 $ ->    
-  #$("#tags").hide()
   responsiveWindow()
 
   $(window).resize ->
@@ -96,10 +95,12 @@ $ ->
   $(document).ajaxComplete(ajaxEnd)
 
 $ ->
+  clickInfbtn = () ->
+    $("#infbtn input[type='image']").click()
+  
   $(window).bottom({proximity: 0.1});
   $(window).on 'bottom', ->
     $("#infbtn").show()
     if clickflag is on
       clickflag = off
-      $("#infbtn input[type='submit']").click()
-    
+      setTimeout(clickInfbtn, 500)

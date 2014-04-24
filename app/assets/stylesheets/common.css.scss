@@ -187,30 +187,9 @@ select
   position: fixed;
   bottom: 10px;
   left: 50%;
-  margin-left: -155px;
-  input[type="submit"]{
-    width: 310px;
-    background-color:gray;
-  
-    -moz-border-radius:18px;
-    -webkit-border-radius:18px;
-    border-radius:18px;
-  
-    border:1px solid #29668f;
-    display:inline-block;
-    cursor:pointer;
-    color: white;
-    font-family:arial;
-    font-size:17px;
-    padding:6px 67px;
-    text-decoration:none;
-    &:hover {
-      background-color:#408c99;
-    }
-    &:active {
-      position:relative;
-      top:1px;
-    }
+  input[type="image"]{
+    width: 50px;
+    height: 50px;
   }
   
   #infbtn {

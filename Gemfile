@@ -13,6 +13,11 @@ group :production do
       gem 'rails_12factor'
 end
 
+group :test do
+  gem "rspec"
+  gem "rspec-rails"
+end
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -43,12 +48,8 @@ gem "jquery-rails", '~> 3.0.4'
 # gem 'debugger'
 
 gem 'devise', '~> 3.2'
-gem "will_paginate", :git => "https://github.com/p7r/will_paginate.git", :branch => "rails3"
+gem "will_paginate"
 gem "paperclip"
 gem "auto_html"
 gem "aws-sdk"
 gem 'fancybox2-rails'
-
-
-
-
