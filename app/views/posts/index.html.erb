@@ -19,6 +19,9 @@
      <%= render 'explain'%>
   <% end %>
   
-  <%= render 'infbtn' %>
+  <%  if @posts.count == Post.per_page %>
+     <%= render 'infbtn' %>
+     <br />
+  <% end %>
 </section>
 
