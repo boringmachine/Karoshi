@@ -3,4 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #tags{
   width: 310px;
+  .tag_name{
+    float: left;
+    margin-left: 10px;
+  }
 }

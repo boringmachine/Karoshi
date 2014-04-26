@@ -16,3 +16,7 @@ $ ->
     group = $('#post_group_id option:selected').val()
     setTopicsOption()
     
+$ ->
+  $('.tag_name a').tagcloud();
+
+    

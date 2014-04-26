@@ -1,6 +1,6 @@
 <h1>Trends</h1>
 <% @tags.each do |tag| %>
   <div class="tag_name">
-  	<a href="/posts?search=<%= tag.name.gsub(/#/,"%23") %>"><%= tag.name%></a>
+  	<a href="/posts?search=<%= tag.name.gsub(/#/,"%23") %>" rel="<%= tag.count%>"><%= tag.name%></a>
   </div>
 <% end %>
