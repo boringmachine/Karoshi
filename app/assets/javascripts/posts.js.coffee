@@ -17,6 +17,10 @@ $ ->
     setTopicsOption()
     
 $ ->
+  $.fn.tagcloud.defaults = {
+    size: {start: 12, end: 30, unit: 'pt'},
+    color: {start: '#fff', end: '#f92'}
+  }
   $('.tag_name a').tagcloud();
 
     
