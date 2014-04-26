@@ -38,7 +38,5 @@
     <%= render 'group_posts'%>
   </section>
   
-  <% if @posts.count == Post.per_page %>
-     <%= render 'posts/infbtn' %>
-  <% end %>
+  <%= render 'posts/infbtn' %>
 </section>

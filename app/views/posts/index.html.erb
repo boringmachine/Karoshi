@@ -1,24 +1,23 @@
-
-
 <section id="posts">
 
-  <section id="tags" class="tlelm">
-    <%= render 'top_tags'%>
-  </section>
-  
-  <section id="new_post_section" class="tlelm">
-  	<% @post = Post.new %>
-    <%= render 'form' %>
-  </section>
+	<section id="tags" class="tlelm">
+		<%= render 'top_tags'%>
+	</section>
 
-  <section id="post_list">
-    <%= render 'list_posts' %>
-  </section>
+	<section id="new_post_section" class="tlelm">
+		<% @post = Post.new %>
+		<%= render 'form' %>
+	</section>
 
-  <% if GroupUser.groups(current_user.id).count == 1 %>
-     <%= render 'explain'%>
-  <% end %>
-  
-  <%= render 'infbtn' %>
+	<section id="post_list">
+		<%= render 'list_posts' %>
+	</section>
+
+	<% if GroupUser.groups(current_user.id).count == 1 %>
+	<%= render 'explain'%>
+	<% end %>
+
+	<%= render 'infbtn' %>
+	
 </section>
 
