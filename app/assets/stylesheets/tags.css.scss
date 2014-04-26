@@ -7,8 +7,6 @@
     display: inline-block;
     _display: inline;
     margin-left: 10px;
-  }
-  .tag_name {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
     color: #ffffff;
@@ -37,5 +35,9 @@
     text-shadow:
       0px -1px 1px rgba(000,000,000,0.2),
       0px 1px 0px rgba(255,255,255,0.3);
+      
+      a {            
+        text-decoration: none;
+      }
   }
 }
