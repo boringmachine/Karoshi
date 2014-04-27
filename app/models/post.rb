@@ -1,10 +1,10 @@
 class Post < ActiveRecord::Base
   attr_accessible :body, :topic_id, :user_id, :group_id, :comment_count,
                   :photo, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at
-  has_attached_file :photo, :styles => { :medium => "300x300>",:small => "100x100>" },
-    :storage => :s3,
-    :bucket => 'rocky-wave-100',
-    :s3_credentials => "#{Rails.root}/config/s3.yml"
+  has_attached_file :photo, :styles => { :medium => "300x300>",:small => "100x100>" }
+    #:storage => :s3,
+    #:bucket => 'rocky-wave-100',
+    #:s3_credentials => "#{Rails.root}/config/s3.yml"
     
   belongs_to :group_topic
   belongs_to :user
