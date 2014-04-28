@@ -59,7 +59,7 @@ responsiveWindow = ()->
     timeline.reset_timeline()
 
 frameTransparent = () ->
-  $('iframe').each =>
+  $('iframe').each ->
     url = $(this).attr("src")
     $(this).attr("src",url+"?wmode=transparent")
 
@@ -99,6 +99,7 @@ $ ->
 # responsiveWindow init    
 $ ->    
   responsiveWindow()
+  frameTransparent()
 
   $(window).resize ->
     responsiveWindow()
