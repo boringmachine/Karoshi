@@ -53,8 +53,10 @@ responsiveWindow = ()->
   e_width = 310
   timeline = new Timeline ".tlelm"
 
-  if w_width > 850
-    timeline.timeline(w_width-200, e_width, 90, 30)
+  if w_width > 1200
+    timeline.timeline(1200, e_width, 90, 30)
+  else if w_width > 850
+    timeline.timeline(800, e_width, 90, 30)
   else
     timeline.reset_timeline()
 
