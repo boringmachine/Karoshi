@@ -1,40 +1,43 @@
 <%= form_for(@post, remote: true) do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<% if @post.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-      <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+	<ul>
+		<% @post.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
 
+<div class="field">
+	<%= f.label :body %>
+	<br />
+	<%= f.text_area :body, maxlength: "500" %>
+</div>
 
-  <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body, maxlength: "500" %>
-  </div>
+<div class="field">
+	<%= f.label :photo %>
+	<%= f.file_field :photo %>
+</div>
 
-  <div class="field">
-  	<%= f.label :photo %>
-  	<%= f.file_field :photo %>
-  </div>
-
-  
-  <div class="field" id="group">
-    <%= f.label :group_id %><br />
-    <% groups = GroupUser.groups(current_user.id) %>
+<div class="field" id="group">
+	<%= f.label :group_id %>
+	<br />
+	<% groups = GroupUser.groups(current_user.id) %>
 	<%= collection_select(:post, :group_id, Group.find(groups) , :id, :name) %>
-  </div><span> </span>
+</div><span> </span>
 
-  <div class="field" id="topic">
-    <%= f.label :topic_id %><br />
+<div class="field" id="topic">
+	<%= f.label :topic_id %>
+	<br />
 	<%= collection_select(:post, :topic_id, [], :id, :subject) %>
-  </div>
-  
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+</div>
+
+<div class="actions">
+	<%= f.submit %>
+</div>
 <% end %>

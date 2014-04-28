@@ -1,43 +1,47 @@
 <% groups = GroupTopic.joinedGroups(@topic.id,current_user.id) %>
 <% if groups.empty? %>
-  <br>
-  <br>
+<br>
+<br>
 <% else %>
-  <%= form_for(@post) do |f| %>
-    <% if @post.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<%= form_for(@post) do |f| %>
+<% if @post.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-        <ul>
-        <% @post.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-    
-    <div class="field">
-      <%= f.label :body %><br />
-      <%= f.text_area :body %>
-    </div>
-    
-    <div class="field">
-      <%= f.label :photo %>
-  	  <%= f.file_field :photo %>
-    </div>
-    
-    <div class="field">
-      <%= f.hidden_field :topic_id, :value => @topic.id  %>
-    </div>
+	<ul>
+		<% @post.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
 
-    <div class="field">
-      <%= f.label :group_id %><br />
-      <%= collection_select(:post, :group_id, groups, :id, :name) %>
-    </div>
-  
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-  
-  <% end %>
+<div class="field">
+	<%= f.label :body %>
+	<br />
+	<%= f.text_area :body, maxlength: "500" %>
+</div>
+
+<div class="field">
+	<%= f.label :photo %>
+	<%= f.file_field :photo %>
+</div>
+
+<div class="field">
+	<%= f.hidden_field :topic_id, :value => @topic.id  %>
+</div>
+
+<div class="field">
+	<%= f.label :group_id %>
+	<br />
+	<%= collection_select(:post, :group_id, groups, :id, :name) %>
+</div>
+
+<div class="actions">
+	<%= f.submit %>
+</div>
+
+<% end %>
 <% end %>
