@@ -58,16 +58,10 @@ responsiveWindow = ()->
   else
     timeline.reset_timeline()
 
-frameTransparent = () ->
-  $('iframe').each ->
-    url = $(this).attr("src")
-    $(this).attr("src",url+"?wmode=transparent")
-
 
 # ajax complete init
 ajaxEnd = () ->
   responsiveWindow()
-  frameTransparent()
   $("#infbtn").hide()
   clickflag = on
 
@@ -99,7 +93,6 @@ $ ->
 # responsiveWindow init    
 $ ->    
   responsiveWindow()
-  frameTransparent()
 
   $(window).resize ->
     responsiveWindow()
