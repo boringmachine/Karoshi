@@ -125,3 +125,7 @@ $ ->
     if clickflag is on
       clickflag = off
       setTimeout(clickInfbtn, 500)
+
+# post textarea init      
+$ ->
+  $('#new_post_section textarea').maxlength()

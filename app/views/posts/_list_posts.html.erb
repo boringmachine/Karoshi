@@ -1,25 +1,29 @@
 <% @posts.each do |post| %>
-  <% if post.group_id != 1 or post.user_id == current_user.id %>
-  <article class="article post_article tlelm">
-  	<% topic = Topic.find(post.topic_id) %>
-  	<% group = Group.find(post.group_id) %>
-  	<% user  = User.find(post.user_id) %>
-    <header>
-      <h3><%= link_to topic.subject, topic %> - <%= link_to group.name, group %></h3>
-    </header>
-    <div>
-      <span class="userimg"><%= s3 image_tag(user.photo.url(:small)) %></span>
-      <span class="user"><b><%= user.username %></b></span>
-      <span class="date"><%= post.created_at %></span>
-      <span class="no"  >No:<%= post.id %></span>
-    </div>
-    <div class="body">
-      <% if post.photo? %>
-        <div class="image"><a class="fancybox" href="<%= s3 post.photo.url(:original) %>"><%= s3(image_tag post.photo.url(:medium)) %></a></div>
-      <% end %>
-      <%= auto_res post.body_html %>
-    </div>
-    <div class="comments"><a href="/posts?search=%3E%3E<%=post.id%>">Comment(<%= Comment.countRes(post.id) %>)</a></div>
-  </article>
-  <% end %>
+<% if post.group_id != 1 or post.user_id == current_user.id %>
+<article class="post_article tlelm">
+	<% topic = Topic.find(post.topic_id) %>
+	<% group = Group.find(post.group_id) %>
+	<% user  = User.find(post.user_id) %>
+	<header>
+		<h3><%= link_to topic.subject, topic %> - <%= link_to group.name, group %></h3>
+	</header>
+	<div class="user_data">
+		<span class="userimg"><%= s3 image_tag(user.photo.url(:small)) %></span>
+		<span class="user"><b><%= user.username %></b></span>
+		<span class="date"><%= post.created_at.strftime("%Y-%m-%d %H:%M") %></span></br>
+		<span class="no"  >No:<%= post.id %></span>
+	</div>
+	<div class="body">
+		<% if post.photo? %>
+		<div class="image">
+			<a class="fancybox" href="<%= s3 post.photo.url(:original) %>"><%= s3(image_tag post.photo.url(:medium)) %></a>
+		</div>
+		<% end %>
+		<%= auto_res post.body_html %>
+	</div>
+	<div class="comments">
+		<a href="/posts?search=%3E%3E<%= post.id%>">Comment(<%= Comment.countRes(post.id) %>)</a>
+	</div>
+</article>
+<% end %>
 <% end %>

@@ -4,7 +4,7 @@
   <header>
     <span class="userimg"><%= s3 image_tag(user.photo.url(:small)) %></span>
     <span class="user"><b><%= user.username %></b></span>
-    <span class="date"><%= post.created_at %></span>
+    <span class="date"><%= post.created_at %></span><br />
     <span class="no"  >No:<%= post.id %></span>
   </header>
   <% user = User.find(post.user_id) %>

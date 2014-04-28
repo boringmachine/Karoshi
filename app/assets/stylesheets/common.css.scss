@@ -219,13 +219,6 @@ h2 {
   margin-left: 50px;
 }
 
-.article{
-  width:330px;
-}
-
-.article{
-  background: white;
-}
 
 #group.field{
   float: left;
@@ -253,13 +246,19 @@ article{
     bottom:20px;
   }
 
-  .date{
+  .date {
     font-size:10px;
+  }
+  
+  .no {
+    margin-left:50px;
   }
   
   .comments{
     text-align: right;
   }
+  
+
 }
 
 

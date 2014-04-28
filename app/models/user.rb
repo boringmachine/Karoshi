@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+         
+  recommends :groups
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email,:username, :password, :password_confirmation, :remember_me,
@@ -15,7 +17,7 @@ class User < ActiveRecord::Base
     :s3_credentials => "#{Rails.root}/config/s3.yml",
     :default_url => "/photos/verysmall/missing.png"
     
-  validates :username, :length => (1..50)
+  validates :username, :length => (1..20)
   validates_attachment_size :photo, :less_than => 5.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png','image/gif']
   
