@@ -61,10 +61,10 @@ responsiveWindow = ()->
 frameTransparent = () ->
   $('iframe').each ->
     url = $(this).attr("src")
-    if $(this).attr("data-transparent") != 1
+    if $(this).attr("data-transparent") != "1"
       $(this).attr {
         "src" : url+"?wmode=transparent"
-        "data-transparent" : 1
+        "data-transparent" : "1"
       }
 
 
