@@ -60,8 +60,8 @@ responsiveWindow = ()->
 
 frameTransparent = () ->
   $('iframe').each =>
-    var url = $(this).attr("src");
-    $(this).attr("src",url+"?wmode=transparent");
+    url = $(this).attr("src")
+    $(this).attr("src",url+"?wmode=transparent")
 
 
 # ajax complete init
