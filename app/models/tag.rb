@@ -6,7 +6,10 @@ class Tag < ActiveRecord::Base
   @per_page = 17
   
   def self.paging(page)
-    paginate :per_page => @per_page, :page => page, :order => 'count desc'
+    now = Time.now
+    lastmonth = now - 1.month
+    paginate :per_page => @per_page, :page => page, :order => 'count desc', 
+             :conditions => { :updated_at => lastmonth...now }
   end
   
   def self.createTags(body,post_id)
