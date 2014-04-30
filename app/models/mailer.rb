@@ -6,9 +6,9 @@ class Mailer < ActionMailer::Base
   #
   #   en.sample.sample_mail.subject
   #
-  def sample_mail
-    @greeting = "Hi"
-
-    mail to: "flank1990@mail.ru", subject: "test mail"
+  def notification(user, body)
+    mail to: user.email,
+    subject: user.username + " comments to your post.",
+    body: body
   end
 end
