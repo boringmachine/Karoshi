@@ -7,7 +7,7 @@ class Comment < ActiveRecord::Base
     comments = body.scan(/>>([0-9]+)/).uniq
     comments.each do |comment|
       child_id = comment[0].to_i
-      user = User.find(child_id)
+      user = Post.find(child_id).user
       Mailer.notification(user, body).deliver
       Comment.create(parent_id: post_id, child_id: child_id) 
     end
