@@ -8,7 +8,7 @@ class Mailer < ActionMailer::Base
   #
   def notification(user, body)
     mail to: user.email,
-    subject: user.username + " comments to your post.",
-    body: body
+    subject: "Someone comments to your post.",
+    body: body + request.url
   end
 end
