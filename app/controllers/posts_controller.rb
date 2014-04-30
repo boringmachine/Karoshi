@@ -31,7 +31,10 @@ class PostsController < ApplicationController
     if @post.save
       flash[:notice] = 'Post was successfully created.' 
       Tag.createTags(@post.body, @post.id)
-      Comment.createComments(@post.body, @post.id)
+      users = Comment.createComments(@post.body, @post.id)
+      users.each do |user|
+        Mailer.notification(user, body).deliver 
+      end
     end
     respond_with(@post)
   end

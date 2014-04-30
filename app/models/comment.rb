@@ -12,9 +12,7 @@ class Comment < ActiveRecord::Base
       Comment.create(parent_id: post_id, child_id: child_id) 
     end
     
-    users.uniq.each do |user|
-      Mailer.notification(user, body).deliver
-    end
+    users.uniq
     
   end
   

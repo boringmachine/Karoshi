@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>module ApplicationHelper - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/helpers/application_helper.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-auto_res">#auto_res</a>
+    
+    <li><a href="#method-i-s3">#s3</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./doc/README_FOR_APP.html">README_FOR_APP</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Users.html">Users</a>
+  
+    <li><a href="./Users/RegistrationsController.html">Users::RegistrationsController</a>
+  
+    <li><a href="./Users/SessionsController.html">Users::SessionsController</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./CategoriesHelper.html">CategoriesHelper</a>
+  
+    <li><a href="./Comment.html">Comment</a>
+  
+    <li><a href="./CommentsController.html">CommentsController</a>
+  
+    <li><a href="./CommentsHelper.html">CommentsHelper</a>
+  
+    <li><a href="./Group.html">Group</a>
+  
+    <li><a href="./GroupTopic.html">GroupTopic</a>
+  
+    <li><a href="./GroupTopicsController.html">GroupTopicsController</a>
+  
+    <li><a href="./GroupTopicsHelper.html">GroupTopicsHelper</a>
+  
+    <li><a href="./GroupUser.html">GroupUser</a>
+  
+    <li><a href="./GroupUsersController.html">GroupUsersController</a>
+  
+    <li><a href="./GroupUsersHelper.html">GroupUsersHelper</a>
+  
+    <li><a href="./GroupsController.html">GroupsController</a>
+  
+    <li><a href="./GroupsHelper.html">GroupsHelper</a>
+  
+    <li><a href="./Mailer.html">Mailer</a>
+  
+    <li><a href="./Post.html">Post</a>
+  
+    <li><a href="./PostTag.html">PostTag</a>
+  
+    <li><a href="./PostTagsController.html">PostTagsController</a>
+  
+    <li><a href="./PostTagsHelper.html">PostTagsHelper</a>
+  
+    <li><a href="./PostsController.html">PostsController</a>
+  
+    <li><a href="./PostsHelper.html">PostsHelper</a>
+  
+    <li><a href="./Tag.html">Tag</a>
+  
+    <li><a href="./TagsController.html">TagsController</a>
+  
+    <li><a href="./TagsHelper.html">TagsHelper</a>
+  
+    <li><a href="./Topic.html">Topic</a>
+  
+    <li><a href="./TopicsController.html">TopicsController</a>
+  
+    <li><a href="./TopicsHelper.html">TopicsHelper</a>
+  
+    <li><a href="./User.html">User</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module ApplicationHelper</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-auto_res" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">auto_res</span><span
+            class="method-args">(body)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="auto_res-source">
+            <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 2</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">auto_res</span>(<span class="ruby-identifier">body</span>)
+  <span class="ruby-identifier">tmp</span> = <span class="ruby-identifier">body</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/&amp;gt;&amp;gt;([0-9]+)/</span>, <span class="ruby-string">'&lt;a href=&quot;/posts/\1&quot;&gt; &amp;gt;&amp;gt;\1 &lt;/a&gt;'</span>)
+  <span class="ruby-identifier">tmp</span> = <span class="ruby-identifier">tmp</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-node">/#([a-zA-Z0-9]+)/</span>,<span class="ruby-string">'&lt;a href=&quot;/posts?search=%23\1&quot;&gt;#\1&lt;/a&gt;'</span>)
+  <span class="ruby-identifier">tmp</span> = <span class="ruby-identifier">tmp</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/'/</span>,<span class="ruby-string">'&amp;#39;'</span>)
+  <span class="ruby-identifier">tmp</span> = <span class="ruby-identifier">tmp</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/(\r\n|\n)/</span>,<span class="ruby-string">'&lt;br /&gt;'</span>)
+  <span class="ruby-identifier">tmp</span>.<span class="ruby-identifier">html_safe</span>;
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- auto_res-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- auto_res-method -->
+
+    
+      <div id="method-i-s3" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">s3</span><span
+            class="method-args">(tag)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="s3-source">
+            <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">s3</span>(<span class="ruby-identifier">tag</span>)
+  <span class="ruby-identifier">tag</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot;s3.amazonaws.com/rocky-wave-100&quot;</span>, <span class="ruby-string">&quot;rocky-wave-100.s3.amazonaws.com&quot;</span>).<span class="ruby-identifier">html_safe</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- s3-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- s3-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

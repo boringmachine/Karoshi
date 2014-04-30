@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>class Group - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/models/group.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">ActiveRecord::Base
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-getPosts">::getPosts</a>
+    
+    <li><a href="#method-c-getSearch">::getSearch</a>
+    
+    <li><a href="#method-c-owngroups">::owngroups</a>
+    
+    <li><a href="#method-c-search">::search</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./doc/README_FOR_APP.html">README_FOR_APP</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Users.html">Users</a>
+  
+    <li><a href="./Users/RegistrationsController.html">Users::RegistrationsController</a>
+  
+    <li><a href="./Users/SessionsController.html">Users::SessionsController</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./CategoriesHelper.html">CategoriesHelper</a>
+  
+    <li><a href="./Comment.html">Comment</a>
+  
+    <li><a href="./CommentsController.html">CommentsController</a>
+  
+    <li><a href="./CommentsHelper.html">CommentsHelper</a>
+  
+    <li><a href="./Group.html">Group</a>
+  
+    <li><a href="./GroupTopic.html">GroupTopic</a>
+  
+    <li><a href="./GroupTopicsController.html">GroupTopicsController</a>
+  
+    <li><a href="./GroupTopicsHelper.html">GroupTopicsHelper</a>
+  
+    <li><a href="./GroupUser.html">GroupUser</a>
+  
+    <li><a href="./GroupUsersController.html">GroupUsersController</a>
+  
+    <li><a href="./GroupUsersHelper.html">GroupUsersHelper</a>
+  
+    <li><a href="./GroupsController.html">GroupsController</a>
+  
+    <li><a href="./GroupsHelper.html">GroupsHelper</a>
+  
+    <li><a href="./Mailer.html">Mailer</a>
+  
+    <li><a href="./Post.html">Post</a>
+  
+    <li><a href="./PostTag.html">PostTag</a>
+  
+    <li><a href="./PostTagsController.html">PostTagsController</a>
+  
+    <li><a href="./PostTagsHelper.html">PostTagsHelper</a>
+  
+    <li><a href="./PostsController.html">PostsController</a>
+  
+    <li><a href="./PostsHelper.html">PostsHelper</a>
+  
+    <li><a href="./Tag.html">Tag</a>
+  
+    <li><a href="./TagsController.html">TagsController</a>
+  
+    <li><a href="./TagsHelper.html">TagsHelper</a>
+  
+    <li><a href="./Topic.html">Topic</a>
+  
+    <li><a href="./TopicsController.html">TopicsController</a>
+  
+    <li><a href="./TopicsHelper.html">TopicsHelper</a>
+  
+    <li><a href="./User.html">User</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Group</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-getPosts" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getPosts</span><span
+            class="method-args">(params)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="getPosts-source">
+            <pre><span class="ruby-comment"># File app/models/group.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">getPosts</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value">:topic_id</span>)
+    <span class="ruby-constant">Post</span>.<span class="ruby-identifier">groupTopicPosts</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>],<span class="ruby-identifier">params</span>[<span class="ruby-value">:topic_id</span>],<span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>])
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">Post</span>.<span class="ruby-identifier">groupposts</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>],<span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>])
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- getPosts-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- getPosts-method -->
+
+    
+      <div id="method-c-getSearch" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getSearch</span><span
+            class="method-args">(params)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="getSearch-source">
+            <pre><span class="ruby-comment"># File app/models/group.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">getSearch</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value">:search</span>)
+    <span class="ruby-constant">Group</span>.<span class="ruby-identifier">search</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>],<span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>])
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">Group</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">''</span>,<span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>])
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- getSearch-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- getSearch-method -->
+
+    
+      <div id="method-c-owngroups" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">owngroups</span><span
+            class="method-args">(user_id)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="owngroups-source">
+            <pre><span class="ruby-comment"># File app/models/group.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">owngroups</span>(<span class="ruby-identifier">user_id</span>)
+  <span class="ruby-identifier">where</span>(<span class="ruby-value">:owner_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user_id</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- owngroups-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- owngroups-method -->
+
+    
+      <div id="method-c-search" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">search</span><span
+            class="method-args">(search, page)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="search-source">
+            <pre><span class="ruby-comment"># File app/models/group.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">search</span>(<span class="ruby-identifier">search</span>, <span class="ruby-identifier">page</span>)
+  <span class="ruby-identifier">paginate</span> <span class="ruby-value">:per_page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@per_page</span>, <span class="ruby-value">:page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">page</span>,
+           <span class="ruby-value">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-string">'name like ? or description like ?'</span>,
+             <span class="ruby-node">&quot;%#{search}%&quot;</span>,<span class="ruby-node">&quot;%#{search}%&quot;</span>],
+           <span class="ruby-value">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created_at desc'</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- search-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- search-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

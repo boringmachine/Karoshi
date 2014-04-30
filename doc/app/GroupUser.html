@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>class GroupUser - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/models/group_user.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">ActiveRecord::Base
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-exist">::exist</a>
+    
+    <li><a href="#method-c-getGroupUser">::getGroupUser</a>
+    
+    <li><a href="#method-c-groups">::groups</a>
+    
+    <li><a href="#method-c-users">::users</a>
+    
+    <li><a href="#method-c-weight">::weight</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./doc/README_FOR_APP.html">README_FOR_APP</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Users.html">Users</a>
+  
+    <li><a href="./Users/RegistrationsController.html">Users::RegistrationsController</a>
+  
+    <li><a href="./Users/SessionsController.html">Users::SessionsController</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./CategoriesHelper.html">CategoriesHelper</a>
+  
+    <li><a href="./Comment.html">Comment</a>
+  
+    <li><a href="./CommentsController.html">CommentsController</a>
+  
+    <li><a href="./CommentsHelper.html">CommentsHelper</a>
+  
+    <li><a href="./Group.html">Group</a>
+  
+    <li><a href="./GroupTopic.html">GroupTopic</a>
+  
+    <li><a href="./GroupTopicsController.html">GroupTopicsController</a>
+  
+    <li><a href="./GroupTopicsHelper.html">GroupTopicsHelper</a>
+  
+    <li><a href="./GroupUser.html">GroupUser</a>
+  
+    <li><a href="./GroupUsersController.html">GroupUsersController</a>
+  
+    <li><a href="./GroupUsersHelper.html">GroupUsersHelper</a>
+  
+    <li><a href="./GroupsController.html">GroupsController</a>
+  
+    <li><a href="./GroupsHelper.html">GroupsHelper</a>
+  
+    <li><a href="./Mailer.html">Mailer</a>
+  
+    <li><a href="./Post.html">Post</a>
+  
+    <li><a href="./PostTag.html">PostTag</a>
+  
+    <li><a href="./PostTagsController.html">PostTagsController</a>
+  
+    <li><a href="./PostTagsHelper.html">PostTagsHelper</a>
+  
+    <li><a href="./PostsController.html">PostsController</a>
+  
+    <li><a href="./PostsHelper.html">PostsHelper</a>
+  
+    <li><a href="./Tag.html">Tag</a>
+  
+    <li><a href="./TagsController.html">TagsController</a>
+  
+    <li><a href="./TagsHelper.html">TagsHelper</a>
+  
+    <li><a href="./Topic.html">Topic</a>
+  
+    <li><a href="./TopicsController.html">TopicsController</a>
+  
+    <li><a href="./TopicsHelper.html">TopicsHelper</a>
+  
+    <li><a href="./User.html">User</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class GroupUser</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-exist" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">exist</span><span
+            class="method-args">(user_id, group_id)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="exist-source">
+            <pre><span class="ruby-comment"># File app/models/group_user.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">exist</span>(<span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">group_id</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">getGroupUser</span>(<span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">group_id</span>) <span class="ruby-operator">==</span> []
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- exist-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- exist-method -->
+
+    
+      <div id="method-c-getGroupUser" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getGroupUser</span><span
+            class="method-args">(user_id, group_id)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="getGroupUser-source">
+            <pre><span class="ruby-comment"># File app/models/group_user.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">getGroupUser</span>(<span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">group_id</span>)
+    <span class="ruby-identifier">where</span>(<span class="ruby-identifier">group_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">group_id</span>, <span class="ruby-identifier">user_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">user_id</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- getGroupUser-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- getGroupUser-method -->
+
+    
+      <div id="method-c-groups" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">groups</span><span
+            class="method-args">(user_id)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="groups-source">
+            <pre><span class="ruby-comment"># File app/models/group_user.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">groups</span>(<span class="ruby-identifier">user_id</span>)
+  <span class="ruby-identifier">groups</span> = []
+  <span class="ruby-identifier">where</span>(<span class="ruby-identifier">user_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">user_id</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">gu</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">groups</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">gu</span>.<span class="ruby-identifier">group_id</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">groups</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- groups-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- groups-method -->
+
+    
+      <div id="method-c-users" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">users</span><span
+            class="method-args">(group_id)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="users-source">
+            <pre><span class="ruby-comment"># File app/models/group_user.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">users</span>(<span class="ruby-identifier">group_id</span>)
+  <span class="ruby-identifier">users</span> = []
+  <span class="ruby-identifier">where</span>(<span class="ruby-identifier">group_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">group_id</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">group</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">users</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">group</span>.<span class="ruby-identifier">user_id</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">users</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- users-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- users-method -->
+
+    
+      <div id="method-c-weight" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">weight</span><span
+            class="method-args">(group1_id, group2_id)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>TODO <a
+href="http://philogb.github.io/jit/static/v20/Jit/Examples/Hypertree/example2.html">philogb.github.io/jit/static/v20/Jit/Examples/Hypertree/example2.html</a></p>
+          
+
+          
+          <div class="method-source-code" id="weight-source">
+            <pre><span class="ruby-comment"># File app/models/group_user.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">weight</span>(<span class="ruby-identifier">group1_id</span>, <span class="ruby-identifier">group2_id</span>)
+  <span class="ruby-identifier">g1</span> = <span class="ruby-identifier">where</span>(<span class="ruby-identifier">group_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">group1_id</span>)
+  <span class="ruby-identifier">c1</span> = <span class="ruby-identifier">g1</span>.<span class="ruby-identifier">count</span>
+  
+  <span class="ruby-identifier">g2</span> = <span class="ruby-identifier">where</span>(<span class="ruby-identifier">group_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">group2_id</span>)
+  <span class="ruby-identifier">c2</span> = <span class="ruby-identifier">g2</span>.<span class="ruby-identifier">count</span>
+  
+  <span class="ruby-identifier">count</span> = <span class="ruby-value">0</span>
+  
+  <span class="ruby-identifier">n</span> = <span class="ruby-identifier">c1</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">c2</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">c1</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">c2</span>
+  <span class="ruby-identifier">m</span> = <span class="ruby-identifier">c1</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">c2</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">c1</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">c2</span>
+  <span class="ruby-identifier">m</span> = <span class="ruby-identifier">m</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>  <span class="ruby-operator">?</span>  <span class="ruby-value">1</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">m</span>
+  
+  <span class="ruby-keyword">if</span>(<span class="ruby-value">0</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">n</span>)
+    <span class="ruby-keyword">for</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">in</span> <span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">n</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">g1</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">user_id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">g2</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">user_id</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">count</span><span class="ruby-operator">+=</span><span class="ruby-value">1</span> <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  
+  (<span class="ruby-identifier">count</span>*<span class="ruby-value">100</span>)<span class="ruby-operator">/</span><span class="ruby-identifier">m</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- weight-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- weight-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
