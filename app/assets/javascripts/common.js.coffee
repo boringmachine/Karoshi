@@ -97,9 +97,9 @@ $ ->
   $("#sidebar").hide()
   $("#menu").click ->
     if menubool is on
-      $("#sidebar").toggle("drop")
+      $("#sidebar").toggle("drop",200)
     else
-      $("#sidebar").toggle("drop")
+      $("#sidebar").toggle("drop",200)
     menubool = !menubool
 
 # responsiveWindow init    
