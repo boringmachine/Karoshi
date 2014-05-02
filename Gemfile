@@ -54,3 +54,5 @@ gem "auto_html"
 gem "aws-sdk"
 gem 'fancybox2-rails'
 gem 'newrelic_rpm'
+gem 'jquery-ui-rails'
+
