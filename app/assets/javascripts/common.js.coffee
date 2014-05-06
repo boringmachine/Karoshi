@@ -117,7 +117,7 @@ $ ->
 # infbtn init
 $ ->
   clickInfbtn = () ->
-    $("#infbtn input[type='image']").click()
+    $("#infbtn input[type='image']").submit()
   
   $(window).bottom({proximity: 0.1});
   $(window).on 'bottom', ->
