@@ -6,6 +6,7 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 group :development, :test do
       gem 'sqlite3'
+      gem "rails-erd"
 end
 
 group :production do
@@ -55,4 +56,4 @@ gem "aws-sdk"
 gem 'fancybox2-rails'
 gem 'newrelic_rpm'
 gem 'jquery-ui-rails'
-
+gem 'ruby-graphviz'

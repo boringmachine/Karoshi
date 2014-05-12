@@ -32,12 +32,12 @@ GEM
     auto_html (1.6.4)
       redcarpet (~> 3.1)
       rinku (~> 1.5.0)
-    aws-sdk (1.38.0)
+    aws-sdk (1.40.0)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
-      uuidtools (~> 2.1)
     bcrypt (3.1.7)
     builder (3.0.4)
+    choice (0.1.6)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.4)
@@ -74,7 +74,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     mini_portile (0.5.3)
-    multi_json (1.9.2)
+    multi_json (1.10.0)
     newrelic_rpm (3.8.0.218)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
@@ -101,6 +101,11 @@ GEM
       activesupport (= 3.2.13)
       bundler (~> 1.0)
       railties (= 3.2.13)
+    rails-erd (1.1.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      choice (~> 0.1.6)
+      ruby-graphviz (~> 1.0.4)
     rails_12factor (0.0.2)
       rails_serve_static_assets
       rails_stdout_logging
@@ -134,7 +139,8 @@ GEM
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
-    sass (3.3.5)
+    ruby-graphviz (1.0.9)
+    sass (3.3.7)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
@@ -155,7 +161,6 @@ GEM
     uglifier (2.5.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    uuidtools (2.1.4)
     warden (1.2.3)
       rack (>= 1.0)
     will_paginate (3.0.5)
@@ -175,9 +180,11 @@ DEPENDENCIES
   paperclip
   pg
   rails (= 3.2.13)
+  rails-erd
   rails_12factor
   rspec
   rspec-rails
+  ruby-graphviz
   sass-rails (~> 3.2.3)
   sqlite3
   uglifier (>= 1.0.3)

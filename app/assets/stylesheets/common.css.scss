@@ -10,10 +10,7 @@ $left : 100px;
   z-index: 0;
 }
 
-.menuicon{
-  width:30px;
-  height:30px;
-}
+
 
 .icon{
   width: 30px;
@@ -120,6 +117,24 @@ body{
     right:0px;
     top:10px;
   }
+  
+  .menuicon, .searchicon, .settingicon{
+    width:30px;
+    height:30px;
+  }
+  
+  #searchmenu{
+    float:left;
+  }
+  
+  #setting{
+  }
+  
+  img:hover{
+    opacity: 0.6;
+  }
+  
+  
 }
 
 #posts,#group_posts,#topic_posts,#groups,#topics{
@@ -343,6 +358,11 @@ $sc: #627e98;
     width:90%;
   }
 }
+
+#search_post{
+  z-index:10;
+}
+
 
 .post_article,.group_post_article,#group_posts{
   width: 310px;
