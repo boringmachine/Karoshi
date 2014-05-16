@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   respond_to :html, :xml, :json, :js
-  
+   
   # GET /posts
   # GET /posts.json
   def index
@@ -30,14 +30,16 @@ class PostsController < ApplicationController
     timediff = Time.now - current_user.posts.last.created_at
     if timediff > 10.seconds
       @post = current_user.posts.new(params[:post])
-      if @post.save
-        flash[:notice] = 'Post was successfully created.' 
-        Tag.createTags(@post.body, @post.id)
-        Comment.createComments(@post.body, @post.id)
-      end
-
+      afterSave(@post) if @post.save
       respond_with(@post)
     end
+  end
+  
+  private
+  def afterSave(post)
+    flash[:notice] = 'Post was successfully created.' 
+    Tag.createTags(post.body, post.id)
+    Comment.createComments(post.body, post.id)
   end
 
 end

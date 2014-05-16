@@ -29,8 +29,6 @@ class Post < ActiveRecord::Base
  
   @per_page = 20
  
-  
- 
   def self.groupposts(group_id,page)
     paginate :per_page => @per_page, :page => page,
              :conditions => ['group_id = ?', group_id],
