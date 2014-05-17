@@ -2,37 +2,35 @@
 class Timeline
   constructor: (@name) -> 
 
-  timeline : (w_width, e_width, t, top) ->
+  timeline : (w_width, e_width, top) ->
   
     minIndex = (arr) ->
-      i = 0
       tmp = 0
-      while(i<arr.length)
+      for i in [0...arr.length]
         if arr[i] < arr[tmp] then tmp = i
-        i++
+        
       return tmp
   
   
     col_heights = []
-    i = 0
+    t = Math.ceil(e_width/3.5)
     n = Math.round(w_width / (e_width + t))
-    while(i < n)
+    for i in [0...n]
       col_heights.push(top)
-      i++
   
     add_state = 0
 
     $(@name).each ->
-      article_height = $(this).height() + t
+      article_height = $(this).height() + t 
       w = e_width
-      add_state = minIndex(col_heights)
+      k = minIndex(col_heights)
         
       x = col_heights.length 
-      y = -0.5*x + (add_state+0.5)
-      ma_left = y *(w + t)
+      y = -0.5*x + (k + 0.5)
+      ma_left = y * (w + t)
   
-      $(this).css({position:"absolute",top:col_heights[add_state],left:"50%","margin-left":ma_left-w/2})
-      col_heights[add_state] += article_height
+      $(this).css({position:"absolute",top:col_heights[k], left:"50%","margin-left":ma_left-w/2})
+      col_heights[k] += article_height
 
   
   reset_timeline : () ->
@@ -54,9 +52,9 @@ responsiveWindow = ()->
   timeline = new Timeline ".tlelm"
 
   if w_width > 1200
-    timeline.timeline(1200, e_width, 90, 30)
+    timeline.timeline(1200, e_width, 30)
   else if w_width > 850
-    timeline.timeline(800, e_width, 90, 30)
+    timeline.timeline(800, e_width, 30)
   else
     timeline.reset_timeline()
 
