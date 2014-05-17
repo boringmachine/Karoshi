@@ -18,13 +18,13 @@ class Tag < ActiveRecord::Base
       name = name.downcase
       tag = where(name: name)
       tag_id = nil
-      if tag == []
+      if tag.empty?
         t = Tag.create(name: name, count: 1)
         tag_id = t.id
       else
-        count = tag[0].count + 1
-        Tag.find(tag[0]).update_attributes(name:name, count: count)
-        tag_id = tag[0].id
+        count = tag.first.count + 1
+        Tag.find(tag.first).update_attributes(name:name, count: count)
+        tag_id = tag.first.id
       end
       PostTag.create(post_id: post_id, tag_id: tag_id) 
     end
