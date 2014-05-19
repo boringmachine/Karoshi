@@ -1,19 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<section id="new_post_section">
-  <% @post = Post.new %>
-  <%= render 'post' %>
-</section>
-
-<section id="post_list">
-  <%= render 'topic_posts' %>
-</section>
-
-<section id="group_topic_form" class="post_article">
+<section id="topic_new_post" class="post_article">
   <h1><%=@topic.subject%></h1>
   <% unless @topic.status %>
     <section id="join_topic">
       <%= render 'group_topic' %>
     </section>
   <% end %>
+  <% @post = Post.new %>
+  <%= render 'post' %>
+</section>
+
+<section id="post_list">
+  <%= render 'topic_posts' %>
 </section>

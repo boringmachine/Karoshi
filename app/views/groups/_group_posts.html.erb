@@ -2,7 +2,7 @@
 <% topic = Topic.find(post.topic_id) %>
 <% user = User.find(post.user_id) %>
 <article class="post_article tlelm">
-  <header><h3><%= topic.subject %></h3></header>
+  <header><h3><%= link_to topic.subject, topic %></h3></header>
   <div>
     <span class="userimg"><%= s3 image_tag(user.photo.url(:small)) %></span>
     <span class="user"><b><%= user.username %></b></span>
