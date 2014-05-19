@@ -127,3 +127,8 @@ $ ->
 # post textarea init      
 $ ->
   $('#new_post_section textarea').maxlength()
+  $('#new_post_section textarea').bind 'keydown keyup keypress change', ->
+    count = 500 - $(this).val().length
+    $('.count_char').html(count)
+
+
