@@ -62,7 +62,7 @@ class Post < ActiveRecord::Base
       groups = user.groups
       Post.where(:group_id => groups).paging(page)
     else
-      groups = Group.all
+      groups = Group.where(:visible => true)
       Post.where(:group_id => groups).search(search, page)
     end
   end
