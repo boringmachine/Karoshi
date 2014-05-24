@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#group_info {
+  #photo img{
+    width: 330px;
+    height: 330px;
+  }
+}
+
 #groups{
   margin-top: 30px;
   
