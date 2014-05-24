@@ -61,8 +61,12 @@
 
 
 #group_topics{
-  a{
-    font-size:20px;
-    font-family: Exo;
+  li{
+    width: 330px;
+    a{
+      width: 330px;
+      font-size:20px;
+      font-family: Exo;
+    }
   }
 }
