@@ -62,10 +62,11 @@ class Post < ActiveRecord::Base
       groups = user.groups
       Post.where(:group_id => groups).paging(page)
     else
-      Post.search(search, page)
+      groups = Group.where(:visible => true)
+      groups.concat(user.groups)
+      Post.where(:group_id => groups).search(search, page)
     end
   end
-
 
   def self.getBody(topic_id)
     tmp = topicposts(topic_id,1)
