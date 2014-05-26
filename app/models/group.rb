@@ -67,8 +67,8 @@ class Group < ActiveRecord::Base
   end
   
   def self.recommendGroups(user_id)
+    result = []
     GroupUser.groups(user_id).each do |group|
-      result = []
       result.concat(relatedGroups(group))
       result = result.uniq
       break if 300 < result.count
