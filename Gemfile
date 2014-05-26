@@ -58,5 +58,3 @@ gem 'newrelic_rpm'
 gem 'jquery-ui-rails'
 gem 'ruby-graphviz'
 gem "td"
-gem 'redis-objects'
-gem 'redis-namespace'

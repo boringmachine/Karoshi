@@ -47,4 +47,12 @@ class Group < ActiveRecord::Base
     end
   end
   
+  def self.relatedGroups(group_id)
+    result = []
+    Group.find(group_id).users.uniq.each do |user|
+       result.concat(User.find(user.id).groups)
+    end
+    result = result.uniq
+  end
+  
 end
