@@ -57,7 +57,7 @@ class Group < ActiveRecord::Base
     result.uniq
   end
   
-  def excludeJoinGroups(obj_groups,curuser_id)
+  def self.excludeJoinGroups(obj_groups,curuser_id)
     user_groups = GroupUser.groups(curuser_id)
     user_groups.each do |user_group|
       group = Group.find(user_group)
@@ -73,7 +73,7 @@ class Group < ActiveRecord::Base
       result = result.uniq
       break if 300 < result.count
     end
-    excludeJoinGroups(result.uniq)
+    excludeJoinGroups(result.uniq, user_id)
   end
   
 end
