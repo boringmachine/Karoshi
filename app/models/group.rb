@@ -57,7 +57,7 @@ class Group < ActiveRecord::Base
     result = result.uniq.shuffle
     delgroup = Group.find(group_id)
     result.delete(delgroup)
-    result
+    excludeInvisibleGroups(result)
   end
   
   def self.excludeJoinGroups(obj_groups,curuser_id)
@@ -67,6 +67,13 @@ class Group < ActiveRecord::Base
       obj_groups.delete(group)
     end
     obj_groups
+  end
+  
+  def self.excludeInvisibleGroups(groups)
+    groups.each do |group|
+      groups.delete(group) if !group.visible
+    end
+    groups
   end
   
   def self.recommendGroups(user_id)
