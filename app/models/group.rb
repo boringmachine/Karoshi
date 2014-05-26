@@ -49,12 +49,15 @@ class Group < ActiveRecord::Base
   
   def self.relatedGroups(group_id)
     result = []
-    Group.find(group_id).users.uniq.each do |user|
+    Group.find(group_id).users.uniq.shuffle.each do |user|
        result.concat(User.find(user.id).groups)
        result = result.uniq
        break if 100 < result.count
     end
-    result.uniq
+    result = result.uniq.shuffle
+    delgroup = Group.find(group_id)
+    result.delete(delgroup)
+    result
   end
   
   def self.excludeJoinGroups(obj_groups,curuser_id)
@@ -73,7 +76,7 @@ class Group < ActiveRecord::Base
       result = result.uniq
       break if 300 < result.count
     end
-    excludeJoinGroups(result.uniq, user_id)
+    excludeJoinGroups(result.uniq, user_id).shuffle
   end
   
 end
