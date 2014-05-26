@@ -60,7 +60,8 @@ class Group < ActiveRecord::Base
   def excludeJoinGroups(obj_groups,curuser_id)
     user_groups = GroupUser.groups(curuser_id)
     user_groups.each do |user_group|
-      obj_groups.delete(user_group)
+      group = Group.find(user_group)
+      obj_groups.delete(group)
     end
     obj_groups
   end
@@ -68,7 +69,7 @@ class Group < ActiveRecord::Base
   def self.recommendGroups(user_id)
     GroupUser.groups(user_id).each do |group|
       result = []
-      result.concat(relatedGroups(group.id))
+      result.concat(relatedGroups(group))
       result = result.uniq
       break if 300 < result.count
     end
