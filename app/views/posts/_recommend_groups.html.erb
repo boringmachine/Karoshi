@@ -1,0 +1,6 @@
+<h1>Recommend Groups</h1>
+<ul>
+<% @groups.each do |group| %>
+  <li><img class="icon" width="30" height="30" src="<%= s3 group.photo.url(:small) %>"><%= link_to group.name, group %></li>
+<% end %>
+</ul>

@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.getPosts(params[:search], params[:page], current_user)
     @tags = Tag.paging(1)
+    @groups = Group.recommendGroups(current_user)
     respond_with(@posts)
   end
 

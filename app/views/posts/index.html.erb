@@ -5,6 +5,13 @@
 		<%= render 'top_tags'%>
 	</section>
 	<% end %>
+	
+	<% if rand(3) == 1 %>
+	<section id="recommend_groups" class="tlelm">
+		<%= render 'recommend_groups'%>
+	</section>
+	<% end %>
+	
 
 	<section id="new_post_section" class="tlelm">
 		<% @post = Post.new %>
