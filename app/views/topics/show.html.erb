@@ -3,12 +3,12 @@
 <% groups = GroupTopic.joinedGroups(@topic.id,current_user.id) %>
 <section id="topic_new_post" class="post_article">
   <h1><%=@topic.subject%></h1>
+  <% unless @topic.status %>
+    <section id="join_topic">
+      <%= render 'group_topic' %>
+    </section>
+  <% end %>
   <% unless groups.empty? %>
-    <% unless @topic.status %>
-      <section id="join_topic">
-        <%= render 'group_topic' %>
-      </section>
-    <% end %>
     <% @post = Post.new %>
     <%= render 'post' %>
     <div class="count_char">500</div>
