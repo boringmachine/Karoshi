@@ -9,7 +9,6 @@ $ ->
       $.each data, (i,item) ->
         $('#post_topic_id').append('<option value="'+item.id+'">' + item.subject + '</option>')
   
-  setTopicsOption()
   
   $('#post_group_id').change ->
     $('#post_topic_id').empty()
