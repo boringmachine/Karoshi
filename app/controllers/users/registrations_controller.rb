@@ -11,9 +11,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
       topic = Topic.getFirstTopic
       GroupTopic.create(group_id:group.id,topic_id:topic.id)
     end
-    group = Group.first
-    GroupUser.create(user_id:@user.id,group_id:group.id)
-    Post.create(user_id: @user.id)
+    unless @user.id.blank?
+      group = Group.first
+      GroupUser.create(user_id: @user.id, group_id: group.id)
+      Post.create(user_id: @user.id)
+    end
   end
  
 end
