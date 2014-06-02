@@ -117,6 +117,7 @@ $ ->
   clickInfbtn = () ->
     $("#infbtn input[type='image']").submit()
   
+  $("#infbtn").hide()
   $(window).bottom({proximity: 0.1});
   $(window).on 'bottom', ->
     $("#infbtn").show()
