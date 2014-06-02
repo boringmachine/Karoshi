@@ -1,6 +1,9 @@
 <section id="menu_section">
   <span id="menu"><img class="menuicon" src="../assets/menu.png" /></span>
 </section>
+<section id="search_post_nav">
+  <%= render 'layouts/search_post' %>
+</section>
 <section id="login_info" class="navbar-text pull-right">
   <%= link_to "Home", :posts %> | 
   <strong><%= link_to current_user.email, edit_user_registration_path, :class => 'navbar-link' %></strong> | 
