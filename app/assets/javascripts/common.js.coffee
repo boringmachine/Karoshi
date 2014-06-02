@@ -53,19 +53,10 @@ responsiveWindow = ()->
 
   if w_width > 1200
     timeline.timeline(1200, e_width, 30)
-    $("#search_post_nav").show()
-    $("#search_post").hide()
-    $("hr").hide()
   else if w_width > 850
     timeline.timeline(800, e_width, 30)
-    $("#search_post_nav").show()
-    $("#search_post").hide()
-    $("hr").hide()
   else
     timeline.reset_timeline()
-    $("#search_post_nav").hide()
-    $("#search_post").show()
-    $("hr").show()
     
 
 frameTransparent = () ->
@@ -91,12 +82,11 @@ $ ->
 
 # searchbar init
 $ ->
-  $("#search_post_nav input[type='submit']").hide()
 	$("#submit_path").change ->
 		val = $('#submit_path option:selected').val()
-		if val is "1" then sel = "/posts"
-		else if val is "2" then sel = "/groups"
-		else sel = "/topics"
+		sel = if val is "1" then "/posts"
+		else if val is "2" then "/groups"
+		else "/topics"
 
 		$("#search_post form").attr("action",sel)
 		
