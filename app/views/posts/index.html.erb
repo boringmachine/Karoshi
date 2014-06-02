@@ -1,12 +1,12 @@
 <section id="posts">
 
-	<% if rand(3) == 1 %>
+	<% if rand(3) == 1 and !@tags.empty?%>
 	<section id="tags" class="tlelm">
 		<%= render 'top_tags'%>
 	</section>
 	<% end %>
 	
-	<% if rand(3) == 1 %>
+	<% if rand(3) == 1 and !@groups.empty? %>
 	<section id="recommend_groups" class="tlelm">
 		<%= render 'recommend_groups'%>
 	</section>
@@ -26,8 +26,10 @@
 	<% if GroupUser.groups(current_user.id).count == 1 %>
 	<%= render 'explain'%>
 	<% end %>
-
+    
+    <% unless @posts.empty? %>
 	<%= render 'infbtn' %>
+	<% end %>
 
 </section>
 

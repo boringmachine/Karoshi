@@ -1,4 +1,6 @@
 $left : 100px;
+@import url(http://fonts.googleapis.com/css?family=Lato);
+
 @font-face {
   font-family: 'Exo';
   font-style: normal;
@@ -82,7 +84,7 @@ ul {
       &:hover {
         color: black;
         font-size: 20px;
-        background: #f6f6f6;
+        background: #AAA;
       }
     }
   }
@@ -302,14 +304,14 @@ article{
 }
 
 
-$sb: #fff;
-$sc: #627e98;
+$sb: #48a770;
+$sc: #fff;
 #sidebar{
   background: $sb; 
   color: $sc;
   float: left;
   width: 280px;
-  font-family: Exo;
+  font-family: Lato;
   position: fixed;
   z-index: 10;
   left: 0px; /* or right */
@@ -324,12 +326,14 @@ $sc: #627e98;
       background: $sb; 
       h1{
        font-size:20px;
+       font-family: Lato;
        margin-bottom: 10px;
       }
     }
     a{
      color: $sc;
-     font-size: 17px;
+     font-family: Lato;
+     font-size: 20px;
      height: 50px;
      width:100%;
     }
@@ -361,6 +365,7 @@ $sc: #627e98;
   
   hr.block{
     height: 80px;
+    background-color: $sb;
   }
 }
 

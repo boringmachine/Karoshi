@@ -41,8 +41,6 @@ class PostsController < ApplicationController
     flash[:notice] = 'Post was successfully created.' 
     Tag.createTags(post.body, post.id)
     Comment.createComments(post.body, post.id)
-    TD.event.post('post',
-                  {:uid=>post.user_id, :tid=>post.topic_id, :gid=>post.group_id, :body=>post.body})
   end
 
 end
