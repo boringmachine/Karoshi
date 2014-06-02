@@ -5,10 +5,8 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index  
     @posts = Post.getPosts(params, current_user)
-    if params[:page] == 1
-      @tags = Tag.paging(1)
-      @groups = Group.recommendGroups(current_user)
-    end
+    @tags = Tag.paging(1)
+    @groups = Group.recommendGroups(current_user)
     respond_with(@posts)
   end
 
