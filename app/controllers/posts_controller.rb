@@ -3,12 +3,12 @@ class PostsController < ApplicationController
    
   # GET /posts
   # GET /posts.json
-  def index
-    search = nil
-    search = params[:search] if params.has_key?(:search)   
-    @posts = Post.getPosts(search, params[:page], current_user)
-    @tags = Tag.paging(1)
-    @groups = Group.recommendGroups(current_user)
+  def index  
+    @posts = Post.getPosts(params, current_user)
+    if params[:page] == 1
+      @tags = Tag.paging(1)
+      @groups = Group.recommendGroups(current_user)
+    end
     respond_with(@posts)
   end
 

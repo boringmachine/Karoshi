@@ -57,7 +57,10 @@ class Post < ActiveRecord::Base
              :order => 'created_at desc'
   end
 
-  def self.getPosts(search,page,user)
+  def self.getPosts(params,user)
+    search = nil
+    page = params[:page]
+    search = params[:search] if params.has_key?(:search) 
     if search == nil
       groups = user.groups
       Post.where(:group_id => groups).paging(page)
