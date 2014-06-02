@@ -3,7 +3,7 @@ class Tag < ActiveRecord::Base
   has_many :post_tags
   has_many :posts, through: :post_tags
   
-  @per_page = 17
+  @per_page = 10
   
   def self.paging(page)
     now = Time.now
