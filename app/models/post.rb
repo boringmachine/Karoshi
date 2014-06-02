@@ -61,7 +61,7 @@ class Post < ActiveRecord::Base
     search = nil
     page = params[:page]
     search = params[:search] if params.has_key?(:search) 
-    if search == nil
+    if search.blank?
       groups = user.groups
       Post.where(:group_id => groups).paging(page)
     else
