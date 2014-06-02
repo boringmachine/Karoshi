@@ -52,7 +52,7 @@ class Group < ActiveRecord::Base
     Group.find(group_id).users.uniq.shuffle.each do |user|
        result.concat(User.find(user.id).groups)
        result = result.uniq
-       break if 100 < result.count
+       break if 25 < result.count
     end
     result = result.uniq.shuffle
     delgroup = Group.find(group_id)
@@ -78,12 +78,13 @@ class Group < ActiveRecord::Base
   
   def self.recommendGroups(user_id)
     result = []
-    GroupUser.groups(user_id).each do |group|
+    GroupUser.groups(user_id).shuffle.each do |group|
       result.concat(relatedGroups(group))
       result = result.uniq
-      break if 300 < result.count
+      break if 100 < result.count
     end
-    excludeJoinGroups(result.uniq, user_id).shuffle
+    result = excludeJoinGroups(result.uniq, user_id).shuffle
+    result = excludeInvisibleGroups(result)
   end
   
 end
