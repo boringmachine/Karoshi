@@ -31,8 +31,7 @@
 <div class="field">
 	<%= f.label :topic_id %>
 	<br />
-	<% topics = GroupTopic.topics(@group.id) %>
-	<%= collection_select(:post, :topic_id, Topic.find(topics), :id, :subject) %>
+	<%= collection_select(:post, :topic_id, @group.topics, :id, :subject) %>
 </div>
 
 <div class="actions">

@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :group_id %><br />
-	<%= collection_select(:group_topic, :group_id, Group.owngroups(current_user.id) , :id, :name) %>
+	<%= collection_select(:group_topic, :group_id, current_user.own_groups , :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :topic_id %><br />

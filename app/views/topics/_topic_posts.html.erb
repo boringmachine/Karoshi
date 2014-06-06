@@ -1,14 +1,12 @@
 <% @posts.reverse.each do |post| %>
 <article class="topic_post_article">
-  <% user = User.find(post.user_id)%>
   <% group = Group.find(post.group_id)%>
   <header>
-    <span class="userimg"><%= s3 image_tag(user.photo.url(:small)) %></span>
-    <span class="user"><b><%= user.username %></b> in <%= link_to group.name, group %></span>
+    <span class="userimg"><%= s3 image_tag(post.user.photo.url(:small)) %></span>
+    <span class="user"><b><%= post.user.username %></b> in <%= link_to group.name, group %></span>
     <span class="date"><%= post.created_at %></span><br />
     <span class="no"  >No:<%= post.id %></span>
   </header>
-  <% user = User.find(post.user_id) %>
   <div class="body">
   	<% if post.photo? %>
       <div class="image"><a class="fancybox" href="<%= s3 post.photo.url(:original) %>"><%= s3 image_tag(post.photo.url(:medium)) %></a></div>

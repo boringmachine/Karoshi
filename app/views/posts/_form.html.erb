@@ -27,15 +27,13 @@
 <div class="field" id="group">
 	<%= f.label :group_id %>
 	<br />
-	<% groups = GroupUser.groups(current_user.id) %>
-	<%= collection_select(:post, :group_id, Group.find(groups) , :id, :name) %>
+	<%= collection_select(:post, :group_id, current_user.groups , :id, :name) %>
 </div><span> </span>
 
 <div class="field" id="topic">
 	<%= f.label :topic_id %>
 	<br />
-	<% topics = GroupTopic.topics(1) %>
-	<%= collection_select(:post, :topic_id, Topic.find(topics) , :id, :subject) %>
+	<%= collection_select(:post, :topic_id, Group.find(1).topics , :id, :subject) %>
 </div>
 
 <div class="actions">

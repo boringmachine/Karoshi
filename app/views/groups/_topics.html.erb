@@ -1,6 +1,5 @@
 <header><h1>Group Topics</h1></header>
-<% topics = GroupTopic.topics(@group.id)%>
-<% topics = Topic.where(id: topics).search('',params[:tpage]) %>
+<% topics = @group.topics.search('',params[:tpage]) %>
 <ul>
 <% topics.reverse.each do |topic| %>
   <li>
