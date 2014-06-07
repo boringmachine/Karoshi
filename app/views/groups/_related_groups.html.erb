@@ -1,6 +1,8 @@
 <h1>Related Groups</h1>
 <ul>
 <% @rgroups[0..10].each do |group| %>
-  <li><img class="icon" width="30" height="30" src="<%= s3 group.photo.url(:small) %>"><%= link_to group.name, group %></li>
+  <% if group.visible %>
+    <li><img class="icon" width="30" height="30" src="<%= s3 group.photo.url(:small) %>"><%= link_to group.name, group %></li>
+  <% end %>
 <% end %>
 </ul>
