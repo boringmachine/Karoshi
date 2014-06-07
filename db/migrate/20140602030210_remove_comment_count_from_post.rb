@@ -1,9 +1,8 @@
 class RemoveCommentCountFromPost < ActiveRecord::Migration
   def up
-    remove_column :posts, :field_name
+    remove_column :posts, :comment_count
   end
 
   def down
-    add_column :posts, :field_name, :comment_count
-  end
+    add_column :posts, :comment_count, :integer
 end
