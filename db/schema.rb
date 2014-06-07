@@ -73,7 +73,6 @@ ActiveRecord::Schema.define(:version => 20140607065057) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
-    t.integer  "comment_count"
     t.integer  "group_topic_id"
   end
 
