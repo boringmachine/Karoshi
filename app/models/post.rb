@@ -119,16 +119,15 @@ class Post < ActiveRecord::Base
     end
   end
   
-  def self.moveIds()
-    posts = Post.all
-    posts.each do |post|
-      unless(post.group_id == nil or post.topic_id == nil)
-        id = GroupTopic.where(:group_id => post.group_id, :topic_id => post.topic_id).first.id
-        post.group_topic_id = id
-        post.save
-      end
-    end
-  end
+#  def self.moveIds()
+#    posts = Post.all
+#    posts.each do |post|
+#      unless(post.group_id == nil or post.topic_id == nil)
+#        id = GroupTopic.where(:group_id => post.group_id, :topic_id => post.topic_id).first.id
+#        post.group_topic_id = id
+#        post.save
+#      end
+#    end
+#  end
   
- 
 end
