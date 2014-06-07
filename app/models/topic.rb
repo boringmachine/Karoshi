@@ -43,12 +43,4 @@ class Topic < ActiveRecord::Base
     end
   end
   
-  def self.getTopicPosts(params)
-    if params.has_key?(:group_id)
-      Post.groupTopicPosts(params[:group_id],params[:id],params[:page])
-    else
-      Post.topicposts(params[:id], params[:page])
-    end
-  end
-  
 end

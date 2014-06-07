@@ -1,7 +1,6 @@
 <% @posts.each do |post| %>
-<% topic = Topic.find(post.topic_id) %>
 <article class="post_article tlelm">
-  <header><h3><%= link_to topic.subject, topic %></h3></header>
+  <header><h3><%= link_to post.topic.subject, post.topic %></h3></header>
   <div>
     <span class="userimg"><%= s3 image_tag(post.user.photo.url(:small)) %></span>
     <span class="user"><b><%= post.user.username %></b></span>

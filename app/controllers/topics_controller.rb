@@ -13,7 +13,7 @@ class TopicsController < ApplicationController
   # GET /topics/1.json
   def show
     @topic = Topic.find(params[:id])
-    @posts = Topic.getTopicPosts(params)
+    @posts = Post.getTopicPosts(params)
     respond_with(@topic)
   end
 

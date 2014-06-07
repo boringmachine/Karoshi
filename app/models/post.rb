@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  attr_accessible :body, :topic_id, :user_id, :group_id, :comment_count,
+  attr_accessible :body, :topic_id, :user_id, :group_id, :group_topic_id, :comment_count,
                   :photo, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at
   has_attached_file :photo, :styles => { :medium => "300x300>",:small => "100x100>" },
     :storage => :s3,
@@ -8,6 +8,8 @@ class Post < ActiveRecord::Base
     
   belongs_to :group_topic
   belongs_to :user
+  has_one :group, through: :group_topic
+  has_one :topic, through: :group_topic
   has_many :post_tags
   has_many :tags, through: :post_tags
   has_many :comment_parent, :foreign_key => "parent_id", :class_name => "Comment"
@@ -69,9 +71,25 @@ class Post < ActiveRecord::Base
     end
   end
 
+  def self.getGroupPosts(params)
+    if params.has_key?(:topic_id)
+      Post.groupTopicPosts(params[:id],params[:topic_id],params[:page])
+    else
+      Post.groupposts(params[:id],params[:page])
+    end
+  end
+  
+  def self.getTopicPosts(params)
+    if params.has_key?(:group_id)
+      Post.groupTopicPosts(params[:group_id],params[:id],params[:page])
+    else
+      Post.topicposts(params[:id], params[:page])
+    end
+  end
 
   def self.getBody(topic_id)
-    tmp = topicposts(topic_id,1)
+    page = 1
+    tmp = topicposts(topic_id, page)
     buf = ''
     tmp.each do |post|
       buf += post.body
@@ -81,7 +99,8 @@ class Post < ActiveRecord::Base
   end
   
   def self.getGroupBody(group_id)
-    posts = groupposts(group_id,1)
+    page = 1
+    posts = groupposts(group_id, page)
     buf = ''
     posts.each do |post|
       buf += post.body
@@ -97,6 +116,17 @@ class Post < ActiveRecord::Base
       tmp.last.created_at
     else
       ""
+    end
+  end
+  
+  def self.moveIds()
+    posts = Post.all
+    posts.each do |post|
+      unless(post.group_id == nil or post.topic_id == nil)
+        id = GroupTopic.where(:group_id => post.group_id, :topic_id => post.topic_id).first.id
+        post.group_topic_id = id
+        post.save
+      end
     end
   end
   

@@ -30,6 +30,8 @@ class PostsController < ApplicationController
   def create
     timediff = Time.now - current_user.posts.last.created_at
     if timediff > 10.seconds
+      params[:post][:group_topic_id] = 
+        GroupTopic.where(:group_id => params[:post][:group_id], :topic_id => params[:post][:topic_id]).first.id
       @post = current_user.posts.new(params[:post])
       afterSave(@post) if @post.save
       respond_with(@post)

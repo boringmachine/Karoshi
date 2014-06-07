@@ -1,9 +1,7 @@
 <article class="post_article tlelm">
   <p id="notice"><%= notice %></p>
-  <% topic = Topic.find(@post.topic_id) %>
-  <% group = Group.find(@post.group_id) %>
   <header>
-    <h3><%= link_to topic.subject, topic %> - <%= link_to group.name, group %></h3>
+    <h3><%= link_to @post.topic.subject, @post.topic %> - <%= link_to @post.group.name, @post.group %></h3>
   </header>
   <div>
     <span class="userimg"><%= s3 image_tag(@post.user.photo.url(:small)) %></span>
