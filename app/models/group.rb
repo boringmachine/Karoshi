@@ -62,10 +62,11 @@ class Group < ActiveRecord::Base
   end
   
   def self.excludeInvisibleGroups(groups)
+    obj_groups = []
     groups.each do |group|
-      groups.delete(group) if !group.visible
+      obj_groups.push(group) if group.visible
     end
-    groups
+    obj_groups
   end
   
   def self.recommendGroups(user_id)
