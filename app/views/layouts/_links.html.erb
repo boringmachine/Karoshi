@@ -1,9 +1,9 @@
 <header><h1>Links</h1></header>
 <ul>
-  <li><img class="icon" src="../assets/home.png"><%= link_to "Home", :posts %></li>
-  <li><img class="icon" src="../assets/human.png"><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
-  <li><img class="icon" src="../assets/make.png"><%= link_to 'New Group', new_group_path %></li>
-  <li><img class="icon" src="../assets/post.png"><%= link_to 'Post List' , posts_path  %></li>
-  <li><img class="icon" src="../assets/group.png"><%= link_to 'Group List', groups_path %></li>
-  <li><img class="icon" src="../assets/topic.png"><%= link_to 'Topic List', topics_path %></li>
+  <li><%= image_tag("home.png" , class:"icon")%><%= link_to "Home"        , :posts %></li>
+  <li><%= image_tag("human.png", class:"icon")%><%= link_to 'Edit profile', edit_user_registration_path %></li>
+  <li><%= image_tag("make.png" , class:"icon")%><%= link_to 'New Group'   , new_group_path %></li>
+  <li><%= image_tag("post.png" , class:"icon")%><%= link_to 'Posts'       , posts_path  %></li>
+  <li><%= image_tag("group.png", class:"icon")%><%= link_to 'Groups'      , groups_path %></li>
+  <li><%= image_tag("topic.png", class:"icon")%><%= link_to 'Topics'      , topics_path %></li>
 </ul>
