@@ -14,7 +14,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     unless @user.id.blank?
       group = Group.first
       GroupUser.create(user_id: @user.id, group_id: group.id)
-      Post.create(user_id: @user.id)
+      Post.create(user_id: @user.id, group_id: 1, topic_id: 1, group_topic_id: 1, body: "I just join this SNS now!")
     end
   end
  
