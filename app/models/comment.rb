@@ -15,7 +15,7 @@ class Comment < ActiveRecord::Base
     users.uniq.each do |user|
       from = Post.find(post_id).user
       to = user
-      Mailer.notification(from, to,  body).deliver
+      Mailer.notification(from, to,  body, post_id).deliver
     end
     
   end

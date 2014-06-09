@@ -6,9 +6,9 @@ class Mailer < ActionMailer::Base
   #
   #   en.sample.sample_mail.subject
   #
-  def notification(from, to, body)
+  def notification(from, to, body, post_id)
     mail to: to.email,
     subject: "Karoshi:#{from.username} comments on your post.",
-    body: "#{body}\n https://ancient-falls-3709.herokuapp.com/"
+    body: "#{body}\n https://ancient-falls-3709.herokuapp.com/posts/#{post_id}"
   end
 end
