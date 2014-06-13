@@ -5,18 +5,22 @@ class Comment < ActiveRecord::Base
   
   def self.createComments(body, post_id)
     comments = body.scan(/>>([0-9]+)/).uniq
-    users = []
+    users = Set.new
     comments.each do |comment|
       child_id = comment.first.to_i
-      users.push(Post.find(child_id).user)
+      users.add(Post.find(child_id).user)
       Comment.create(parent_id: post_id, child_id: child_id) 
     end
     
-    users.uniq.each do |user|
-      from = Post.find(post_id).user
-      to = user
-      Mailer.notification(from, to,  body, post_id).deliver
-    end
+    params = {users:users, post_id: post_id, body: body}
+    
+    Resque.enqueue(CommentNotifier, params)
+    
+#    users.each do |user|
+#      from = Post.find(post_id).user
+#      to = user
+#      Mailer.notification(from, to,  body, post_id).deliver
+#    end
     
   end
   
