@@ -14,13 +14,13 @@ class Comment < ActiveRecord::Base
     
     params = {users:users, post_id: post_id, body: body}
     
-    Resque.enqueue(CommentNotifier, params)
+#    Resque.enqueue(CommentNotifier, params)
     
-#    users.each do |user|
-#      from = Post.find(post_id).user
-#      to = user
-#      Mailer.notification(from, to,  body, post_id).deliver
-#    end
+    users.each do |user|
+      from = Post.find(post_id).user
+      to = user
+      Mailer.notification(from, to,  body, post_id).deliver
+    end
     
   end
   
