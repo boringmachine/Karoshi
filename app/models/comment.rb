@@ -8,19 +8,18 @@ class Comment < ActiveRecord::Base
     users = Set.new
     comments.each do |comment|
       child_id = comment.first.to_i
-      users.add(Post.find(child_id).user)
+      users.add(Post.find(child_id).user.id)
       Comment.create(parent_id: post_id, child_id: child_id) 
     end
     
-    params = {users:users, post_id: post_id, body: body}
+    users = users.to_a
+    Resque.enqueue(CommentNotifier, users, post_id, body)
     
-#    Resque.enqueue(CommentNotifier, params)
-    
-    users.each do |user|
-      from = Post.find(post_id).user
-      to = user
-      Mailer.notification(from, to,  body, post_id).deliver
-    end
+#    users.each do |user|
+#      from = Post.find(post_id).user
+#      to = user
+#      Mailer.notification(from, to,  body, post_id).deliver
+#    end
     
   end
   
