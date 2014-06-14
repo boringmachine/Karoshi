@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  attr_accessible :body, :topic_id, :user_id, :group_id, :group_topic_id, :comment_count,
+  attr_accessible :body, :topic_id, :user_id, :group_id, :group_topic_id, :topic_post_id,
                   :photo, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at
   has_attached_file :photo, :styles => { :medium => "300x300>",:small => "100x100>" },
     :storage => :s3,
@@ -125,6 +125,19 @@ class Post < ActiveRecord::Base
       unless(post.group_id == nil or post.topic_id == nil)
         id = GroupTopic.where(:group_id => post.group_id, :topic_id => post.topic_id).first.id
         post.group_topic_id = id
+        post.save
+      end
+    end
+  end
+  
+  def self.setTopicPostIds()
+    posts = Post.all
+    tpcounts = Array.new(Topic.count, 0)  
+    posts.each do |post|
+      unless post.topic_id.blank?
+        k = post.topic_id - 1
+        tpcounts[k] += 1
+        post.topic_post_id = tpcounts[k]
         post.save
       end
     end

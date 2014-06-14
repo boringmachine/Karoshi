@@ -4,7 +4,7 @@
     <span class="userimg"><%= s3 image_tag(post.user.photo.url(:small)) %></span>
     <span class="user"><b><%= post.user.username %></b> in <%= link_to post.group.name, post.group %></span>
     <span class="date"><%= post.created_at %></span><br />
-    <span class="no"  >No:<%= post.id %></span>
+    <span class="no"  >No:<%= post.topic_post_id %></span>
   </header>
   <div class="body">
   	<% if post.photo? %>
