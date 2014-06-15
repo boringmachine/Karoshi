@@ -19,7 +19,7 @@
 		<%= auto_res post.body_html %>
 	</div>
 	<div class="comments">
-		<a href="/posts?search=%3E%3E<%= post.id%>">Comment(<%= Comment.countRes(post.id) %>)</a>
+		<a href="/posts?search=%3E%3E<%= post.topic_post_id %>&tid=<%= post.topic_id %>">Comment(<%= Comment.countRes(post.id) %>)</a>
 	</div>
 </article>
 <% end %>

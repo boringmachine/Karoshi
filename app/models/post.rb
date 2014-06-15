@@ -61,13 +61,21 @@ class Post < ActiveRecord::Base
 
   def self.getPosts(params,user)
     search = nil
+    comment = nil
+    
     page = params[:page]
-    search = params[:search] if params.has_key?(:search) 
-    if search.blank?
+    search = params[:search] if params.has_key?(:search)
+    comment = {:tid => params[:tid], :pid => params[:pid]} if params.has_key?(:tid) and params.has_key?(:pid)    
+
+    if !search.blank? and !comment.blank?
+      Post.where(topic_id: comment[:tid]).search(search, page)
+    elsif !search.blank?
+      Post.search(search, page)
+    elsif !comment.blank?
+      Post.where(topic_id: comment[:tid], topic_post_id: comment[:pid]).paging(1)
+    else
       groups = user.groups
       Post.where(:group_id => groups).paging(page)
-    else
-      Post.search(search, page)
     end
   end
 
