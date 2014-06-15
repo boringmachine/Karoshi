@@ -59,8 +59,8 @@ class GroupTopic < ActiveRecord::Base
   
   def self.remove_all(id)
     group_topic = find(id)
-    topic_id = group_topic.topic_id
-    group_id = group_topic.group_id
-    GroupTopic.destroy_all(topic_id:topic_id, group_id:group_id)
+    tid = group_topic.topic_id
+    gid = group_topic.group_id
+    GroupTopic.where(topic_id: tid, group_id: gid).update_all("group_id = -1")
   end
 end
