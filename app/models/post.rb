@@ -8,8 +8,8 @@ class Post < ActiveRecord::Base
     
   belongs_to :group_topic
   belongs_to :user
-  has_one :group, through: :group_topic
-  has_one :topic, through: :group_topic
+  belongs_to :group
+  belongs_to :topic
   has_many :post_tags
   has_many :tags, through: :post_tags
   has_many :comment_parent, :foreign_key => "parent_id", :class_name => "Comment"
