@@ -17,23 +17,19 @@ class TopicsController < ApplicationController
     respond_with(@topic)
   end
 
-  # GET /topics/new
-  # GET /topics/new.json
-  def new
-    @topic = Topic.new
-    respond_with(@topic)
-  end
-
-
   # POST /topics
   # POST /topics.json
   def create
     @topic = Topic.new(params[:topic])
-    flash[:notice] = 'Topic was successfully created.' if @topic.save
-    if params.has_key?(:group_id)
-      GroupTopic.create(topic_id:@topic.id, group_id: params[:group_id])
-    end
+    afterSave(@topic, params) if @topic.save
     respond_with(@topic)
   end
 
+  private
+  def afterSave(topic, params)
+    flash[:notice] = 'Topic was successfully created.'
+    if params.has_key?(:group_id)
+      GroupTopic.create(topic_id:topic.id, group_id: params[:group_id])
+    end
+  end
 end

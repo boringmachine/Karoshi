@@ -8,13 +8,6 @@ class GroupUsersController < ApplicationController
     respond_with(@group_users)
   end
 
-  # GET /group_users/new
-  # GET /group_users/new.json
-  def new
-    @group_user = GroupUser.new
-    respond_with(@group_user)
-  end
-
   # POST /group_users
   # POST /group_users.json
   def create

@@ -17,7 +17,7 @@ class Post < ActiveRecord::Base
   has_many :childs, :class_name => "Post", :through => :comment_parent, :source => :child
   has_many :parents, :class_name => "Post",:through => :comment_child, :source => :parent
 
-  scope :recent, order('created_at desc') 
+  scope :recent, order('created_at desc')
  
   validates :body, :length => (0..500)
   validates_attachment_size :photo, :less_than => 5.megabytes
@@ -149,6 +149,21 @@ class Post < ActiveRecord::Base
         post.save
       end
     end
+  end
+  
+  def self.getNextTopicPostId(topic_id)
+    topicpost = where(topic_id: topic_id).limit(1).order('topic_post_id desc')
+    if topicpost.blank?
+      1
+    else
+      topicpost.first.topic_post_id+1
+    end
+  end
+  
+  def self.newUserPost(params, user)
+    params[:post][:group_topic_id] = GroupTopic.getId(params[:post][:topic_id], params[:post][:group_id])
+    params[:post][:topic_post_id]  = Post.getNextTopicPostId(params[:post][:topic_id])
+    post = user.posts.new(params[:post])
   end
   
 end

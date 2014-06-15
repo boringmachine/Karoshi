@@ -9,14 +9,6 @@ class CommentsController < ApplicationController
     respond_with(@comments)
   end
 
-  # GET /comments/new
-  # GET /comments/new.json
-  def new
-    @comment = Comment.new
-    respond_with(@comment)
-  end
-
-
   # POST /comments
   # POST /comments.json
   def create

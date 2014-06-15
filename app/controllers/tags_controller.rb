@@ -8,13 +8,6 @@ class TagsController < ApplicationController
     respond_with(@tags)
   end
 
-  # GET /tags/new
-  # GET /tags/new.json
-  def new
-    @tag = Tag.new
-    respond_with(@tag)
-  end
-
   # POST /tags
   # POST /tags.json
   def create

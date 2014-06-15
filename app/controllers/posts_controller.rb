@@ -17,26 +17,15 @@ class PostsController < ApplicationController
     respond_with(@post)
   end
 
-  # GET /posts/new
-  # GET /posts/new.json
-  def new
-    @post = Post.new
-    respond_with(@post)
-  end
-
-
   # POST /posts
   # POST /posts.json
   def create
     timediff = Time.now - current_user.posts.last.created_at
     if timediff > 10.seconds
-      params[:post][:group_topic_id] = 
-        GroupTopic.where(:group_id => params[:post][:group_id], :topic_id => params[:post][:topic_id]).first.id
-      params[:post][:topic_post_id] = Post.where(:topic_id => params[:post][:topic_id]).order('topic_post_id desc').first.topic_post_id+1
-      @post = current_user.posts.new(params[:post])
+      @post = Post.newUserPost(params, current_user)
       afterSave(@post) if @post.save
-      respond_with(@post)
     end
+    respond_with(@post)
   end
   
   private

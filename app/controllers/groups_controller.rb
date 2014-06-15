@@ -34,12 +34,7 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(params[:group])
     @group[:owner_id] = current_user.id
-    topic = Topic.getFirstTopic
-    
-    flash[:notice] = 'Group was successfully created.' if @group.save
-
-    GroupTopic.create(topic_id:topic.id,group_id:@group.id)
-
+    afterSave(@group) if @group.save
     respond_with(@group)
   end
 
@@ -49,6 +44,12 @@ class GroupsController < ApplicationController
     @group = current_user.groups.find(params[:id])
     flash[:notice] = 'Group was successfully updated.' if @group.update_attributes(params[:group])
     respond_with(@group)
+  end
+
+  private
+  def afterSave(group)
+    flash[:notice] = 'Group was successfully created.' 
+    GroupTopic.create(topic_id:Topic.getFirstTopic.id, group_id:group.id)
   end
 
 end

@@ -53,6 +53,10 @@ class GroupTopic < ActiveRecord::Base
     where(topic_id:topic_id, group_id:group_id).limit(1).pop
   end
   
+  def self.getId(topic_id, group_id)
+    getFirst(topic_id, group_id).id
+  end
+  
   def self.remove_all(id)
     group_topic = find(id)
     topic_id = group_topic.topic_id
