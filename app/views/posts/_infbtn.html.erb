@@ -1,6 +1,8 @@
 <%= form_tag posts_path, id:'infloader', method:'get', remote: true do |f|%>
   <%= hidden_field_tag :page, "2",id:"page" %>
   <%= hidden_field_tag :search, params[:search]%>
+  <%= hidden_field_tag :tid, params[:tid]%>
+  <%= hidden_field_tag :pid, params[:pid]%>
   <div id="infbtn">
   	<%= image_submit_tag("loading.gif") %><br />
   </div>
