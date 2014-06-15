@@ -1,12 +1,12 @@
 <section id="posts">
 
-	<% if rand(3) == 1 and !@tags.empty?%>
+	<% if rand(3) == 1 and !@tags.blank?%>
 	<section id="tags" class="tlelm">
 		<%= render 'top_tags'%>
 	</section>
 	<% end %>
 	
-	<% if rand(3) == 1 and !@groups.empty? %>
+	<% if rand(3) == 1 and !@groups.blank? %>
 	<section id="recommend_groups" class="tlelm">
 		<%= render 'recommend_groups'%>
 	</section>
