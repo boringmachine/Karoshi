@@ -40,7 +40,7 @@ class Post < ActiveRecord::Base
   def self.topicposts(topic_id,page)
     paginate :per_page => @per_page, :page => page,
              :conditions => ['topic_id = ?', topic_id],
-             :order => "created_at desc"
+             :order => "topic_post_id desc"
   end
  
   def self.groupTopicPosts(group_id, topic_id, page)

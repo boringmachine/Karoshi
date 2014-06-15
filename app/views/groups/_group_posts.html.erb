@@ -12,7 +12,7 @@
   	<% if post.photo? %>
       <div class="image"><a class="fancybox" href="<%= s3 post.photo.url(:original) %>"><%= s3 image_tag(post.photo.url(:medium)) %></a></div>
     <% end %> 
-  	<%= auto_res post.body_html %>
+  	<%= auto_res post.body_html, post.topic_id %>
   </div>
   <div class="comments"><a href="/posts?search=%3E%3E<%=post.id%>">Comment(<%= Comment.countRes(post.id) %>)</a></div>
 </article>

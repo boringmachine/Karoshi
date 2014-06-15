@@ -32,7 +32,7 @@ class PostsController < ApplicationController
     if timediff > 10.seconds
       params[:post][:group_topic_id] = 
         GroupTopic.where(:group_id => params[:post][:group_id], :topic_id => params[:post][:topic_id]).first.id
-      params[:post][:topic_post_id] = Post.where(:topic_id => params[:post][:topic_id]).count + 1
+      params[:post][:topic_post_id] = Post.where(:topic_id => params[:post][:topic_id]).order('topic_post_id desc').first.topic_post_id+1
       @post = current_user.posts.new(params[:post])
       afterSave(@post) if @post.save
       respond_with(@post)
