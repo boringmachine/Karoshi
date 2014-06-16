@@ -1,4 +1,4 @@
-<% @posts.each do |post| %>
+<% @posts.reverse.each do |post| %>
 <article class="topic_post_article">
   <header>
     <span class="userimg"><%= s3 image_tag(post.user.photo.url(:small)) %></span>
