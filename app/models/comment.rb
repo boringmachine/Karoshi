@@ -18,12 +18,6 @@ class Comment < ActiveRecord::Base
     users = users.to_a
     Resque.enqueue(CommentNotifier, users, post_id, body)
     
-#    users.each do |user|
-#      from = Post.find(post_id).user
-#      to = user
-#      Mailer.notification(from, to,  body, post_id).deliver
-#    end
-    
   end
   
   def self.countRes(child_id)
