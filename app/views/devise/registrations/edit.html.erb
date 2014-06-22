@@ -16,6 +16,13 @@
   	<%= f.file_field :photo %>
   </p>
 
+  <p>
+	<%= f.label :locale_id %>
+	<br />
+	<%= collection_select(:user, :locale_id, Locale.all , :id, :name) %>
+  </p>
+
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
   <% end %>

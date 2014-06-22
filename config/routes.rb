@@ -1,4 +1,7 @@
 Karoshi::Application.routes.draw do
+  resources :locales
+
+
   resources :comments
   resources :post_tags
   resources :tags

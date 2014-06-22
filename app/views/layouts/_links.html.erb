@@ -1,9 +1,9 @@
-<header><h1>Links</h1></header>
+<header><h1><%= t 'links'%></h1></header>
 <ul>
-  <li><%= image_tag("home.png" , class:"icon")%><%= link_to "Home"        , :posts %></li>
-  <li><%= image_tag("human.png", class:"icon")%><%= link_to 'Edit profile', edit_user_registration_path %></li>
-  <li><%= image_tag("make.png" , class:"icon")%><%= link_to 'New Group'   , new_group_path %></li>
-  <li><%= image_tag("post.png" , class:"icon")%><%= link_to 'Posts'       , posts_path  %></li>
-  <li><%= image_tag("group.png", class:"icon")%><%= link_to 'Groups'      , groups_path %></li>
-  <li><%= image_tag("topic.png", class:"icon")%><%= link_to 'Topics'      , topics_path %></li>
+  <li><%= image_tag("home.png" , class:"icon")%><%= link_to t('home')        , :posts %></li>
+  <li><%= image_tag("human.png", class:"icon")%><%= link_to t('edit_profile'), edit_user_registration_path %></li>
+  <li><%= image_tag("make.png" , class:"icon")%><%= link_to t('group.new')   , new_group_path %></li>
+  <li><%= image_tag("post.png" , class:"icon")%><%= link_to t('post.list')   , posts_path  %></li>
+  <li><%= image_tag("group.png", class:"icon")%><%= link_to t('group.list')  , groups_path %></li>
+  <li><%= image_tag("topic.png", class:"icon")%><%= link_to t('topic.list')  , topics_path %></li>
 </ul>

@@ -3,3 +3,26 @@
 
 en:
   hello: "Hello world"
+  explain:
+    one: "First, you should join any group."
+    two: "1, Click the menu button on the upper left."
+    three: "2, Move to the 'Groups' that exist on the sidebar."
+    four: "3, Move to any group page."
+    five: "4, Click 'Join this group' button."
+    six: "Or, search any group by using search bar."
+
+  home: "Home"
+  edit_profile: "Edit Profile"
+  links: "Links"
+  group:
+    new: "New Group"
+    list: "Groups"
+    joined: "Joined Groups"
+    recommend: "Recommend Groups"
+  post:
+    list: "Posts"
+  topic:
+    list: "Topics"
+  trend:
+    list: "Trends"
+  

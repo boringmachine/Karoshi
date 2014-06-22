@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140615105851) do
+ActiveRecord::Schema.define(:version => 20140622011413) do
 
   create_table "comments", :force => true do |t|
     t.integer  "parent_id"
@@ -54,6 +54,12 @@ ActiveRecord::Schema.define(:version => 20140615105851) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+  end
+
+  create_table "locales", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "post_tags", :force => true do |t|
@@ -114,6 +120,7 @@ ActiveRecord::Schema.define(:version => 20140615105851) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.integer  "locale_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
