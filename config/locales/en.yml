@@ -26,6 +26,7 @@ en:
     list: "Groups"
     join: "Join this group"
     joined: "Joined Groups"
+    leave: "Leave this group"
     recommend: "Recommend Groups"
     related: "Related Groups"
     topics: "Group Topics"
