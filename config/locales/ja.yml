@@ -6,6 +6,22 @@ ja:
         photo: "画像"
         group_id: "グループ"
         topic_id: "トピック"
+      group:
+        photo: "画像"
+        name: "グループ名"
+        description: "説明"
+        visible: "公開する？"
+      user:
+        photo: "画像"
+        email: "メールアドレス"
+        username: "ユーザ名"
+        locale_id: "言語"
+        password: "パスワード"
+        password_confirmation: "パスワード再入力"
+        current_password: "現在のパスワード"
+    submit:
+        create: "作成"
+        update: "更新"
   hello: "こんにちは"
   explain:
     one: "最初に、グループに参加しないと投稿できません。"
@@ -36,6 +52,15 @@ ja:
     name: "トピック"
     list: "トピック一覧"
     delete: "削除"
+    join: "トピックに参加"
+    create: "作成"
+    subject: "件名"
+    status: "非公開?"
+  user:
+    edit: "プロフィール編集"
+    pass1: "(パスワードを変更しない場合は空白)"
+    pass2: "(変更確認のため、現在のパスワードを入力してください)"
+    cancel: "退会"
   trend:
     list: "人気タグ"
   search: "検索"

@@ -9,6 +9,23 @@ en:
         photo: "Photo"
         group_id: "Group"
         topic_id: "Topic"
+      group:
+        photo: "photo"
+        name: "group name"
+        description: "description"
+        visible: "visible"
+      user:
+        photo: "Photo"
+        email: "Email"
+        username: "Username"
+        locale_id: "Locale"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        current_password: "Current Password"
+
+    submit:
+        create: "Create"
+        update: "Update"
   hello: "Hello world"
   explain:
     one: "First, you should join any group."
@@ -38,6 +55,15 @@ en:
     name: "Topic"
     list: "Topics"
     delete: "Delete"
+    join: "Join this topic"
+    create: "Create"
+    subject: "Subject"
+    status: "Private?"
+  user:
+    edit: "プロフィール編集"
+    pass1: "(leave blank if you don't want to change it)"
+    pass2: "(we need your current password to confirm your changes)"
+    cancel: "Cancel My Account"
   trend:
     list: "Trends"
   search: "Search"

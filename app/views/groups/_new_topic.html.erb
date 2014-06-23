@@ -1,6 +1,6 @@
 <header><h1><%= t "topic.new"%></h1></header>
 <% if GroupUser.exist(current_user.id,@group.id) %>
-  <table><tr><th>Subject</th><th>Private?</th></tr>
+  <table><tr><th><%= t 'topic.subject'%></th><th><%= t 'topic.status'%></th></tr>
   <%= form_for(Topic.new) do |f| %>
   <tr>
     <td><div class="field">
@@ -15,7 +15,7 @@
   </tr>
   <tr><td colspan="3">
     <div class="actions">
-	  <%= submit_tag("Create Topic") %>
+	  <%= submit_tag t("topic.create") %>
     </div></td></tr>
   <% end %>
   </table>
