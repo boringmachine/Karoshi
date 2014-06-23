@@ -2,7 +2,7 @@
   <span id="menu"><%= image_tag("menu.png", class:"menuicon")%></span>
 </section>
 <section id="login_info" class="navbar-text pull-right">
-  <%= link_to "Home", :posts %> | 
+  <%= link_to t("home"), :posts %> | 
   <strong><%= link_to current_user.email, edit_user_registration_path, :class => 'navbar-link' %></strong> | 
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+  <%= link_to t("logout"), destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 </section>

@@ -1,9 +1,9 @@
 <%= form_tag posts_path, :method => 'get' do %>
   <%= text_field_tag :search, params[:search], {'x-webkit-speech'=>'','x-webkit-grammar' => 'builtin:search'} %>
   <select id="submit_path">
-    <option value="1">Post </option>
-    <option value="2">Group</option>
-    <option value="3">Topic</option>
+    <option value="1"><%= t 'post.name'%></option>
+    <option value="2"><%= t 'group.name'%></option>
+    <option value="3"><%= t 'topic.name'%></option>
   </select>
-  <%= submit_tag "Search", :name => nil %>
+  <%= submit_tag t("search"), :name => nil %>
 <% end %>

@@ -1,6 +1,5 @@
 class TopicsController < ApplicationController
-  respond_to :html, :xml, :json
-  
+  respond_to :html, :xml, :json, :js
   
   # GET /topics
   # GET /topics.json

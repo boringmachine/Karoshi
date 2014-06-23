@@ -1,4 +1,11 @@
 ja:
+  helpers:
+    label:
+      post:
+        body: '.'
+        photo: "画像"
+        group_id: "グループ"
+        topic_id: "トピック"
   hello: "こんにちは"
   explain:
     one: "最初に、グループに参加しないと投稿できません。"
@@ -7,18 +14,22 @@ ja:
     four: "3, 表示されたグループ一覧からグループページヘ移動。"
     five: "4, 'このグループに参加'ボタンをクリック。"
     six: "または、サーチバーからグループを検索してください。"
-
   home: "ホーム"
   edit_profile: "プロフィール編集"
   links: "機能"
   group:
+    name: "グループ"
     new: "グループ作成"
     list: "グループ一覧"
     joined: "参加グループ"
     recommend: "おすすめグループ"
   post:
+    name: "投稿"
     list: "投稿一覧"
   topic:
+    name: "トピック"
     list: "トピック一覧"  
   trend:
     list: "人気タグ"
+  search: "検索"
+  logout: "ログアウト"

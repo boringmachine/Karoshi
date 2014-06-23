@@ -1,0 +1,6 @@
+$("#groups").append("<%= escape_javascript(render 'list_groups') %>")
+page = parseInt($("#page").val())+1;
+$("#page").val(page);
+<% if @groups.count < Group.per_page %>
+  $("#infloader").hide();
+<% end %>

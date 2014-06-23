@@ -1,0 +1,6 @@
+$("#posts").append("<%= escape_javascript(render 'list_topics') %>")
+page = parseInt($("#page").val())+1;
+$("#page").val(page);
+<% if @topics.count < Topic.per_page %>
+  $("#infloader").hide();
+<% end %>

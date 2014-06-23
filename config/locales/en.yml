@@ -2,6 +2,13 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  helpers:
+    label:
+      post:
+        body: '.'
+        photo: "Photo"
+        group_id: "Group"
+        topic_id: "Topic"
   hello: "Hello world"
   explain:
     one: "First, you should join any group."
@@ -10,19 +17,22 @@ en:
     four: "3, Move to any group page."
     five: "4, Click 'Join this group' button."
     six: "Or, search any group by using search bar."
-
   home: "Home"
   edit_profile: "Edit Profile"
   links: "Links"
   group:
+    name: "Group"
     new: "New Group"
     list: "Groups"
     joined: "Joined Groups"
     recommend: "Recommend Groups"
   post:
+    name: "Post"
     list: "Posts"
   topic:
+    name: "Topic"
     list: "Topics"
   trend:
     list: "Trends"
-  
+  search: "Search"
+  logout: "Logout"
