@@ -60,7 +60,7 @@ en:
     subject: "Subject"
     status: "Private?"
   user:
-    edit: "プロフィール編集"
+    edit: "Edit User"
     pass1: "(leave blank if you don't want to change it)"
     pass2: "(we need your current password to confirm your changes)"
     cancel: "Cancel My Account"
