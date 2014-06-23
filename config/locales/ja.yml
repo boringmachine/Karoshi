@@ -21,14 +21,21 @@ ja:
     name: "グループ"
     new: "グループ作成"
     list: "グループ一覧"
+    join: "このグループに参加"
     joined: "参加グループ"
+    leave: "このグループを辞退"
     recommend: "おすすめグループ"
+    related: "関係グループ"
+    topics: "グループのトピック一覧"
+    
   post:
     name: "投稿"
     list: "投稿一覧"
   topic:
+    new: "トピック作成"
     name: "トピック"
-    list: "トピック一覧"  
+    list: "トピック一覧"
+    delete: "削除"
   trend:
     list: "人気タグ"
   search: "検索"

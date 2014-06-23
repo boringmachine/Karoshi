@@ -1,4 +1,4 @@
-<header><h1>Group Topics</h1></header>
+<header><h1><%= t "group.topics"%></h1></header>
 <% topics = @group.topics.search('',params[:tpage]) %>
 <ul>
 <% topics.reverse.each do |topic| %>
@@ -6,7 +6,7 @@
   	<%= link_to topic.subject,topic %>
   	<% gtid = GroupTopic.getFirst(topic.id,@group.id) %>
   	<% if @group.owner_id == current_user.id && topic.id != 1%>
-      <%= link_to "Delete",gtid, :method => :delete, :class => "delete", :confirm => "Are you sure ?"%>
+      <%= link_to t("topic.delete"),gtid, :method => :delete, :class => "delete", :confirm => "Are you sure ?"%>
     <% end %>
   </li>
 <% end %>

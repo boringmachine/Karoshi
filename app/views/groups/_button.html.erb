@@ -2,10 +2,10 @@
 <% if group_user.empty? %>
 	<%= form_for(GroupUser.new,remote: true) do |f| %>
 		<%= hidden_field_tag 'group_user[group_id]', @group.id %>
-		<%= submit_tag("Join this group") %>
+		<%= submit_tag t("group.join") %>
 	<% end %>
 <% elsif @group.id != 1 %>
 	<% tmp = group_user.pop %>
-	<%= button_to "Leave this group", {:controller => :group_users,
+	<%= button_to t("group.leave"), {:controller => :group_users,
       :action => 'destroy', :id => tmp.id }, :method => :delete, :remote => true %>
 <% end %>

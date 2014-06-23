@@ -24,14 +24,19 @@ en:
     name: "Group"
     new: "New Group"
     list: "Groups"
+    join: "Join this group"
     joined: "Joined Groups"
     recommend: "Recommend Groups"
+    related: "Related Groups"
+    topics: "Group Topics"
   post:
     name: "Post"
     list: "Posts"
   topic:
+    new:  "New Topic"
     name: "Topic"
     list: "Topics"
+    delete: "Delete"
   trend:
     list: "Trends"
   search: "Search"
