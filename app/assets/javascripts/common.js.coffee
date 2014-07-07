@@ -53,10 +53,13 @@ responsiveWindow = ()->
 
   if w_width > 1200
     timeline.timeline(1200, e_width, 30)
+    $("#about").width(700)
   else if w_width > 850
     timeline.timeline(800, e_width, 30)
+    $("#about").width(500)
   else
     timeline.reset_timeline()
+    $("#about").width(300)
     
 
 frameTransparent = () ->
