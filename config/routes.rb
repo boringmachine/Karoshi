@@ -1,7 +1,5 @@
 Karoshi::Application.routes.draw do
   resources :locales
-
-
   resources :comments
   resources :post_tags
   resources :tags
@@ -72,4 +70,5 @@ Karoshi::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
+  match 'about' => 'pages#about'
 end
