@@ -90,3 +90,27 @@ en:
       p4: "Talk about the topic"
       p5: "Search Groups, Topics, and Posts"
       p6: "View the your groups's posts"
+  basic:
+    title1: "Basic usage of Karoshi"
+    title2: "How to sign up?"
+    title3: "First you should do after sign up."
+    title4: "Share your post!"
+    body1:
+      p1: "First, you should go to sign up page and input email, username, and locale."
+      p2: "You need to input any password."
+      p3: "Please push 'Sigh up' button to complete sign up process."
+      p4: "You can login by using your email and password."
+      p5: ""
+    body2:
+      p1: "You can't post anything without joining any group. So, you need to search any group."
+      p2: "Click menu button to open sidebar."
+      p3: "You can search any group by using the search box that you can see on the top of the sidebar."
+      p4: "If you find a good group, go to group page and click 'Join this group' button."
+    body3:
+      p1: "You can post about something after joining any group."
+      p2: "First, let's share your post from Home page."
+      p3: "Go back to 'Home'."
+      p4: "You need to type post body, select group and select topic on the form that you can see at top of 'Home'."
+      p5: "Push 'Create' button to share your post."
+      p6: ""
+
