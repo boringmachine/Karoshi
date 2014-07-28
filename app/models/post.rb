@@ -58,6 +58,11 @@ class Post < ActiveRecord::Base
              :conditions => ['body like ?', "%#{search}%"],
              :order => 'created_at desc'
   end
+  
+  def self.getPost(params, user)
+    groups = user.groups.zip(Group.where(visible: true)).flatten.compact
+    Post.where(topic_id: params[:tid], topic_post_id: params[:pid], group_id:groups).first
+  end
 
   def self.getPosts(params,user)
     search = nil
@@ -65,16 +70,12 @@ class Post < ActiveRecord::Base
     
     page = params[:page]
     search = params[:search] if params.has_key?(:search)
+    groups = user.groups.zip(Group.where(visible: true)).flatten.compact
 
-    if !search.blank? and !params[:tid].blank?
-      Post.where(topic_id: params[:tid]).search(search, page)
-    elsif !search.blank?
-      Post.search(search, page)
-    elsif !params[:tid].blank?
-      Post.where(topic_id: params[:tid], topic_post_id: params[:pid]).paging(1)
+    if search.blank?
+      Post.where(group_id: groups).paging(page)
     else
-      groups = user.groups
-      Post.where(:group_id => groups).paging(page)
+      Post.where(group_id: groups).search(search, page)
     end
   end
 

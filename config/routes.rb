@@ -72,5 +72,6 @@ Karoshi::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
   match 'about' => 'pages#about'
   match 'basic' => 'pages#basic'
+  match 'posts/:tid/:pid' => 'posts#view'
 
 end

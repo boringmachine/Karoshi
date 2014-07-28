@@ -3,7 +3,7 @@ class PostsController < ApplicationController
    
   # GET /posts
   # GET /posts.json
-  def index  
+  def index
     @posts = Post.getPosts(params, current_user)
     @tags = Tag.paging(1)
     @groups = Group.recommendGroups(current_user)
@@ -14,6 +14,13 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
+    respond_with(@post)
+  end
+  
+  # GET /posts/1/1
+  # GET /posts/1/1.json
+  def view
+    @post = Post.getPost(params, current_user)
     respond_with(@post)
   end
 
