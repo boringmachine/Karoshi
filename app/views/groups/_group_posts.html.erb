@@ -1,4 +1,5 @@
 <% @posts.each do |post| %>
+<% if post.user != nil%>
 <article class="post_article tlelm">
   <header><h3><%= link_to post.topic.subject, post.topic %></h3></header>
   <div>
@@ -16,4 +17,5 @@
   </div>
   <div class="comments"><a href="/posts?search=%3E%3E<%=post.id%>">Comment(<%= Comment.countRes(post.id) %>)</a></div>
 </article>
+<% end %>
 <% end %>

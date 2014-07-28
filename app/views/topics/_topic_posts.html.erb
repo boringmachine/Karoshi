@@ -1,4 +1,5 @@
 <% @posts.reverse.each do |post| %>
+<% if post.user != nil%>
 <article class="topic_post_article">
   <header>
     <span class="userimg"><%= s3 image_tag(post.user.photo.url(:small)) %></span>
@@ -17,5 +18,6 @@
   </div>
 </article>
 <br />
+<% end %>
 <% end %>
 <%= will_paginate @posts %>
