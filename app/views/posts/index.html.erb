@@ -22,10 +22,6 @@
 	<section id="post_list">
 		<%= render 'list_posts' %>
 	</section>
-
-	<% if GroupUser.groups(current_user.id).count == 1 %>
-	<%= render 'explain'%>
-	<% end %>
     
 	<%= render 'infbtn' %>
 
