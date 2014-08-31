@@ -10,3 +10,7 @@ Karoshi is Simple SNS.
 == Example Site
 https://ancient-falls-3709.herokuapp.com/
 
+== LICENCE
+Rails is released under the MIT license. Ruby under the Ruby License.
+
+Karoshi is released under the MIT license.
