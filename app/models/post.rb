@@ -152,11 +152,11 @@ class Post < ActiveRecord::Base
   end
   
   def self.getNextTopicPostId(topic_id)
-    topicpost = where(topic_id: topic_id).limit(1).order('topic_post_id desc')
-    if topicpost.blank?
+    tp = where(topic_id: topic_id).limit(1).order('topic_post_id desc')
+    if tp.blank?
       1
     else
-      topicpost.first.topic_post_id+1
+      tp.first.topic_post_id+1
     end
   end
   

@@ -110,3 +110,10 @@ ja:
       p4: "ナビゲーションバーから「ホーム」へ戻ります。"
       p5: "ホームの上部のフォームに、投稿文と、投稿先を指定します。投稿先は、参加しているグループの任意の話題となります。"
       p6: "「作成」ボタンを押すと投稿が完了します。"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "foo blank in nl bar baz"

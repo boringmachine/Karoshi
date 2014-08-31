@@ -27,11 +27,8 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    timediff = Time.now - current_user.posts.last.created_at
-    if timediff > 10.seconds
-      @post = Post.newUserPost(params, current_user)
-      afterSave(@post) if @post.save
-    end
+    @post = Post.newUserPost(params, current_user)
+    afterSave(@post) if @post.save
     respond_with(@post)
   end
   
