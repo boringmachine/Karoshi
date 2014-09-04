@@ -6,6 +6,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
  
   def create
     super
+    @user.authentication_token = User.create_unique_string
+    @user.save
     User.join_first_group(@user)
   end
   
