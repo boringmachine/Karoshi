@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email,:username, :password, :password_confirmation, :remember_me, :locale_id,
-                  :photo, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at
+                  :photo, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at,
+                  :provider,:uid
 
   has_attached_file :photo, :styles => { :small => "48x48#", :medium => "160x160#" },
     :storage => :s3,
@@ -32,7 +33,7 @@ class User < ActiveRecord::Base
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
     unless user
-      user = User.create(name:     auth.extra.raw_info.name,
+      user = User.create(username: auth.extra.raw_info.name,
                          provider: auth.provider,
                          uid:      auth.uid,
                          email:    auth.info.email,
