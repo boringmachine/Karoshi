@@ -16,10 +16,10 @@ class User < ActiveRecord::Base
     :s3_credentials => "#{Rails.root}/config/s3.yml",
     :default_url => "/photos/verysmall/missing.png"
     
-  validates :username, :length => (1..20)
+  validates :username, :length => (1..20), :presence => true 
   validates_attachment_size :photo, :less_than => 5.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png','image/gif']
-  
+  validates :email, :presence => true 
   
   # attr_accessible :title, :body
   has_many :own_groups, :class_name => 'Group', :foreign_key => 'owner_id'
@@ -39,6 +39,7 @@ class User < ActiveRecord::Base
                          password: Devise.friendly_token[0,20]
                         )
     end
+    User.join_first_group(user)
     user
   end
  
@@ -48,6 +49,18 @@ class User < ActiveRecord::Base
  
   def self.create_unique_email
     User.create_unique_string + "@karoshi.heroku.com"
+  end
+  
+  def self.join_first_group(user)
+    if Group.first == nil
+      group = Group.create(name:"Global Group")
+      topic = Topic.getFirstTopic
+      GroupTopic.create(group_id:group.id,topic_id:topic.id)
+    end
+    unless user.id.blank?
+      group = Group.first
+      GroupUser.create(user_id: user.id, group_id: group.id)
+    end
   end
   
  
