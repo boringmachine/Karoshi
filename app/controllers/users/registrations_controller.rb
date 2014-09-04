@@ -16,5 +16,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
       GroupUser.create(user_id: @user.id, group_id: group.id)
     end
   end
- 
+  
+  def build_resource(hash=nil)
+    hash[:uid] = User.create_unique_string
+    super
+  end
 end
