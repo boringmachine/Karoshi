@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email,:username, :password, :password_confirmation, :remember_me, :locale_id,
                   :photo, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at,
-                  :provider,:uid
+                  :provider,:uid, :authentication_token
 
   has_attached_file :photo, :styles => { :small => "48x48#", :medium => "160x160#" },
     :storage => :s3,
@@ -36,7 +36,8 @@ class User < ActiveRecord::Base
                          provider: auth.provider,
                          uid:      auth.uid,
                          email:    User.create_unique_email,
-                         password: Devise.friendly_token[0,20]
+                         password: Devise.friendly_token[0,20],
+                         authentication_token: create_unique_string
                         )
     end
     User.join_first_group(user)
@@ -48,7 +49,11 @@ class User < ActiveRecord::Base
   end
  
   def self.create_unique_email
-    User.create_unique_string + "@karoshi.heroku.com"
+    email = loop do
+      tmp = SecureRandom.urlsafe_base64(nil, false)
+      break tmp unless User.exists?(email: tmp+"@karoshi.heroku.com")
+    end
+    email + "@karoshi.heroku.com"
   end
   
   def self.join_first_group(user)
