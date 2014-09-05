@@ -15,4 +15,4 @@
 /tmp
 
 /config/s3.yml
-#/config/secrets.yml
+/config/secrets.yml
