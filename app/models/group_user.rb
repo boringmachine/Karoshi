@@ -1,5 +1,4 @@
 class GroupUser < ActiveRecord::Base
-  attr_accessible :group_id, :status, :user_id
   belongs_to :group
   belongs_to :user
 
@@ -30,9 +29,7 @@ class GroupUser < ActiveRecord::Base
       true
     end
   end
-  
-  #TODO http://philogb.github.io/jit/static/v20/Jit/Examples/Hypertree/example2.html
-  
+    
   def self.weight(group1_id, group2_id)
     g1 = where(group_id: group1_id)
     c1 = g1.count

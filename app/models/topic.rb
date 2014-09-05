@@ -1,11 +1,18 @@
 class Topic < ActiveRecord::Base
-  attr_accessible :subject,:status
   has_many :group_topics
   has_many :groups, through: :group_topics
   validates :subject, :length => (1..50)
 
   @per_page = 20
 
+  def self.p(page)
+    paginate(page: page, per_page: @per_page)
+  end
+  
+  def self.recent
+    order("created_at desc")
+  end
+  
   def self.getFirstTopic()
     if Topic.count == 0
       Topic.create(id:1,subject:"discussion")
@@ -29,9 +36,7 @@ class Topic < ActiveRecord::Base
   end
  
   def self.search(search, page)
-    paginate :per_page => @per_page, :page => page,
-             :conditions => ['subject like ?', "%#{search}%"],
-             :order => 'created_at desc'
+    recent.where('subject like ?', "%#{search}%").p(page)
   end
  
   def self.getGroupTopic(params)

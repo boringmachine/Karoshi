@@ -2,6 +2,7 @@
 <% if groups != [] %>
   <table>
   <%= form_for(GroupTopic.new, :remote => true) do |f| %>
+	<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
     <tr>
     <td><div class="field">
 	  <%= collection_select(:group_topic, :group_id, groups, :id, :name) %>

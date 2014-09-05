@@ -19,7 +19,7 @@ class TopicsController < ApplicationController
   # POST /topics
   # POST /topics.json
   def create
-    @topic = Topic.new(params[:topic])
+    @topic = Topic.new(create_params)
     afterSave(@topic, params) if @topic.save
     respond_with(@topic)
   end
@@ -30,5 +30,10 @@ class TopicsController < ApplicationController
     if params.has_key?(:group_id)
       GroupTopic.create(topic_id:topic.id, group_id: params[:group_id])
     end
+  end
+  
+  private
+  def create_params
+    params.require(:topic).permit(:subject, :status, :group_id)
   end
 end

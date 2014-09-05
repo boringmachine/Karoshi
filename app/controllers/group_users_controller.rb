@@ -11,8 +11,9 @@ class GroupUsersController < ApplicationController
   # POST /group_users
   # POST /group_users.json
   def create
-    params[:group_user][:user_id] = current_user.id
-    @group_user = GroupUser.new(params[:group_user])
+    @group_user = GroupUser.new(create_params)
+    @group_user.user_id = current_user.id
+
     flash[:notice] = 'Group user was successfully created.' if @group_user.save
     respond_with(@group_user)
   end
@@ -24,4 +25,10 @@ class GroupUsersController < ApplicationController
     @group_user.destroy
     respond_with(@group_user)
   end
+  
+  private
+  def create_params
+    params.require(:group_user).permit(:group_id)
+  end
+  
 end

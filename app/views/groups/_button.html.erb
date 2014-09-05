@@ -1,11 +1,12 @@
 <% group_user = GroupUser.where(:group_id => @group.id,:user_id => current_user.id) %>
 <% if group_user.empty? %>
 	<%= form_for(GroupUser.new,remote: true) do |f| %>
+	    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
 		<%= hidden_field_tag 'group_user[group_id]', @group.id %>
 		<%= submit_tag t("group.join") %>
 	<% end %>
 <% elsif @group.id != 1 %>
-	<% tmp = group_user.pop %>
+	<% tmp = group_user.first %>
 	<%= button_to t("group.leave"), {:controller => :group_users,
       :action => 'destroy', :id => tmp.id }, :method => :delete, :remote => true %>
 <% end %>

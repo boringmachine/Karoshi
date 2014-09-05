@@ -1,5 +1,4 @@
 class GroupTopic < ActiveRecord::Base
-  attr_accessible :group_id, :topic_id
   belongs_to :group
   belongs_to :topic
   has_many :posts
@@ -50,7 +49,7 @@ class GroupTopic < ActiveRecord::Base
   
   
   def self.getFirst(topic_id,group_id)
-    where(topic_id:topic_id, group_id:group_id).limit(1).pop
+    where(topic_id:topic_id, group_id:group_id).limit(1).first
   end
   
   def self.getId(topic_id, group_id)

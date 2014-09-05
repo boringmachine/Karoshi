@@ -1,5 +1,6 @@
 <% groups = GroupTopic.joinedGroups(@topic.id,current_user.id) %>
 <%= form_for(@post) do |f| %>
+<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
 <% if @post.errors.any? %>
 <div id="error_explanation">
 	<h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>

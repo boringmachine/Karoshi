@@ -1,5 +1,4 @@
 class Comment < ActiveRecord::Base
-  attr_accessible :child_id, :parent_id
   belongs_to :parent, :class_name => "Post"
   belongs_to :child,  :class_name => "Post"
   

@@ -1,6 +1,4 @@
 class Group < ActiveRecord::Base
-  attr_accessible :category_id, :description, :name, :visible,
-                  :photo, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at
   has_attached_file :photo, :styles => { :small => "220x220#"},
     :storage => :s3,
     :bucket => 'rocky-wave-100',
@@ -20,15 +18,21 @@ class Group < ActiveRecord::Base
   
   @per_page = 12
   
+  def self.p(page)
+    paginate(page: page, per_page: @per_page)
+  end
+  
+  def self.recent
+    order("created_at desc")
+  end
+  
   def self.owngroups(user_id)
     where(:owner_id => user_id)
   end
   
   def self.search(search, page)
-    paginate :per_page => @per_page, :page => page,
-             :conditions => ['name like ? or description like ?',
-               "%#{search}%","%#{search}%"],
-             :order => 'created_at desc'
+    recent.where('name like ? or description like ?',
+               "%#{search}%","%#{search}%").p(page)
   end
   
   def self.getSearch(params)

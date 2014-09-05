@@ -1,4 +1,5 @@
 <%= form_for(@post, remote: true) do |f| %>
+<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
 <% if @post.errors.any? %>
 <div id="error_explanation">
 	<h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>

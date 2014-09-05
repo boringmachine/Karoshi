@@ -1,4 +1,5 @@
 <%= form_for(@group) do |f| %>
+<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
   <h1>Create Group</h1>
   <% if @group.errors.any? %>
     <div id="error_explanation">

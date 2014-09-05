@@ -1,8 +1,9 @@
-# Load the rails application
+# Load the Rails application.
 require File.expand_path('../application', __FILE__)
 
-# Initialize the rails application
-Karoshi::Application.initialize!
+# Initialize the Rails application.
+Rails.application.initialize!
+
 
 ActionMailer::Base.smtp_settings = {
   :address        => 'smtp.sendgrid.net',

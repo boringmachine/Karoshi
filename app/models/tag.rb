@@ -1,15 +1,18 @@
 class Tag < ActiveRecord::Base
-  attr_accessible :count, :name
+
   has_many :post_tags
   has_many :posts, through: :post_tags
   
   @per_page = 10
   
+  def self.p(page)
+    paginate(page: page, per_page: @per_page)
+  end
+  
   def self.paging(page)
     now = Time.now
     lastmonth = now - 1.month
-    paginate :per_page => @per_page, :page => page, :order => 'count desc', 
-             :conditions => { :updated_at => lastmonth...now }
+    order("count desc").where(updated_at: lastmonth...now).p(page)
   end
   
   def self.createTags(body,post_id)

@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
       if current_user
         if current_user.locale.blank?
           I18n.default_locale
-       else
+        else
           current_user.locale.name
         end
       end

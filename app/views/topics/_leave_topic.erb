@@ -1,4 +1,5 @@
 <%= form_for(:group_topic, :html => {:method => :delete}) do |f| %>
+<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
   <div class="field">
 	<%= collection_select(:group_topic, :group_id, Group.where(id: GroupTopic.joinedGroups(@topic.id,current_user.id)) , :id, :name) %>
   </div>

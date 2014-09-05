@@ -38,5 +38,9 @@ class PostsController < ApplicationController
     Tag.createTags(post.body, post.id)
     Comment.createComments(post.body, post.id)
   end
-
+  
+  private
+  def create_params
+    params.require(:post).permit(:body, :group_id, :topic_id, :photo)
+  end
 end

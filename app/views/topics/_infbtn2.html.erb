@@ -1,4 +1,5 @@
 <%= form_tag topics_path, id:'infloader', method:'get', remote: true do |f|%>
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
   <%= hidden_field_tag :page, "2",id:"page" %>
   <%= hidden_field_tag :search, params[:search] %>
 

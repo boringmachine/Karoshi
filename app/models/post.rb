@@ -1,6 +1,4 @@
 class Post < ActiveRecord::Base
-  attr_accessible :body, :topic_id, :user_id, :group_id, :group_topic_id, :topic_post_id,
-                  :photo, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at
   has_attached_file :photo, :styles => { :medium => "300x300>",:small => "100x100>" },
     :storage => :s3,
     :bucket => 'rocky-wave-100',
@@ -16,8 +14,6 @@ class Post < ActiveRecord::Base
   has_many :comment_child,  :foreign_key => "child_id",  :class_name => "Comment"
   has_many :childs, :class_name => "Post", :through => :comment_parent, :source => :child
   has_many :parents, :class_name => "Post",:through => :comment_child, :source => :parent
-
-  scope :recent, order('created_at desc')
  
   validates :body, :length => (0..500)
   validates_attachment_size :photo, :less_than => 5.megabytes
@@ -31,32 +27,32 @@ class Post < ActiveRecord::Base
  
   @per_page = 20
  
+  def self.recent
+    order('created_at desc')
+  end
+ 
+  def self.p(page)
+    paginate(page: page, per_page: @per_page)
+  end
+ 
   def self.groupposts(group_id,page)
-    paginate :per_page => @per_page, :page => page,
-             :conditions => ['group_id = ?', group_id],
-             :order => "created_at desc"
+    recent.where(group_id: group_id).p(page)
   end
   
   def self.topicposts(topic_id,page)
-    paginate :per_page => @per_page, :page => page,
-             :conditions => ['topic_id = ?', topic_id],
-             :order => "topic_post_id desc"
+    order("topic_post_id desc").where(topic_id: topic_id).p(page)
   end
  
   def self.groupTopicPosts(group_id, topic_id, page)
-    paginate :per_page => @per_page, :page => page,
-             :conditions => ['group_id = ? and topic_id = ?', group_id, topic_id],
-             :order => "created_at desc"
+    recent.where(group_id: group_id, topic_id: topic_id).p(page)
   end
  
   def self.paging(page)
-    paginate :per_page => @per_page, :page => page, :order => 'created_at desc'
+    recent.p(page)
   end
  
   def self.search(search, page)
-    paginate :per_page => @per_page, :page => page,
-             :conditions => ['body like ?', "%#{search}%"],
-             :order => 'created_at desc'
+    recent.where('body like ?', "%#{search}%").p(page)
   end
   
   def self.getPost(params, user)
@@ -161,9 +157,11 @@ class Post < ActiveRecord::Base
   end
   
   def self.newUserPost(params, user)
-    params[:post][:group_topic_id] = GroupTopic.getId(params[:post][:topic_id], params[:post][:group_id])
-    params[:post][:topic_post_id]  = Post.getNextTopicPostId(params[:post][:topic_id])
-    post = user.posts.new(params[:post])
+    create_params = params.require(:post).permit(:body, :group_id, :topic_id, :photo)
+    post = user.posts.new(create_params)
+    post.group_topic_id = GroupTopic.getId(params[:post][:topic_id], params[:post][:group_id])
+    post.topic_post_id = Post.getNextTopicPostId(params[:post][:topic_id])
+    post
   end
   
 end
