@@ -23,9 +23,4 @@ class Comment < ActiveRecord::Base
     Comment.where(child_id:child_id).count
   end
   
-  def self.refleshComments()
-    Comment.delete_all()
-    Post.delete_all(['body like ?', "%>>%"])
-
-  end
 end

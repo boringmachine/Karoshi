@@ -5,8 +5,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :timeoutable
 
-  # Setup accessible (or protected) attributes for your model
-
   has_attached_file :photo, :styles => { :small => "48x48#", :medium => "160x160#" },
     :storage => :s3,
     :bucket => 'rocky-wave-100',
@@ -16,9 +14,8 @@ class User < ActiveRecord::Base
   validates :username, :length => (1..20), :presence => true 
   validates_attachment_size :photo, :less_than => 5.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png','image/gif']
-  validates :email, :presence => true 
+  validates :email, :presence => true
   
-  # attr_accessible :title, :body
   has_many :own_groups, :class_name => 'Group', :foreign_key => 'owner_id'
   has_many :group_users
   has_many :groups, through: :group_users
