@@ -22,26 +22,4 @@ class GroupUser < ActiveRecord::Base
       where(group_id: group_id, user_id: user_id)
   end
   
-  def self.weight(group1_id, group2_id)
-    g1 = where(group_id: group1_id)
-    c1 = g1.count
-    
-    g2 = where(group_id: group2_id)
-    c2 = g2.count
-    
-    count = 0
-    
-    n = c1 < c2 ? c1 : c2
-    m = c1 > c2 ? c1 : c2
-    m = m == 0  ?  1 : m
-    
-    if(0 < n)
-      for i in 0...n
-        if g1[i].user_id == g2[i].user_id then count+=1 end
-      end
-    end
-    
-    (count*100)/m
-  end
-  
 end
