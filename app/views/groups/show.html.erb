@@ -33,7 +33,7 @@
 
 <section id="posts">
 
-  <% if GroupUser.exist(current_user.id, @group.id) %>
+  <% if GroupUser.exists?(user_id:current_user.id, group_id:@group.id) %>
   <section id="new_post_section" class="tlelm">
     <% @post = Post.new %>
     <%= render 'post' %>

@@ -1,5 +1,5 @@
 <header><h1><%= t "topic.new"%></h1></header>
-<% if GroupUser.exist(current_user.id,@group.id) %>
+<% if GroupUser.exists?(user_id:current_user.id, group_id:@group.id) %>
   <table><tr><th><%= t 'topic.subject'%></th><th><%= t 'topic.status'%></th></tr>
   <%= form_for(Topic.new) do |f| %>
   <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />

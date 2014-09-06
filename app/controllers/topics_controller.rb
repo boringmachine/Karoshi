@@ -20,8 +20,19 @@ class TopicsController < ApplicationController
   # POST /topics.json
   def create
     @topic = Topic.new(create_params)
-    afterSave(@topic, params) if @topic.save
+    if checkParams(params)
+      afterSave(@topic, params) if @topic.save
+    end
     respond_with(@topic)
+  end
+
+  private
+  def checkParams(params)
+    if params.has_key?(:group_id)
+      GroupUser.exists?(group_id:params[:group_id], user_id: current_user.id)
+    else
+      true
+    end
   end
 
   private
