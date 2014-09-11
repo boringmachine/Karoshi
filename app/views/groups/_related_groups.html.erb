@@ -1,6 +1,0 @@
-<h1><%= t "group.related" %></h1>
-<ul>
-<% @rgroups[0..5].each do |group| %>
-  <li><img class="icon" width="30" height="30" src="<%= s3 group.photo.url(:small) %>"><%= link_to group.name, group %></li>
-<% end %>
-</ul>

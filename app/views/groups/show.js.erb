@@ -1,6 +1,0 @@
-$("#post_list").append("<%= escape_javascript(render 'group_posts') %>")
-page = parseInt($("#page").val())+1;
-$("#page").val(page);
-<% if @posts.count < Post.per_page %>
-  $("#infloader").hide();
-<% end %>
