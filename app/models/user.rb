@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
                          authentication_token: create_unique_string
                         )
     end
-    User.join_first_community(user)
+    User.join_first_community(user.id)
     user
   end
  
