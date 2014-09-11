@@ -4,19 +4,19 @@ class Comment < ActiveRecord::Base
   
   def self.createComments(body, post_id)
     comments = body.scan(/>>([0-9]+)/).uniq
+    stack = []
     users = Set.new
     comments.each do |comment|
       post = Post.find(post_id)
       child_id = Post.where(:topic_id => post.topic_id, :topic_post_id => comment.first.to_i).first.id
       unless child_id.blank?
         users.add(Post.find(child_id).user.id)
-        Comment.create(parent_id: post_id, child_id: child_id)
-      end 
+        stack.push Comment.create(parent_id: post_id, child_id: child_id)
+      end
     end
-    
-    users = users.to_a
-    Resque.enqueue(CommentNotifier, users, post_id, body)
-    
+    #users = users.to_a
+    #Resque.enqueue(CommentNotifier, users, post_id, body)
+    stack
   end
   
   def self.countRes(child_id)

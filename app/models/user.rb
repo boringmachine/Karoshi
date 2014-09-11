@@ -51,7 +51,7 @@ class User < ActiveRecord::Base
   end
   
   def self.join_first_community(user_id)
-    unless user.id.blank?
+    unless user_id.blank?
       community = Community.first
       CommunityUser.create(user_id: user_id, community_id: Community.first.id)
     end

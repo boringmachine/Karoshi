@@ -11,7 +11,7 @@ if Locale.count == 0
 end
 
 if Community.count == 0 
-  community = Community.create(name:"Global Community")
+  community = Community.create(name:"Global Community", description: "")
   topic = Topic.getFirstTopic
   CommunityTopic.create(community_id:community.id,topic_id:topic.id)
 end
