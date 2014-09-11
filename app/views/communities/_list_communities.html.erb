@@ -1,0 +1,15 @@
+<% @communities.each do |community| %>
+  <% if community.visible %>
+    <article class="community post_article article tlelm">
+      <div class="community_left">
+        <div class="community_name">
+          <%= link_to community.name, community %><br/>
+      	  <span class="community_members"><%= community.users.count %> members</span>
+        </div>
+        <div class="community_pic">
+    	  <%= link_to s3(image_tag(community.photo.url(:small))), community %>
+        </div>
+      </div>
+    </article>
+  <% end %>
+<% end %>

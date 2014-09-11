@@ -1,0 +1,6 @@
+<h1><%= t "community.related" %></h1>
+<ul>
+<% @rcommunities[0..5].each do |community| %>
+  <li><img class="icon" width="30" height="30" src="<%= s3 community.photo.url(:small) %>"><%= link_to community.name, community %></li>
+<% end %>
+</ul>
