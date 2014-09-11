@@ -1,4 +1,4 @@
-<% groups = GroupTopic.joinedGroups(@topic.id,current_user.id) %>
+<% communities = CommunityTopic.joinedCommunities(@topic.id,current_user.id) %>
 <%= form_for(@post) do |f| %>
 <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
 <% if @post.errors.any? %>
@@ -31,9 +31,9 @@
 </div>
 
 <div class="field">
-	<%= f.label :group_id %>
+	<%= f.label :community_id %>
 	<br />
-	<%= collection_select(:post, :group_id, groups, :id, :name) %>
+	<%= collection_select(:post, :community_id, communities, :id, :name) %>
 </div>
 
 <div class="actions">

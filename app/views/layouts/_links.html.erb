@@ -2,8 +2,8 @@
 <ul>
   <li><%= image_tag("home.png" , class:"icon")%><%= link_to t('home')        , :posts %></li>
   <li><%= image_tag("human.png", class:"icon")%><%= link_to t('edit_profile'), edit_user_registration_path %></li>
-  <li><%= image_tag("make.png" , class:"icon")%><%= link_to t('group.new')   , new_group_path %></li>
+  <li><%= image_tag("make.png" , class:"icon")%><%= link_to t('community.new')   , new_community_path %></li>
   <li><%= image_tag("post.png" , class:"icon")%><%= link_to t('post.list')   , posts_path  %></li>
-  <li><%= image_tag("group.png", class:"icon")%><%= link_to t('group.list')  , groups_path %></li>
+  <li><%= image_tag("community.png", class:"icon")%><%= link_to t('community.list')  , communities_path %></li>
   <li><%= image_tag("topic.png", class:"icon")%><%= link_to t('topic.list')  , topics_path %></li>
 </ul>

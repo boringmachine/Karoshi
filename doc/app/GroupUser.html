@@ -4,7 +4,7 @@
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
-<title>class GroupUser - Rails Application Documentation</title>
+<title>class CommunityUser - Rails Application Documentation</title>
 
 <link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
 
@@ -47,7 +47,7 @@
     <nav id="file-list-section" class="section">
   <h3 class="section-header">Defined In</h3>
   <ul>
-    <li>app/models/group_user.rb
+    <li>app/models/community_user.rb
   </ul>
 </nav>
 
@@ -72,9 +72,9 @@
     
     <li><a href="#method-c-exist">::exist</a>
     
-    <li><a href="#method-c-getGroupUser">::getGroupUser</a>
+    <li><a href="#method-c-getCommunityUser">::getCommunityUser</a>
     
-    <li><a href="#method-c-groups">::groups</a>
+    <li><a href="#method-c-communities">::communities</a>
     
     <li><a href="#method-c-users">::users</a>
     
@@ -119,23 +119,23 @@
   
     <li><a href="./CommentsHelper.html">CommentsHelper</a>
   
-    <li><a href="./Group.html">Group</a>
+    <li><a href="./Community.html">Community</a>
   
-    <li><a href="./GroupTopic.html">GroupTopic</a>
+    <li><a href="./CommunityTopic.html">CommunityTopic</a>
   
-    <li><a href="./GroupTopicsController.html">GroupTopicsController</a>
+    <li><a href="./CommunityTopicsController.html">CommunityTopicsController</a>
   
-    <li><a href="./GroupTopicsHelper.html">GroupTopicsHelper</a>
+    <li><a href="./CommunityTopicsHelper.html">CommunityTopicsHelper</a>
   
-    <li><a href="./GroupUser.html">GroupUser</a>
+    <li><a href="./CommunityUser.html">CommunityUser</a>
   
-    <li><a href="./GroupUsersController.html">GroupUsersController</a>
+    <li><a href="./CommunityUsersController.html">CommunityUsersController</a>
   
-    <li><a href="./GroupUsersHelper.html">GroupUsersHelper</a>
+    <li><a href="./CommunityUsersHelper.html">CommunityUsersHelper</a>
   
-    <li><a href="./GroupsController.html">GroupsController</a>
+    <li><a href="./CommunitiesController.html">CommunitiesController</a>
   
-    <li><a href="./GroupsHelper.html">GroupsHelper</a>
+    <li><a href="./CommunitiesHelper.html">CommunitiesHelper</a>
   
     <li><a href="./Mailer.html">Mailer</a>
   
@@ -172,7 +172,7 @@
 </nav>
 
 <div id="documentation">
-  <h1 class="class">class GroupUser</h1>
+  <h1 class="class">class CommunityUser</h1>
 
   <div id="description" class="description">
     
@@ -200,7 +200,7 @@
         
         <div class="method-heading">
           <span class="method-name">exist</span><span
-            class="method-args">(user_id, group_id)</span>
+            class="method-args">(user_id, community_id)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
@@ -212,9 +212,9 @@
 
           
           <div class="method-source-code" id="exist-source">
-            <pre><span class="ruby-comment"># File app/models/group_user.rb, line 26</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">exist</span>(<span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">group_id</span>)
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">getGroupUser</span>(<span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">group_id</span>) <span class="ruby-operator">==</span> []
+            <pre><span class="ruby-comment"># File app/models/community_user.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">exist</span>(<span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">community_id</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">getCommunityUser</span>(<span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">community_id</span>) <span class="ruby-operator">==</span> []
     <span class="ruby-keyword">false</span>
   <span class="ruby-keyword">else</span>
     <span class="ruby-keyword">true</span>
@@ -230,11 +230,11 @@
       </div><!-- exist-method -->
 
     
-      <div id="method-c-getGroupUser" class="method-detail ">
+      <div id="method-c-getCommunityUser" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">getGroupUser</span><span
-            class="method-args">(user_id, group_id)</span>
+          <span class="method-name">getCommunityUser</span><span
+            class="method-args">(user_id, community_id)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
@@ -245,25 +245,25 @@
           
 
           
-          <div class="method-source-code" id="getGroupUser-source">
-            <pre><span class="ruby-comment"># File app/models/group_user.rb, line 22</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">getGroupUser</span>(<span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">group_id</span>)
-    <span class="ruby-identifier">where</span>(<span class="ruby-identifier">group_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">group_id</span>, <span class="ruby-identifier">user_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">user_id</span>)
+          <div class="method-source-code" id="getCommunityUser-source">
+            <pre><span class="ruby-comment"># File app/models/community_user.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">getCommunityUser</span>(<span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">community_id</span>)
+    <span class="ruby-identifier">where</span>(<span class="ruby-identifier">community_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">community_id</span>, <span class="ruby-identifier">user_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">user_id</span>)
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- getGroupUser-source -->
+          </div><!-- getCommunityUser-source -->
           
         </div>
 
         
 
         
-      </div><!-- getGroupUser-method -->
+      </div><!-- getCommunityUser-method -->
 
     
-      <div id="method-c-groups" class="method-detail ">
+      <div id="method-c-communities" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">groups</span><span
+          <span class="method-name">communities</span><span
             class="method-args">(user_id)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
@@ -275,30 +275,30 @@
           
 
           
-          <div class="method-source-code" id="groups-source">
-            <pre><span class="ruby-comment"># File app/models/group_user.rb, line 6</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">groups</span>(<span class="ruby-identifier">user_id</span>)
-  <span class="ruby-identifier">groups</span> = []
+          <div class="method-source-code" id="communities-source">
+            <pre><span class="ruby-comment"># File app/models/community_user.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">communities</span>(<span class="ruby-identifier">user_id</span>)
+  <span class="ruby-identifier">communities</span> = []
   <span class="ruby-identifier">where</span>(<span class="ruby-identifier">user_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">user_id</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">gu</span><span class="ruby-operator">|</span>
-    <span class="ruby-identifier">groups</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">gu</span>.<span class="ruby-identifier">group_id</span>)
+    <span class="ruby-identifier">communities</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">gu</span>.<span class="ruby-identifier">community_id</span>)
   <span class="ruby-keyword">end</span>
-  <span class="ruby-identifier">groups</span>
+  <span class="ruby-identifier">communities</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- groups-source -->
+          </div><!-- communities-source -->
           
         </div>
 
         
 
         
-      </div><!-- groups-method -->
+      </div><!-- communities-method -->
 
     
       <div id="method-c-users" class="method-detail ">
         
         <div class="method-heading">
           <span class="method-name">users</span><span
-            class="method-args">(group_id)</span>
+            class="method-args">(community_id)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
@@ -310,11 +310,11 @@
 
           
           <div class="method-source-code" id="users-source">
-            <pre><span class="ruby-comment"># File app/models/group_user.rb, line 14</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">users</span>(<span class="ruby-identifier">group_id</span>)
+            <pre><span class="ruby-comment"># File app/models/community_user.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">users</span>(<span class="ruby-identifier">community_id</span>)
   <span class="ruby-identifier">users</span> = []
-  <span class="ruby-identifier">where</span>(<span class="ruby-identifier">group_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">group_id</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">group</span><span class="ruby-operator">|</span>
-    <span class="ruby-identifier">users</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">group</span>.<span class="ruby-identifier">user_id</span>)
+  <span class="ruby-identifier">where</span>(<span class="ruby-identifier">community_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">community_id</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">community</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">users</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">community</span>.<span class="ruby-identifier">user_id</span>)
   <span class="ruby-keyword">end</span>
   <span class="ruby-identifier">users</span>
 <span class="ruby-keyword">end</span></pre>
@@ -332,7 +332,7 @@
         
         <div class="method-heading">
           <span class="method-name">weight</span><span
-            class="method-args">(group1_id, group2_id)</span>
+            class="method-args">(community1_id, community2_id)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
@@ -345,12 +345,12 @@ href="http://philogb.github.io/jit/static/v20/Jit/Examples/Hypertree/example2.ht
 
           
           <div class="method-source-code" id="weight-source">
-            <pre><span class="ruby-comment"># File app/models/group_user.rb, line 36</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">weight</span>(<span class="ruby-identifier">group1_id</span>, <span class="ruby-identifier">group2_id</span>)
-  <span class="ruby-identifier">g1</span> = <span class="ruby-identifier">where</span>(<span class="ruby-identifier">group_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">group1_id</span>)
+            <pre><span class="ruby-comment"># File app/models/community_user.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">weight</span>(<span class="ruby-identifier">community1_id</span>, <span class="ruby-identifier">community2_id</span>)
+  <span class="ruby-identifier">g1</span> = <span class="ruby-identifier">where</span>(<span class="ruby-identifier">community_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">community1_id</span>)
   <span class="ruby-identifier">c1</span> = <span class="ruby-identifier">g1</span>.<span class="ruby-identifier">count</span>
   
-  <span class="ruby-identifier">g2</span> = <span class="ruby-identifier">where</span>(<span class="ruby-identifier">group_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">group2_id</span>)
+  <span class="ruby-identifier">g2</span> = <span class="ruby-identifier">where</span>(<span class="ruby-identifier">community_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">community2_id</span>)
   <span class="ruby-identifier">c2</span> = <span class="ruby-identifier">g2</span>.<span class="ruby-identifier">count</span>
   
   <span class="ruby-identifier">count</span> = <span class="ruby-value">0</span>

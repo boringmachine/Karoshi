@@ -117,23 +117,23 @@
   
     <li><a href="./CommentsHelper.html">CommentsHelper</a>
   
-    <li><a href="./Group.html">Group</a>
+    <li><a href="./Community.html">Community</a>
   
-    <li><a href="./GroupTopic.html">GroupTopic</a>
+    <li><a href="./CommunityTopic.html">CommunityTopic</a>
   
-    <li><a href="./GroupTopicsController.html">GroupTopicsController</a>
+    <li><a href="./CommunityTopicsController.html">CommunityTopicsController</a>
   
-    <li><a href="./GroupTopicsHelper.html">GroupTopicsHelper</a>
+    <li><a href="./CommunityTopicsHelper.html">CommunityTopicsHelper</a>
   
-    <li><a href="./GroupUser.html">GroupUser</a>
+    <li><a href="./CommunityUser.html">CommunityUser</a>
   
-    <li><a href="./GroupUsersController.html">GroupUsersController</a>
+    <li><a href="./CommunityUsersController.html">CommunityUsersController</a>
   
-    <li><a href="./GroupUsersHelper.html">GroupUsersHelper</a>
+    <li><a href="./CommunityUsersHelper.html">CommunityUsersHelper</a>
   
-    <li><a href="./GroupsController.html">GroupsController</a>
+    <li><a href="./CommunitiesController.html">CommunitiesController</a>
   
-    <li><a href="./GroupsHelper.html">GroupsHelper</a>
+    <li><a href="./CommunitiesHelper.html">CommunitiesHelper</a>
   
     <li><a href="./Mailer.html">Mailer</a>
   
@@ -214,8 +214,8 @@
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
   <span class="ruby-ivar">@topic</span> = <span class="ruby-constant">Topic</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:topic</span>])
   <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">'Topic was successfully created.'</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@topic</span>.<span class="ruby-identifier">save</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value">:group_id</span>)
-    <span class="ruby-constant">GroupTopic</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">topic_id</span><span class="ruby-value">:@topic</span>.<span class="ruby-identifier">id</span>, <span class="ruby-identifier">group_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:group_id</span>])
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value">:community_id</span>)
+    <span class="ruby-constant">CommunityTopic</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">topic_id</span><span class="ruby-value">:@topic</span>.<span class="ruby-identifier">id</span>, <span class="ruby-identifier">community_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:community_id</span>])
   <span class="ruby-keyword">end</span>
   <span class="ruby-identifier">respond_with</span>(<span class="ruby-ivar">@topic</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -247,7 +247,7 @@
           <div class="method-source-code" id="index-source">
             <pre><span class="ruby-comment"># File app/controllers/topics_controller.rb, line 7</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
-  <span class="ruby-ivar">@topics</span> = <span class="ruby-constant">Topic</span>.<span class="ruby-identifier">getGroupTopic</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-ivar">@topics</span> = <span class="ruby-constant">Topic</span>.<span class="ruby-identifier">getCommunityTopic</span>(<span class="ruby-identifier">params</span>)
   <span class="ruby-identifier">respond_with</span>(<span class="ruby-ivar">@topics</span>)
 <span class="ruby-keyword">end</span></pre>
           </div><!-- index-source -->

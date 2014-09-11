@@ -2,7 +2,7 @@
   <%= text_field_tag :search, params[:search], {'x-webkit-speech'=>'','x-webkit-grammar' => 'builtin:search'} %>
   <select id="submit_path">
     <option value="1"><%= t 'post.name'%></option>
-    <option value="2"><%= t 'group.name'%></option>
+    <option value="2"><%= t 'community.name'%></option>
     <option value="3"><%= t 'topic.name'%></option>
   </select>
   <%= submit_tag t("search"), :name => nil %>

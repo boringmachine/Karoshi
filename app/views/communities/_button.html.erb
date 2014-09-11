@@ -1,0 +1,12 @@
+<% community_user = CommunityUser.where(:community_id => @community.id,:user_id => current_user.id) %>
+<% if community_user.empty? %>
+	<%= form_for(CommunityUser.new,remote: true) do |f| %>
+	    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+		<%= hidden_field_tag 'community_user[community_id]', @community.id %>
+		<%= submit_tag t("community.join") %>
+	<% end %>
+<% elsif @community.id != 1 %>
+	<% tmp = community_user.first %>
+	<%= button_to t("community.leave"), {:controller => :community_users,
+      :action => 'destroy', :id => tmp.id }, :method => :delete, :remote => true %>
+<% end %>

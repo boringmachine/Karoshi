@@ -9,8 +9,8 @@
     <%= render 'links' %>
   </section><br />
   
-  <section id="joined_groups">
-    <%= render 'joined_groups' %>
+  <section id="joined_communities">
+    <%= render 'joined_communities' %>
   </section>
 </section>
 

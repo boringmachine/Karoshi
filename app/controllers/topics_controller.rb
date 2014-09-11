@@ -4,7 +4,7 @@ class TopicsController < ApplicationController
   # GET /topics
   # GET /topics.json
   def index
-    @topics = Topic.getGroupTopic(params)
+    @topics = Topic.getCommunityTopic(params)
     respond_with(@topics)
   end
 
@@ -28,8 +28,8 @@ class TopicsController < ApplicationController
 
   private
   def checkParams(params)
-    if params.has_key?(:group_id)
-      GroupUser.exists?(group_id:params[:group_id], user_id: current_user.id)
+    if params.has_key?(:community_id)
+      CommunityUser.exists?(community_id:params[:community_id], user_id: current_user.id)
     else
       true
     end
@@ -38,13 +38,13 @@ class TopicsController < ApplicationController
   private
   def afterSave(topic, params)
     flash[:notice] = 'Topic was successfully created.'
-    if params.has_key?(:group_id)
-      GroupTopic.create(topic_id:topic.id, group_id: params[:group_id])
+    if params.has_key?(:community_id)
+      CommunityTopic.create(topic_id:topic.id, community_id: params[:community_id])
     end
   end
   
   private
   def create_params
-    params.require(:topic).permit(:subject, :status, :group_id)
+    params.require(:topic).permit(:subject, :status, :community_id)
   end
 end

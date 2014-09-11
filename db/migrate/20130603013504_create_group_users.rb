@@ -1,7 +1,7 @@
-class CreateGroupUsers < ActiveRecord::Migration
+class CreateCommunityUsers < ActiveRecord::Migration
   def change
-    create_table :group_users do |t|
-      t.integer :group_id
+    create_table :community_users do |t|
+      t.integer :community_id
       t.integer :user_id
       t.boolean :status
 

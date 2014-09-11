@@ -4,9 +4,9 @@ class Post < ActiveRecord::Base
     :bucket => 'rocky-wave-100',
     :s3_credentials => "#{Rails.root}/config/s3.yml"
     
-  belongs_to :group_topic
+  belongs_to :community_topic
   belongs_to :user
-  belongs_to :group
+  belongs_to :community
   belongs_to :topic
   has_many :post_tags
   has_many :tags, through: :post_tags
@@ -35,16 +35,16 @@ class Post < ActiveRecord::Base
     paginate(page: page, per_page: @per_page)
   end
  
-  def self.groupposts(group_id,page)
-    recent.where(group_id: group_id).p(page)
+  def self.communityposts(community_id,page)
+    recent.where(community_id: community_id).p(page)
   end
   
   def self.topicposts(topic_id,page)
     order("topic_post_id desc").where(topic_id: topic_id).p(page)
   end
  
-  def self.groupTopicPosts(group_id, topic_id, page)
-    recent.where(group_id: group_id, topic_id: topic_id).p(page)
+  def self.communityTopicPosts(community_id, topic_id, page)
+    recent.where(community_id: community_id, topic_id: topic_id).p(page)
   end
  
   def self.paging(page)
@@ -56,8 +56,8 @@ class Post < ActiveRecord::Base
   end
   
   def self.getPost(params, user)
-    groups = user.groups.zip(Group.where(visible: true)).flatten.compact
-    Post.where(topic_id: params[:tid], topic_post_id: params[:pid], group_id:groups).first
+    communities = user.communities.zip(Community.where(visible: true)).flatten.compact
+    Post.where(topic_id: params[:tid], topic_post_id: params[:pid], community_id:communities).first
   end
 
   def self.getPosts(params,user)
@@ -66,26 +66,26 @@ class Post < ActiveRecord::Base
     
     page = params[:page]
     search = params[:search] if params.has_key?(:search)
-    groups = user.groups.zip(Group.where(visible: true)).flatten.compact
+    communities = user.communities.zip(Community.where(visible: true)).flatten.compact
 
     if search.blank?
-      Post.where(group_id: groups).paging(page)
+      Post.where(community_id: communities).paging(page)
     else
-      Post.where(group_id: groups).search(search, page)
+      Post.where(community_id: communities).search(search, page)
     end
   end
 
-  def self.getGroupPosts(params)
+  def self.getCommunityPosts(params)
     if params.has_key?(:topic_id)
-      Post.groupTopicPosts(params[:id],params[:topic_id],params[:page])
+      Post.communityTopicPosts(params[:id],params[:topic_id],params[:page])
     else
-      Post.groupposts(params[:id],params[:page])
+      Post.communityposts(params[:id],params[:page])
     end
   end
   
   def self.getTopicPosts(params)
-    if params.has_key?(:group_id)
-      Post.groupTopicPosts(params[:group_id],params[:id],params[:page])
+    if params.has_key?(:community_id)
+      Post.communityTopicPosts(params[:community_id],params[:id],params[:page])
     else
       Post.topicposts(params[:id], params[:page])
     end
@@ -102,9 +102,9 @@ class Post < ActiveRecord::Base
     buf[0..100]
   end
   
-  def self.getGroupBody(group_id)
+  def self.getCommunityBody(community_id)
     page = 1
-    posts = groupposts(group_id, page)
+    posts = communityposts(community_id, page)
     buf = ''
     posts.each do |post|
       buf += post.body
@@ -133,9 +133,9 @@ class Post < ActiveRecord::Base
   end
   
   def self.newUserPost(params, user)
-    create_params = params.require(:post).permit(:body, :group_id, :topic_id, :photo)
+    create_params = params.require(:post).permit(:body, :community_id, :topic_id, :photo)
     post = user.posts.new(create_params)
-    post.group_topic_id = GroupTopic.getId(params[:post][:topic_id], params[:post][:group_id])
+    post.community_topic_id = CommunityTopic.getId(params[:post][:topic_id], params[:post][:community_id])
     post.topic_post_id = Post.getNextTopicPostId(params[:post][:topic_id])
     post
   end

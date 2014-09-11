@@ -10,7 +10,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
     @user.authentication_token = User.create_unique_string
     @user.save
-    User.join_first_group(@user)
+    User.join_first_community(@user)
   end
   
   def build_resource(hash=nil)

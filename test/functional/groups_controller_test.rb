@@ -1,14 +1,14 @@
 require 'test_helper'
 
-class GroupsControllerTest < ActionController::TestCase
+class CommunitiesControllerTest < ActionController::TestCase
   setup do
-    @group = groups(:one)
+    @community = communities(:one)
   end
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:groups)
+    assert_not_nil assigns(:communities)
   end
 
   test "should get new" do
@@ -16,34 +16,34 @@ class GroupsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create group" do
-    assert_difference('Group.count') do
-      post :create, group: { address: @group.address, category_id: @group.category_id, description: @group.description, geo: @group.geo, name: @group.name, tel: @group.tel, url: @group.url }
+  test "should create community" do
+    assert_difference('Community.count') do
+      post :create, community: { address: @community.address, category_id: @community.category_id, description: @community.description, geo: @community.geo, name: @community.name, tel: @community.tel, url: @community.url }
     end
 
-    assert_redirected_to group_path(assigns(:group))
+    assert_redirected_to community_path(assigns(:community))
   end
 
-  test "should show group" do
-    get :show, id: @group
+  test "should show community" do
+    get :show, id: @community
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @group
+    get :edit, id: @community
     assert_response :success
   end
 
-  test "should update group" do
-    put :update, id: @group, group: { address: @group.address, category_id: @group.category_id, description: @group.description, geo: @group.geo, name: @group.name, tel: @group.tel, url: @group.url }
-    assert_redirected_to group_path(assigns(:group))
+  test "should update community" do
+    put :update, id: @community, community: { address: @community.address, category_id: @community.category_id, description: @community.description, geo: @community.geo, name: @community.name, tel: @community.tel, url: @community.url }
+    assert_redirected_to community_path(assigns(:community))
   end
 
-  test "should destroy group" do
-    assert_difference('Group.count', -1) do
-      delete :destroy, id: @group
+  test "should destroy community" do
+    assert_difference('Community.count', -1) do
+      delete :destroy, id: @community
     end
 
-    assert_redirected_to groups_path
+    assert_redirected_to communities_path
   end
 end

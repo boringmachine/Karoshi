@@ -113,23 +113,23 @@
   
     <li><a href="../CommentsHelper.html">CommentsHelper</a>
   
-    <li><a href="../Group.html">Group</a>
+    <li><a href="../Community.html">Community</a>
   
-    <li><a href="../GroupTopic.html">GroupTopic</a>
+    <li><a href="../CommunityTopic.html">CommunityTopic</a>
   
-    <li><a href="../GroupTopicsController.html">GroupTopicsController</a>
+    <li><a href="../CommunityTopicsController.html">CommunityTopicsController</a>
   
-    <li><a href="../GroupTopicsHelper.html">GroupTopicsHelper</a>
+    <li><a href="../CommunityTopicsHelper.html">CommunityTopicsHelper</a>
   
-    <li><a href="../GroupUser.html">GroupUser</a>
+    <li><a href="../CommunityUser.html">CommunityUser</a>
   
-    <li><a href="../GroupUsersController.html">GroupUsersController</a>
+    <li><a href="../CommunityUsersController.html">CommunityUsersController</a>
   
-    <li><a href="../GroupUsersHelper.html">GroupUsersHelper</a>
+    <li><a href="../CommunityUsersHelper.html">CommunityUsersHelper</a>
   
-    <li><a href="../GroupsController.html">GroupsController</a>
+    <li><a href="../CommunitiesController.html">CommunitiesController</a>
   
-    <li><a href="../GroupsHelper.html">GroupsHelper</a>
+    <li><a href="../CommunitiesHelper.html">CommunitiesHelper</a>
   
     <li><a href="../Mailer.html">Mailer</a>
   
@@ -209,14 +209,14 @@
             <pre><span class="ruby-comment"># File app/controllers/users/registrations_controller.rb, line 7</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
   <span class="ruby-keyword">super</span>
-  <span class="ruby-identifier">group</span> = <span class="ruby-keyword">if</span> <span class="ruby-constant">Group</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
-    <span class="ruby-constant">Group</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">name</span><span class="ruby-value">:&quot;Global Group&quot;</span>)
+  <span class="ruby-identifier">community</span> = <span class="ruby-keyword">if</span> <span class="ruby-constant">Community</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-constant">Community</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">name</span><span class="ruby-value">:&quot;Global Community&quot;</span>)
   <span class="ruby-keyword">else</span>
-    <span class="ruby-constant">Group</span>.<span class="ruby-identifier">first</span>
+    <span class="ruby-constant">Community</span>.<span class="ruby-identifier">first</span>
   <span class="ruby-keyword">end</span>
-  <span class="ruby-constant">GroupUser</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">user_id</span><span class="ruby-value">:@user</span>.<span class="ruby-identifier">id</span>,<span class="ruby-identifier">group_id</span><span class="ruby-value">:group</span>.<span class="ruby-identifier">id</span>)
+  <span class="ruby-constant">CommunityUser</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">user_id</span><span class="ruby-value">:@user</span>.<span class="ruby-identifier">id</span>,<span class="ruby-identifier">community_id</span><span class="ruby-value">:community</span>.<span class="ruby-identifier">id</span>)
   <span class="ruby-identifier">topic</span> = <span class="ruby-constant">Topic</span>.<span class="ruby-identifier">getFirstTopic</span>
-  <span class="ruby-constant">GroupTopic</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">group_id</span><span class="ruby-value">:group</span>.<span class="ruby-identifier">id</span>,<span class="ruby-identifier">topic_id</span><span class="ruby-value">:topic</span>.<span class="ruby-identifier">id</span>)
+  <span class="ruby-constant">CommunityTopic</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">community_id</span><span class="ruby-value">:community</span>.<span class="ruby-identifier">id</span>,<span class="ruby-identifier">topic_id</span><span class="ruby-value">:topic</span>.<span class="ruby-identifier">id</span>)
 <span class="ruby-keyword">end</span></pre>
           </div><!-- create-source -->
           

@@ -1,0 +1,50 @@
+<section id="community_posts" class="tlelm">
+
+  <section id="community_info">
+    <%= render 'community_info' %>
+  </section>
+
+  <section id="community_user_button">
+      <%= render 'button' %><br />
+  </section><hr><br>
+
+  <section id="topic_info">
+    <section>
+      <%= render 'new_topic' %>
+    </section><br />
+
+    <section id="community_topics">
+      <%= render 'topics' %>
+    </section>
+  </section>
+  
+  <section id="actions">
+	<% if @community.owner_id == current_user.id %>
+	  <%= link_to 'Edit', edit_community_path(@community) %>
+	<% end %>
+  </section>
+    
+</section>
+
+<section id="related_communities" class="tlelm">
+  <%= render 'related_communities'%>
+</section>
+
+
+<section id="posts">
+
+  <% if CommunityUser.exists?(user_id:current_user.id, community_id:@community.id) %>
+  <section id="new_post_section" class="tlelm">
+    <% @post = Post.new %>
+    <%= render 'post' %>
+	<div class="count_char">500</div>
+  </section>
+  <% end %>
+
+
+  <section id="post_list">
+    <%= render 'community_posts'%>
+  </section>
+  
+  <%= render 'infbtn' %>
+</section>

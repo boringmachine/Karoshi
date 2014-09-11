@@ -158,7 +158,7 @@ body{
   
 }
 
-#posts,#group_posts,#topic_posts,#groups,#topics{
+#posts,#community_posts,#topic_posts,#communities,#topics{
   margin-top: 60px;
 }
 
@@ -251,12 +251,12 @@ h2 {
 .pagination{
   margin-left:$left;
 }
-.group{
+.community{
   margin-left: 50px;
 }
 
 
-#group.field{
+#community.field{
   float: left;
 }
 
@@ -300,14 +300,14 @@ article{
 }
 
 
-#new_topic,#group_info,#joined_groups,#links,#group_topics{
+#new_topic,#community_info,#joined_communities,#links,#community_topics{
   width:330px;
   background:#fff;
 }
 
 
 
-#post_group_id, #post_topic_id{
+#post_community_id, #post_topic_id{
   background: #FFF;
   height: 30px;
   width: 300px;
@@ -379,7 +379,7 @@ $sc: #fff;
   }
 }
 
-.login,.new_group,.edit_group{
+.login,.new_community,.edit_community{
   width: 310px;
   textarea{
     width:90%;
@@ -391,7 +391,7 @@ $sc: #fff;
 }
 
 
-.post_article,.group_post_article,#group_posts{
+.post_article,.community_post_article,#community_posts{
   width: 310px;
   header{
     width:310px;
@@ -406,9 +406,9 @@ $sc: #fff;
   position: relative;
 }
 
-.login,.new_group,
-.edit_group,#new_post_section,#sidebar_2,
-.post_article,#group_posts,#tags,#recommend_groups, #related_groups, #about{
+.login,.new_community,
+.edit_community,#new_post_section,#sidebar_2,
+.post_article,#community_posts,#tags,#recommend_communities, #related_communities, #about{
   margin: 50px auto;
   padding: 20px 20px 20px;
   background: white;

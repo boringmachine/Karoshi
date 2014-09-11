@@ -1,0 +1,33 @@
+<section id="sidebar">
+
+  <section id="community_info">
+    <%= render 'community_info' %>
+  </section>
+
+  <section id="community_user_button">
+    <%= render 'button' %>
+  </section><br />
+
+  <section>
+    <%= render 'new_topic' %>
+  </section><br />
+
+  <section id="community_topics">
+    <%= render 'topics' %>
+  </section>
+  
+  <section id="actions">
+	<% if @community.owner_id == current_user.id %>
+	  <%= link_to 'Edit', edit_community_path(@community) %>
+	<% end %>
+  </section>
+  
+</section>
+
+<section id="community_posts">
+  <%= render 'community_posts' %>
+  <% if CommunityUser.where(community_id: @community.id, user_id: current_user.id).empty?%>
+    <%= render 'explain' %>  
+  <% end %>
+</section>
+

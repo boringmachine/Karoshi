@@ -1,0 +1,14 @@
+<header><h1><%= t "community.topics"%></h1></header>
+<% topics = @community.topics.search('',params[:tpage]) %>
+<ul>
+<% topics.reverse.each do |topic| %>
+  <li>
+  	<%= link_to topic.subject,topic %>
+  	<% gtid = CommunityTopic.getFirst(topic.id,@community.id) %>
+  	<% if @community.owner_id == current_user.id && topic.id != 1%>
+      <%= link_to t("topic.delete"),gtid, :method => :delete, :class => "delete", :confirm => "Are you sure ?"%>
+    <% end %>
+  </li>
+<% end %>
+</ul>
+<%= will_paginate topics,param_name:'tpage' %>

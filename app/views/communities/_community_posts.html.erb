@@ -1,0 +1,21 @@
+<% @posts.each do |post| %>
+<% if post.user != nil%>
+<article class="post_article tlelm">
+  <header><h3><%= link_to post.topic.subject, post.topic %></h3></header>
+  <div>
+    <span class="userimg"><%= s3 image_tag(post.user.photo.url(:small)) %></span>
+    <span class="user"><b><%= post.user.username %></b></span>
+    <span class="date"><%= post.created_at %></span><br />
+    <span class="no"  >No:<%= post.topic_post_id %></span>
+  </div> 
+    
+  <div class="body">
+  	<% if post.photo? %>
+      <div class="image"><a class="fancybox" href="<%= s3 post.photo.url(:original) %>"><%= s3 image_tag(post.photo.url(:medium)) %></a></div>
+    <% end %> 
+  	<%= auto_res post.body_html, post.topic_id %>
+  </div>
+  <div class="comments"><a href="/posts?search=%3E%3E<%=post.id%>">Comment(<%= Comment.countRes(post.id) %>)</a></div>
+</article>
+<% end %>
+<% end %>

@@ -1,0 +1,6 @@
+<header><h1><%= t 'community.joined'%></h1></header>
+<ul>
+<% Community.find(CommunityUser.communities(current_user.id)).each do |community| %>
+  <li><img class="icon" width="30" height="30" src="<%= s3 community.photo.url(:small) %>"><%= link_to community.name, community %></li>
+<% end %>
+</ul>

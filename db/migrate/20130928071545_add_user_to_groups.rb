@@ -1,5 +1,5 @@
-class AddUserToGroups < ActiveRecord::Migration
+class AddUserToCommunities < ActiveRecord::Migration
   def change
-    add_column :groups, :user_id, :integer
+    add_column :communities, :user_id, :integer
   end
 end

@@ -74,13 +74,13 @@
     
     <li><a href="#method-c-getDate">::getDate</a>
     
-    <li><a href="#method-c-getGroupBody">::getGroupBody</a>
+    <li><a href="#method-c-getCommunityBody">::getCommunityBody</a>
     
     <li><a href="#method-c-getPosts">::getPosts</a>
     
-    <li><a href="#method-c-groupTopicPosts">::groupTopicPosts</a>
+    <li><a href="#method-c-communityTopicPosts">::communityTopicPosts</a>
     
-    <li><a href="#method-c-groupposts">::groupposts</a>
+    <li><a href="#method-c-communityposts">::communityposts</a>
     
     <li><a href="#method-c-paging">::paging</a>
     
@@ -127,23 +127,23 @@
   
     <li><a href="./CommentsHelper.html">CommentsHelper</a>
   
-    <li><a href="./Group.html">Group</a>
+    <li><a href="./Community.html">Community</a>
   
-    <li><a href="./GroupTopic.html">GroupTopic</a>
+    <li><a href="./CommunityTopic.html">CommunityTopic</a>
   
-    <li><a href="./GroupTopicsController.html">GroupTopicsController</a>
+    <li><a href="./CommunityTopicsController.html">CommunityTopicsController</a>
   
-    <li><a href="./GroupTopicsHelper.html">GroupTopicsHelper</a>
+    <li><a href="./CommunityTopicsHelper.html">CommunityTopicsHelper</a>
   
-    <li><a href="./GroupUser.html">GroupUser</a>
+    <li><a href="./CommunityUser.html">CommunityUser</a>
   
-    <li><a href="./GroupUsersController.html">GroupUsersController</a>
+    <li><a href="./CommunityUsersController.html">CommunityUsersController</a>
   
-    <li><a href="./GroupUsersHelper.html">GroupUsersHelper</a>
+    <li><a href="./CommunityUsersHelper.html">CommunityUsersHelper</a>
   
-    <li><a href="./GroupsController.html">GroupsController</a>
+    <li><a href="./CommunitiesController.html">CommunitiesController</a>
   
-    <li><a href="./GroupsHelper.html">GroupsHelper</a>
+    <li><a href="./CommunitiesHelper.html">CommunitiesHelper</a>
   
     <li><a href="./Mailer.html">Mailer</a>
   
@@ -275,11 +275,11 @@
       </div><!-- getDate-method -->
 
     
-      <div id="method-c-getGroupBody" class="method-detail ">
+      <div id="method-c-getCommunityBody" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">getGroupBody</span><span
-            class="method-args">(group_id)</span>
+          <span class="method-name">getCommunityBody</span><span
+            class="method-args">(community_id)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
@@ -290,10 +290,10 @@
           
 
           
-          <div class="method-source-code" id="getGroupBody-source">
+          <div class="method-source-code" id="getCommunityBody-source">
             <pre><span class="ruby-comment"># File app/models/post.rb, line 83</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">getGroupBody</span>(<span class="ruby-identifier">group_id</span>)
-  <span class="ruby-identifier">posts</span> = <span class="ruby-identifier">groupposts</span>(<span class="ruby-identifier">group_id</span>,<span class="ruby-value">1</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">getCommunityBody</span>(<span class="ruby-identifier">community_id</span>)
+  <span class="ruby-identifier">posts</span> = <span class="ruby-identifier">communityposts</span>(<span class="ruby-identifier">community_id</span>,<span class="ruby-value">1</span>)
   <span class="ruby-identifier">buf</span> = <span class="ruby-string">''</span>
   <span class="ruby-identifier">posts</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">post</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">buf</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">post</span>.<span class="ruby-identifier">body</span>
@@ -301,14 +301,14 @@
   <span class="ruby-keyword">end</span>
   <span class="ruby-identifier">buf</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">200</span>]
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- getGroupBody-source -->
+          </div><!-- getCommunityBody-source -->
           
         </div>
 
         
 
         
-      </div><!-- getGroupBody-method -->
+      </div><!-- getCommunityBody-method -->
 
     
       <div id="method-c-getPosts" class="method-detail ">
@@ -330,11 +330,11 @@
             <pre><span class="ruby-comment"># File app/models/post.rb, line 62</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">getPosts</span>(<span class="ruby-identifier">search</span>,<span class="ruby-identifier">page</span>,<span class="ruby-identifier">user</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">search</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
-    <span class="ruby-identifier">groups</span> = <span class="ruby-identifier">user</span>.<span class="ruby-identifier">groups</span>
-    <span class="ruby-constant">Post</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:group_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">groups</span>).<span class="ruby-identifier">paging</span>(<span class="ruby-identifier">page</span>)
+    <span class="ruby-identifier">communities</span> = <span class="ruby-identifier">user</span>.<span class="ruby-identifier">communities</span>
+    <span class="ruby-constant">Post</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:community_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">communities</span>).<span class="ruby-identifier">paging</span>(<span class="ruby-identifier">page</span>)
   <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">groups</span> = <span class="ruby-constant">Group</span>.<span class="ruby-identifier">all</span>
-    <span class="ruby-constant">Post</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:group_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">groups</span>).<span class="ruby-identifier">search</span>(<span class="ruby-identifier">search</span>, <span class="ruby-identifier">page</span>)
+    <span class="ruby-identifier">communities</span> = <span class="ruby-constant">Community</span>.<span class="ruby-identifier">all</span>
+    <span class="ruby-constant">Post</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:community_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">communities</span>).<span class="ruby-identifier">search</span>(<span class="ruby-identifier">search</span>, <span class="ruby-identifier">page</span>)
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- getPosts-source -->
@@ -347,11 +347,11 @@
       </div><!-- getPosts-method -->
 
     
-      <div id="method-c-groupTopicPosts" class="method-detail ">
+      <div id="method-c-communityTopicPosts" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">groupTopicPosts</span><span
-            class="method-args">(group_id, topic_id, page)</span>
+          <span class="method-name">communityTopicPosts</span><span
+            class="method-args">(community_id, topic_id, page)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
@@ -362,28 +362,28 @@
           
 
           
-          <div class="method-source-code" id="groupTopicPosts-source">
+          <div class="method-source-code" id="communityTopicPosts-source">
             <pre><span class="ruby-comment"># File app/models/post.rb, line 46</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">groupTopicPosts</span>(<span class="ruby-identifier">group_id</span>, <span class="ruby-identifier">topic_id</span>, <span class="ruby-identifier">page</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">communityTopicPosts</span>(<span class="ruby-identifier">community_id</span>, <span class="ruby-identifier">topic_id</span>, <span class="ruby-identifier">page</span>)
   <span class="ruby-identifier">paginate</span> <span class="ruby-value">:per_page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@per_page</span>, <span class="ruby-value">:page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">page</span>,
-           <span class="ruby-value">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-string">'group_id = ? and topic_id = ?'</span>, <span class="ruby-identifier">group_id</span>, <span class="ruby-identifier">topic_id</span>],
+           <span class="ruby-value">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-string">'community_id = ? and topic_id = ?'</span>, <span class="ruby-identifier">community_id</span>, <span class="ruby-identifier">topic_id</span>],
            <span class="ruby-value">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;created_at desc&quot;</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- groupTopicPosts-source -->
+          </div><!-- communityTopicPosts-source -->
           
         </div>
 
         
 
         
-      </div><!-- groupTopicPosts-method -->
+      </div><!-- communityTopicPosts-method -->
 
     
-      <div id="method-c-groupposts" class="method-detail ">
+      <div id="method-c-communityposts" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">groupposts</span><span
-            class="method-args">(group_id,page)</span>
+          <span class="method-name">communityposts</span><span
+            class="method-args">(community_id,page)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
@@ -394,21 +394,21 @@
           
 
           
-          <div class="method-source-code" id="groupposts-source">
+          <div class="method-source-code" id="communityposts-source">
             <pre><span class="ruby-comment"># File app/models/post.rb, line 34</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">groupposts</span>(<span class="ruby-identifier">group_id</span>,<span class="ruby-identifier">page</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">communityposts</span>(<span class="ruby-identifier">community_id</span>,<span class="ruby-identifier">page</span>)
   <span class="ruby-identifier">paginate</span> <span class="ruby-value">:per_page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@per_page</span>, <span class="ruby-value">:page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">page</span>,
-           <span class="ruby-value">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-string">'group_id = ?'</span>, <span class="ruby-identifier">group_id</span>],
+           <span class="ruby-value">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-string">'community_id = ?'</span>, <span class="ruby-identifier">community_id</span>],
            <span class="ruby-value">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;created_at desc&quot;</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- groupposts-source -->
+          </div><!-- communityposts-source -->
           
         </div>
 
         
 
         
-      </div><!-- groupposts-method -->
+      </div><!-- communityposts-method -->
 
     
       <div id="method-c-paging" class="method-detail ">

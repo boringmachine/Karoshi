@@ -1,0 +1,6 @@
+<%= form_tag community_path, id:'infloader', method:'get', remote: true do |f|%>
+  <%= hidden_field_tag :page, "2",id:"page" %>
+  <div id="infbtn">
+  	<%= image_submit_tag("loading.gif") %><br />
+  </div>
+<% end %>

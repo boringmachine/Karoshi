@@ -5,5 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Locale.create({:name => 'en'})
-Locale.create({:name => 'ja'})
+if Locale.count == 0
+  Locale.create({:name => 'en'})
+  Locale.create({:name => 'ja'})
+end
+
+if Community.count == 0 
+  community = Community.create(name:"Global Community")
+  topic = Topic.getFirstTopic
+  CommunityTopic.create(community_id:community.id,topic_id:topic.id)
+end

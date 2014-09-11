@@ -88,7 +88,7 @@ $ ->
 	$("#submit_path").change ->
 		val = $('#submit_path option:selected').val()
 		sel = if val is "1" then "/posts"
-		else if val is "2" then "/groups"
+		else if val is "2" then "/communities"
 		else "/topics"
 
 		$("#search_post form").attr("action",sel)

@@ -16,9 +16,9 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png','image/gif']
   validates :email, :presence => true
   
-  has_many :own_groups, :class_name => 'Group', :foreign_key => 'owner_id'
-  has_many :group_users
-  has_many :groups, through: :group_users
+  has_many :own_communities, :class_name => 'Community', :foreign_key => 'owner_id'
+  has_many :community_users
+  has_many :communities, through: :community_users
   has_many :posts
   has_many :topics, through: :posts
   belongs_to :locale
@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
                          authentication_token: create_unique_string
                         )
     end
-    User.join_first_group(user)
+    User.join_first_community(user)
     user
   end
  
@@ -50,15 +50,10 @@ class User < ActiveRecord::Base
     email + "@karoshi.heroku.com"
   end
   
-  def self.join_first_group(user)
-    if Group.first == nil
-      group = Group.create(name:"Global Group")
-      topic = Topic.getFirstTopic
-      GroupTopic.create(group_id:group.id,topic_id:topic.id)
-    end
+  def self.join_first_community(user_id)
     unless user.id.blank?
-      group = Group.first
-      GroupUser.create(user_id: user.id, group_id: group.id)
+      community = Community.first
+      CommunityUser.create(user_id: user_id, community_id: Community.first.id)
     end
   end
   

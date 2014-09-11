@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   resources :comments
   resources :post_tags
   resources :tags
-  resources :group_topics
+  resources :community_topics
   resources :posts
-  resources :group_users
-  resources :groups
+  resources :community_users
+  resources :communities
   resources :topics
 
   devise_for :users, :controllers => {

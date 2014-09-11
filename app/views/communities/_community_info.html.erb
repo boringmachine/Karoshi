@@ -1,0 +1,4 @@
+<header><h1><%= @community.name %></h1></header>
+<p id="photo"><%= s3 image_tag(@community.photo.url(:small)) %></p>
+<p id="description"><%= @community.description %></p>
+<p id="notice"><%= notice %></p>

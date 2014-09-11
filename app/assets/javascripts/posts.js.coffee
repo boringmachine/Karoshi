@@ -4,14 +4,14 @@
 $ ->
   
   setTopicsOption = () ->
-    group = $('#post_group_id option:selected').val()
-    $.getJSON "../topics.json?group="+group, (data) ->
+    community = $('#post_community_id option:selected').val()
+    $.getJSON "../topics.json?community="+community, (data) ->
       $.each data, (i,item) ->
         $('#post_topic_id').append('<option value="'+item.id+'">' + item.subject + '</option>')
   
-  $('#post_group_id').change ->
+  $('#post_community_id').change ->
     $('#post_topic_id').empty()
-    group = $('#post_group_id option:selected').val()
+    community = $('#post_community_id option:selected').val()
     setTopicsOption()
     
 $ ->

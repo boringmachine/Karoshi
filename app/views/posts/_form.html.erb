@@ -25,16 +25,16 @@
 	<%= f.file_field :photo %>
 </div>
 
-<div class="field" id="group">
-	<%= f.label :group_id %>
+<div class="field" id="community">
+	<%= f.label :community_id %>
 	<br />
-	<%= collection_select(:post, :group_id, current_user.groups , :id, :name) %>
+	<%= collection_select(:post, :community_id, current_user.communities , :id, :name) %>
 </div><span> </span></br>
 
 <div class="field" id="topic">
 	<%= f.label :topic_id %>
 	<br />
-	<%= collection_select(:post, :topic_id, Group.find(1).topics , :id, :subject) %>
+	<%= collection_select(:post, :topic_id, Community.find(1).topics , :id, :subject) %>
 </div>
 
 <div class="actions">

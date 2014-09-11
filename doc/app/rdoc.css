@@ -42,7 +42,7 @@ pre {
   padding: 0.5em 0;
 }
 
-/* @group Generic Classes */
+/* @community Generic Classes */
 
 .initially-hidden {
   display: none;
@@ -88,7 +88,7 @@ pre {
 
 /* @end */
 
-/* @group Index Page, Standalone file pages */
+/* @community Index Page, Standalone file pages */
 .indexpage ul {
   line-height: 160%;
   list-style: none;
@@ -132,7 +132,7 @@ pre {
 
 /* @end */
 
-/* @group Top-Level Structure */
+/* @community Top-Level Structure */
 
 #metadata {
   float: left;
@@ -152,7 +152,7 @@ pre {
 
 /* @end */
 
-/* @group Metadata Section */
+/* @community Metadata Section */
 #metadata .section {
   background-color: #dedede;
   -moz-border-radius: 5px;
@@ -215,13 +215,13 @@ ul.link-list .type {
 
 /* @end */
 
-/* @group Class Metadata Section */
+/* @community Class Metadata Section */
 #class-metadata {
   margin-top: 2em;
 }
 /* @end */
 
-/* @group Project Metadata Section */
+/* @community Project Metadata Section */
 #project-metadata {
   margin-top: 2em;
 }
@@ -241,7 +241,7 @@ ul.link-list .type {
 
 /* @end */
 
-/* @group Documentation Section */
+/* @community Documentation Section */
 .description {
   font-size: 100%;
   color: #333;
@@ -379,7 +379,7 @@ ul.link-list .type {
   visibility: visible;
 }
 
-/* @group Method Details */
+/* @community Method Details */
 
 #documentation .method-source-code {
   display: none;
@@ -468,7 +468,7 @@ pre {
 
 /* @end */
 
-/* @group Source Code */
+/* @community Source Code */
 
 pre {
   overflow: auto;
@@ -495,7 +495,7 @@ pre {
 /* @end */
 
 
-/* @group search results */
+/* @community search results */
 #search-results h1 {
   font-size: 1em;
   font-weight: normal;

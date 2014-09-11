@@ -1,0 +1,6 @@
+$("#communities").append("<%= escape_javascript(render 'list_communities') %>")
+page = parseInt($("#page").val())+1;
+$("#page").val(page);
+<% if @communities.count < Community.per_page %>
+  $("#infloader").hide();
+<% end %>

@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.getPosts(params, current_user)
     @tags = Tag.paging(1)
-    @groups = Group.recommendGroups(current_user)
+    @communities = Community.recommendCommunities(current_user)
     respond_with(@posts)
   end
 
@@ -41,6 +41,6 @@ class PostsController < ApplicationController
   
   private
   def create_params
-    params.require(:post).permit(:body, :group_id, :topic_id, :photo)
+    params.require(:post).permit(:body, :community_id, :topic_id, :photo)
   end
 end

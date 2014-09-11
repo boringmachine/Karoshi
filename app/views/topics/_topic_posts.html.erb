@@ -3,7 +3,7 @@
 <article class="topic_post_article">
   <header>
     <span class="userimg"><%= s3 image_tag(post.user.photo.url(:small)) %></span>
-    <span class="user"><b><%= post.user.username %></b> in <%= link_to post.group.name, post.group %></span>
+    <span class="user"><b><%= post.user.username %></b> in <%= link_to post.community.name, post.community %></span>
     <span class="date"><%= post.created_at %></span><br />
     <span class="no"  >No:<%= post.topic_post_id %></span>
   </header>

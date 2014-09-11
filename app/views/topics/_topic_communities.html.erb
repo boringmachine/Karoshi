@@ -1,0 +1,6 @@
+<header><h3>Topic Communities</h3></header>
+<ul>
+<% Community.find(CommunityTopic.communities(@topic.id)).each do |community| %>
+  <li><%= link_to community.name, community %></li>
+<% end %>
+</ul>

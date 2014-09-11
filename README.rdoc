@@ -2,7 +2,7 @@
 
 Karoshi is Simple SNS. 
 1. Sign up
-2. Join the Group
+2. Join the Community
 3. Select the Topic
 4. Share the Post
 

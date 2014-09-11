@@ -1,0 +1,27 @@
+<h1>Listing community_topics</h1>
+
+<table>
+  <tr>
+    <th>Community</th>
+    <th>Topic</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @community_topics.each do |community_topic| %>
+  <tr>
+    <td><%= community_topic.community_id %></td>
+    <td><%= community_topic.topic_id %></td>
+    <td><%= community_topic.status %></td>
+    <td><%= link_to 'Show', community_topic %></td>
+    <td><%= link_to 'Edit', edit_community_topic_path(community_topic) %></td>
+    <td><%= link_to 'Destroy', community_topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Community topic', new_community_topic_path %>

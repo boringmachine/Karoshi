@@ -1,5 +1,5 @@
-class AddOwnerIdToGroups < ActiveRecord::Migration
+class AddOwnerIdToCommunities < ActiveRecord::Migration
   def change
-    add_column :groups, :owner_id, :integer
+    add_column :communities, :owner_id, :integer
   end
 end

@@ -1,0 +1,84 @@
+// Place all the styles related to the communities controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#community_info {
+  #photo img{
+    width: 330px;
+    height: 330px;
+  }
+}
+
+#communities{
+  margin-top: 30px;
+  
+  article{
+    height:340px;
+    img{
+      width:310px;
+      height: 310px;
+    }
+  }
+  
+  .community_left{
+    float:left;
+  }
+  
+  .community_body{
+    position:absolute;
+    margin: 30px auto;
+    left:340px;
+    width: 150px;
+    word-wrap: break-word;
+  }
+  
+}
+
+
+#new_community{
+  textarea{
+    width:300px;
+  }
+}
+
+#new_topic{  
+  input[type="text"]{
+    width:230px;
+  }
+  input[type="submit"]{
+    width: 310px;
+  }
+  
+}
+
+#community_posts, #communities{
+  margin-top: 50px;
+}
+
+#community_topic_form{
+  text-align:center;
+}
+
+
+#community_topics{
+  li{
+    width: 330px;
+    a{
+      width: 330px;
+      font-size:20px;
+      font-family: Exo;
+    }
+  }
+}
+
+#recommend_communities, #related_communities{
+  width:310px;
+  li {
+    width: 310px;
+    height: 40px;
+    a{
+      width: 310px;
+    }
+  }
+}
+

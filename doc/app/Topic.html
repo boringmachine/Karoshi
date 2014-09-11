@@ -72,7 +72,7 @@
     
     <li><a href="#method-c-getFirstTopic">::getFirstTopic</a>
     
-    <li><a href="#method-c-getGroupTopic">::getGroupTopic</a>
+    <li><a href="#method-c-getCommunityTopic">::getCommunityTopic</a>
     
     <li><a href="#method-c-getTopicPosts">::getTopicPosts</a>
     
@@ -119,23 +119,23 @@
   
     <li><a href="./CommentsHelper.html">CommentsHelper</a>
   
-    <li><a href="./Group.html">Group</a>
+    <li><a href="./Community.html">Community</a>
   
-    <li><a href="./GroupTopic.html">GroupTopic</a>
+    <li><a href="./CommunityTopic.html">CommunityTopic</a>
   
-    <li><a href="./GroupTopicsController.html">GroupTopicsController</a>
+    <li><a href="./CommunityTopicsController.html">CommunityTopicsController</a>
   
-    <li><a href="./GroupTopicsHelper.html">GroupTopicsHelper</a>
+    <li><a href="./CommunityTopicsHelper.html">CommunityTopicsHelper</a>
   
-    <li><a href="./GroupUser.html">GroupUser</a>
+    <li><a href="./CommunityUser.html">CommunityUser</a>
   
-    <li><a href="./GroupUsersController.html">GroupUsersController</a>
+    <li><a href="./CommunityUsersController.html">CommunityUsersController</a>
   
-    <li><a href="./GroupUsersHelper.html">GroupUsersHelper</a>
+    <li><a href="./CommunityUsersHelper.html">CommunityUsersHelper</a>
   
-    <li><a href="./GroupsController.html">GroupsController</a>
+    <li><a href="./CommunitiesController.html">CommunitiesController</a>
   
-    <li><a href="./GroupsHelper.html">GroupsHelper</a>
+    <li><a href="./CommunitiesHelper.html">CommunitiesHelper</a>
   
     <li><a href="./Mailer.html">Mailer</a>
   
@@ -230,10 +230,10 @@
       </div><!-- getFirstTopic-method -->
 
     
-      <div id="method-c-getGroupTopic" class="method-detail ">
+      <div id="method-c-getCommunityTopic" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">getGroupTopic</span><span
+          <span class="method-name">getCommunityTopic</span><span
             class="method-args">(params)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
@@ -245,24 +245,24 @@
           
 
           
-          <div class="method-source-code" id="getGroupTopic-source">
+          <div class="method-source-code" id="getCommunityTopic-source">
             <pre><span class="ruby-comment"># File app/models/topic.rb, line 37</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">getGroupTopic</span>(<span class="ruby-identifier">params</span>)
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value">:group</span>)
-    <span class="ruby-identifier">topics</span> = <span class="ruby-constant">GroupTopic</span>.<span class="ruby-identifier">topics</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:group</span>])
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">getCommunityTopic</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value">:community</span>)
+    <span class="ruby-identifier">topics</span> = <span class="ruby-constant">CommunityTopic</span>.<span class="ruby-identifier">topics</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:community</span>])
     <span class="ruby-identifier">where</span>(<span class="ruby-identifier">id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">topics</span>).<span class="ruby-identifier">search</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>], <span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>])
   <span class="ruby-keyword">else</span>
     <span class="ruby-identifier">where</span>(<span class="ruby-identifier">status</span><span class="ruby-value">:false</span>).<span class="ruby-identifier">search</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>], <span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>])
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- getGroupTopic-source -->
+          </div><!-- getCommunityTopic-source -->
           
         </div>
 
         
 
         
-      </div><!-- getGroupTopic-method -->
+      </div><!-- getCommunityTopic-method -->
 
     
       <div id="method-c-getTopicPosts" class="method-detail ">
@@ -283,8 +283,8 @@
           <div class="method-source-code" id="getTopicPosts-source">
             <pre><span class="ruby-comment"># File app/models/topic.rb, line 46</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">getTopicPosts</span>(<span class="ruby-identifier">params</span>)
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value">:group_id</span>)
-    <span class="ruby-constant">Post</span>.<span class="ruby-identifier">groupTopicPosts</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:group_id</span>],<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>],<span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>])
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value">:community_id</span>)
+    <span class="ruby-constant">Post</span>.<span class="ruby-identifier">communityTopicPosts</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:community_id</span>],<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>],<span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>])
   <span class="ruby-keyword">else</span>
     <span class="ruby-constant">Post</span>.<span class="ruby-identifier">topicposts</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>], <span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>])
   <span class="ruby-keyword">end</span>
@@ -318,11 +318,11 @@
             <pre><span class="ruby-comment"># File app/models/topic.rb, line 17</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">owner_check</span>(<span class="ruby-identifier">id</span>,<span class="ruby-identifier">user_id</span>)
   <span class="ruby-identifier">topic</span> = <span class="ruby-identifier">find</span>(<span class="ruby-identifier">id</span>)
-  <span class="ruby-identifier">groups</span> = <span class="ruby-identifier">topic</span>.<span class="ruby-identifier">groups</span>
+  <span class="ruby-identifier">communities</span> = <span class="ruby-identifier">topic</span>.<span class="ruby-identifier">communities</span>
   
   <span class="ruby-identifier">flag</span> = <span class="ruby-keyword">false</span>
-  <span class="ruby-identifier">groups</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">group</span><span class="ruby-operator">|</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-identifier">group</span>.<span class="ruby-identifier">owner_id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">user_id</span>
+  <span class="ruby-identifier">communities</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">community</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">community</span>.<span class="ruby-identifier">owner_id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">user_id</span>
       <span class="ruby-identifier">flag</span> = <span class="ruby-keyword">true</span>
       <span class="ruby-keyword">break</span>
     <span class="ruby-keyword">end</span>

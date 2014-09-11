@@ -1,0 +1,23 @@
+<header><h1><%= t "topic.new"%></h1></header>
+<% if CommunityUser.exists?(user_id:current_user.id, community_id:@community.id) %>
+  <table><tr><th><%= t 'topic.subject'%></th><th><%= t 'topic.status'%></th></tr>
+  <%= form_for(Topic.new) do |f| %>
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <tr>
+    <td><div class="field">
+      <%= f.text_field :subject %>
+    </div></td>
+  
+    <td><div class="field">
+      <%= f.check_box :status %>
+    </div></td>
+  
+    <%= hidden_field_tag 'community_id', @community.id %>
+  </tr>
+  <tr><td colspan="3">
+    <div class="actions">
+	  <%= submit_tag t("topic.create") %>
+    </div></td></tr>
+  <% end %>
+  </table>
+<% end %>

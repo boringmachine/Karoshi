@@ -1,8 +1,8 @@
 <% @posts.each do |post| %>
-<% if post.group.id != 1 or post.user_id == current_user.id %>
+<% if post.community.id != 1 or post.user_id == current_user.id %>
 <article class="post_article tlelm">
 	<header>
-		<h3><%= link_to post.topic.subject, post.topic %> - <%= link_to post.group.name, post.group %></h3>
+		<h3><%= link_to post.topic.subject, post.topic %> - <%= link_to post.community.name, post.community %></h3>
 	</header>
 	<div class="user_data">
 		<span class="userimg"><%= s3 image_tag(post.user.photo.url(:small)) %></span>

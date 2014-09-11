@@ -4,7 +4,7 @@
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
-<title>class GroupTopicsController - Rails Application Documentation</title>
+<title>class CommunityTopicsController - Rails Application Documentation</title>
 
 <link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
 
@@ -47,7 +47,7 @@
     <nav id="file-list-section" class="section">
   <h3 class="section-header">Defined In</h3>
   <ul>
-    <li>app/controllers/group_topics_controller.rb
+    <li>app/controllers/community_topics_controller.rb
   </ul>
 </nav>
 
@@ -117,23 +117,23 @@
   
     <li><a href="./CommentsHelper.html">CommentsHelper</a>
   
-    <li><a href="./Group.html">Group</a>
+    <li><a href="./Community.html">Community</a>
   
-    <li><a href="./GroupTopic.html">GroupTopic</a>
+    <li><a href="./CommunityTopic.html">CommunityTopic</a>
   
-    <li><a href="./GroupTopicsController.html">GroupTopicsController</a>
+    <li><a href="./CommunityTopicsController.html">CommunityTopicsController</a>
   
-    <li><a href="./GroupTopicsHelper.html">GroupTopicsHelper</a>
+    <li><a href="./CommunityTopicsHelper.html">CommunityTopicsHelper</a>
   
-    <li><a href="./GroupUser.html">GroupUser</a>
+    <li><a href="./CommunityUser.html">CommunityUser</a>
   
-    <li><a href="./GroupUsersController.html">GroupUsersController</a>
+    <li><a href="./CommunityUsersController.html">CommunityUsersController</a>
   
-    <li><a href="./GroupUsersHelper.html">GroupUsersHelper</a>
+    <li><a href="./CommunityUsersHelper.html">CommunityUsersHelper</a>
   
-    <li><a href="./GroupsController.html">GroupsController</a>
+    <li><a href="./CommunitiesController.html">CommunitiesController</a>
   
-    <li><a href="./GroupsHelper.html">GroupsHelper</a>
+    <li><a href="./CommunitiesHelper.html">CommunitiesHelper</a>
   
     <li><a href="./Mailer.html">Mailer</a>
   
@@ -170,7 +170,7 @@
 </nav>
 
 <div id="documentation">
-  <h1 class="class">class GroupTopicsController</h1>
+  <h1 class="class">class CommunityTopicsController</h1>
 
   <div id="description" class="description">
     
@@ -205,16 +205,16 @@
 
         <div class="method-description">
           
-          <p>POST /group_topics POST /group_topics.json</p>
+          <p>POST /community_topics POST /community_topics.json</p>
           
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/group_topics_controller.rb, line 20</span>
+            <pre><span class="ruby-comment"># File app/controllers/community_topics_controller.rb, line 20</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
-  <span class="ruby-ivar">@group_topic</span> = <span class="ruby-constant">GroupTopic</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:group_topic</span>])
-  <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">'Group Topic was successfully created.'</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@group_topic</span>.<span class="ruby-identifier">save</span>
-  <span class="ruby-identifier">respond_with</span>(<span class="ruby-ivar">@group_topic</span>)
+  <span class="ruby-ivar">@community_topic</span> = <span class="ruby-constant">CommunityTopic</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:community_topic</span>])
+  <span class="ruby-identifier">flash</span>[<span class="ruby-value">:notice</span>] = <span class="ruby-string">'Community Topic was successfully created.'</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@community_topic</span>.<span class="ruby-identifier">save</span>
+  <span class="ruby-identifier">respond_with</span>(<span class="ruby-ivar">@community_topic</span>)
 <span class="ruby-keyword">end</span></pre>
           </div><!-- create-source -->
           
@@ -237,16 +237,16 @@
 
         <div class="method-description">
           
-          <p>DELETE /group_topics/1 DELETE /group_topics/1.json</p>
+          <p>DELETE /community_topics/1 DELETE /community_topics/1.json</p>
           
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/group_topics_controller.rb, line 28</span>
+            <pre><span class="ruby-comment"># File app/controllers/community_topics_controller.rb, line 28</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
-  <span class="ruby-ivar">@group_topic</span> = <span class="ruby-constant">GroupTopic</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
-  <span class="ruby-comment"># @group_topic.destroy</span>
-  <span class="ruby-constant">GroupTopic</span>.<span class="ruby-identifier">remove_all</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-ivar">@community_topic</span> = <span class="ruby-constant">CommunityTopic</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-comment"># @community_topic.destroy</span>
+  <span class="ruby-constant">CommunityTopic</span>.<span class="ruby-identifier">remove_all</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:back</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- destroy-source -->
@@ -270,15 +270,15 @@
 
         <div class="method-description">
           
-          <p>GET /group_topics GET /group_topics.json</p>
+          <p>GET /community_topics GET /community_topics.json</p>
           
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/group_topics_controller.rb, line 6</span>
+            <pre><span class="ruby-comment"># File app/controllers/community_topics_controller.rb, line 6</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
-  <span class="ruby-ivar">@group_topics</span> = <span class="ruby-constant">GroupTopic</span>.<span class="ruby-identifier">all</span>
-  <span class="ruby-identifier">respond_with</span>(<span class="ruby-ivar">@group_topics</span>)
+  <span class="ruby-ivar">@community_topics</span> = <span class="ruby-constant">CommunityTopic</span>.<span class="ruby-identifier">all</span>
+  <span class="ruby-identifier">respond_with</span>(<span class="ruby-ivar">@community_topics</span>)
 <span class="ruby-keyword">end</span></pre>
           </div><!-- index-source -->
           
@@ -301,15 +301,15 @@
 
         <div class="method-description">
           
-          <p>GET /group_topics/new GET /group_topics/new.json</p>
+          <p>GET /community_topics/new GET /community_topics/new.json</p>
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/group_topics_controller.rb, line 13</span>
+            <pre><span class="ruby-comment"># File app/controllers/community_topics_controller.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
-  <span class="ruby-ivar">@group_topic</span> = <span class="ruby-constant">GroupTopic</span>.<span class="ruby-identifier">new</span>
-  <span class="ruby-identifier">respond_with</span>(<span class="ruby-ivar">@group_topic</span>)
+  <span class="ruby-ivar">@community_topic</span> = <span class="ruby-constant">CommunityTopic</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">respond_with</span>(<span class="ruby-ivar">@community_topic</span>)
 <span class="ruby-keyword">end</span></pre>
           </div><!-- new-source -->
           

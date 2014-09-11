@@ -1,6 +1,6 @@
 class Topic < ActiveRecord::Base
-  has_many :group_topics
-  has_many :groups, through: :group_topics
+  has_many :community_topics
+  has_many :communities, through: :community_topics
   validates :subject, :length => (1..50)
 
   @per_page = 20
@@ -23,11 +23,11 @@ class Topic < ActiveRecord::Base
 
   def self.owner_check(id,user_id)
     topic = find(id)
-    groups = topic.groups
+    communities = topic.communities
     
     flag = false
-    groups.each do |group|
-      if group.owner_id == user_id
+    communities.each do |community|
+      if community.owner_id == user_id
         flag = true
         break
       end
@@ -39,9 +39,9 @@ class Topic < ActiveRecord::Base
     recent.where('subject like ?', "%#{search}%").p(page)
   end
  
-  def self.getGroupTopic(params)
-    if params.has_key?(:group)
-      topics = GroupTopic.topics(params[:group])
+  def self.getCommunityTopic(params)
+    if params.has_key?(:community)
+      topics = CommunityTopic.topics(params[:community])
       where(id: topics).search(params[:search], params[:page])
     else
       where(status:false).search(params[:search], params[:page])

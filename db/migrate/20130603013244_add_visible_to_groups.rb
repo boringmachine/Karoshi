@@ -1,5 +1,5 @@
-class AddVisibleToGroups < ActiveRecord::Migration
+class AddVisibleToCommunities < ActiveRecord::Migration
   def change
-    add_column :groups, :visible, :boolean
+    add_column :communities, :visible, :boolean
   end
 end

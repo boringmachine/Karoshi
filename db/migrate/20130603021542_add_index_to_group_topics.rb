@@ -1,6 +1,6 @@
-class AddIndexToGroupTopics < ActiveRecord::Migration
+class AddIndexToCommunityTopics < ActiveRecord::Migration
   def change
-    add_index :group_topics, :topic_id
-    add_index :group_topics, :group_id
+    add_index :community_topics, :topic_id
+    add_index :community_topics, :community_id
   end
 end
