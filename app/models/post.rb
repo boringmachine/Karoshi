@@ -56,7 +56,7 @@ class Post < ActiveRecord::Base
   end
   
   def self.getPost(params, user)
-    communities = user.communities.zip(Community.where(visible: true)).flatten.compact
+    communities = user.communities
     Post.where(topic_id: params[:tid], topic_post_id: params[:pid], community_id:communities).first
   end
 
@@ -66,7 +66,7 @@ class Post < ActiveRecord::Base
     
     page = params[:page]
     search = params[:search] if params.has_key?(:search)
-    communities = user.communities.zip(Community.where(visible: true)).flatten.compact
+    communities = user.communities
 
     if search.blank?
       Post.where(community_id: communities).paging(page)
