@@ -71,11 +71,20 @@ frameTransparent = () ->
         "data-transparent" : "1"
       }
 
+frameAddAttr = () ->
+  $(".post_article").each ->
+    $(this).find("iframe").eq(0).attr("data-first",1)
+
+frameErase = () ->
+  $("iframe").not("[data-first=1]").hide()
+
 
 # ajax complete init
 ajaxEnd = () ->
   responsiveWindow()
   frameTransparent()
+  frameAddAttr()
+  frameErase()
   $("#infbtn").hide()
   clickflag = on
 
@@ -106,7 +115,9 @@ $ ->
     menubool = !menubool
 
 # responsiveWindow init    
-$ ->    
+$ ->
+  frameAddAttr()
+  frameErase()
   responsiveWindow()
   frameTransparent()
 
