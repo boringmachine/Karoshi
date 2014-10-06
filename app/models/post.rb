@@ -71,6 +71,7 @@ class Post < ActiveRecord::Base
     if search.blank?
       Post.where(community_id: communities).paging(page)
     else
+      communities = user.communities.zip(Community.where(visible: true)).flatten.compact
       Post.where(community_id: communities).search(search, page)
     end
   end
