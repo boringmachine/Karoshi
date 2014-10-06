@@ -81,10 +81,10 @@ frameErase = () ->
 
 # ajax complete init
 ajaxEnd = () ->
-  responsiveWindow()
-  frameTransparent()
   frameAddAttr()
   frameErase()
+  responsiveWindow()
+  frameTransparent()
   $("#infbtn").hide()
   clickflag = on
 
