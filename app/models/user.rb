@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :timeoutable
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :timeoutable, :lockable
 
   has_attached_file :photo, :styles => { :small => "48x48#", :medium => "160x160#" },
     :storage => :s3,
