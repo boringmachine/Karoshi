@@ -34,7 +34,7 @@ class CommunitiesController < ApplicationController
   def create
     @community = Community.new(create_params)
     @community[:owner_id] = current_user.id
-    afterSave(@community) if @community.save
+    afterSave(@community) if createActionAvailableTime > 30.seconds and @community.save
     respond_with(@community)
   end
 
@@ -61,5 +61,13 @@ class CommunitiesController < ApplicationController
   def update_params
     params.require(:community).permit(:name, :description, :visible, :photo)
   end
-
+  
+  private
+  def createActionAvailableTime
+    Time.now - if current_user.own_communities.last.blank?
+      Time.now - 1.minute
+    else
+      current_user.own_communities.last.created_at
+    end
+  end
 end
