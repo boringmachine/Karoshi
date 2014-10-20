@@ -27,9 +27,17 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.newUserPost(params, current_user)
-    afterSave(@post) if @post.save
-    respond_with(@post)
+    user = User.find(current_user.id)
+    if beforeSave(user)
+      @post = Post.newUserPost(params, current_user)
+      afterSave(@post) if @post.save
+      respond_with(@post)
+    end
+  end
+  
+  private
+  def beforeSave(user)
+    user.posts.count == 0 || Time.now - user.posts.last.created_at > 30.seconds
   end
   
   private
