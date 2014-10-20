@@ -60,7 +60,6 @@ gem "aws-sdk"
 gem 'fancybox2-rails'
 gem 'newrelic_rpm'
 gem 'jquery-ui-rails'
-gem 'ruby-graphviz'
 gem 'unicorn'
 gem 'resque'
 gem 'omniauth'
