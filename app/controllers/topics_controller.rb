@@ -20,7 +20,6 @@ class TopicsController < ApplicationController
   # POST /topics.json
   def create
     @topic = Topic.new(create_params)
-    #TODO timer
     checkParams(params) && (afterSave(@topic, params) if @topic.save)
     respond_with(@topic)
   end
@@ -33,9 +32,7 @@ class TopicsController < ApplicationController
   private
   def afterSave(topic, params)
     flash[:notice] = 'Topic was successfully created.'
-    if params.has_key?(:community_id)
-      CommunityTopic.create(topic_id:topic.id, community_id: params[:community_id])
-    end
+    CommunityTopic.create(topic_id:topic.id, community_id: params[:community_id]) if params.has_key?(:community_id)
   end
   
   private
