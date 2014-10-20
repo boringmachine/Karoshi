@@ -14,11 +14,7 @@ class Topic < ActiveRecord::Base
   end
   
   def self.getFirstTopic()
-    if Topic.count == 0
-      Topic.create(id:1,subject:"discussion")
-    else
-      Topic.first
-    end
+    Topic.count == 0 ? Topic.create(id:1, subject:"discussion") : Topic.first
   end
 
   def self.owner_check(id,user_id)
@@ -40,12 +36,10 @@ class Topic < ActiveRecord::Base
   end
  
   def self.getCommunityTopic(params)
-    if params.has_key?(:community)
-      topics = CommunityTopic.topics(params[:community])
-      where(id: topics).search(params[:search], params[:page])
-    else
+    params.has_key?(:community) ?
+      where(id: CommunityTopic.topics(params[:community])).search(params[:search], params[:page])
+      :
       where(status:false).search(params[:search], params[:page])
-    end
   end
   
 end

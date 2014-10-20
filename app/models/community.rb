@@ -36,11 +36,10 @@ class Community < ActiveRecord::Base
   end
   
   def self.getSearch(params)
-    if params.has_key?(:search)
+    params.has_key?(:search) ?
       Community.search(params[:search],params[:page])
-    else
+      :
       Community.search('',params[:page])
-    end
   end
   
   def self.relatedCommunities(community_id)

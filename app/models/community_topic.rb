@@ -26,9 +26,7 @@ class CommunityTopic < ActiveRecord::Base
     njcommunities = []
     
     communities.each do |community|
-      if where(topic_id: topic_id, community_id: community).empty?
-        njcommunities.push(community)
-      end
+      njcommunities.push(community) if where(topic_id: topic_id, community_id: community).empty?
     end
     njcommunities
   end
@@ -40,9 +38,7 @@ class CommunityTopic < ActiveRecord::Base
     jcommunities = []
     
     communities.each do |community|
-      unless where(topic_id: topic_id, community_id: community).empty?
-        jcommunities.push(community)
-      end
+      jcommunities.push(community) unless where(topic_id: topic_id, community_id: community).empty?
     end
     jcommunities
   end

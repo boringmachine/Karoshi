@@ -20,19 +20,14 @@ class TopicsController < ApplicationController
   # POST /topics.json
   def create
     @topic = Topic.new(create_params)
-    if checkParams(params)
-      afterSave(@topic, params) if @topic.save
-    end
+    #TODO timer
+    checkParams(params) && (afterSave(@topic, params) if @topic.save)
     respond_with(@topic)
   end
 
   private
   def checkParams(params)
-    if params.has_key?(:community_id)
-      CommunityUser.exists?(community_id:params[:community_id], user_id: current_user.id)
-    else
-      true
-    end
+    !params.has_key?(:community_id) || CommunityUser.exists?(community_id:params[:community_id], user_id: current_user.id)
   end
 
   private
