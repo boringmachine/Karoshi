@@ -13,8 +13,8 @@ end
 
 group :production do
       # gem 'pg'
-      # gem 'sqlite3'
       gem 'mysql2'
+      # gem 'sqlite3'
       gem 'rails_12factor'
 end
 
@@ -60,7 +60,7 @@ gem "aws-sdk"
 gem 'fancybox2-rails'
 gem 'newrelic_rpm'
 gem 'jquery-ui-rails'
-gem 'unicorn'
 gem 'resque'
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'unicorn'
