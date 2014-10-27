@@ -1,2 +1,2 @@
-access_key_id: <%= ENV['S3_KEY'] %>
-secret_access_key: <%= ENV['S3_SECRET'] %>
+access_key_id: AKIAJFNQRZJDINS7B2JQ
+secret_access_key: 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

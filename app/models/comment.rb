@@ -15,7 +15,9 @@ class Comment < ActiveRecord::Base
       end
     end
     users = users.to_a
-    Resque.enqueue(CommentNotifier, users, post_id, body)
+    if !Rails.env.development?
+      Resque.enqueue(CommentNotifier, users, post_id, body)
+    end
     stack
   end
   
