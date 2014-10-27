@@ -1,10 +1,8 @@
 <table id="community_table">
 <% i=0 %>
 <% @communities.each do |community| %>
-
-  <% if community.visible %>
-    <% modi = (i%3) %>
-    <% if modi == 0 %>
+  <% modi = (i%3) %>
+  <% if modi == 0 %>
   <tr>
     <% end %>
     <td class="community">
@@ -22,6 +20,5 @@
   </tr>
     <% end %>
     <% i+=1 %>
-  <% end %>
 <% end %>
 </table>

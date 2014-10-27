@@ -4,9 +4,8 @@
 <% topics.reverse.each do |topic| %>
   <li>
   	<%= link_to topic.subject,topic %>
-  	<% gtid = CommunityTopic.getFirst(topic.id,@community.id) %>
   	<% if @community.owner_id == current_user.id && topic.id != 1%>
-      <%= link_to t("topic.delete"),gtid, :method => :delete, :class => "delete", :confirm => "Are you sure ?"%>
+      <%= link_to t("topic.delete"),topic.id, :method => :delete, :class => "delete", :confirm => "Are you sure ?"%>
     <% end %>
   </li>
 <% end %>

@@ -10,9 +10,8 @@ class Community < ActiveRecord::Base
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png','image/gif']
 
   belongs_to :owner, :class_name => 'User', :foreign_key => 'owner_id'
-  has_many :community_topics
+  has_many :topics
   has_many :community_users
-  has_many :topics, through: :community_topics
   has_many :users , through: :community_users
 
   
@@ -52,7 +51,7 @@ class Community < ActiveRecord::Base
     result = result.uniq.shuffle
     delcommunity = Community.find(community_id)
     result.delete(delcommunity)
-    excludeInvisibleCommunities(result)
+    result
   end
   
   def self.excludeJoinCommunities(obj_communities,curuser_id)
@@ -64,13 +63,6 @@ class Community < ActiveRecord::Base
     obj_communities
   end
   
-  def self.excludeInvisibleCommunities(communities)
-    obj_communities = []
-    communities.each do |community|
-      obj_communities.push(community) if community.visible
-    end
-    obj_communities
-  end
   
   def self.recommendCommunities(user_id)
     result = []
@@ -80,7 +72,7 @@ class Community < ActiveRecord::Base
       break if 30 < result.count
     end
     result = excludeJoinCommunities(result.uniq, user_id).shuffle
-    result = excludeInvisibleCommunities(result)
   end
+  
   
 end

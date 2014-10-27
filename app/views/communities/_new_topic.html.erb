@@ -9,15 +9,12 @@
     </div></td>
   
     <td><div class="field">
-      <%= f.check_box :status %>
+	  <%= submit_tag t("topic.create") %>
     </div></td>
   
     <%= hidden_field_tag 'community_id', @community.id %>
   </tr>
-  <tr><td colspan="3">
-    <div class="actions">
-	  <%= submit_tag t("topic.create") %>
-    </div></td></tr>
+
   <% end %>
   </table>
 <% end %>

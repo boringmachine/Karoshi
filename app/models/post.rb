@@ -4,7 +4,6 @@ class Post < ActiveRecord::Base
     :bucket => 'rocky-wave-100',
     :s3_credentials => "#{Rails.root}/config/s3.yml"
     
-  belongs_to :community_topic
   belongs_to :user
   belongs_to :community
   belongs_to :topic
@@ -68,20 +67,13 @@ class Post < ActiveRecord::Base
     search = params[:search] if params.has_key?(:search)
     communities = user.communities
 
-    if search.blank?
-      Post.where(community_id: communities).paging(page)
-    else
-      communities = user.communities.zip(Community.where(visible: true)).flatten.compact
-      Post.where(community_id: communities).search(search, page)
-    end
+    search.blank? ?
+      Post.where(community_id: communities).paging(page) : Post.where(community_id: communities).search(search, page)
   end
 
   def self.getCommunityPosts(params)
-    if params.has_key?(:topic_id)
-      Post.communityTopicPosts(params[:id],params[:topic_id],params[:page])
-    else
-      Post.communityposts(params[:id],params[:page])
-    end
+    params.has_key?(:topic_id) ?
+      Post.communityTopicPosts(params[:id],params[:topic_id],params[:page]) : Post.communityposts(params[:id],params[:page])
   end
   
   def self.getTopicPosts(params)
@@ -127,7 +119,6 @@ class Post < ActiveRecord::Base
   def self.newUserPost(params, user)
     create_params = params.require(:post).permit(:body, :community_id, :topic_id, :photo)
     post = user.posts.new(create_params)
-    post.community_topic_id = CommunityTopic.getId(params[:post][:topic_id], params[:post][:community_id])
     post.topic_post_id = Post.getNextTopicPostId(params[:post][:topic_id])
     post
   end

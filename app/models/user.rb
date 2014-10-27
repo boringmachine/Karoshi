@@ -45,9 +45,9 @@ class User < ActiveRecord::Base
   def self.create_unique_email
     email = loop do
       tmp = SecureRandom.urlsafe_base64(nil, false)
-      break tmp unless User.exists?(email: tmp+"@karoshi.heroku.com")
+      break tmp unless User.exists?(email: tmp+"@karoshi.mybluemix.net")
     end
-    email + "@karoshi.heroku.com"
+    email + "@karoshi.mybluemix.net"
   end
   
   def self.join_first_community(user_id)

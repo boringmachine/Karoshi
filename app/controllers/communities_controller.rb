@@ -54,12 +54,12 @@ class CommunitiesController < ApplicationController
   
   private
   def create_params
-    params.require(:community).permit(:name, :description, :visible, :photo)
+    params.require(:community).permit(:name, :description, :photo)
   end
   
   private
   def update_params
-    params.require(:community).permit(:name, :description, :visible, :photo)
+    params.require(:community).permit(:name, :description, :photo)
   end
   
   private
