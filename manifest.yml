@@ -1,6 +1,6 @@
 applications:
 - services:
-  - Question and Answer-v3
+  - Message Resonance-ww
   - New Relic-x2
   - SendGrid-6w
   - Redis Cloud-zr
@@ -8,7 +8,7 @@ applications:
   disk_quota: 1024M
   host: karoshi
   name: karoshi
-  command: bundle exec rake db:migrate && rake db:create && rake db:schema:load && rake db:seed && rails s -p $PORT
+  command: bundle exec rake resque:work QUEUE=* BACKGROUND=yes && rake db:migrate && rake db:seed && rails s -p $PORT
   path: .
   domain: mybluemix.net
   instances: 1

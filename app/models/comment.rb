@@ -14,8 +14,8 @@ class Comment < ActiveRecord::Base
         stack.push Comment.create(parent_id: post_id, child_id: child_id)
       end
     end
-    #users = users.to_a
-    #Resque.enqueue(CommentNotifier, users, post_id, body)
+    users = users.to_a
+    Resque.enqueue(CommentNotifier, users, post_id, body)
     stack
   end
   
