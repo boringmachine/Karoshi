@@ -13,5 +13,6 @@ end
 if Community.count == 0 
   community = Community.create(name:"Global Community", description: "")
   topic = Topic.getFirstTopic
-  CommunityTopic.create(community_id:community.id,topic_id:topic.id)
+  topic.community_id = community.id
+  topic.save
 end
