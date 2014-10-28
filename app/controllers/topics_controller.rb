@@ -20,7 +20,7 @@ class TopicsController < ApplicationController
   # POST /topics.json
   def create
     @topic = current_user.communities.find(params[:community_id]).topics.new(create_params)
-    checkParams(params) && (afterSave(@topic, params) if @topic.save)
+    checkParams(params) && @topic.save
     respond_with(@topic)
   end
 
@@ -34,11 +34,6 @@ class TopicsController < ApplicationController
   private
   def checkParams(params)
     !params.has_key?(:community_id) || CommunityUser.exists?(community_id:params[:community_id], user_id: current_user.id)
-  end
-
-  private
-  def afterSave(topic, params)
-    flash[:notice] = 'Topic was successfully created.'
   end
   
   private

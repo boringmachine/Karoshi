@@ -34,7 +34,7 @@ class CommunitiesController < ApplicationController
   def create
     @community = Community.new(create_params)
     @community[:owner_id] = current_user.id
-    afterSave(@community) if createActionAvailableTime > 30.seconds and @community.save
+    createActionAvailableTime > 30.seconds and @community.save
     respond_with(@community)
   end
 
@@ -44,12 +44,6 @@ class CommunitiesController < ApplicationController
     @community = current_user.own_communities.find(params[:id])
     flash[:notice] = 'Community was successfully updated.' if @community.update_attributes(update_params)
     respond_with(@community)
-  end
-
-  private
-  def afterSave(community)
-    flash[:notice] = 'Community was successfully created.' 
-    @community.topics.create(subject:"discussion")
   end
   
   private

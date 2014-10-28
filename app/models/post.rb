@@ -24,6 +24,8 @@ class Post < ActiveRecord::Base
     link :target => "_blank", :rel => "nofollow"
   end
  
+  after_save :finalize
+ 
   @per_page = 20
  
   def self.recent
@@ -122,6 +124,11 @@ class Post < ActiveRecord::Base
     post.community_id = post.topic.community.id
     post.topic_post_id = Post.getNextTopicPostId(params[:post][:topic_id])
     post
+  end
+  
+  def finalize()
+    Tag.createTags(self.body, self.id)
+    Comment.createComments(self.body, self.id)
   end
   
 end

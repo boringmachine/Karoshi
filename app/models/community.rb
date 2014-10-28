@@ -14,6 +14,7 @@ class Community < ActiveRecord::Base
   has_many :community_users
   has_many :users , through: :community_users
 
+  after_save :finalize
   
   @per_page = 12
   
@@ -74,5 +75,8 @@ class Community < ActiveRecord::Base
     result = excludeJoinCommunities(result.uniq, user_id).shuffle
   end
   
+  def finalize()
+    self.topics.create(subject:"discussion")
+  end
   
 end
