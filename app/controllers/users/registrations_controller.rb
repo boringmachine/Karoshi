@@ -1,7 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_filter :configure_permitted_parameters
 
-
   def new
     super
   end
@@ -10,7 +9,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
     @user.authentication_token = User.create_unique_string
     @user.save
-    User.join_first_community(@user.id)
   end
   
   def build_resource(hash=nil)

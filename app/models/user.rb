@@ -23,6 +23,8 @@ class User < ActiveRecord::Base
   has_many :topics, through: :posts
   belongs_to :locale
   
+  after_save :initUser
+  
   def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
     unless user
@@ -57,5 +59,9 @@ class User < ActiveRecord::Base
     end
   end
   
- 
+  def initUser()
+    user_id = self.id
+    User.join_first_community(user_id)
+    #Post.create(id:1, user_id: user_id)
+  end
 end

@@ -37,9 +37,9 @@ class PostsController < ApplicationController
   private
   def beforeSave(user, topic_id)
     topic = Topic.find(topic_id)
-    !user.communities.where(id: topic.community.id) and 
-    topic.deleteflag == nil and
-    user.posts.count == 0 or Time.now - user.posts.last.created_at > 30.seconds
+    !user.communities.where(id: topic.community.id).blank? && 
+    topic.deleteflag == nil &&
+    user.posts.count == 0 || Time.now - user.posts.last.created_at > 30.seconds
   end
   
   private
