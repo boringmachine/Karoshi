@@ -1,9 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <section id="topic_new_post" class="post_article">
-  <h1><%=@topic.subject%>@<%= @topic.community.name %> </h1>
+  <% community = @topic.community %>
+  <h1><%=@topic.subject%>@<%= link_to community.name, community %> </h1>
 
-  <% unless @topic.community.blank? %>
+  <% if !community.users.where(id:current_user.id).blank? and !@topic.deleteflag%>
     <% @post = Post.new %>
     <%= render 'post' %>
     <div class="count_char">500</div>

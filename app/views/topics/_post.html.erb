@@ -1,18 +1,5 @@
-<%= form_for(@post) do |f| %>
+<%= form_for(Post.new) do |f| %>
 <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-<% if @post.errors.any? %>
-<div id="error_explanation">
-	<h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-	<ul>
-		<% @post.errors.full_messages.each do |msg| %>
-		<li>
-			<%= msg %>
-		</li>
-		<% end %>
-	</ul>
-</div>
-<% end %>
 
 <div class="field">
 	<%= f.label :body %>
@@ -26,12 +13,7 @@
 </div>
 
 <div class="field">
-	<% #TODO %>
 	<%= f.hidden_field :topic_id, :value => @topic.id  %>
-</div>
-
-<div class="field">
-	<%= f.hidden_field :community_id, :value => @topic.community.id  %>
 </div>
 
 <div class="actions">

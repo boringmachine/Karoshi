@@ -27,8 +27,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    user = User.find(current_user.id)
-    if beforeSave(user)
+    if beforeSave(current_user, params[:post][:topic_id])
       @post = Post.newUserPost(params, current_user)
       afterSave(@post) if @post.save
       respond_with(@post)
@@ -36,8 +35,11 @@ class PostsController < ApplicationController
   end
   
   private
-  def beforeSave(user)
-    user.posts.count == 0 || Time.now - user.posts.last.created_at > 30.seconds
+  def beforeSave(user, topic_id)
+    topic = Topic.find(topic_id)
+    !user.communities.where(id: topic.community.id) and 
+    topic.deleteflag == nil and
+    user.posts.count == 0 or Time.now - user.posts.last.created_at > 30.seconds
   end
   
   private
@@ -49,6 +51,6 @@ class PostsController < ApplicationController
   
   private
   def create_params
-    params.require(:post).permit(:body, :community_id, :topic_id, :photo)
+    params.require(:post).permit(:body, :topic_id, :photo)
   end
 end

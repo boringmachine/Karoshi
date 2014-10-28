@@ -117,8 +117,9 @@ class Post < ActiveRecord::Base
   end
   
   def self.newUserPost(params, user)
-    create_params = params.require(:post).permit(:body, :community_id, :topic_id, :photo)
+    create_params = params.require(:post).permit(:body, :topic_id, :photo)
     post = user.posts.new(create_params)
+    post.community_id = post.topic.community.id
     post.topic_post_id = Post.getNextTopicPostId(params[:post][:topic_id])
     post
   end

@@ -1,5 +1,7 @@
 class Topic < ActiveRecord::Base
   belongs_to :community
+  has_many :posts
+  has_many :users , through: :posts
   validates :subject, :length => (1..50)
 
   @per_page = 20
@@ -13,7 +15,7 @@ class Topic < ActiveRecord::Base
   end
   
   def self.getFirstTopic()
-    Topic.count == 0 ? Topic.create(id:1, subject:"discussion") : Topic.first
+    Topic.create(subject:"discussion")
   end
 
   def self.owner_check(id,user_id)
@@ -31,7 +33,7 @@ class Topic < ActiveRecord::Base
   end
  
   def self.search(search, page)
-    recent.where('subject like ?', "%#{search}%").p(page)
+    recent.where(deleteflag:nil).where('subject like ?', "%#{search}%").p(page)
   end
  
   def self.getCommunityTopic(params)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140904055216) do
+ActiveRecord::Schema.define(version: 20141028082409) do
 
   create_table "comments", force: true do |t|
     t.integer  "parent_id"
@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 20140904055216) do
     t.integer  "community_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "deleteflag"
   end
 
   add_index "topics", ["community_id"], name: "index_topics_on_community_id"

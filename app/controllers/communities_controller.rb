@@ -49,7 +49,7 @@ class CommunitiesController < ApplicationController
   private
   def afterSave(community)
     flash[:notice] = 'Community was successfully created.' 
-    CommunityTopic.create(topic_id:Topic.getFirstTopic.id, community_id:community.id)
+    @community.topics.create(subject:"discussion")
   end
   
   private

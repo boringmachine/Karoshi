@@ -19,9 +19,15 @@ class TopicsController < ApplicationController
   # POST /topics
   # POST /topics.json
   def create
-    @topic = Topic.new(create_params)
-    @topic.community_id = params[:community_id] if params.has_key?(:community_id)
+    @topic = current_user.communities.find(params[:community_id]).topics.new(create_params)
     checkParams(params) && (afterSave(@topic, params) if @topic.save)
+    respond_with(@topic)
+  end
+
+  def destroy
+    @topic = Topic.find(params[:id])
+    @topic.deleteflag = true
+    @topic.save
     respond_with(@topic)
   end
 
@@ -37,6 +43,6 @@ class TopicsController < ApplicationController
   
   private
   def create_params
-    params.require(:topic).permit(:subject, :community_id)
+    params.require(:topic).permit(:subject)
   end
 end

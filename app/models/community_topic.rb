@@ -20,28 +20,9 @@ class CommunityTopic < ActiveRecord::Base
     topics
   end
  
-  def self.notJoinedCommunities(topic_id,user_id)
-    communities = Community.owncommunities(user_id)
-    
-    njcommunities = []
-    
-    communities.each do |community|
-      njcommunities.push(community) if where(topic_id: topic_id, community_id: community).empty?
-    end
-    njcommunities
-  end
+
   
-  def self.joinedCommunities(topic_id,user_id)
-    gid = CommunityUser.communities(user_id)
-    communities = Community.where(id: gid)
-    
-    jcommunities = []
-    
-    communities.each do |community|
-      jcommunities.push(community) unless where(topic_id: topic_id, community_id: community).empty?
-    end
-    jcommunities
-  end
+
   
   
   def self.getFirst(topic_id,community_id)
