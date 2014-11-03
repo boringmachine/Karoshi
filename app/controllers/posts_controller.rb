@@ -27,19 +27,11 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    if checkParams(current_user, params[:post][:topic_id])
+    if Post.checkParams(current_user, params[:post][:topic_id])
       @post = Post.newUserPost(params, current_user)
       flash[:notice] = 'Post was successfully created.' if @post.save
       respond_with(@post)
     end
-  end
-  
-  private
-  def checkParams(user, topic_id)
-    topic = Topic.find(topic_id)
-    !user.communities.where(id: topic.community.id).blank? && 
-    topic.deleteflag == nil &&
-    user.posts.count == 0 || Time.now - user.posts.last.created_at > 30.seconds
   end
   
   private

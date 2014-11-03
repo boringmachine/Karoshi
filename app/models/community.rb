@@ -75,6 +75,14 @@ class Community < ActiveRecord::Base
     result = excludeJoinCommunities(result.uniq, user_id).shuffle
   end
   
+  def self.createActionAvailableTime(user)
+    Time.now - if user.own_communities.last.blank?
+      Time.now - 1.minute
+    else
+      user.own_communities.last.created_at
+    end
+  end
+  
   def finalize()
     self.topics.create(subject:"discussion")
   end

@@ -126,6 +126,14 @@ class Post < ActiveRecord::Base
     post
   end
   
+  def self.checkParams(user, topic_id)
+    topic = Topic.find(topic_id)
+    !user.communities.where(id: topic.community.id).blank? && 
+    topic.deleteflag == nil &&
+    user.posts.count == 0 || Time.now - user.posts.last.created_at > 30.seconds
+  end
+  
+  
   def finalize()
     Tag.createTags(self.body, self.id)
     Comment.createComments(self.body, self.id)

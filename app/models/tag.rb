@@ -15,22 +15,16 @@ class Tag < ActiveRecord::Base
     order("count desc").where(updated_at: lastmonth...now).p(page)
   end
   
-  def self.createTags(body,post_id)
-    tags = body.scan(/#[a-zA-Z0-9]+/).uniq
-    tags.each do |name|
-      name = name.downcase
-      tag = where(name: name)
-      tag_id = nil
-      if tag.empty?
-        t = Tag.create(name: name, count: 1)
-        tag_id = t.id
-      else
-        count = tag.first.count + 1
-        Tag.find(tag.first).update_attributes(name:name, count: count)
-        tag_id = tag.first.id
-      end
-      PostTag.create(post_id: post_id, tag_id: tag_id) 
-    end
-  end
+#  def self.createTags(body,post_id)
+#    tags = body.scan(/#[a-zA-Z0-9]+/).uniq
+#    tags.each do |name|
+#      name = name.downcase
+#      tag = where(name: name).first
+#      tag ||= Tag.create(name: name, count: 0)
+#      tag.count += 1
+#      tag.save
+#      PostTag.create(post_id: post_id, tag_id: tag.id) 
+#    end
+#  end
   
 end
