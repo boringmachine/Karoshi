@@ -20,7 +20,7 @@ class TopicsController < ApplicationController
   # POST /topics.json
   def create
     @topic = current_user.communities.find(params[:community_id]).topics.new(create_params)
-    checkParams(params) && @topic.save
+    Topic.checkParams(params, user) && @topic.save
     respond_with(@topic)
   end
 
@@ -29,11 +29,6 @@ class TopicsController < ApplicationController
     @topic.deleteflag = true
     @topic.save
     respond_with(@topic)
-  end
-
-  private
-  def checkParams(params)
-    !params.has_key?(:community_id) || CommunityUser.exists?(community_id:params[:community_id], user_id: current_user.id)
   end
   
   private

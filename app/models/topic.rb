@@ -43,4 +43,8 @@ class Topic < ActiveRecord::Base
       search(params[:search], params[:page])
   end
   
+  def self.checkParams(params, user)
+    !params.has_key?(:community_id) || CommunityUser.exists?(community_id:params[:community_id], user_id: user.id)
+  end
+  
 end
