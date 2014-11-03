@@ -37,10 +37,11 @@ class Topic < ActiveRecord::Base
   end
  
   def self.getCommunityTopic(params)
-    params.has_key?(:community) ?
+    if params.has_key?(:community)
       where(id: Community.find(params[:community])).topics.search(params[:search], params[:page])
-      :
+    else
       search(params[:search], params[:page])
+    end
   end
   
   def self.checkParams(params, user)

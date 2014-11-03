@@ -80,9 +80,7 @@ class Post < ActiveRecord::Base
   
   def self.getTopicPosts(params)
     params.has_key?(:community_id) ? 
-      Post.communityTopicPosts(params[:community_id],params[:id],params[:page])
-      :
-      Post.topicposts(params[:id], params[:page])
+      Post.communityTopicPosts(params[:community_id],params[:id],params[:page]) : Post.topicposts(params[:id], params[:page])
   end
 
   def self.getBody(topic_id)
@@ -110,7 +108,7 @@ class Post < ActiveRecord::Base
   
   def self.getDate(topic_id)
     tmp = Post.where(topic_id:topic_id)
-    tmp.count != 0 ? tmp.last.created_at : ""
+    tmp.blank? ? "" : tmp.last.created_at
   end
   
   def self.getNextTopicPostId(topic_id)
@@ -130,7 +128,8 @@ class Post < ActiveRecord::Base
     topic = Topic.find(topic_id)
     !user.communities.where(id: topic.community.id).blank? && 
     topic.deleteflag == nil &&
-    user.posts.count == 0 || Time.now - user.posts.last.created_at > 30.seconds
+    user.posts.count == 0 || 
+    Time.now - user.posts.last.created_at > 30.seconds
   end
   
   
