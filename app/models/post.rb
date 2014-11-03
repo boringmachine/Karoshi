@@ -102,7 +102,7 @@ class Post < ActiveRecord::Base
     buf = ''
     posts.each do |post|
       buf += post.body
-      if buf.length > 200 then break end
+      break if buf.length > 200
     end
     buf[0..200]
   end

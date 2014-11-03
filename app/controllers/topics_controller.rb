@@ -20,7 +20,7 @@ class TopicsController < ApplicationController
   # POST /topics.json
   def create
     @topic = current_user.communities.find(params[:community_id]).topics.new(create_params)
-    Topic.checkParams(params, user) && @topic.save
+    Topic.checkParams(params, current_user) && @topic.save
     respond_with(@topic)
   end
 
