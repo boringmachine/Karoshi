@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
   resources :locales
-  resources :comments
-  resources :post_tags
   resources :tags
-  resources :community_topics
   resources :posts
   resources :community_users
   resources :communities
