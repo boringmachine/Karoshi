@@ -5,7 +5,7 @@ $ ->
   
   setTopicsOption = () ->
     community = $('#post_community_id option:selected').val()
-    $.getJSON "../topics.json?community="+community, (data) ->
+    $.getJSON "../topics.json?community_id="+community, (data) ->
       $.each data, (i,item) ->
         $('#post_topic_id').append('<option value="'+item.id+'">' + item.subject + '</option>')
   

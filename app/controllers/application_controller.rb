@@ -5,9 +5,7 @@ class ApplicationController < ActionController::Base
 
   def set_locale
     I18n.locale = 
-      params[:lang] || 
-        current_user &&
-            (current_user.locale.blank? ?
-              I18n.default_locale : current_user.locale.name)
+      params[:lang] || current_user &&
+      (current_user.locale.blank?? I18n.default_locale : current_user.locale.name)
   end
 end
