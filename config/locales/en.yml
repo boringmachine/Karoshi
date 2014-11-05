@@ -102,12 +102,12 @@ en:
       p2: "無料で広告なし"
       p3: "PCとスマートフォンに対応"
     body3:
-      p1: "Karoshiは実にシンプルです。"
-      p2: "コミュニティに参加"
-      p3: "話題を作成"
-      p4: "その話題について投稿"
-      p5: "コミュニティや話題、投稿を検索"
-      p6: "参加コミュニティの投稿一覧を見る"
+      p1: "MemeBreederは実にシンプルです。"
+      p2: "Breedをフォロー"
+      p3: "Memeを作成"
+      p4: "MemeにDrop"
+      p5: "Breed,Meme,Dropを検索"
+      p6: "フォローしているBreedのDrop一覧を見る"
   basic:
     title1: "MemeBreederの基本的な使い方"
     title2: "登録方法"
