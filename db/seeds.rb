@@ -11,5 +11,5 @@ if Locale.count == 0
 end
 
 if Community.count == 0 
-  community = Community.create(name:"Global Community", description: "")
+  community = Community.create(name:"Wisdom", description: "")
 end
