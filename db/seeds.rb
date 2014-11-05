@@ -12,7 +12,4 @@ end
 
 if Community.count == 0 
   community = Community.create(name:"Global Community", description: "")
-  topic = Topic.getFirstTopic
-  topic.community_id = community.id
-  topic.save
 end
