@@ -55,11 +55,11 @@ ja:
   logout: "ログアウト"
   about:
     title1: "Breed Your Knowledge!"
-    title2: "MemeBreaderとは"
-    title3: "MemeBreaderの特徴"
-    title4: "MemeBreaderの機能"
+    title2: "MemeBreederとは"
+    title3: "MemeBreederの特徴"
+    title4: "MemeBreederの機能"
     body1:
-      p1: "MemeBreaderは、「ミーム」を育てるSNSです。"
+      p1: "MemeBreederは、「ミーム」を育てるSNSです。"
       p2: "ミームとは、人々の間で進化を遂げていく知識のタネのようなものです。"
       p3: "Breedの意味はいくつかあります。「品種」「品種改良」「育てる」「産む」などです。"
       p4: "あなたは、Memeの品種をBreedに登録することができ、興味のある品種をフォローすることができます。"
@@ -69,14 +69,14 @@ ja:
       p2: "無料で広告なし"
       p3: "PCとスマートフォンに対応"
     body3:
-      p1: "MemeBreaderは実にシンプルです。"
+      p1: "MemeBreederは実にシンプルです。"
       p2: "Breedをフォロー"
       p3: "Memeを作成"
       p4: "そのMemeにDropする"
       p5: "BreedやMemeを検索"
       p6: "フォローしているBreedのDrop一覧を見る"
   basic:
-    title1: "MemeBreaderの基本的な使い方"
+    title1: "MemeBreederの基本的な使い方"
     title2: "登録方法"
     title3: "登録後に行うこと"
     title4: "Dropしよう！"
