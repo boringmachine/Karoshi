@@ -1,4 +1,5 @@
 class Community < ActiveRecord::Base
+  include SharedMethods
 
   has_attached_file :photo, :styles => { :small => "220x220#"},
     :storage => :s3,
@@ -19,13 +20,6 @@ class Community < ActiveRecord::Base
   
   @per_page = 12
   
-  def self.p(page)
-    paginate(page: page, per_page: @per_page)
-  end
-  
-  def self.recent
-    order("created_at desc")
-  end
   
   def self.owncommunities(user_id)
     where(:owner_id => user_id)
