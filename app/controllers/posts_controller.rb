@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.getPosts(params, current_user)
     @tags = Tag.paging(1)
-    @communities = Community.recommendCommunities(current_user)
+    #@communities = Community.recommendCommunities(current_user)
     respond_with(@posts)
   end
 

@@ -8,34 +8,14 @@ class Topic < ActiveRecord::Base
 
   @per_page = 20
 
-  def self.getFirstTopic()
-    Topic.create(subject:"discussion")
-  end
-
-  def self.owner_check(id,user_id)
-    topic = find(id)
-    communities = topic.communities
-    
-    flag = false
-    communities.each do |community|
-      if community.owner_id == user_id
-        flag = true
-        break
-      end
-    end
-    flag
-  end
  
   def self.search(search, page)
     recent.where(deleteflag:nil).where('subject like ?', "%#{search}%").p(page)
   end
  
   def self.getCommunityTopic(params)
-    if params.has_key?(:community_id)
-      where(community_id: params[:community_id]).search(params[:search],params[:tpage])
-    else
-      search(params[:search], params[:page])
-    end
+    topics = search(params[:search],params[:tpage])
+    params.has_key?(:community_id)?topics.where(community_id: params[:community_id]):topics
   end
   
   def self.checkParams(params, user)

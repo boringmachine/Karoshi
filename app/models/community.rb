@@ -20,54 +20,25 @@ class Community < ActiveRecord::Base
   
   @per_page = 12
   
-  
-  def self.owncommunities(user_id)
-    where(:owner_id => user_id)
-  end
-  
   def self.search(search, page)
     recent.where('name like ? or description like ?',
-               "%#{search}%","%#{search}%").p(page)
-  end
-  
-  def self.getSearch(params)
-    params.has_key?(:search) ?
-      Community.search(params[:search],params[:page])
-      :
-      Community.search('',params[:page])
+               "%#{search}%","%#{search}%").p(page) || ''
   end
   
   def self.relatedCommunities(community_id)
     result = []
-    Community.find(community_id).users.uniq.shuffle.each do |user|
-       result.concat(User.find(user.id).communities)
+    find(community_id).users.uniq.shuffle.each do |user|
+       result.concat(user.communities)
        result = result.uniq
        break if 10 < result.count
     end
     result = result.uniq.shuffle
-    delcommunity = Community.find(community_id)
+    delcommunity = find(community_id)
     result.delete(delcommunity)
     result
   end
   
-  def self.excludeJoinCommunities(obj_communities,curuser_id)
-    user_communities = CommunityUser.communities(curuser_id)
-    user_communities.each do |user_community|
-      community = Community.find(user_community)
-      obj_communities.delete(community)
-    end
-    obj_communities
-  end
-  
-  
   def self.recommendCommunities(user_id)
-    result = []
-    CommunityUser.communities(user_id).shuffle.each do |community|
-      result.concat(relatedCommunities(community))
-      result = result.uniq
-      break if 30 < result.count
-    end
-    result = excludeJoinCommunities(result.uniq, user_id).shuffle
   end
   
   def self.createActionAvailableTime(user)

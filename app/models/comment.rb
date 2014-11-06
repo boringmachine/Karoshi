@@ -22,7 +22,7 @@ class Comment < ActiveRecord::Base
   end
   
   def self.countRes(child_id)
-    Comment.where(child_id:child_id).count
+    where(child_id:child_id).count
   end
   
 end

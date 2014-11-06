@@ -57,13 +57,11 @@ class Post < ActiveRecord::Base
 
   def self.getPosts(params,user)
     search = nil
-    comment = nil
-    
     page = params[:page]
     search = params[:search] if params.has_key?(:search)
     communities = user.communities
 
-    search.blank? ?
+    search.blank??
       Post.where(community_id: communities).paging(page) : Post.where(community_id: communities).search(search, page)
   end
 
@@ -102,12 +100,12 @@ class Post < ActiveRecord::Base
   
   def self.getDate(topic_id)
     tmp = Post.where(topic_id:topic_id)
-    tmp.blank? ? "" : tmp.last.created_at
+    tmp.blank?? "" : tmp.last.created_at
   end
   
   def self.getNextTopicPostId(topic_id)
     tp = where(topic_id: topic_id).limit(1).order('topic_post_id desc')
-    tp.blank? ? 1 : tp.first.topic_post_id+1
+    tp.blank?? 1 : tp.first.topic_post_id+1
   end
   
   def self.newUserPost(params, user)

@@ -4,7 +4,7 @@ class CommunitiesController < ApplicationController
   # GET /communities
   # GET /communities.json
   def index
-    @communities = Community.getSearch(params)
+    @communities = Community.search(params[:search], params[:page])
     respond_with(@communities)
   end
 
