@@ -1,4 +1,6 @@
 class CommunityUser < ActiveRecord::Base
+  include SharedMethods
+
   belongs_to :community
   belongs_to :user
 
@@ -19,7 +21,7 @@ class CommunityUser < ActiveRecord::Base
   end
   
   def self.getCommunityUser(user_id, community_id)
-      where(community_id: community_id, user_id: user_id)
+    where(community_id: community_id, user_id: user_id)
   end
   
 end

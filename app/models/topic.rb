@@ -1,4 +1,6 @@
 class Topic < ActiveRecord::Base
+  include SharedMethods
+
   belongs_to :community
   has_many :posts
   has_many :users , through: :posts
@@ -6,14 +8,6 @@ class Topic < ActiveRecord::Base
 
   @per_page = 20
 
-  def self.p(page)
-    paginate(page: page, per_page: @per_page)
-  end
-  
-  def self.recent
-    order("created_at desc")
-  end
-  
   def self.getFirstTopic()
     Topic.create(subject:"discussion")
   end

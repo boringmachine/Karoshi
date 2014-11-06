@@ -1,13 +1,11 @@
 class Tag < ActiveRecord::Base
+  include SharedMethods
 
   has_many :post_tags
   has_many :posts, through: :post_tags
   
   @per_page = 10
-  
-  def self.p(page)
-    paginate(page: page, per_page: @per_page)
-  end
+
   
   def self.paging(page)
     now = Time.now

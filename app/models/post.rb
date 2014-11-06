@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+  include SharedMethods
+
   has_attached_file :photo, :styles => { :medium => "300x300>",:small => "100x100>" },
     :storage => :s3,
     :bucket => 'rocky-wave-100',
@@ -27,14 +29,6 @@ class Post < ActiveRecord::Base
   after_save :finalize
  
   @per_page = 20
- 
-  def self.recent
-    order('created_at desc')
-  end
- 
-  def self.p(page)
-    paginate(page: page, per_page: @per_page)
-  end
  
   def self.communityposts(community_id,page)
     recent.where(community_id: community_id).p(page)

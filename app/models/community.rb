@@ -1,4 +1,5 @@
 class Community < ActiveRecord::Base
+
   has_attached_file :photo, :styles => { :small => "220x220#"},
     :storage => :s3,
     :bucket => 'rocky-wave-100',

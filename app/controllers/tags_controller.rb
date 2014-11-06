@@ -4,7 +4,7 @@ class TagsController < ApplicationController
   # GET /tags
   # GET /tags.json
   def index
-    @tags = Tag.paging(params[:page])
+    @tags ||= Tag.paging(params[:page])
     respond_with(@tags)
   end
 
