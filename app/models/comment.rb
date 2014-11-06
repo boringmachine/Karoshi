@@ -21,8 +21,4 @@ class Comment < ActiveRecord::Base
     stack
   end
   
-  def self.countRes(child_id)
-    where(child_id:child_id).count
-  end
-  
 end

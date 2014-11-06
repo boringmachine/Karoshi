@@ -124,10 +124,11 @@ class Post < ActiveRecord::Base
     Time.now - user.posts.last.created_at > 30.seconds
   end
   
-  
   def finalize()
     Tag.createTags(self.body, self.id)
     Comment.createComments(self.body, self.id)
   end
+  
+  
   
 end
