@@ -98,11 +98,6 @@ class Post < ActiveRecord::Base
   end
   
   
-  def self.getDate(topic_id)
-    tmp = Post.where(topic_id:topic_id)
-    tmp.blank?? "" : tmp.last.created_at
-  end
-  
   def self.getNextTopicPostId(topic_id)
     tp = where(topic_id: topic_id).limit(1).order('topic_post_id desc')
     tp.blank?? 1 : tp.first.topic_post_id+1

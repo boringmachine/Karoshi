@@ -22,4 +22,17 @@ class Topic < ActiveRecord::Base
     !params.has_key?(:community_id) || CommunityUser.exists?(community_id:params[:community_id], user_id: user.id)
   end
   
+  def self.getDate()
+    self.posts.last.created_at
+  end
+  
+  def self.getBody()    
+    buf = ''
+    self.posts.p(1).each do |post|
+      buf += post.body
+      if buf.length > 100 then break end
+    end
+    buf[0..100]
+  end
+  
 end

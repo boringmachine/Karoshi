@@ -1,7 +1,7 @@
 <% @topics.each do |topic| %>
   <article class="topic_origin article post_article tlelm">
     <div class="topic_subject">ID<%= topic.id%>:<%= link_to topic.subject, topic %></div>
-    <div class="topic_date"><%= Post.getDate(topic.id) %></div>
-  	<div class="topic_body"><%= Post.getBody(topic.id) %></div>
+    <div class="topic_date"><%#TODO %></div>
+  	<div class="topic_body"><%#TODO %></div>
   </article>
 <% end %>
