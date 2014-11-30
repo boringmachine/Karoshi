@@ -52,7 +52,7 @@ en:
     four: "3, Move to any community page."
     five: "4, Click 'Join this community' button."
     six: "Or, search any community by using search bar."
-  home: "Home"
+  home: "Mix"
   edit_profile: "Edit Profile"
   links: "Links"
   community:
@@ -126,8 +126,8 @@ en:
       p4: "興味のあるBreedが見つかったら、そのページへ飛び、「このBreedをフォロー」ボタンを押して、参加できます。"
     body3:
       p1: "Breedに参加後は、参加しているBreed内のMemeへ投稿できます。"
-      p2: "投稿は、Breedのページ、Homeページ、Memeのページから行うことができます。"
-      p3: "まずは、Homeページから投稿してみましょう。"
+      p2: "投稿は、Breedのページ、Mixページ、Memeのページから行うことができます。"
+      p3: "まずは、Mixページから投稿してみましょう。"
       p4: "ナビゲーションバーから「ホーム」へ戻ります。"
       p5: "ホームの上部のフォームに、投稿文と、投稿先を指定します。投稿先は、フォローしているブリードの任意のミームとなります。"
       p6: "「作成」ボタンを押すとDropが完了します。"
