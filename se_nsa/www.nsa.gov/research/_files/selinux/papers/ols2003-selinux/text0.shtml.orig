@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta name="generator" content=
+"HTML Tidy for Linux/x86 (vers 1st November 2003), see www.w3.org" />
+<meta http-equiv="CONTENT-TYPE" content=
+"text/html; charset=us-ascii" />
+<meta name="Title" content="NSA Security Enhanced Linux (SELinux)" />
+<title>NSA Security Enhanced Linux (SELinux)</title>
+
+<style type="text/css">
+/*<![CDATA[*/
+ h2.c2 {font-style: italic; font-weight: bold}
+ div.c1 {text-align: center}
+/*]]>*/
+</style>
+</head>
+<body onload="setmenu()">
+<div class="c1">First page Back <a href="text1.shtml">Continue</a>
+<a href="text18.shtml">Last page</a> <a href=
+"text.shtml">Overview</a> <a href="img0.shtml">Graphics</a></div>
+<br />
+<h1>NSA Security-Enhanced Linux (SELinux)</h1>
+<ul>
+<li>
+<h2><a href=
+"/research/selinux/"><b><i>/research/selinux/</i></b></a></h2>
+</li>
+<li>
+<h2 class="c2">Stephen Smalley</h2>
+</li>
+<li>
+<h2 class="c2">sds@epoch.ncsc.mil</h2>
+</li>
+<li>
+<h2 class="c2">Information Assurance Research Group</h2>
+</li>
+<li>
+<h2 class="c2">National Security Agency</h2>
+</li>
+</ul>
+</body>
+</html>

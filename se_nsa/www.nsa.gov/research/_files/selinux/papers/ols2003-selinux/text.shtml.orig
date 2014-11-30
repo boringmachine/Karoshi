@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta name="generator" content=
+"HTML Tidy for Linux/x86 (vers 1st November 2003), see www.w3.org" />
+<meta http-equiv="CONTENT-TYPE" content=
+"text/html; charset=us-ascii" />
+<meta name="Title" content="NSA Security-Enhanced Linux (SELinux)" />
+<title>NSA Security-Enhanced Linux (SELinux)</title>
+
+<style type="text/css">
+/*<![CDATA[*/
+ p.c2 {text-align: left}
+ div.c1 {text-align: center}
+/*]]>*/
+</style>
+</head>
+<body onload="setmenu()">
+<div class="c1">
+<h2><a href="../ols2003-abs.shtml">Return to Abstract and Formats</a></h2>
+</div>
+<div class="c1">
+<table width="90%">
+<tr>
+<td valign="top" align="left" width="50%">
+<h3><u>Table of contents</u></h3>
+<p class="c2"><a href="text0.shtml">NSA Security-Enhanced Linux
+(SELinux)</a></p>
+<p class="c2"><a href="text1.shtml">Operating System Security</a></p>
+<p class="c2"><a href="text2.shtml">Why is DAC inadequate?</a></p>
+<p class="c2"><a href="text3.shtml">What can MAC offer?</a></p>
+<p class="c2"><a href="text4.shtml">What can MAC offer?
+(cont)</a></p>
+<p class="c2"><a href="text5.shtml">MAC Implementation Issues</a></p>
+<p class="c2"><a href="text6.shtml">SELinux provides Flexible
+MAC</a></p>
+<p class="c2"><a href="text7.shtml">Current Directions</a></p>
+<p class="c2"><a href="text8.shtml">API Changes</a></p>
+<p class="c2"><a href="text9.shtml">API Changes (2)</a></p>
+<p class="c2"><a href="text10.shtml">API Changes (3)</a></p>
+<p class="c2"><a href="text11.shtml">API Changes (4)</a></p>
+<p class="c2"><a href="text12.shtml">File Labeling Changes</a></p>
+<p class="c2"><a href="text13.shtml">Initialization Changes</a></p>
+<p class="c2"><a href="text14.shtml">Network Access Control
+Changes</a></p>
+<p class="c2"><a href="text15.shtml">Coding style cleanups</a></p>
+<p class="c2"><a href="text16.shtml">Future Directions</a></p>
+<p class="c2"><a href="text17.shtml">Questions?</a></p>
+<p class="c2"><a href="text18.shtml">End of Presentation</a></p>
+</td>
+<td valign="top" width="50%">
+<p><strong>Author:</strong> Stephen Smalley</p>
+<p><strong>E-mail:</strong> <a href=
+"mailto:sds@epoch.ncsc.mil">sds@epoch.ncsc.mil</a></p>
+</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

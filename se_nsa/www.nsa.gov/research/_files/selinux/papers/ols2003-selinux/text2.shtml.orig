@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta name="generator" content=
+"HTML Tidy for Linux/x86 (vers 1st November 2003), see www.w3.org" />
+<meta http-equiv="CONTENT-TYPE" content=
+"text/html; charset=us-ascii" />
+<meta name="Title" content="Why is DAC inadequate?" />
+<title>Why is DAC inadequate?</title>
+
+<style type="text/css">
+/*<![CDATA[*/
+ div.c1 {text-align: center}
+/*]]>*/
+</style>
+</head>
+<body onload="setmenu()">
+<div class="c1"><a href="text0.shtml">First page</a> <a href=
+"text1.shtml">Back</a> <a href="text3.shtml">Continue</a> <a href=
+"text18.shtml">Last page</a> <a href="text.shtml">Overview</a>
+<a href="img2.shtml">Graphics</a></div>
+<br />
+<h1>Why is DAC inadequate?</h1>
+<ul>
+<li>
+<h2>Decisions are only based on user identity and ownership</h2>
+</li>
+<li>
+<h2>No protection against malicious or flawed software</h2>
+</li>
+<li>
+<h2>Each user has complete discretion over his objects</h2>
+</li>
+<li>
+<h2>Only two major categories of users: administrator and
+other</h2>
+</li>
+<li>
+<h2>Many system services and privileged programs must run with
+coarse-grained privileges or even full administrator access.</h2>
+</li>
+</ul>
+</body>
+</html>

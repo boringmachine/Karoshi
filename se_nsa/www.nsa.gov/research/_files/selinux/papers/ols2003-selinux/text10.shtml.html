@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta name="generator" content=
+"HTML Tidy for Linux/x86 (vers 1st November 2003), see www.w3.org" />
+<meta http-equiv="CONTENT-TYPE" content=
+"text/html; charset=us-ascii" />
+<meta name="Title" content="API Changes (3)" />
+<title>API Changes (3)</title>
+
+<style type="text/css">
+/*<![CDATA[*/
+ div.c1 {text-align: center}
+/*]]>*/
+</style>
+</head>
+<body onload="setmenu()">
+<div class="c1"><a href="text0.shtml.html">First page</a> <a href=
+"text9.shtml.html">Back</a> <a href="text11.shtml.html">Continue</a> <a href=
+"text18.shtml.html">Last page</a> <a href="text.shtml.html">Overview</a>
+<a href="img10.shtml.html">Graphics</a></div>
+<br />
+<h1>API Changes</h1>
+<ul>
+<li>
+<h2>Explicit API for obtaining process contexts</h2>
+<ul>
+<li>No longer stat_secure on /proc/pid inodes</li>
+<li>getcon(), getprevcon(), getfscreatecon(),getexeccon()</li>
+<li>getpidcon() for other processes</li>
+<li>Implemented via reads of /proc/pid/attr/*</li>
+</ul>
+</li>
+<li>
+<h2>File context API layered on top of xattr API</h2>
+<ul>
+<li>[gs]etfilecon, l[gs]etfilecon, f[gs]etfilecon</li>
+<li>Hides xattr name, handles allocation of context buffers</li>
+</ul>
+</li>
+</ul>
+</body>
+</html>

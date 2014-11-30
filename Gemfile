@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby "2.0.0"
+ruby "1.9.3"
 
 gem 'rails', '4.1.5'
 
@@ -14,8 +14,8 @@ end
 
 group :production do
       # gem 'pg'
-      gem 'mysql2'
-      # gem 'sqlite3'
+      # gem 'mysql2'
+      gem 'sqlite3'
       gem 'rails_12factor'
 end
 

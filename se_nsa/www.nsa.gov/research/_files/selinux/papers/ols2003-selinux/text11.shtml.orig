@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta name="generator" content=
+"HTML Tidy for Linux/x86 (vers 1st November 2003), see www.w3.org" />
+<meta http-equiv="CONTENT-TYPE" content=
+"text/html; charset=us-ascii" />
+<meta name="Title" content="API Changes (4)" />
+<title>API Changes (4)</title>
+
+<style type="text/css">
+/*<![CDATA[*/
+ div.c1 {text-align: center}
+/*]]>*/
+</style>
+</head>
+<body onload="setmenu()">
+<div class="c1"><a href="text0.shtml">First page</a> <a href=
+"text10.shtml">Back</a> <a href="text12.shtml">Continue</a> <a href=
+"text18.shtml">Last page</a> <a href="text.shtml">Overview</a>
+<a href="img11.shtml">Graphics</a></div>
+<br />
+<h1>API Changes</h1>
+<ul>
+<li>
+<h2>Security Policy API layered on top of selinuxfs</h2>
+<ul>
+<li>Selinuxfs modeled after 2.5 nfsd, transaction based IO.</li>
+<li>Removed calls for converting between SIDs and contexts.</li>
+<li>Added security_check_context.</li>
+<li>Changed security_load_policy to take (data,size) pair.</li>
+<li>Renamed calls to reflect elimination of SIDs, clarify meaning,
+and provide consistency in naming.</li>
+</ul>
+</li>
+</ul>
+</body>
+</html>

@@ -80,7 +80,6 @@ GEM
     minitest (5.4.2)
     mono_logger (1.1.0)
     multi_json (1.10.1)
-    mysql2 (0.3.16)
     newrelic_rpm (3.9.5.251)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
@@ -219,7 +218,6 @@ DEPENDENCIES
   fancybox2-rails
   jquery-rails
   jquery-ui-rails
-  mysql2
   newrelic_rpm
   omniauth
   omniauth-twitter

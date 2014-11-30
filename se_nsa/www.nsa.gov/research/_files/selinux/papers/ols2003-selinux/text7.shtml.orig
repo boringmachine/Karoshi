@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta name="generator" content=
+"HTML Tidy for Linux/x86 (vers 1st November 2003), see www.w3.org" />
+<meta http-equiv="CONTENT-TYPE" content=
+"text/html; charset=us-ascii" />
+<meta name="Title" content="Current Directions" />
+<title>Current Directions</title>
+
+<style type="text/css">
+/*<![CDATA[*/
+ div.c1 {text-align: center}
+/*]]>*/
+</style>
+</head>
+<body onload="setmenu()">
+<div class="c1"><a href="text0.shtml">First page</a> <a href=
+"text6.shtml">Back</a> <a href="text8.shtml">Continue</a> <a href=
+"text18.shtml">Last page</a> <a href="text.shtml">Overview</a>
+<a href="img7.shtml">Graphics</a></div>
+<br />
+<h1>Current Directions</h1>
+<ul>
+<li>
+<h2>Transfer to mainline Linux 2.5/2.6 kernel</h2>
+<ul>
+<li>General security framework/hooks (LSM) already merged</li>
+<li>Reworked SELinux APIs and implementation for merging</li>
+<li>SELinux module in 2.6.0-test1-mm series</li>
+</ul>
+</li>
+<li>
+<h2>Kernel Integration Issues</h2>
+<ul>
+<li>API</li>
+<li>File labeling</li>
+<li>Initialization</li>
+<li>Network access controls</li>
+<li>Coding style / code cleanup</li>
+</ul>
+</li>
+</ul>
+</body>
+</html>
