@@ -23,7 +23,7 @@ ja:
         create: "作成"
         update: "更新"
   home: "Mix"
-  edit_profile: "プロフィール編集"
+  edit_profile: "ブリーダー情報"
   links: "機能"
   community:
     name: "ブリード"
@@ -45,12 +45,12 @@ ja:
     create: "作成"
     subject: "件名"
   user:
-    edit: "プロフィール編集"
+    edit: "ブリーダー編集"
     pass1: "(パスワードを変更しない場合は空白)"
     pass2: "(変更確認のため、現在のパスワードを入力してください)"
     cancel: "退会"
   trend:
-    list: "人気タグ"
+    list: "高適合遺伝子"
   search: "検索"
   logout: "ログアウト"
   about:

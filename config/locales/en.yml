@@ -53,7 +53,7 @@ en:
     five: "4, Click 'Join this community' button."
     six: "Or, search any community by using search bar."
   home: "Mix"
-  edit_profile: "Edit Breeder"
+  edit_profile: "Breeder Info"
   links: "Links"
   community:
     name: "Breed"
@@ -83,7 +83,7 @@ en:
     pass2: "(we need your current password to confirm your changes)"
     cancel: "Cancel My Account"
   trend:
-    list: "Trends"
+    list: "genes of the fittest"
   search: "Search"
   logout: "Logout"
   about:
