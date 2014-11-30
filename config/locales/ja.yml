@@ -55,9 +55,9 @@ ja:
   logout: "ログアウト"
   about:
     title1: "Breed Your Knowledge!"
-    title2: "MemeBreederとは"
-    title3: "MemeBreederの特徴"
-    title4: "MemeBreederの機能"
+    title2: "DragonFlyとは"
+    title3: "DragonFlyの特徴"
+    title4: "DragonFlyの機能"
     body1:
       p1: "DragonFlyは、「ミーム」を育て、品種配合するSNSです。"
       p2: "ミームとは、人々の間で進化を遂げていく知識のタネのようなものです。"
@@ -76,9 +76,9 @@ ja:
       p5: "BreedやMemeを検索"
       p6: "フォローしているBreedのDrop一覧を見る"
   basic:
-    title1: "MemeBreederの基本的な使い方"
-    title2: "登録方法"
-    title3: "登録後に行うこと"
+    title1: "Memeの育て方"
+    title2: "Breederの登録方法"
+    title3: "Breederになったあとに行うこと"
     title4: "Dropしよう！"
     body1:
       p1: "Sign upページから、メールアドレス、希望するユーザ名、言語を選びます。"
