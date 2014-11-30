@@ -30,7 +30,7 @@ en:
       community:
         photo: "photo"
         name: "breed name"
-        description: "description"
+        description: "DNA CODE"
         visible: "visible"
       user:
         photo: "Photo"

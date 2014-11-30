@@ -4,12 +4,12 @@ ja:
       post:
         body: '.'
         photo: "画像"
-        community_id: "コミュニティ"
-        topic_id: "トピック"
+        community_id: "Breed"
+        topic_id: "Meme"
       community:
         photo: "画像"
-        name: "コミュニティ名"
-        description: "説明"
+        name: "品種名"
+        description: "遺伝子情報"
         visible: "公開する？"
       user:
         photo: "画像"
