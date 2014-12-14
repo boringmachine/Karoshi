@@ -1,10 +1,7 @@
 class Community < ActiveRecord::Base
   include SharedMethods
 
-  has_attached_file :photo, :styles => { :small => "220x220#"},
-    :storage => :s3,
-    :bucket => 'rocky-wave-100',
-    :s3_credentials => "#{Rails.root}/config/s3.yml"
+  has_attached_file :photo, :styles => { :small => "220x220#"}
 
   validates :name, :length => (2..50)
   validates :description, :length => (0..300)

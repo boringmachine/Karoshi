@@ -5,11 +5,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :timeoutable, :lockable
 
-  has_attached_file :photo, :styles => { :small => "48x48#", :medium => "160x160#" },
-    :storage => :s3,
-    :bucket => 'rocky-wave-100',
-    :s3_credentials => "#{Rails.root}/config/s3.yml",
-    :default_url => "/photos/verysmall/missing.png"
+  has_attached_file :photo, :styles => { :small => "48x48#", :medium => "160x160#" }, :default_url => "/photos/verysmall/missing.png"
     
   validates :username, :length => (1..20), :presence => true 
   validates_attachment_size :photo, :less_than => 5.megabytes

@@ -1,10 +1,7 @@
 class Post < ActiveRecord::Base
   include SharedMethods
 
-  has_attached_file :photo, :styles => { :medium => "300x300>",:small => "100x100>" },
-    :storage => :s3,
-    :bucket => 'rocky-wave-100',
-    :s3_credentials => "#{Rails.root}/config/s3.yml"
+  has_attached_file :photo, :styles => { :medium => "300x300>",:small => "100x100>" }
     
   belongs_to :user
   belongs_to :community
