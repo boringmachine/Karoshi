@@ -12,12 +12,16 @@ gem install rails
 gem install rake
 gem install bundler
 yum install ruby ruby-devel mysql-devel sqlite-devel libxml2-devel rubygem-nokogiri nodejs
+cp Hoo/config/secrets.yml Karoshi/config/secrets.yml
+cd Karoshi
 bundle install
 bundle update
 rake db:migrate
 rake db:seed
+rails new Hoo
 rails s
-
+gem install brakeman
+brakeman
 
 == License
 Rails is released under the MIT license. Ruby under the Ruby License.
