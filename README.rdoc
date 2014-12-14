@@ -6,9 +6,18 @@ Karoshi is Simple SNS.
 3. Select the Topic
 4. Share the Post
 
+== HOW TO BUILD
+git clone https://github.com/boringmachine/Karoshi
+gem install rails
+gem install rake
+gem install bundler
+yum install ruby ruby-devel mysql-devel sqlite-devel libxml2-devel rubygem-nokogiri nodejs
+bundle install
+bundle update
+rake db:migrate
+rake db:seed
+rails s
 
-== Example Site
-https://karoshi.mybluemix.net/
 
 == License
 Rails is released under the MIT license. Ruby under the Ruby License.
