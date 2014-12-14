@@ -7,21 +7,21 @@ Karoshi is Simple SNS.
 4. Share the Post
 
 == HOW TO BUILD
-git clone https://github.com/boringmachine/Karoshi
-gem install rails
-gem install rake
-gem install bundler
-yum install ruby ruby-devel mysql-devel sqlite-devel libxml2-devel rubygem-nokogiri nodejs
-cp Hoo/config/secrets.yml Karoshi/config/secrets.yml
-cd Karoshi
-bundle install
-bundle update
-rake db:migrate
-rake db:seed
-rails new Hoo
-rails s
-gem install brakeman
-brakeman
+1. git clone https://github.com/boringmachine/Karoshi
+2. gem install rails
+3. gem install rake
+4. gem install bundler
+5. yum install ruby ruby-devel mysql-devel sqlite-devel libxml2-devel rubygem-nokogiri nodejs
+6. cp Hoo/config/secrets.yml Karoshi/config/secrets.yml
+7. cd Karoshi
+8. bundle install
+9. bundle update
+10. rake db:migrate
+11. rake db:seed
+12. rails new Hoo
+13. rails s
+14. gem install brakeman
+15. brakeman
 
 == License
 Rails is released under the MIT license. Ruby under the Ruby License.
