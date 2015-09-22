@@ -113,7 +113,7 @@ class Post < ActiveRecord::Base
     !user.communities.where(id: topic.community.id).blank? && 
     topic.deleteflag == nil &&
     user.posts.count == 0 || 
-    Time.now - user.posts.last.created_at > 30.seconds
+    Time.now - user.posts.last.created_at > 5.seconds
   end
   
   def finalize()
