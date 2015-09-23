@@ -3,10 +3,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def new
     super
+    @home_page = true
   end
  
   def create
     super
+    @home_page = true
     @user.authentication_token = User.create_unique_string
     User.join_first_community(@user.id) if @user.save
   end

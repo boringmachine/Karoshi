@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=0.9, user-scalable=no" />
 </head>
-<body>
+<body class="<%= @home_page ? 'homepage' : 'nothome'%>">
 <% if user_signed_in? %>
   <nav id="navbar">
     <%= render 'layouts/navbar' %>
